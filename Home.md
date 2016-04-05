@@ -48,7 +48,7 @@ After issuing, the cert will be automatically every 80 days.
 Ok, it's done. Open the link: `https://<DOMAIN>:8006`
 
 
-## How to get pkcs12(pfx) format:
+## 3. How to get pkcs12(pfx) format:
 
 After you issue the cert, then you can use `toPkcs` command to convert the cert to pkcs12(pfx) format
 ```
