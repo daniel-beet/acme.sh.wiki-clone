@@ -3,7 +3,7 @@ Welcome to the le wiki!
 Here is the wiki page for le.sh
 
 
-1. How to install
+## 1. How to install
 Install online:
 ```
 curl https://raw.githubusercontent.com/Neilpang/le/master/le.sh | INSTALLONLINE=1  bash
@@ -29,7 +29,7 @@ Which is optional.  If you don't want to register with your email, just ignore t
 
 
 
-2.  How to use in Proxmox ?
+## 2.  How to use in Proxmox ?
 
 After installation,
 
@@ -47,6 +47,13 @@ After issuing, the cert will be automatically every 80 days.
 
 Ok, it's done. Open the link: `https://<DOMAIN>:8006`
 
+
+## How to get pkcs12(pfx) format:
+
+After you issue the cert, then you can use `toPkcs` command to convert the cert to pkcs12(pfx) format
+```
+le.sh  toPkcs  <domain> [pfx-password]
+```
 
 
 
