@@ -61,7 +61,8 @@ from: https://cygwin.com/
 
 2) In the installer, select: Net: `curl`, Net: `nc`  and  Admin: `cron` to install.
 
-3) After install finished, you can open Cygwin window and use `curl` to install online.
+3) After install finished, you can open Cygwin window and use `curl` to install `le.sh`online:
+[https://github.com/Neilpang/le/wiki#1-how-to-install](https://github.com/Neilpang/le/wiki#1-how-to-install)
 
 4) In Cygwin, the cron job is not working by default. So, the issued cert will not be renew automatically.
 If you want the cron job to work, you must enable the cron job:
