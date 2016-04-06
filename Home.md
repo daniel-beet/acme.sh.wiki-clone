@@ -55,5 +55,21 @@ After you issue the cert, then you can use `toPkcs` command to convert the cert 
 le.sh  toPkcs  <domain> [pfx-password]
 ```
 
+## 4. How to run on Windows with Cygwin.
+1) Download cygwin installer: setup-x86.exe  or setup-x86_64.exe
+from: https://cygwin.com/
 
+2) In the installer, select: Net: `curl`, Net: `nc`  and  Admin: `cron` to install.
+
+3) After install finished, you can open Cygwin window and use `curl` to install online.
+
+4) In Cygwin, the cron job is not working by default. So, the issued cert will not be renew automatically.
+If you want the cron job to work, you must enable the cron job:
+
+https://stackoverflow.com/questions/707184/how-do-you-run-a-crontab-in-cygwin-on-windows
+
+For short, just run:
+```
+cron-config
+```
 
