@@ -25,6 +25,11 @@ export CF_Email="xxxx@sss.com"
 le.sh  --issue  -d aa.com  --dns dns-cf
 ```
 
+#### 2) Apache mode:
+```
+le.sh  --issue  -d aa.com  --apache
+```
+
 
 ### 2. Multiple domains, SAN mode
 
@@ -66,7 +71,7 @@ Issue a single cert including multiple domains.  Each domain uses a different va
 le.sh  --issue  \
 -d aa.com  -w /home/wwwroot/aa.com \
 -d bb.com  -dns dns-cf \
--d cc.com  -w /home/wwwroot/cc.com \
+-d cc.com  --apache \
 -d dd.com  -w /home/wwwroot/dd.com
 ```
 
