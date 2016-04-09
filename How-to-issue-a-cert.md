@@ -1,0 +1,76 @@
+### 1. Single domain:
+
+#### 1) Webroot mode:
+```
+le.sh  --issue  -d aa.com  -w /home/wwwroot/aa.com
+```
+
+#### 2) Standalone mode:
+```
+le.sh  --issue  -d aa.com  --standalone
+```
+
+#### 3) Dns manual mode:
+```
+le.sh  --issue  -d aa.com  --dns
+```
+
+#### 4) Dns api mode:
+Cloud flare api:
+```
+export CF_Key="sdfsdfsdfljlbjkljlkjsdfoiwje"
+
+export CF_Email="xxxx@sss.com"
+
+le.sh  --issue  -d aa.com  --dns dns-cf
+```
+
+
+### 2. Multiple domains, SAN mode
+
+Issue a single cert including multiple domains.  All the domains use the same validation method:
+
+#### 1) Webroot mode:
+You must point `aa.com` and `www.aa.com` to the same web root folder `/home/wwwroot/aa.com`
+```
+le.sh  --issue  -d aa.com  -w /home/wwwroot/aa.com   -d www.aa.com
+```
+
+#### 2) Standalone mode:
+```
+le.sh  --issue  -d aa.com  --standalone  -d www.aa.com 
+
+
+#### 3) Dns manual mode:
+```
+le.sh  --issue  -d aa.com  --dns  -d www.aa.com
+```
+
+#### 4) Dns api mode:
+Cloud flare api:
+```
+export CF_Key="sdfsdfsdfljlbjkljlkjsdfoiwje"
+
+export CF_Email="xxxx@sss.com"
+
+le.sh  --issue  -d aa.com  --dns dns-cf  -d www.aa.com
+```
+
+
+### 2. Multiple domains, SAN mode,  Hybrid mode
+
+Issue a single cert including multiple domains.  Each domain uses a different validation method.
+
+
+```
+le.sh  --issue  \
+-d aa.com  -w /home/wwwroot/aa.com \
+-d bb.com  -dns dns-cf \
+-d cc.com  -w /home/wwwroot/cc.com \
+-d dd.com  -w /home/wwwroot/dd.com
+```
+
+
+
+
+
