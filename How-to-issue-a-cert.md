@@ -25,7 +25,7 @@ export CF_Email="xxxx@sss.com"
 le.sh  --issue  -d aa.com  --dns dns-cf
 ```
 
-#### 2) Apache mode:
+#### 5) Apache mode:
 ```
 le.sh  --issue  -d aa.com  --apache
 ```
