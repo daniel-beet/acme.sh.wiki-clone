@@ -35,14 +35,14 @@ After installation,
 
 1) Issuer a cert:
 ```
-/root/.le/le.sh issue   no   <DOMAIN>
+/root/.le/le.sh --issue  --standalone  -d <DOMAIN>
 ```
 After issuing, the cert will be automatically every 80 days.
 
 2) Install the cert to Proxmox:
 
 ```
-/root/.le/le.sh  installcert   <DOMAIN>  /etc/pve/local/pveproxy-ssl.pem /etc/pve/local/pveproxy-ssl.key /etc/pve/local/pveproxy-ssl.pem "systemctl restart pveproxy"
+/root/.le/le.sh  --installcert  -d <DOMAIN>  --certpath /etc/pve/local/pveproxy-ssl.pem --keypath /etc/pve/local/pveproxy-ssl.key  --capath  /etc/pve/local/pveproxy-ssl.pem  --reloadcmd  "systemctl restart pveproxy"
 ```
 
 Ok, it's done. Open the link: `https://<DOMAIN>:8006`
@@ -52,7 +52,7 @@ Ok, it's done. Open the link: `https://<DOMAIN>:8006`
 
 After you issue the cert, then you can use `toPkcs` command to convert the cert to pkcs12(pfx) format
 ```
-le.sh  toPkcs  <domain> [pfx-password]
+le.sh  --toPkcs  -d <domain>  [--password pfx-password]
 ```
 
 ## 4. How to run on Windows with Cygwin.
