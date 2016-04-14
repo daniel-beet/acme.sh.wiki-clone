@@ -6,21 +6,21 @@ Here is the wiki page for le.sh
 ## 1. How to install
 Install online:
 ```
-curl https://raw.githubusercontent.com/Neilpang/le/master/le.sh | INSTALLONLINE=1  bash
+curl https://raw.githubusercontent.com/Neilpang/acme.sh/master/acme.sh | INSTALLONLINE=1  bash
 ```
 Or,
 ```
-wget -O -  https://raw.githubusercontent.com/Neilpang/le/master/le.sh | INSTALLONLINE=1  bash
+wget -O -  https://raw.githubusercontent.com/Neilpang/acme.sh/master/acme.sh | INSTALLONLINE=1  bash
 ```
 
 Install from git:
 ```
-git clone https://github.com/Neilpang/le.git
-cd le
-./le.sh install
+git clone https://github.com/Neilpang/acme.sh.git
+cd acme.sh
+./acme.sh install
 ```
 
-If you want to use your email to register to LetsEncrypt, you can edit `~/.le/account.conf`
+If you want to use your email to register to LetsEncrypt, you can edit `~/.acme.sh/account.conf`
 Uncomment and set `ACCOUNT_EMAIL`
 ```
 ACCOUNT_EMAIL=aaa@aaa.com
@@ -35,14 +35,14 @@ After installation,
 
 1) Issuer a cert:
 ```
-/root/.le/le.sh --issue  --standalone  -d <DOMAIN>
+/root/.acme.sh/acme.sh  --issue  --standalone  -d <DOMAIN>
 ```
 After issuing, the cert will be automatically every 80 days.
 
 2) Install the cert to Proxmox:
 
 ```
-/root/.le/le.sh  --installcert  -d <DOMAIN>  --certpath /etc/pve/local/pveproxy-ssl.pem --keypath /etc/pve/local/pveproxy-ssl.key  --capath  /etc/pve/local/pveproxy-ssl.pem  --reloadcmd  "systemctl restart pveproxy"
+/root/.acme.sh/acme.sh  --installcert  -d <DOMAIN>  --certpath /etc/pve/local/pveproxy-ssl.pem --keypath /etc/pve/local/pveproxy-ssl.key  --capath  /etc/pve/local/pveproxy-ssl.pem  --reloadcmd  "systemctl restart pveproxy"
 ```
 
 Ok, it's done. Open the link: `https://<DOMAIN>:8006`
@@ -52,7 +52,7 @@ Ok, it's done. Open the link: `https://<DOMAIN>:8006`
 
 After you issue the cert, then you can use `toPkcs` command to convert the cert to pkcs12(pfx) format
 ```
-le.sh  --toPkcs  -d <domain>  [--password pfx-password]
+acme.sh  --toPkcs  -d <domain>  [--password pfx-password]
 ```
 
 ## 4. How to run on Windows with Cygwin.
