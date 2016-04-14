@@ -2,17 +2,17 @@
 
 #### 1) Webroot mode:
 ```
-le.sh  --issue  -d aa.com  -w /home/wwwroot/aa.com
+acme.sh  --issue  -d aa.com  -w /home/wwwroot/aa.com
 ```
 
 #### 2) Standalone mode:
 ```
-le.sh  --issue  -d aa.com  --standalone
+acme.sh  --issue  -d aa.com  --standalone
 ```
 
 #### 3) Dns manual mode:
 ```
-le.sh  --issue  -d aa.com  --dns
+acme.sh  --issue  -d aa.com  --dns
 ```
 
 #### 4) Dns api mode:
@@ -22,12 +22,12 @@ export CF_Key="sdfsdfsdfljlbjkljlkjsdfoiwje"
 
 export CF_Email="xxxx@sss.com"
 
-le.sh  --issue  -d aa.com  --dns dns-cf
+acme.sh  --issue  -d aa.com  --dns dns-cf
 ```
 
 #### 5) Apache mode:
 ```
-le.sh  --issue  -d aa.com  --apache
+acme.sh  --issue  -d aa.com  --apache
 ```
 
 
@@ -38,17 +38,17 @@ Issue a single cert including multiple domains.  All the domains use the same va
 #### 1) Webroot mode:
 You must point `aa.com` and `www.aa.com` to the same web root folder `/home/wwwroot/aa.com`
 ```
-le.sh  --issue  -d aa.com  -w /home/wwwroot/aa.com   -d www.aa.com
+acme.sh  --issue  -d aa.com  -w /home/wwwroot/aa.com   -d www.aa.com
 ```
 
 #### 2) Standalone mode:
 ```
-le.sh  --issue  -d aa.com  --standalone  -d www.aa.com 
+acme.sh  --issue  -d aa.com  --standalone  -d www.aa.com 
 ```
 
 #### 3) Dns manual mode:
 ```
-le.sh  --issue  -d aa.com  --dns  -d www.aa.com
+acme.sh  --issue  -d aa.com  --dns  -d www.aa.com
 ```
 
 #### 4) Dns api mode:
@@ -58,7 +58,7 @@ export CF_Key="sdfsdfsdfljlbjkljlkjsdfoiwje"
 
 export CF_Email="xxxx@sss.com"
 
-le.sh  --issue  -d aa.com  --dns dns-cf  -d www.aa.com
+acme.sh  --issue  -d aa.com  --dns dns-cf  -d www.aa.com
 ```
 
 
@@ -68,7 +68,7 @@ Issue a single cert including multiple domains.  Each domain uses a different va
 
 
 ```
-le.sh  --issue  \
+acme.sh  --issue  \
 -d aa.com  -w /home/wwwroot/aa.com \
 -d bb.com  -dns dns-cf \
 -d cc.com  --apache \
