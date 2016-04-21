@@ -1,33 +1,11 @@
-Welcome to the le wiki!
+Welcome to the acme.sh wiki!
 
-Here is the wiki page for le.sh
+Here is the wiki page for acme.sh
 
 
 ## 1. How to install
-Install online:
-```
-curl https://raw.githubusercontent.com/Neilpang/acme.sh/master/acme.sh | INSTALLONLINE=1  sh
-```
-Or,
-```
-wget -O -  https://raw.githubusercontent.com/Neilpang/acme.sh/master/acme.sh | INSTALLONLINE=1  sh
-```
 
-Install from git:
-```
-git clone https://github.com/Neilpang/acme.sh.git
-cd acme.sh
-./acme.sh install
-```
-
-If you want to use your email to register to LetsEncrypt, you can edit `~/.acme.sh/account.conf`
-Uncomment and set `ACCOUNT_EMAIL`
-```
-ACCOUNT_EMAIL=aaa@aaa.com
-```
-Which is optional.  If you don't want to register with your email, just ignore this step.
-
-
+https://github.com/Neilpang/acme.sh/wiki/How-to-install
 
 ## 2.  How to use in Proxmox ?
 
