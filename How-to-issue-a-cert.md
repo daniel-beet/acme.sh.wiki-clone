@@ -25,6 +25,8 @@ export CF_Email="xxxx@sss.com"
 acme.sh  --issue  -d aa.com  --dns dns-cf
 ```
 
+How to use dns api:  https://github.com/Neilpang/acme.sh/tree/master/dnsapi
+
 #### 5) Apache mode:
 ```
 acme.sh  --issue  -d aa.com  --apache
