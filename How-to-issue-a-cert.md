@@ -64,7 +64,7 @@ acme.sh  --issue  -d aa.com  --dns dns-cf  -d www.aa.com
 ```
 
 
-### 2. Multiple domains, SAN mode,  Hybrid mode
+### 3. Multiple domains, SAN mode,  Hybrid mode
 
 Issue a single cert including multiple domains.  Each domain uses a different validation method.
 
