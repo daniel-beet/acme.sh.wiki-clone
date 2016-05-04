@@ -60,7 +60,7 @@ export CF_Key="sdfsdfsdfljlbjkljlkjsdfoiwje"
 
 export CF_Email="xxxx@sss.com"
 
-acme.sh  --issue  -d aa.com  --dns dns-cf  -d www.aa.com
+acme.sh  --issue  -d aa.com  --dns dns_cf  -d www.aa.com
 ```
 
 
