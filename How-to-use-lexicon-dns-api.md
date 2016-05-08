@@ -23,6 +23,7 @@ You must install `python` and `lexicon` before using it.
 ## Examples:
 ### 1. Using lexicon cloudflare api:
 ```
+export PROVIDER=cloudflare
 export LEXICON_CLOUDFLARE_USERNAME="xxxx@xxx.com"
 export LEXICON_CLOUDFLARE_TOKEN="XXXXXXXXXXXXXXX"
 
