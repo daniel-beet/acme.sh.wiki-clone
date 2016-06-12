@@ -1,4 +1,4 @@
-FreeBSD embedded systems like nas4free, FreeNAS, pfSense etc. usually don't have curl and wget installed. The [fetch(1)](http://www.freebsd.org/cgi/man.cgi?fetch(1)) utility can't replace them, because it doesn't support POST and PUT requests. So I used this workaround to get curl running on this platform.
+FreeBSD embedded systems like nas4free, FreeNAS etc. usually don't have curl and wget installed. The [fetch(1)](http://www.freebsd.org/cgi/man.cgi?fetch(1)) utility can't replace them, because it doesn't support POST and PUT requests. So I used this workaround to get curl running on this platform.
 
 Full story in Issue [#194](https://github.com/Neilpang/acme.sh/issues/194).
 
