@@ -30,6 +30,17 @@ export LEXICON_CLOUDFLARE_TOKEN="XXXXXXXXXXXXXXX"
 acme.sh --issue  -d test.acme.sh  --dns  dns_lexicon
 ```
 
+### 2. Using lexicon namesilo api:
+
+[Namesilo](https://www.namesilo.com/) applies any submitted changes to DNS records **every 15 minutes**.  To make sure verification aligns with propagation, `--dnssleep` must be set for **16 minutes (960 seconds)**.  You may generate a new API key (namesilo-api-token) at the [api manager](https://www.namesilo.com/account_api.php) under *Account Options* after logging in.
+
+```
+export PROVIDER=namesilo
+export LEXICON_NAMESILO_TOKEN="namesilo-api-token"
+
+acme.sh --issue  -d test.acme.sh  --dns dns_lexicon  --dnssleep 960
+```
+
 
 For more examples, please check lexicon page: https://github.com/AnalogJ/lexicon
 
