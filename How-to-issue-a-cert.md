@@ -9,13 +9,30 @@ acme.sh  --issue  -d aa.com  -w /home/wwwroot/aa.com
 ```
 acme.sh  --issue  -d aa.com  --standalone
 ```
+If you are using a non-standard `80` port behind a reverse proxy or load balancer , you can use `--httpport` to specify your port:
 
-#### 3) Dns manual mode:
+```
+acme.sh  --issue  -d aa.com  --standalone --httpport 88
+```
+
+#### 3) Standalone tls mode:
+```
+acme.sh  --issue  -d aa.com  --tls
+```
+
+If you are using a non-standard `443` port behind a reverse proxy or load balancer , you can use `--tlsport` to specify your port:
+
+```
+acme.sh  --issue  -d aa.com  --tls  --tlsport 8443
+```
+
+
+#### 4) Dns manual mode:
 ```
 acme.sh  --issue  -d aa.com  --dns
 ```
 
-#### 4) Dns api mode:
+#### 5) Dns api mode:
 Cloud flare api:
 ```
 export CF_Key="sdfsdfsdfljlbjkljlkjsdfoiwje"
@@ -27,7 +44,7 @@ acme.sh  --issue  -d aa.com  --dns dns_cf
 
 How to use dns api:  https://github.com/Neilpang/acme.sh/tree/master/dnsapi
 
-#### 5) Apache mode:
+#### 6) Apache mode:
 ```
 acme.sh  --issue  -d aa.com  --apache
 ```
@@ -48,12 +65,17 @@ acme.sh  --issue  -d aa.com  -w /home/wwwroot/aa.com   -d www.aa.com
 acme.sh  --issue  -d aa.com  --standalone  -d www.aa.com 
 ```
 
-#### 3) Dns manual mode:
+#### 3) Standalone tls mode:
+```
+acme.sh  --issue  -d aa.com  --tls  -d www.aa.com 
+```
+
+#### 4) Dns manual mode:
 ```
 acme.sh  --issue  -d aa.com  --dns  -d www.aa.com
 ```
 
-#### 4) Dns api mode:
+#### 5) Dns api mode:
 Cloud flare api:
 ```
 export CF_Key="sdfsdfsdfljlbjkljlkjsdfoiwje"
@@ -77,7 +99,14 @@ acme.sh  --issue  \
 -d dd.com  -w /home/wwwroot/dd.com
 ```
 
+Or:
 
+```
+acme.sh  --issue  \
+-d aa.com  --standalone \
+-d bb.com  -dns dns-cf \
+-d cc.com  --tls
+```
 
 
 
