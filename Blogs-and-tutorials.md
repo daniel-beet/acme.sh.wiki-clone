@@ -23,7 +23,7 @@ Here are some blogs that may help you:
 1. https://chevereto.com/community/threads/tutorial-free-ssl-from-letsencrypt-setup-for-nginx-1-9-x.7217/
 1. http://www.mcpressonline.com/security/techtip-let-s-encrypt-together.html
 1. https://meta.discourse.org/t/setting-up-lets-encrypt/40709
-
+1. http://www.cyberciti.biz/faq/how-to-configure-nginx-with-free-lets-encrypt-ssl-certificate-on-debian-or-ubuntu-linux/
 
 
 ## French
