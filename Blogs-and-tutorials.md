@@ -49,5 +49,8 @@ Here are some blogs that may help you:
 1. http://d.hatena.ne.jp/worris2/20160213/1455375785
 
 
+## Czech
+1. https://www.root.cz/clanky/acme-sh-snadna-cesta-k-certifikatu-od-let-s-encrypt/
+
 
 
