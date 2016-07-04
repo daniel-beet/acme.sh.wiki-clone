@@ -52,5 +52,7 @@ Here are some blogs that may help you:
 ## Czech
 1. https://www.root.cz/clanky/acme-sh-snadna-cesta-k-certifikatu-od-let-s-encrypt/
 
+## German
+1. https://hilfreiche-server.tips/index.php/blog/proxmox-4-absichern-mit-lets-encrypt-ssl-zertifikat
 
 
