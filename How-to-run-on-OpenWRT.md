@@ -1,6 +1,6 @@
 Setup and run acme.sh on your OpenWRT router and have https secured management.
 
-*Also see Step 5 for a handy setup script*
+*Also see [Step 5](https://github.com/Neilpang/acme.sh/wiki/How-to-run-on-OpenWRT#meta-step-5-use-a-fancy-setup-script-instead) for a handy setup script instead*
 
 ### Step 1: Install packages
 
