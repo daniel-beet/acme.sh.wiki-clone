@@ -62,3 +62,10 @@ Run `crontab -e` to edit your crontab (use something like `export EDITOR="/usr/b
 ### Meta-Step 5: Use a fancy setup script instead
 
 See [this gist](https://gist.github.com/t413/3e616611299b22b17b08baa517d2d02c) for my `update.sh` that handles each step of this howto for you and also runs the cron update.. with style. (It automates opening port-80 traffic for verification then closes it again so http isn't even an option)
+
+
+
+## Here is another guide which may help you:
+https://forum.openwrt.org/viewtopic.php?id=65090
+
+
