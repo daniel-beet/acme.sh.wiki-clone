@@ -31,6 +31,7 @@ Here are some blogs that may help you:
 1. https://cpbotha.net/2016/07/18/installing-free-lets-encrypt-ssl-certificates-on-webfaction-in-3-easy-steps/
 
 ## French
+1. https://howto.biapy.com/fr/debian-gnu-linux/systeme/logiciels/installer-le-client-certbot-lets-encrypt-acme-sh-sur-debian
 1. https://www.thelinuxfr.org/lets-encrypt-acme-sh-debian-nginx/
 
 ## Russian
