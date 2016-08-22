@@ -94,7 +94,7 @@ Issue a single cert including multiple domains.  Each domain uses a different va
 ```
 acme.sh  --issue  \
 -d aa.com  -w /home/wwwroot/aa.com \
--d bb.com  -dns dns-cf \
+-d bb.com  --dns dns_cf \
 -d cc.com  --apache \
 -d dd.com  -w /home/wwwroot/dd.com
 ```
@@ -104,7 +104,7 @@ Or:
 ```
 acme.sh  --issue  \
 -d aa.com  --standalone \
--d bb.com  -dns dns-cf \
+-d bb.com  --dns dns_cf \
 -d cc.com  --tls
 ```
 
