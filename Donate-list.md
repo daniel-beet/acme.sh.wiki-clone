@@ -1,6 +1,6 @@
 ## Thanks to those who donates:
 
-(If you want to be listed without mask, please write email to me: donate@acme.sh )
+(If you want to be listed without mask or list your website link here, please write email to me: donate@acme.sh )
 
-* Th*** Eye  gia***ca@t*****e.it
+1. Th*** Eye  gia***ca@t*****e.it
 
