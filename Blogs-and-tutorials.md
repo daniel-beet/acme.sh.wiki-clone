@@ -18,6 +18,7 @@ Here are some blogs that may help you:
 
 ## English
 
+1. https://erdees.ru/it/all-about-let-s-encrypt/
 1. https://pve.proxmox.com/wiki/HTTPSCertificateConfiguration
 1. https://forum.openwrt.org/viewtopic.php?pid=327103#p327103
 1. https://got-tty.org/lets-encrypt-in-pfsense
