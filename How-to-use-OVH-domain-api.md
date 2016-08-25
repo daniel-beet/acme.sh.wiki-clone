@@ -51,3 +51,34 @@ Done.
 
 
 
+## 5. OVH api support OVH, kimsufi, soyoustart and runabove.
+The default is using  ovh-eu region.
+
+if you are using  ovh-ca region, please specify the region in the first step:
+
+```
+export OVH_END_POINT=ovh-ca
+
+export OVH_AK="your application key"
+
+export OVH_AS="your application secret"
+
+acme.sh --issue -d   mydomain.com   --dns   dns_ovh
+
+```
+
+
+All the supported regions:
+```
+#'ovh-eu'  (default)
+#'ovh-ca': 
+#'kimsufi-eu'
+#'kimsufi-ca'
+#'soyoustart-eu'
+#'soyoustart-ca'
+#'runabove-ca'
+```
+
+
+
+
