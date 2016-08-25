@@ -54,7 +54,11 @@ Done.
 ## 5. OVH api support OVH, kimsufi, soyoustart and runabove.
 The default is using  ovh-eu region.
 
-if you are using  ovh-ca region, please specify the region in the first step:
+if you are using  ovh-ca region, 
+
+Create app key here:  https://ca.api.ovh.com/createApp/
+
+Then please specify the region in the first step:
 
 ```
 export OVH_END_POINT=ovh-ca
