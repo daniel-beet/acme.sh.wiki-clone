@@ -18,7 +18,7 @@ acme.sh  --signcsr   --csr  /path/to/mycsr.csr  -w /path/to/webroot/
 
 The first parameter is the csr file,  all the other parameters are same as `--issue` command.
 
-For exmaple,  you can specify the sepearate  webroot folders for each domain in the csr.
+For exmaple,  you can specify the different webroot folders for each domain in the csr.
 
 ```
 acme.sh  --signcsr  --csr  /path/to/mycsr/csr  -w /wwwroot/aa.com  -w /wwwroot/www.aa.com  -w /wwwroot/bb.com
