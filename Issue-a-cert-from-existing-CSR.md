@@ -2,7 +2,7 @@ From v2.4.4, acme.sh support to issue a cert from an existing csr.
 
 There are 2 commands related:
 
-1. Display the content of the csr:
+### 1. Display the content of the csr:
 
 ```
 acme.sh  --showcsr  --csr  /path/to/mycsr.csr
@@ -10,7 +10,7 @@ acme.sh  --showcsr  --csr  /path/to/mycsr.csr
 
 It shows the subject and domain names in the csr.
 
-2. Issue a cert from the csr.
+### 2. Issue a cert from the csr.
 
 ```
 acme.sh  --signcsr   --csr  /path/to/mycsr.csr  -w /path/to/webroot/
