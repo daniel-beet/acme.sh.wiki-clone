@@ -18,6 +18,7 @@ Here are some blogs that may help you:
 
 ## English
 
+1. https://www.rmedgar.com/blog/using-acme-sh-with-nginx
 1. https://erdees.ru/it/all-about-let-s-encrypt/
 1. https://pve.proxmox.com/wiki/HTTPSCertificateConfiguration
 1. https://forum.openwrt.org/viewtopic.php?pid=327103#p327103
