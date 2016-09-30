@@ -13,8 +13,11 @@ trying the default install
 
 so we have to do it manually
 `$ wget https://github.com/Neilpang/acme.sh/archive/master.tar.gz`
+
 `$ tar xvf master.tar.gz`
+
 `$ cd acme.sh-master/`
+
 `$ ./acme.sh --install --nocron`
 
 so install is done :)
