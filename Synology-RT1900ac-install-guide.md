@@ -29,9 +29,13 @@ set your email, cloudflare account and API (https://www.cloudflare.com/a/account
 ctrl+c 
 :wq (and you are out of VI(M)
 
-now to create your cert
-`$ ./acme.sh  --issue -d YOURDOMAIN.TLD --dns dns_cf --certpath /usr/syno/etc/ssl/ssl.crt/server.crt --keypath /usr/syno/etc/ssl/ssl.key/server.key --fullchainpath /usr/syno/etc/ssl/ssl.intercrt/server-ca.crt`
-(anyone knows how to restart the webserver?)
+now to create your cert:
+
+    $ ./acme.sh  --issue -d YOURDOMAIN.TLD --dns dns_cf --certpath /usr/syno/etc/ssl/ssl.crt/server.crt --keypath /usr/syno/etc/ssl/ssl.key/server.key --fullchainpath /usr/syno/etc/ssl/ssl.intercrt/server-ca.crt
+
+..and restart your webserver:
+
+    kill -USR1 `cat /run/httpd/httpd-sys.pid`
 
 simple right?
 
