@@ -37,12 +37,9 @@ now to create your cert:
 
     kill -USR1 `cat /run/httpd/httpd-sys.pid`
 
-simple right?
+Add the following line in `/etc/crontab` (use vi)
 
-since there is no cron, the renewal still requires manual work.
+    0       2       *       *       0,3       root    /root/.acme.sh/acme.sh --cron && kill -USR1 `cat /run/httpd/httpd-sys.pid`
 
-I've added this line at the bottom of /etc/rc and ~/.profile
-`/root/.acme.sh/acme.sh --cron`
-so when the router is rebooted or you ssh into it, it tries to renew the cert.
-
-HTH
+And run `killall -1 crond` to restart the cron daemon.
+The certificate will be checked twice per week for renewal at 2am
