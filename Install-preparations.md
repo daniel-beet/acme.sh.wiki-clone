@@ -15,6 +15,10 @@ apt-get install netcat
 ```
 yum -q -y install  openssl  crontabs  nc  curl
 ```
+For centos 5:
 
+```
+yum -q -y install openssl,vixie-cron,nc,curl
+```
 
 
