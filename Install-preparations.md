@@ -4,7 +4,7 @@
 apt-get install openssl cron  netcat-openbsd  curl
 ```
 
-Either `netcat` or `netcat-openbsd` is also working.
+Either `netcat` or `netcat-openbsd` is working.
 ```
 apt-get install netcat
 ```
