@@ -28,6 +28,8 @@ yum -q -y install nc
 
 # 3. alpine
 
+The default `nc` tool doesn't support `-4` , `-6` and local address, So, please install `netcat-openbsd` to support all the options.
+
 ```
 apk --no-cache add -f openssl curl netcat-openbsd
 ```
