@@ -26,3 +26,8 @@ Or install `nc`
 yum -q -y install nc
 ```
 
+# 3. alpine
+
+```
+apk --no-cache add -f openssl curl netcat-openbsd
+```
