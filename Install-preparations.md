@@ -33,3 +33,13 @@ The default `nc` tool doesn't support `-4` , `-6` and local address, So, please 
 ```
 apk --no-cache add -f openssl curl netcat-openbsd
 ```
+
+
+# 4. kalilinux
+
+The default `netcat` tool doesn't support `-4` , `-6` and local address, So, please install `netcat-openbsd` to support all the options.
+
+```
+apt-get -qqy install  openssl cron  netcat-openbsd curl
+```
+
