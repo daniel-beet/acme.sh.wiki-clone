@@ -8,6 +8,7 @@ Here are some blogs that may help you:
 1. https://www.chdon.com/463.html
 1. https://zhaochen.xyz/2016/06/21/5.html
 1. https://www.logcg.com/archives/2007.html
+1. https://ze3kr.com/2016/08/install-nginx-1-11-on-ubuntu/
 1. https://liliang13.com/tag/acme-sh/
 1. https://meta.discoursecn.org/t/topic/1061
 1. https://mechanus.io/acme-sh-ji-li-tui-jian-de-lets-encrypt-gong-ju/
