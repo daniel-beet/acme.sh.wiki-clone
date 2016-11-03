@@ -16,10 +16,10 @@ so install is done :)
 
 next, config
 $ cd ~/.acme.sh/
-$ vi  acme.sh account.conf 
+$ vi account.conf 
 set your email, cloudflare account and API (https://www.cloudflare.com/a/account/my-account)
 ctrl+c 
-:wq (and you are out of VI(M)
+:wq (and you are out of VI(M))
 
 now to create your cert
 $ ./acme.sh  --issue -d YOURDOMAIN.TLD --dns dns_cf --certpath /usr/syno/etc/certificate/system/default/cert.pem --keypath /usr/syno/etc/certificate/system/default/privkey.pem --fullchainpath /usr/syno/etc/certificate/system/default/fullchain.pem
