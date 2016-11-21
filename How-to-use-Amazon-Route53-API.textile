@@ -22,3 +22,8 @@ Enter a name to your policy and paste the following
         }
     ]
 }
+
+Validate the policy and Click Create.
+Apply the new policy to your new user.
+
+You can now use the new API keys with acme.sh
