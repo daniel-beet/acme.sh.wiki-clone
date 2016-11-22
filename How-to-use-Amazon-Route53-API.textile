@@ -5,6 +5,8 @@ In the user profile, click in Permissions, followed by Add Permissions
 Then click the 3rd icon "Attach existing policies directly"
 Click "Create Policy" and in the new window choose "Create Your Own Policy"
 Enter a name to your policy and paste the following
+
+```json
 {
     "Version": "2012-10-17",
     "Statement": [
@@ -22,6 +24,7 @@ Enter a name to your policy and paste the following
         }
     ]
 }
+```
 
 Validate the policy and Click Create.
 Apply the new policy to your new user.
