@@ -17,7 +17,7 @@ After installation,
 ```
 /root/.acme.sh/acme.sh  --issue  --standalone  -d <DOMAIN>
 ```
-After issuing, the cert will be automatically every 80 days.
+After issuing, the cert will be automatically every 60 days.
 
 2) Install the cert to Proxmox:
 
