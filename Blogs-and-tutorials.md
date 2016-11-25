@@ -26,7 +26,7 @@ Here are some blogs that may help you:
 
 
 ## English
-
+1. [FreeBSD.org switched to acme.sh](https://blog.crashed.org/letsencrypt-in-freebsd-org/)
 1. https://www.rmedgar.com/blog/using-acme-sh-with-nginx
 1. https://erdees.ru/it/all-about-let-s-encrypt/
 1. https://pve.proxmox.com/wiki/HTTPSCertificateConfiguration
