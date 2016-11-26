@@ -40,6 +40,7 @@ Here are some blogs that may help you:
 1. https://meta.discourse.org/t/setting-up-lets-encrypt/40709
 1. http://www.cyberciti.biz/faq/how-to-configure-nginx-with-free-lets-encrypt-ssl-certificate-on-debian-or-ubuntu-linux/
 1. https://cpbotha.net/2016/07/18/installing-free-lets-encrypt-ssl-certificates-on-webfaction-in-3-easy-steps/
+1. http://www.ecsoft2.org/howto/using-let%E2%80%99s-encrypt-os2
 
 ## French
 1. https://howto.biapy.com/fr/debian-gnu-linux/systeme/logiciels/installer-le-client-certbot-lets-encrypt-acme-sh-sur-debian
