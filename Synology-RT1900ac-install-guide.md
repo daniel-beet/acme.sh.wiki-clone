@@ -27,8 +27,7 @@ ctrl+c
 :wq (and you are out of VI(M)
 
 now to create your cert
-$ ./acme.sh  --issue --post-hook "kill -USR1 `cat /run/httpd/httpd-sys.pid`" -d YOURDOMAIN.TLD --dns dns_cf --certpath /usr/syno/etc/ssl/ssl.crt/server.crt --keypath /usr/syno/etc/ssl/ssl.key/server.key --fullchainpath /
-usr/syno/etc/ssl/ssl.intercrt/server-ca.crt
+$ ./acme.sh  --issue --post-hook "kill -USR1 `cat /run/httpd/httpd-sys.pid`" -d YOURDOMAIN.TLD --dns dns_cf --certpath /usr/syno/etc/ssl/ssl.crt/server.crt --keypath /usr/syno/etc/ssl/ssl.key/server.key --fullchainpath /usr/syno/etc/ssl/ssl.intercrt/server-ca.crt
 
 simple right?
 
