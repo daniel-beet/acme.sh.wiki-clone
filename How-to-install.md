@@ -48,6 +48,8 @@ cd acme.sh
 --useragent  "this is my client."
 ```
 
+You don't need to set them all, just set those ones you care about.
+
 Explanations :
 
 - `--home` is a customized dir to install `acme.sh` in.  By default, it installs into `~/.acme.sh` 
