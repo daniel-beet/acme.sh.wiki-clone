@@ -61,7 +61,7 @@ acme.sh  command ...[parameters]....
   **--reloadcmd "service nginx reload"** After issue/renew, it's used to reload the server.  
 
   **--accountconf**                     Specifies a customized account config file.  
-  **--home**                            Specifies the home dir for acme.sh .  
+  **--home**                            Specifies the home dir for acme.sh. If you use it with '--install', then you'll need to use it every time you use acme.sh.  
   **--certhome**                        Specifies the home dir to save all the certs, only valid for '--install' command.  
   **--useragent**                       Specifies the user agent string. it will be saved for future use too.  
   **--accountemail**                    Specifies the account email for registering, Only valid for the '--install' command.  
