@@ -40,6 +40,7 @@ Here are some blogs that may help you:
 1. https://forum.openwrt.org/viewtopic.php?pid=327103#p327103
 1. https://got-tty.org/lets-encrypt-in-pfsense
 1. https://community.webfaction.com/questions/19988/using-letsencrypt
+1. https://www.loadbalancer.org/blog/loadbalancer-org-with-lets-encrypt-quick-and-dirty
 1. https://blog.quiptiq.com/2016/05/05/installing-a-lets-encrypt-certificate-for-znc/
 1. https://www.arowan.be/2016/04/18/certificat-lets-encrypt-sur-votre-hyperviseur-proxmox-update/
 1. https://chevereto.com/community/threads/tutorial-free-ssl-from-letsencrypt-setup-for-nginx-1-9-x.7217/
