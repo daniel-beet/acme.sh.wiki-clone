@@ -11,6 +11,7 @@ I've also used it with the DNS-01 protocol, which means, I don't have any ports 
 
 Install:
 
+    $ export FORCE=1
     $ wget -O -  https://get.acme.sh | sh
 so install is done :)
 
