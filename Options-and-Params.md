@@ -86,25 +86,5 @@ acme.sh  command ...[parameters]....
   **--listen-v4**                       Force standalone/tls server to listen at ipv4.  
   **--listen-v6**                       Force standalone/tls server to listen at ipv6.
 
-## Configuration file
-Options in the configuration file (`<domain_name>/<domain_name>.conf`) usually correspond to one of the above mentioned options:
 
-* **Le_Domain:** the domain passed by `--domain, -d`
-* **Le_Alt:**
-* **Le_Webroot:** web root folder (`--webroot, -w`)
-* **Le_PreHook:** command run before obtaining certificates (`--pre-hook`)
-* **Le_PostHook:** command run after obtaining/renewing certificates, success or not (`--post-hook`)
-* **Le_RenewHook:** run once for each successfully renewed certificate (`--renew-hook`)
-* **Le_API:**
-* **Le_Keylength:** domain key length (`--keylength, -k`)
-* **Le_LinkCert:**
-* **Le_LinkIssuer:**
-* **Le_CertCreateTime:** Unix time stamp of last successful certificate creation/renewal
-* **Le_CertCreateTimeStr:** same in human readable format
-* **Le_NextRenewTimeStr:** time when the cert should be renewed
-* **Le_NextRenewTime:** same as Unix time stamp
-* **Le_RealCertPath:** where the created certificate will be stored (`--certpath`)
-* **Le_RealCACertPath:** same for the intermediate cert (`--capath`)
-* **Le_RealKeyPath:** and the signing key
-* **Le_RealFullChainPath:** and the full certificate chain
-* **Le_ReloadCmd:** command to run after (successful) issue/renew, e.g. to reload the web server (`--reloadcmd`)
+
