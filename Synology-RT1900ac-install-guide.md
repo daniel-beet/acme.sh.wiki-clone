@@ -16,15 +16,16 @@ $ wget https://github.com/Neilpang/acme.sh/archive/master.tar.gz
 $ tar xvf master.tar.gz
 $ cd acme.sh-master/
 $ ./acme.sh --install --nocron --home /volume1/@appstore/acme.sh
+log out and login to ssh again
 
 so install is done :)
 
 next, config
 $ cd /volume1/@appstore/acme.sh
-$ vi /volume1/@appstore/acme.sh/dnsapi/dns_cf.sh
-set your email, cloudflare account and API (https://www.cloudflare.com/a/account/my-account)
-ctrl+c 
-:wq (and you are out of VI(M)
+get your email, cloudflare account and API (https://www.cloudflare.com/a/account/my-account)
+type this to the shell, replace with the values above
+export CF_Key="sdfsdfsdfljlbjkljlkjsdfoiwje"
+export CF_Email="xxxx@sss.com"
 
 now to create your cert
 $ ./acme.sh  --issue --post-hook "/usr/syno/sbin/synoservicecfg --restart httpd-sys" --dns dns_cf --certpath /usr/syno/etc/ssl/ssl.crt/server.crt --keypath /usr/syno/etc/ssl/ssl.key/server.key --fullchainpath /usr/syno/etc/ssl/ssl.intercrt/server-ca.crt --config-home /volume1/@appstore/acme.sh/ --dnssleep 15 -d YOURDOMAIN.TLD 
