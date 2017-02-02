@@ -20,8 +20,8 @@ $ ./acme.sh --install --nocron --home /volume1/@appstore/acme.sh
 so install is done :)
 
 next, config
-$ cd ~/.acme.sh/
-$ vi  account.conf 
+$ cd /volume1/@appstore/acme.sh
+$ vi /volume1/@appstore/acme.sh/dnsapi/dns_cf.sh
 set your email, cloudflare account and API (https://www.cloudflare.com/a/account/my-account)
 ctrl+c 
 :wq (and you are out of VI(M)
