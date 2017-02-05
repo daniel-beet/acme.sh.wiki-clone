@@ -1,4 +1,4 @@
-# 1. Ubuntu:
+# 1. Ubuntu/Debian:
 
 The default `netcat` tool doesn't support `-4` , `-6` and local address, So, please install `netcat-openbsd` to support all the options.
 
