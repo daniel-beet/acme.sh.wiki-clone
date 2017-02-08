@@ -17,6 +17,7 @@ acme.sh  command ...[parameters]....
   **--installcert**            Install the issued cert to apache/nginx or any other server.  
   **--renew, -r**              Renew a cert.  
   **--renewAll**               Renew all the certs.  
+  **--remove**                 Remove renewal configuration for a cert.  
   **--revoke**                 Revoke a cert.  
   **--list**                   List all the certs.  
   **--showcsr**                Show the content of a csr.  
