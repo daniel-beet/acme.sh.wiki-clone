@@ -53,6 +53,7 @@ Here are some blogs that may help you:
 1. https://ramy.nl/2016/03/23/installing-lets-encrypt-on-ubuntu-14-04/
 1. https://www.naschenweng.info/2017/01/06/securing-ubiquiti-unifi-cloud-key-encrypt-automatic-dns-01-challenge/
 1. https://www.naschenweng.info/2017/01/06/automatic-ssl-renewal-encrypt-dsm-5-x-synology-ds1010-dns-01-verification/
+1. http://community.brocade.com/t5/vADC-Blog/Using-Let-s-Encrypt-certificates-with-Brocade-vADC/ba-p/90491
 
 ## French
 1. https://system42.fr/?d=2017/01/01/19/09/43-mise-en-place-de-https-sur-apache-avec-lets-encrypt
