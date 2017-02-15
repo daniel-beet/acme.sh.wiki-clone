@@ -49,6 +49,10 @@ How to use dns api:  https://github.com/Neilpang/acme.sh/tree/master/dnsapi
 acme.sh  --issue  -d aa.com  --apache
 ```
 
+#### 7) Nginx mode:
+```
+acme.sh  --issue  -d aa.com  --nginx
+```
 
 ### 2. Multiple domains, SAN mode
 
