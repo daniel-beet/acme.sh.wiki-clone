@@ -41,6 +41,7 @@ git clone https://github.com/Neilpang/acme.sh.git
 cd acme.sh
 ./acme.sh --install  \
 --home ~/myacme \
+--config-home ~/myacme/data \
 --certhome  ~/mycerts \
 --accountemail  "hi@acme.sh" \
 --accountkey  ~/myaccount.key \
@@ -53,6 +54,7 @@ You don't need to set them all, just set those ones you care about.
 Explanations :
 
 - `--home` is a customized dir to install `acme.sh` in.  By default, it installs into `~/.acme.sh` 
+- `--config-home` is a writable folder, acme.sh will all the files(including cert/keys, configs) there. By default, it's same as `--home`
 - `--certhome` is a customized dir to save the certs you issue.  By default, it saves the certs in `--home`.
 - `--accountemail` is the email used to register account to Let's Encrypt,  you will receive renewal notice email here. Default is empty.
 - `--accountkey` is the file saving your account private key.  By default it's saved in `--home`.
