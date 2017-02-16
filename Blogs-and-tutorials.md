@@ -36,6 +36,7 @@ Here are some blogs that may help you:
 1. https://kralik.io/2016/11/26/how-easy-is-to-use-https-with-lets-encrypt-and-acme-sh/
 1. https://www.juliogonzalez.es/lets-encrypt-ssl-certificates-at-cpanel-without-native-support-for-example-at-namecheap/352
 1. https://www.rmedgar.com/blog/using-acme-sh-with-nginx
+1. https://yulinling.net/post/lets_encrypt_on_host_without_root_access/
 1. https://erdees.ru/it/all-about-let-s-encrypt/
 1. https://pve.proxmox.com/wiki/HTTPSCertificateConfiguration
 1. https://forum.openwrt.org/viewtopic.php?pid=327103#p327103
