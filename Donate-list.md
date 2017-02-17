@@ -8,5 +8,6 @@
 1. Chan Davy
 1. Stephan Herbers
 1. Armando Lüscher
+1. Barry van Someren
 
 
