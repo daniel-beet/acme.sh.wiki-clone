@@ -35,6 +35,7 @@ Here are some blogs that may help you:
 1. [FreeBSD.org switched to acme.sh](https://blog.crashed.org/letsencrypt-in-freebsd-org/)
 1. https://east.fm/posts/a-bash-client-for-the-acme-protocol/index.html
 1. https://east.fm/posts/acme-sh-cpanel-a2hosting/index.html
+1. [Let's Encrypt certificates on Synology DSM 5](http://blog.raorn.name/2017/02/lets-encrypt-certificates-on-synology.html)
 1. https://kralik.io/2016/11/26/how-easy-is-to-use-https-with-lets-encrypt-and-acme-sh/
 1. https://www.juliogonzalez.es/lets-encrypt-ssl-certificates-at-cpanel-without-native-support-for-example-at-namecheap/352
 1. https://www.rmedgar.com/blog/using-acme-sh-with-nginx
