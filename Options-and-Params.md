@@ -65,7 +65,7 @@ acme.sh  command ...[parameters]....
   **--home**                            Specifies the home dir for acme.sh. If you use it with '--install', then you'll need to use it every time you use acme.sh.  
   **--certhome**                        Specifies the home dir to save all the certs, only valid for '--install' command.  
   **--useragent**                       Specifies the user agent string. it will be saved for future use too.  
-  **--accountemail**                    Specifies the account email for registering, Only valid for the '--install' command.  
+  **--accountemail**                    Specifies the account email for registering, Only valid for the '--install' and '--updateaccount' commands.  
   **--accountkey**                      Specifies the account key path, Only valid for the '--install' command.  
   **--days**                            Specifies the days to renew the cert when using '--issue' command. The max value is 60 days.  
   **--httpport**                        Specifies the standalone listening port. Only valid if the server is behind a reverse proxy or load balancer.  
