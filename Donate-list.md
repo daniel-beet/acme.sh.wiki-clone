@@ -12,3 +12,5 @@
 1. Robert Wetzlmayr
 1. Ricardo Cabrera
 1. Coffeesprout ICT services
+1. myGeiger Scientific Instruments Oy
+
