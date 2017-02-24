@@ -9,5 +9,6 @@
 1. Stephan Herbers
 1. Armando Lüscher
 1. Barry van Someren
-
+1. Robert Wetzlmayr
+1. Ricardo Cabrera
 
