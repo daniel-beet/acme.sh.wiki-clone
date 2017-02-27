@@ -29,7 +29,7 @@ Now to create your certificate:
 
     $ ./acme.sh  --issue -d YOURDOMAIN.TLD --dns dns_cf --certpath /usr/syno/etc/certificate/system/default/cert.pem --keypath /usr/syno/etc/certificate/system/default/privkey.pem --fullchainpath /usr/syno/etc/certificate/system/default/fullchain.pem
 
-(anyone knows how to restart the webserver?)
+You'll need to restart the webserver with:  /usr/syno/etc/rc.sysv/nginx.sh reload
 
 simple right?
 
