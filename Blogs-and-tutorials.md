@@ -63,6 +63,7 @@ Here are some blogs that may help you:
 1. https://www.naschenweng.info/2017/01/06/automatic-ssl-renewal-encrypt-dsm-5-x-synology-ds1010-dns-01-verification/
 1. http://community.brocade.com/t5/vADC-Blog/Using-Let-s-Encrypt-certificates-with-Brocade-vADC/ba-p/90491
 1. https://blog.artooro.com/2017/02/16/quick-easy-lets-encrypt-setup-on-pfsense-using-acme/
+1. https://thedevops.party/lets-encrypt-ssl-certificate-on-pfsense-2-3/
 
 ## French
 1. https://system42.fr/?d=2017/01/01/19/09/43-mise-en-place-de-https-sur-apache-avec-lets-encrypt
