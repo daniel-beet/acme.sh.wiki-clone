@@ -1,4 +1,4 @@
-Those hooks are only work with `--issue` or `--install-cert` command.
+Those hooks are only working with `--issue` or `--install-cert` command.
 
 ```sh
 acme.sh --install-cert -d example.com  \
