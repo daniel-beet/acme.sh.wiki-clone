@@ -2,6 +2,7 @@ Here are some blogs that may help you:
 
 ## 中文
 1. https://ruby-china.org/topics/31983
+1. https://hitian.info/notes/2017/02/16/acme-sh-create-letsencrypt-certificates-with-dns-api/
 1. https://nmchgx.com/acme-https/
 1. https://www.gubo.org/acme_sh-lets-encrypt-auto-signing-renewing-script/
 1. https://lazydog.me/post/create-a-blog-step-by-step.html#toc-705
