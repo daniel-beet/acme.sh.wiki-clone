@@ -62,6 +62,7 @@ Here are some blogs that may help you:
 1. http://www.mcpressonline.com/security/techtip-let-s-encrypt-together.html
 1. https://meta.discourse.org/t/setting-up-lets-encrypt/40709
 1. http://www.cyberciti.biz/faq/how-to-configure-nginx-with-free-lets-encrypt-ssl-certificate-on-debian-or-ubuntu-linux/
+1. https://www.cyberciti.biz/faq/how-to-configure-lighttpd-web-server-with-free-lets-encrypt-ssl-certificate-on-debian-or-ubuntu-linux/
 1. https://cpbotha.net/2016/07/18/installing-free-lets-encrypt-ssl-certificates-on-webfaction-in-3-easy-steps/
 1. http://www.ecsoft2.org/howto/using-let%E2%80%99s-encrypt-os2
 1. https://ramy.nl/2016/03/23/installing-lets-encrypt-on-ubuntu-14-04/
