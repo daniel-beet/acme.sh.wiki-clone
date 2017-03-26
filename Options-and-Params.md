@@ -54,10 +54,10 @@ acme.sh  command ...[parameters]....
 
 **These parameters are to install the cert to nginx/apache or anyother server after issue/renew a cert:**  
   
-  **--certpath /path/to/real/cert/file**  After issue/renew, the cert will be copied to this path.  
-  **--keypath /path/to/real/key/file**  After issue/renew, the key will be copied to this path.  
-  **--capath /path/to/real/ca/file**    After issue/renew, the intermediate cert will be copied to this path.  
-  **--fullchainpath /path/to/fullchain/file** After issue/renew, the fullchain cert will be copied to this path.  
+  **--cert-file /path/to/real/cert/file**  After issue/renew, the cert will be copied to this path.  
+  **--key-file /path/to/real/key/file**  After issue/renew, the key will be copied to this path.  
+  **--ca-file /path/to/real/ca/file**    After issue/renew, the intermediate cert will be copied to this path.  
+  **--fullchain-file /path/to/fullchain/file** After issue/renew, the fullchain cert will be copied to this path.  
   
   **--reloadcmd "service nginx reload"** After issue/renew, it's used to reload the server.  
 
@@ -74,12 +74,13 @@ acme.sh  command ...[parameters]....
   **--listraw**                         Only used for '--list' command, list the certs in raw format.  
   **--stopRenewOnError, -se**           Only valid for '--renewall' command. Stop if one cert has error in renewal.  
   **--insecure**                        Do not check the server certificate, in some devices, the api server's certificate may not be trusted.  
-  **--ca-bundle**                       Specifices the path to the CA certificate bundle to verify api server's certificate.  
+  **--ca-path**                         Specifies directory containing CA certificates in PEM format, used by wget or  curl to verify API server's certificate.  
+  **--ca-bundle**                       Specifies the CA certificate bundle file used by wget or curl to verify API server's certificate.  
   **--nocron**                          Only valid for '--install' command, which means: do not install the default cron job. In this case, the certs will not be renewed automatically.  
   **--ecc**                             Specifies to use the ECC cert. Valid for '--installcert', '--renew', '--revoke', '--toPkcs' and '--createCSR'  
   **--csr**                             Specifies the input csr.  
   **--pre-hook**                        Command to be run before obtaining any certificates.  
-  **--post-hook**                       Command to be run after attempting to obtain/renew certificates. No matter the obain/renew is success or failed.  
+  **--post-hook**                       Command to be run after attempting to obtain/renew certificates, no matter if the obtain/renew succeeded or failed.
   **--renew-hook**                      Command to be run once for each successfully renewed certificate.  
   **--deploy-hook**                     The hook file to deploy cert  
   **--ocsp-must-staple, --ocsp**        Generate ocsp must Staple extension.  
