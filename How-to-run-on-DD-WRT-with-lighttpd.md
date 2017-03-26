@@ -21,7 +21,8 @@ This guide is written for a Kong build of DD-WRT, but should work with any that 
               --home /jffs/usr/ssl --ca-path /opt/etc/ssl/certs \
               --pre-hook "stopservice lighttpd" --post-hook "startservice lighttpd"
     ```
-    Note: Be sure to replace [ddwrtdomain] with your domain name. To test your configuration, always add the `--test` parameter, to avoid being locked out by letsencrypt.
+    Note: Be sure to replace [ddwrtdomain] with your domain name. To test your configuration, always add the `--test` parameter, to avoid being locked out by letsencrypt. 
+    Finally, note that letsencrypt will not issue certificates for certain "public domains" which are not registered as such. In particular, this currently precludes the 85,000 domains served by `freedns.afraid.org` from being issued certificates.
 
 4. **Configure lighttpd to use the certificates provided by acme/letsencrypt.** To do this you will need to modify the default lighttpd.conf used by DD-WRT. The simplest way to do this is to copy the default configuration to /jffs/etc (`mkdir /jffs/etc; cp /tmp/lighttpd.conf /jffs/etc`), and then modify it (placed in that directory, it will override the default settings). Then modify /jffs/etc/lighttpd.conf (using [vi](http://www.mcsr.olemiss.edu/seminars/BASIC%20VI%20TUTORIAL.pdf)), so that the SSL section looks like this:
     ```
