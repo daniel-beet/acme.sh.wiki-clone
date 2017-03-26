@@ -16,13 +16,14 @@ This guide is written for a Kong build of DD-WRT, but should work with any that 
 3. **Get a trusted certificate issued from LetsEncrypt.org for your domain(s).** In order to do this they need to authenticate that you control the domain in question. The simplest general way at present is to use a TLS service run by acme.sh. There are many other possible approaches, but some may not work easily on DD-WRT, either due to lack of support, or the fact that the DD-WRT web GUI normally uses the default HTTP port. DNS approaches could be good if your DNS provider is supported. Finally, [lighttpd authentication may be supported in future](https://github.com/Neilpang/acme.sh/issues/687). Refer to the acme.sh documentation for other approaches or more complicated domain setups.
 
     To issue yourself a certificate for the domain assigned to dd-wrt:
-    ```sh
-    ./acme.sh --issue --tls -d [ddwrtdomain] --home /jffs/usr/ssl --ca-path /opt/etc/ssl/certs \
+    ```bash
+    ./acme.sh --issue --tls -d [ddwrtdomain] \
+              --home /jffs/usr/ssl --ca-path /opt/etc/ssl/certs \
               --pre-hook "stopservice lighttpd" --post-hook "startservice lighttpd"
     ```
     Note: Be sure to replace [ddwrtdomain] with your domain name. To test your configuration, always add the `--test` parameter, to avoid being locked out by letsencrypt.
 
-4. **Configure lighttpd to use the certificates provided by acme/letsencrypt.** To do this you will need to modify the default lighttpd.conf used by DD-WRT. The simplest way to do this is to copy the default configuration to /jffs/etc (`mkdir /jffs/etc; cp /tmp/lighttpd.conf /jffs/etc`), and then modify it (placed in that directory, it will override the default settings). Then modify /tmp/lighttpd.conf (using vi), so that the SSL section looks like this:
+4. **Configure lighttpd to use the certificates provided by acme/letsencrypt.** To do this you will need to modify the default lighttpd.conf used by DD-WRT. The simplest way to do this is to copy the default configuration to /jffs/etc (`mkdir /jffs/etc; cp /tmp/lighttpd.conf /jffs/etc`), and then modify it (placed in that directory, it will override the default settings). Then modify /tmp/lighttpd.conf (using [vi](http://www.mcsr.olemiss.edu/seminars/BASIC%20VI%20TUTORIAL.pdf)), so that the SSL section looks like this:
     ```
     $SERVER["socket"] == ":443" {
     ssl.engine	= "enable"
@@ -33,7 +34,7 @@ This guide is written for a Kong build of DD-WRT, but should work with any that 
     If you want to just run an HTTPS server, without any HTTP server, you can simply put a `#` in front of the first and last lines there and change the server.port line to `server.port = 443`. Do not remove your HTTP port from the web GUI, as this will cause lighttpd to malfunction.
 
 5. **Install your new certificates to the place lighttpd will find them.**
-    ```sh
+    ```bash
     ./acme.sh --install-cert -d [ddwrtdomain] --home /jffs/usr/ssl \
               --cert-file /jffs/etc/lighttpd_ssl/host.crt \
               --key-file  /jffs/etc/lighttpd_ssl/host.key \
@@ -48,8 +49,8 @@ This guide is written for a Kong build of DD-WRT, but should work with any that 
 6. **Set up a cron job to update certificate automatically before it expires.** Under Administration/Management, add a line under Additional Cron Jobs:
     ```
     # sundays @4:05am, renew/install SSL certificates if necessary (restarting lighttpd)
-    5 4 * * 0 root /jffs/usr/ssl/acme.sh --cron --home /jffs/usr/ssl >>/jffs/usr/ssl/cronlog.txt 2>&1
+    5 4 * * 0 root /jffs/usr/ssl/acme.sh --cron --home /jffs/usr/ssl >>/jffs/usr/ssl/cron.log 2>&1
     ```
-    LetsEncrypt recommends running daily although this script only runs weekly (but since LetsEncrypt certs last 90 days and will renew every 60, I don't see why it needs to run daily). It will only stop/restart lighttpd if a certificate may need to be re-issued, and will automatically issue and install it according to the settings you used in steps 3 and 5 above.
+    It will only stop/restart lighttpd if a certificate may need to be re-issued, and will automatically issue and install it according to the settings you used in steps 3 and 5 above. LetsEncrypt recommends running daily although this script only runs weekly (since LetsEncrypt certs currently last 90 days and will renew at most every 60, I don't see why it needs to run daily). 
 
 Voila! Your server is using a trusted certificate that will auto-renew.
