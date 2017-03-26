@@ -23,7 +23,7 @@ This guide is written for a Kong build of DD-WRT, but should work with any that 
     ```
     Note: Be sure to replace [ddwrtdomain] with your domain name. To test your configuration, always add the `--test` parameter, to avoid being locked out by letsencrypt.
 
-4. **Configure lighttpd to use the certificates provided by acme/letsencrypt.** To do this you will need to modify the default lighttpd.conf used by DD-WRT. The simplest way to do this is to copy the default configuration to /jffs/etc (`mkdir /jffs/etc; cp /tmp/lighttpd.conf /jffs/etc`), and then modify it (placed in that directory, it will override the default settings). Then modify /tmp/lighttpd.conf (using [vi](http://www.mcsr.olemiss.edu/seminars/BASIC%20VI%20TUTORIAL.pdf)), so that the SSL section looks like this:
+4. **Configure lighttpd to use the certificates provided by acme/letsencrypt.** To do this you will need to modify the default lighttpd.conf used by DD-WRT. The simplest way to do this is to copy the default configuration to /jffs/etc (`mkdir /jffs/etc; cp /tmp/lighttpd.conf /jffs/etc`), and then modify it (placed in that directory, it will override the default settings). Then modify /jffs/etc/lighttpd.conf (using [vi](http://www.mcsr.olemiss.edu/seminars/BASIC%20VI%20TUTORIAL.pdf)), so that the SSL section looks like this:
     ```
     $SERVER["socket"] == ":443" {
     ssl.engine	= "enable"
