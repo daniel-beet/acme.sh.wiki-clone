@@ -59,7 +59,11 @@ acme.sh  command ...[parameters]....
   **--ca-file /path/to/real/ca/file**    After issue/renew, the intermediate cert will be copied to this path.  
   **--fullchain-file /path/to/fullchain/file** After issue/renew, the fullchain cert will be copied to this path.  
   
-  **--reloadcmd "service nginx reload"** After issue/renew, it's used to reload the server.  
+  **--reloadcmd "[command]"** Command used after issue/renew, usually to reload the server.  
+  **--pre-hook "[command]"**                        Command to be run before obtaining any certificates.  
+  **--post-hook "[command]"**                       Command to be run after attempting to obtain/renew certificates, no matter if the obtain/renew succeeded or failed.
+  **--renew-hook "[command]"**                      Command to be run once for each successfully renewed certificate.  
+  **--deploy-hook "[command]"**                     The hook file to deploy cert
 
   **--accountconf**                     Specifies a customized account config file.  
   **--home**                            Specifies the home dir for acme.sh. If you use it with '--install', then you'll need to use it every time you use acme.sh.  
@@ -79,10 +83,6 @@ acme.sh  command ...[parameters]....
   **--nocron**                          Only valid for '--install' command, which means: do not install the default cron job. In this case, the certs will not be renewed automatically.  
   **--ecc**                             Specifies to use the ECC cert. Valid for '--installcert', '--renew', '--revoke', '--toPkcs' and '--createCSR'  
   **--csr**                             Specifies the input csr.  
-  **--pre-hook**                        Command to be run before obtaining any certificates.  
-  **--post-hook**                       Command to be run after attempting to obtain/renew certificates, no matter if the obtain/renew succeeded or failed.
-  **--renew-hook**                      Command to be run once for each successfully renewed certificate.  
-  **--deploy-hook**                     The hook file to deploy cert  
   **--ocsp-must-staple, --ocsp**        Generate ocsp must Staple extension.  
   **--auto-upgrade   [0|1]**            Valid for '--upgrade' command, indicating whether to upgrade automatically in future.  
   **--listen-v4**                       Force standalone/tls server to listen at ipv4.  
