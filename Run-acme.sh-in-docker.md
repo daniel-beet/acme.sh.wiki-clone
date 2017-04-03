@@ -1,6 +1,6 @@
 # acme.sh 💕 docker
 
-As one of the big docker fans, I understand that we hate to install anything on a docker host, even if it's copying a shell script. 
+As one of the big docker fans, I understand that we hate to install anything on a docker host, even if it's just copying a shell script. 
 
 So, Here "acme.sh in docker" comes.
 
@@ -48,9 +48,9 @@ docker run --rm  -it  \
 Anyway, you can just invoke **neilpang/acme.sh** image as if it were a real shell script.
 
 
-3. Run acme.sh as a docker daemon.
+# 3. Run acme.sh as a docker daemon.
 
-## 1. Starting acme.sh as a docker daemon, so that it can handle the renewal cronjob automatically.
+### 1. Starting acme.sh as a docker daemon, so that it can handle the renewal cronjob automatically.
 
 ```sh
 docker run --rm  -itd  \
@@ -60,7 +60,7 @@ docker run --rm  -itd  \
   neilpang/acme.sh 
 ```
 
-## 2. Then you can just use `docker exec` to execute any acme.sh commands.
+### 2. Then you can just use `docker exec` to execute any acme.sh commands.
 
 ```sh
 docker  exec  acme.sh --help
