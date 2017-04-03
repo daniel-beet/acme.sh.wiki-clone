@@ -4,6 +4,12 @@ As one of the big docker fans, I understand that we hate to install anything on 
 
 So, Here "acme.sh in docker" comes.
 
+1. Based on **alpine**, only 5MB size. 
+1. Either run as executable or run as daemon
+1. Support all the command line parameters.
+
+
+
 # 1. Say "Hello World"
 
 ```sh
