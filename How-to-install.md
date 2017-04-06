@@ -13,7 +13,7 @@ or
 wget -O -  https://get.acme.sh | sh
 ```
 
-## 2. Or, install from Git hub:
+## 2. Or, install from GitHub:
 
 ```
 curl https://raw.githubusercontent.com/Neilpang/acme.sh/master/acme.sh | INSTALLONLINE=1  sh
