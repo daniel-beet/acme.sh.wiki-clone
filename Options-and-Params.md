@@ -62,6 +62,7 @@ acme.sh  command ...[parameters]....
   **--reloadcmd "[command]"** Command used after issue/renew, usually to reload the server.  
   **--pre-hook "[command]"**                        Command to be run before obtaining any certificates.  
   **--post-hook "[command]"**                       Command to be run after attempting to obtain/renew certificates, no matter if the obtain/renew succeeded or failed.
+
   **--renew-hook "[command]"**                      Command to be run once for each successfully renewed certificate.  
   **--deploy-hook "[command]"**                     The hook file to deploy cert
 
