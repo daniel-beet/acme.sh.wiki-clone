@@ -56,7 +56,7 @@ Anyway, you can just invoke **neilpang/acme.sh** image as if it were a real shel
 
 # 3. Run acme.sh as a docker daemon.
 
-### 1. Starting acme.sh as a docker daemon, so that it can handle the renewal cronjob automatically.
+### 1. Running acme.sh as a docker daemon, so that it can handle the renewal cronjob automatically.
 
 ```sh
 docker run --rm  -itd  \
