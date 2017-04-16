@@ -62,9 +62,8 @@ Anyway, you can just invoke **neilpang/acme.sh** image as if it were a real shel
 docker run --rm  -itd  \
   -v "$(pwd)/out":/acme.sh  \
   --net=host \
-  --entrypoint /bin/sh \
   --name=acme.sh \
-  neilpang/acme.sh 
+  neilpang/acme.sh daemon
 ```
 
 ### 2. Then you can just use `docker exec` to execute any acme.sh commands.
