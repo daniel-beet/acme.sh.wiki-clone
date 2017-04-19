@@ -108,3 +108,6 @@ Here are some blogs that may help you:
 ## German
 1. https://hilfreiche-server.tips/index.php/blog/proxmox-4-absichern-mit-lets-encrypt-ssl-zertifikat
 1. http://adminforge.de/webserver/lets-encrypt-via-acme-sh-fuer-apache-und-nginx/
+
+## Spanish
+1. http://sinanimodelucro.net/lang/en/2016/07/10/acme-sh-facil-no-tanto-en-centos-5/
