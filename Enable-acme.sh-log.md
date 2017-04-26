@@ -7,7 +7,7 @@ acme.sh --install    --log
 ```
 
 If you forget to enable log when installing, you can enable log by any command.
-Exampl: enable log when issue cert:
+Example: enable log when issuing a cert:
 
 ```
 acme.sh  --issue  ....   --log
@@ -30,4 +30,5 @@ set log level to `2`
 ```
 acme.sh  --issue  .....  --log     --log-level 2
 ```
+
 
