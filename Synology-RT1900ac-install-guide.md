@@ -30,11 +30,17 @@ log out and login to ssh again
 so install is done :)
 
 next, config
+```
 $ cd /volume1/@appstore/acme.sh
+```
 get your email, cloudflare account and API (https://www.cloudflare.com/a/account/my-account)
+
+
 type this to the shell, replace with the values above
+```
 export CF_Key="sdfsdfsdfljlbjkljlkjsdfoiwje"
 export CF_Email="xxxx@sss.com"
+```
 
 now to create your cert
 ```
