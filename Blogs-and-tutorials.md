@@ -37,6 +37,7 @@ Here are some blogs that may help you:
 1. http://www.yilan.io/article/5703d07dc41b4c012e973bcb
 1. https://yatesun.com/2016/04/lets-encrypt-certificate/
 1. https://simiki.xulog.com/linux/issue%20and%20install%20cert.html
+1. https://zhangly.com/use-acme-sh/
 
 
 ## English
@@ -45,6 +46,10 @@ Here are some blogs that may help you:
 1. https://east.fm/posts/acme-sh-cpanel-a2hosting/index.html
 1. https://tryingtobeawesome.com/encryptdaddy/
 1. [Let's Encrypt certificates on Synology DSM 5](http://blog.raorn.name/2017/02/lets-encrypt-certificates-on-synology.html)
+1. https://odd-one-out.serek.eu/lets-encrypt-dns-challenge-cloudflare-acme-sh/
+1. http://biowikifarm.net/meta/HTTPS_Support_via_Let%E2%80%99s_Encrypt
+1. https://medium.com/@pavlakis/using-acme-sh-to-generate-letsencrypt-certificates-c98f28752e9f
+1. https://lttviet.com/2016/09/13/letsencrypt/
 1. [HTTPS on WebFaction using Let's Encrypt](https://blog.rarepebble.com/https-on-webfaction/)
 1. https://lttviet.com/2016/09/13/letsencrypt/
 1. https://unix.stackexchange.com/questions/327125/letencrypt-on-shared-hosting-neither-yum-or-dnf-found
@@ -77,6 +82,12 @@ Here are some blogs that may help you:
 1. https://blog.artooro.com/2017/02/16/quick-easy-lets-encrypt-setup-on-pfsense-using-acme/
 1. https://thedevops.party/lets-encrypt-ssl-certificate-on-pfsense-2-3/
 1. http://126kr.com/article/846xm2nb9sy
+1. https://forge.puppet.com/fraenki/acme/1.0.0
+1. https://forums.novell.com/showthread.php/502375-LetsEncrypt-setup
+1. https://www.imagescape.com/blog/2017/04/25/lets-encrypt-alternative-acme-client/
+1. https://wiki.nps.edu/display/~mcgredo/letsencrypt
+1. http://icebearsoft.euweb.cz/letsencrypt-howto/#d1e970
+
 
 ## French
 1. https://system42.fr/?d=2017/01/01/19/09/43-mise-en-place-de-https-sur-apache-avec-lets-encrypt
@@ -105,6 +116,7 @@ Here are some blogs that may help you:
 
 ## Czech
 1. https://www.root.cz/clanky/acme-sh-snadna-cesta-k-certifikatu-od-let-s-encrypt/
+1. https://havel.mojeservery.cz/lets-encrypt-snadno-s-acmesh/
 
 ## German
 1. https://hilfreiche-server.tips/index.php/blog/proxmox-4-absichern-mit-lets-encrypt-ssl-zertifikat
