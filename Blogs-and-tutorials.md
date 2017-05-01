@@ -117,6 +117,7 @@ Here are some blogs that may help you:
 ## Czech
 1. https://www.root.cz/clanky/acme-sh-snadna-cesta-k-certifikatu-od-let-s-encrypt/
 1. https://havel.mojeservery.cz/lets-encrypt-snadno-s-acmesh/
+1. https://www.strachota.net/category/bezpecnost
 
 ## German
 1. https://hilfreiche-server.tips/index.php/blog/proxmox-4-absichern-mit-lets-encrypt-ssl-zertifikat
