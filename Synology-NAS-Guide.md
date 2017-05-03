@@ -41,7 +41,7 @@ export CF_Email="xxxx@sss.com"
 ```
 Now to create your certificate:
 
-    $ ./acme.sh  --issue -d YOURDOMAIN.TLD --dns dns_cf --certpath /usr/syno/etc/certificate/system/default/cert.pem --keypath /usr/syno/etc/certificate/system/default/privkey.pem --fullchainpath /usr/syno/etc/certificate/system/default/fullchain.pem --reloadcmd "/usr/syno/etc/rc.sysv/nginx.sh reload" --dns_sleep 10
+    $ ./acme.sh  --issue -d YOURDOMAIN.TLD --dns dns_cf --certpath /usr/syno/etc/certificate/system/default/cert.pem --keypath /usr/syno/etc/certificate/system/default/privkey.pem --fullchainpath /usr/syno/etc/certificate/system/default/fullchain.pem --reloadcmd "/usr/syno/etc/rc.sysv/nginx.sh reload" --dnssleep 10
 
 simple right?
 
