@@ -1,4 +1,4 @@
-## Thanks to those who donates:
+## Thanks to those who donate:
 
 (If you want to be listed with your website link here, please write email to me: donate@acme.sh )
 
