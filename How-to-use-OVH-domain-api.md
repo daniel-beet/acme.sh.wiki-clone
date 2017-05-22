@@ -8,7 +8,7 @@ https://api.ovh.com/createToken/?GET=/domain/zone/*&POST=/domain/zone/*&PUT=/dom
 
 **If you plan to manage SSL certificates for a specif zone:**
 
-https://api.ovh.com/createToken/?GET=/domain/zone/mydomain.com&GET=/domain/zone/mydomain.com/*&POST=/domain/zone/mydomain.com/*&PUT=/domain/zone/mydomain.com/*
+https://api.ovh.com/createToken/?GET=/domain/zone/mydomain.com/*&POST=/domain/zone/mydomain.com/*&PUT=/domain/zone/mydomain.com/*&GET=/domain/zone/mydomain.com
 
 In the page, please  select "Unlimited" for the Validity and replace ``mydomain.com`` by the zone you need to manage
 
