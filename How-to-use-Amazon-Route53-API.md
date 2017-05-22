@@ -34,6 +34,30 @@ You can now use the new API keys with acme.sh
 
 [https://github.com/Neilpang/acme.sh/tree/master/dnsapi#10-use-amazon-route53-domain-api](https://github.com/Neilpang/acme.sh/tree/master/dnsapi#10-use-amazon-route53-domain-api)
 
-
-
+### appendix
+If you want to use a must more restrictive AWS policy, use the following:
+- http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/access-control-managing-permissions.html
+```json
+{
+   "Version": "2012-10-17",
+   "Statement": [
+      {
+         "Effect": "Allow",
+         "Action": [
+            "route53:ListHostedZones"
+         ],
+         "Resource": "*"
+      },
+      {
+         "Effect": "Allow",
+         "Action": [
+            "route53:GetHostedZone"
+            "route53:ListResourceRecordSets"
+            "route53:ChangeResourceRecordSets"
+         ],
+         "Resource": "arn:aws:route53:::hostedzone/hosted zone id"
+      }
+   ]
+}
+```
 
