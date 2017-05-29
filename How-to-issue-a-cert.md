@@ -1,57 +1,81 @@
 ### 1. Single domain:
 
 #### 1) Webroot mode:
-```
-acme.sh  --issue  -d aa.com  -w /home/wwwroot/aa.com
+If you already have a web server running, you should use webroot mode.  you only need write access to the web root folder.
+
+```sh
+acme.sh  --issue  -d example.com  -w /home/wwwroot/example.com
 ```
 
 #### 2) Standalone mode:
-```
-acme.sh  --issue  -d aa.com  --standalone
+
+If you don't have a web server,  maybe you are on a smtp or ftp server, the 80 port is free. you can use standalone mode.
+acme.sh has a builtin standalone webserver, it can listen at 80 port to issue the cert.
+
+```sh
+acme.sh  --issue  -d example.com  --standalone
 ```
 If you are using a non-standard `80` port behind a reverse proxy or load balancer , you can use `--httpport` to specify your port:
 
-```
-acme.sh  --issue  -d aa.com  --standalone --httpport 88
+```sh
+acme.sh  --issue  -d example.com  --standalone --httpport 88
 ```
 
 #### 3) Standalone tls mode:
-```
-acme.sh  --issue  -d aa.com  --tls
+
+It's similar to standalone mode.  The builtin webserver can listen at 443 port to issue cert. Make sure your 443 port is free.
+
+```sh
+acme.sh  --issue  -d example.com  --tls
 ```
 
 If you are using a non-standard `443` port behind a reverse proxy or load balancer , you can use `--tlsport` to specify your port:
 
-```
-acme.sh  --issue  -d aa.com  --tls  --tlsport 8443
+```sh
+acme.sh  --issue  -d example.com  --tls  --tlsport 8443
 ```
 
 
 #### 4) Dns manual mode:
-```
-acme.sh  --issue  -d aa.com  --dns
+
+You can also issue a cert by adding a txt record to your domain.
+
+```sh
+acme.sh  --issue  -d example.com  --dns
 ```
 
+**Take care,  this is dns manual mode, it can not be renewed automatically.  you will have to add a new txt record to your domain by your hand when you renew your cert.**
+
+
 #### 5) Dns api mode:
+
+Yes, if your nameservice provider has an api, we can use the api to automatically add the txt record for you. your cert will be automatically issued and renewed.
+
 Cloud flare api:
-```
+```sh
 export CF_Key="sdfsdfsdfljlbjkljlkjsdfoiwje"
 
 export CF_Email="xxxx@sss.com"
 
-acme.sh  --issue  -d aa.com  --dns dns_cf
+acme.sh  --issue  -d example.com  --dns dns_cf
 ```
 
 How to use dns api:  https://github.com/Neilpang/acme.sh/tree/master/dnsapi
 
 #### 6) Apache mode:
-```
-acme.sh  --issue  -d aa.com  --apache
+
+If your website is running apache server, acme.sh can use apache server to issue cert. And acme.sh will restore your apache conf after the cert is issued,  don't worry.
+
+```sh
+acme.sh  --issue  -d example.com  --apache
 ```
 
 #### 7) Nginx mode:
+
+If your website is running nginx server, acme.sh can use nginx server to issue cert. And acme.sh will restore your nginx conf after the cert is issued,  don't worry.
+
 ```
-acme.sh  --issue  -d aa.com  --nginx
+acme.sh  --issue  -d example.com  --nginx
 ```
 
 ### 2. Multiple domains, SAN mode
@@ -59,24 +83,24 @@ acme.sh  --issue  -d aa.com  --nginx
 Issue a single cert including multiple domains.  All the domains use the same validation method:
 
 #### 1) Webroot mode:
-You must point `aa.com` and `www.aa.com` to the same web root folder `/home/wwwroot/aa.com`
+You must point `example.com` and `www.example.com` to the same web root folder `/home/wwwroot/example.com`
 ```
-acme.sh  --issue  -d aa.com  -w /home/wwwroot/aa.com   -d www.aa.com
+acme.sh  --issue  -d example.com  -w /home/wwwroot/example.com   -d www.example.com
 ```
 
 #### 2) Standalone mode:
 ```
-acme.sh  --issue  -d aa.com  --standalone  -d www.aa.com 
+acme.sh  --issue  -d example.com  --standalone  -d www.example.com 
 ```
 
 #### 3) Standalone tls mode:
 ```
-acme.sh  --issue  -d aa.com  --tls  -d www.aa.com 
+acme.sh  --issue  -d example.com  --tls  -d www.example.com 
 ```
 
 #### 4) Dns manual mode:
 ```
-acme.sh  --issue  -d aa.com  --dns  -d www.aa.com
+acme.sh  --issue  -d example.com  --dns  -d www.example.com
 ```
 
 #### 5) Dns api mode:
@@ -84,9 +108,9 @@ Cloud flare api:
 ```
 export CF_Key="sdfsdfsdfljlbjkljlkjsdfoiwje"
 
-export CF_Email="xxxx@sss.com"
+export CF_Email="xxxx@example.com"
 
-acme.sh  --issue  -d aa.com  --dns dns_cf  -d www.aa.com
+acme.sh  --issue  -d example.com  --dns dns_cf  -d www.example.com
 ```
 
 
