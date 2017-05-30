@@ -40,7 +40,7 @@ docker run --rm  -it  \
 #use dns mode
 docker run --rm  -it  \
   -v "$(pwd)/out":/acme.sh  \
-  neilpang/acme.sh  --issue -d example.com --dns
+  neilpang/acme.sh  --issue --dns -d example.com
 ```
 
 ```sh
