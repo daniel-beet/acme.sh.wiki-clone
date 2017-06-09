@@ -2,6 +2,8 @@
 
 As one of the big docker fans, I understand that we hate to install anything on a docker host, even if it's just copying a shell script. 
 
+### Automated nginx reverse proxy docker image: https://github.com/Neilpang/nginx-proxy
+
 So, Here "acme.sh in docker" comes.
 
 1. Based on **alpine**, only 5MB size. 
