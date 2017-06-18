@@ -5,6 +5,7 @@ Here are some blogs that may help you:
 1. [使用acme.sh快速搭建https](https://www.zoulei.net/2017/03/05/acme.sh_quick_start/)
 1. [快速配置 HTTPS](https://blog.mynook.info/post/fast-way-to-configure-a-https-site)
 1. https://www.rails365.net/articles/shi-yong-acme-sh-an-zhuang-let-s-encrypt-ti-gong-mian-fei-ssl-zheng-shu
+1. [Windows Tomcat 配置Let’s Encrypt证书并自动更新](http://www.jianshu.com/p/80d72f34140b)
 1. https://llinx.me/automatic-issuance-and-renewal-of-acmesh-using-ssl.html
 1. https://hitian.info/notes/2017/02/16/acme-sh-create-letsencrypt-certificates-with-dns-api/
 1. https://nmchgx.com/acme-https/
