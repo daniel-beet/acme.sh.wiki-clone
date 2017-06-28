@@ -14,24 +14,23 @@ I've used https://github.com/Neilpang/acme.sh which is a 3rd party client for Le
 I've also used it with the DNS-01 protocol, which means, I don't have any ports open on the router to do the validation, instead it uses the [Cloudflare API](https://api.cloudflare.com/), where I host my domain.
 
 
-Install:
+Install acme.sh manually. 
 
 ```
-    $ export FORCE=1
-    $ wget -O -  https://get.acme.sh | sh
+$ wget https://github.com/Neilpang/acme.sh/archive/master.tar.gz
+$ tar xvf master.tar.gz
+$ cd acme.sh-master/
+$ ./acme.sh --install --nocron --home /usr/local/sbin/acme.sh
 ```
+
+It will ask you to logout and login back again. 
 so install is done :)
-
-
-It will ask you to logout and login back again, to set shell settings.
-
 
 next step is to do the configuration:
 
 ```
-    $ cd ~/.acme.sh/
+    $ cd /usr/local/sbin/acme.sh
 ```
-
 
 set your email, cloudflare account and API (https://www.cloudflare.com/a/account/my-account)
 
@@ -67,7 +66,7 @@ Configure crontab for root
 Add the following line to the crontab. Remember to use tab for spacing. 
 For example, 10:00 am of the 2nd day every month run the cronjob to check if due to renew the certificates (You can modify the cronjob schedule according to your needs) 
 
-`0    10    2    *    *    root    /root/.acme.sh/acme.sh --cron --home /root/.acme.sh/`
+`0    10    2    *    *    root    /usr/local/sbin/acme.sh/acme.sh --cron --home /usr/local/sbin/acme.sh/`
 
 The last step is to setup a schedule task to copy renewed certificates in cert library to system default directory and restart the Nginx service.
 
