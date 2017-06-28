@@ -78,6 +78,7 @@ In DSM control panel, open the 'Task Scheduler' and create a new scheduled task 
 * Task setting: User-defined-script
 
 `rsync -avzh /usr/syno/etc/certificate/_archive/**vPATH**/ /usr/syno/etc/certificate/system/default/`
+
 `/usr/syno/etc/rc.sysv/nginx.sh reload `
 
 Now you should all good. 
