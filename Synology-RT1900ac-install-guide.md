@@ -53,7 +53,7 @@ since there is no crontab, we need to manually add it to cron.
 ```
 $ vi /etc/crontab 
 and add something like
-3       2       *       *       2       root    /root/.acme.sh/acme.sh --cron
+3       2       *       *       2       root    /volume1/@appstore/acme.sh/acme.sh --cron --home /volume1/@appstore/acme.sh
 :wq
 ```
 
