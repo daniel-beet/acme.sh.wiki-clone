@@ -67,7 +67,7 @@ Configure crontab for root
 Add the following line to the crontab. Remember to use tab for spacing. 
 For example, 10:00 am of the 2nd day every month run the cronjob to check if due to renew the certificates (You can modify the cronjob schedule according to your needs) 
 
-`0    10    2    *    *    root    /root/.acme.sh/acme.sh --cron`
+`0    10    2    *    *    root    /root/.acme.sh/acme.sh --cron --home /root/.acme.sh/`
 
 The last step is to setup a schedule task to copy renewed certificates in cert library to system default directory and restart the Nginx service.
 
