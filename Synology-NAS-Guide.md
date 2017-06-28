@@ -45,6 +45,9 @@ Now to create your certificate:
 
 Please note, in this way it will replace/overwrite your Synology NAS system default certificate directly. 
 
+---------------------------------------------------------------------------------------------------------
+**Below are optional steps!!!**
+
 Alternatively, you can change the certificates install path to your DSM cert library folder which will only replace the certificate you nominated, no impact to system default one. 
 
 For example:
@@ -70,12 +73,15 @@ The last step is to setup a schedule task to copy renewed certificates in cert l
 
 In DSM control panel, open the 'Task Scheduler' and create a new scheduled task for a user-defined script.  
 
-General Setting: Task - Update default Cert. User - root
-Schedule: Setup the time according to your acme.sh crontab schedule. For example, 11:00 am of the 2nd day every month.
-Task setting: User-defined-script
+* General Setting: Task - Update default Cert. User - root
+* Schedule: Setup the time according to your acme.sh crontab schedule. For example, 11:00 am of the 2nd day every month.
+* Task setting: User-defined-script
 
 `rsync -avzh /usr/syno/etc/certificate/_archive/**vPATH**/ /usr/syno/etc/certificate/system/default/`
 `/usr/syno/etc/rc.sysv/nginx.sh reload `
 
 Now you should all good. 
+
+--------------------------------------------------------------------------------------------------------------------
+
 HTH
