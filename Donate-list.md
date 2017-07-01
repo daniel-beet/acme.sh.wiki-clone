@@ -15,4 +15,6 @@
 1. myGeiger Scientific Instruments Oy
 1. shimile@GitHub
 1. John Elliot <a href="https://www.progclub.org/">ProgClub</a>
-
+1. BSDCan
+1. Haiku Lab Limited
+1. Miroslav Lachman
