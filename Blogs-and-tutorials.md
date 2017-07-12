@@ -18,6 +18,7 @@ Here are some blogs that may help you:
 1. [使用acme签发&续期 Let's Encrypt 证书](https://painso.com/2017/02/28/acme-lets-encrypt-issue/)
 1. https://www.zhuyurun.cn/2017/02/19/ru-he-gei-wang-zhan-shang-https/
 1. http://www.qingpingshan.com/m/view.php?aid=183153
+1. [让你的网站免费开启Https访问](https://rekkles.xyz/2017/07/05/create-a-https-website/)
 1. https://github.com/Neilpang/acme.sh/wiki/%E8%AF%B4%E6%98%8E
 1. https://www.gubo.org/acme_sh-lets-encrypt-auto-signing-renewing-script/
 1. https://www.prinice.org/2016/09/11/86/
