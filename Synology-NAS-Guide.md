@@ -84,4 +84,10 @@ Now you should all good.
 
 --------------------------------------------------------------------------------------------------------------------
 
-HTH
+To fix the broken environment after Synology DSM upgrade, you can
+```
+$ cd /urs/local/sbin/acme.sh
+$ ./acme.sh --upgrade --nocron --home /usr/local/sbin/acme.sh
+```
+or manually add below line into /root/.profile
+`. "/usr/local/sbin/acme.sh/acme.sh.env"`
