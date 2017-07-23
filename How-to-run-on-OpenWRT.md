@@ -6,6 +6,10 @@ Setup and run acme.sh on your OpenWRT router and have https secured management.
 
 `opkg install curl ca-certificates uhttpd-mod-tls`
 
+On LEDE 17.01.2 you will need
+
+`opkg install curl ca-certificates ca-bundle luci-ssl`
+
 ### Step 2: Configure Web Server
 Here we'll tell uhttpd to listen for https traffic and add two firewall rules to let that traffic through.
 
