@@ -1,46 +1,39 @@
+# HTTPS certificates for your Synology NAS using acme.sh
+
 Since Synology introduced [Let's Encrypt](https://letsencrypt.org/), many of us benefit from free SSL. 
 
-
-On the other hand, many of us don't want to expose port 80/443 to the Internet. The alternative is to use the DNS-01 protocol. Sadly the Synology implementation of Let's Encrypt currently (1-Jan-2017) only supports the HTTP-01 method which requires exposing port 80 to the Internet.
-
+On the other hand, many of us don't want to expose port 80/443 to the Internet, including opening ports on the router. The alternative is to use the DNS-01 protocol. Sadly the Synology implementation of Let's Encrypt currently (1-Jan-2017) only supports the HTTP-01 method which requires exposing port 80 to the Internet. Also, if the domain of your NAS has an IPv6 AAAA record set, the Synology implementation of Let's Encrypt will fail.
 
 But we can access the NAS via SSH and configure it to renew certs instead of using the web dashboard.
 
+The following guide will use the DNS-01 protocol using the [Cloudflare API](https://api.cloudflare.com/), where I host my domain. However, [since acme.sh supports many DNS services](https://github.com/Neilpang/acme.sh/tree/master/dnsapi), you can also choose the one you like.
 
-Here's the HowTo (xpopst https://forum.synology.com/enu/viewtopic.php?f=7&t=123007).
-I've used https://github.com/Neilpang/acme.sh which is a 3rd party client for Let's Encrypt, based on Shell scripting. No extra dependencies are required.
+## Installation of acme.sh
 
+    $ wget https://github.com/Neilpang/acme.sh/archive/master.tar.gz
+    $ tar xvf master.tar.gz
+    $ cd acme.sh-master/
+    $ ./acme.sh --install --nocron --home /usr/local/sbin/acme.sh
 
-I've also used it with the DNS-01 protocol, which means, I don't have any ports open on the router to do the validation, instead it uses the [Cloudflare API](https://api.cloudflare.com/), where I host my domain.
+## Configuring DNS
 
+For CloudFlare, we will set two environment variables that acme.sh (specifically, the `dns_cf` script from the `dnsapi` subdirectory) will read to set the DNS record. You can get your CloudFlare [API key here](https://www.cloudflare.com/a/account/my-account).
 
-Install acme.sh manually. 
+    export CF_Key="MY_SECRET_KEY_SUCH_SECRET"
+    export CF_Email="myemail@example.com"
 
-```
-$ wget https://github.com/Neilpang/acme.sh/archive/master.tar.gz
-$ tar xvf master.tar.gz
-$ cd acme.sh-master/
-$ ./acme.sh --install --nocron --home /usr/local/sbin/acme.sh
-```
+In case you use another DNS service, check the `dnsapi` directory. Instructions for many DNS providers are already included. You can also find instructions on how to add another DNS service there, although that requires some software development skills.
 
-It will ask you to logout and login back again. 
-so install is done :)
+## Creating the certificate
+Now it's time to create the certificate for your domain:
 
-next step is to do the configuration:
-
-```
     $ cd /usr/local/sbin/acme.sh
-```
-
-set your email, cloudflare account and API (https://www.cloudflare.com/a/account/my-account)
-
-```
-export CF_Key="sdfsdfsdfljlbjkljlkjsdfoiwje"
-export CF_Email="xxxx@sss.com"
-```
-Now to create your certificate:
-
-    $ ./acme.sh  --issue -d YOURDOMAIN.TLD --dns dns_cf --certpath /usr/syno/etc/certificate/system/default/cert.pem --keypath /usr/syno/etc/certificate/system/default/privkey.pem --fullchainpath /usr/syno/etc/certificate/system/default/fullchain.pem --reloadcmd "/usr/syno/etc/rc.sysv/nginx.sh reload" --dnssleep 10
+    $ ./acme.sh --issue -d YOURDOMAIN.TLD --dns dns_cf \
+          --certpath /usr/syno/etc/certificate/system/default/cert.pem \
+          --keypath /usr/syno/etc/certificate/system/default/privkey.pem \
+          --fullchainpath /usr/syno/etc/certificate/system/default/fullchain.pem \
+          --reloadcmd "/usr/syno/etc/rc.sysv/nginx.sh reload" \
+          --dnssleep 10
 
 Please note, in this way it will replace/overwrite your Synology NAS system default certificate directly. 
 
