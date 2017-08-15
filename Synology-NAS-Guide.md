@@ -73,8 +73,9 @@ In DSM control panel, open the 'Task Scheduler' and create a new scheduled task 
 
 * General Setting: Task - Update default Cert. User - root
 * Schedule: Setup the time according to your acme.sh crontab schedule. For example, 11:00 am of the 2nd day every month.
-* Task setting: User-defined-script
+* Task setting: User-defined-script:
 
+    $
     # Note: The $CERT_FOLDER must be hardcoded here since the running environment is unknown. Don't blindly copy&paste
     rsync -avzh "$CERT_FOLDER" "/usr/syno/etc/certificate/system/default/"
     /usr/syno/sbin/synoservicectl --reload nginx
@@ -83,7 +84,7 @@ Now you should be all good.
 
 --------------------------------------------------------------------------------------------------------------------
 
-To fix the broken environment after Synology DSM upgrade, you can
+## Fix a broken environment after Synology DSM upgrade
 
     $ cd /urs/local/share/acme.sh
     $ ./acme.sh --upgrade --nocron --home /usr/local/share/acme.sh
