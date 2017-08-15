@@ -13,7 +13,7 @@ The following guide will use the DNS-01 protocol using the [Cloudflare API](http
     $ wget https://github.com/Neilpang/acme.sh/archive/master.tar.gz
     $ tar xvf master.tar.gz
     $ cd acme.sh-master/
-    $ ./acme.sh --install --nocron --home /usr/local/sbin/acme.sh
+    $ ./acme.sh --install --nocron --home /usr/local/share/acme.sh
 
 ## Configuring DNS
 
@@ -27,24 +27,23 @@ In case you use another DNS service, check the `dnsapi` directory. Instructions 
 ## Creating the certificate
 Now it's time to create the certificate for your domain:
 
-    $ cd /usr/local/sbin/acme.sh
-    $ ./acme.sh --issue -d YOURDOMAIN.TLD --dns dns_cf \
+    $ cd /usr/local/share/acme.sh
+    $ export CERT_DOMAIN="your-domain.tld"
+    $ export CERT_DNS="dns_cf"
+    $ ./acme.sh --issue -d "$CERT_DOMAIN" --dns "$CERT_DNS" \
           --certpath /usr/syno/etc/certificate/system/default/cert.pem \
           --keypath /usr/syno/etc/certificate/system/default/privkey.pem \
           --fullchainpath /usr/syno/etc/certificate/system/default/fullchain.pem \
           --reloadcmd "/usr/syno/sbin/synoservicectl --reload nginx" \
           --dnssleep 20
 
-Please note, in this way it will replace/overwrite your Synology NAS system default certificate directly. 
+Please note that this will replace your Synology NAS system default certificate directly.
 
 ---------------------------------------------------------------------------------------------------------
-**Below are optional steps!!!**
+## Alternative method that preserves your Synology NAS system default certificate
 
-Alternatively, you can change the certificates install path to your DSM cert library folder which will only replace the certificate you nominated, no impact to system default one. 
-
-For example:
- 
     $ export CERT_FOLDER="$(find /usr/syno/etc/certificate/_archive/ -maxdepth 1 -mindepth 1 -type d)"
+    $ # Make sure $CERT_FOLDER is only one name. Else you have to manually specify the folder.
     $ export CERT_DOMAIN="your-domain.tld"
     $ export CERT_DNS="dns_cf"
     $ ./acme.sh  --issue -d "$CERT_DOMAIN" --dns "$CERT_DNS" \
@@ -61,12 +60,12 @@ To auto renew the certificates in the future, you need to configure the cronjob.
 
 Configure crontab for root
 
-    $ vi /etc/crontab
+    $ vim /etc/crontab
 
 Add the following line to the crontab. Remember to use tab for spacing. 
 For example, 10:00 am of the 2nd day every month run the cronjob to check if due to renew the certificates (You can modify the cronjob schedule according to your needs) 
 
-    0    10    2    *    *    root    /usr/local/sbin/acme.sh/acme.sh --cron --home /usr/local/sbin/acme.sh/
+    0    10    2    *    *    root    /usr/local/share/acme.sh/acme.sh --cron --home /usr/local/share/acme.sh/
 
 The last step is to setup a schedule task to copy renewed certificates in cert library to system default directory and restart the Nginx service.
 
@@ -76,19 +75,19 @@ In DSM control panel, open the 'Task Scheduler' and create a new scheduled task 
 * Schedule: Setup the time according to your acme.sh crontab schedule. For example, 11:00 am of the 2nd day every month.
 * Task setting: User-defined-script
 
-    rsync -avzh /usr/syno/etc/certificate/_archive/**vPATH**/ /usr/syno/etc/certificate/system/default/`
+    # Note: The $CERT_FOLDER must be hardcoded here since the running environment is unknown. Don't blindly copy&paste
+    rsync -avzh "$CERT_FOLDER" "/usr/syno/etc/certificate/system/default/"
+    /usr/syno/sbin/synoservicectl --reload nginx
 
-    /usr/syno/etc/rc.sysv/nginx.sh reload
-
-Now you should all good. 
+Now you should be all good. 
 
 --------------------------------------------------------------------------------------------------------------------
 
 To fix the broken environment after Synology DSM upgrade, you can
 
-    $ cd /urs/local/sbin/acme.sh
-    $ ./acme.sh --upgrade --nocron --home /usr/local/sbin/acme.sh
+    $ cd /urs/local/share/acme.sh
+    $ ./acme.sh --upgrade --nocron --home /usr/local/share/acme.sh
 
 or manually add below line into /root/.profile
 
-    . "/usr/local/sbin/acme.sh/acme.sh.env"
+    . "/usr/local/share/acme.sh/acme.sh.env"
