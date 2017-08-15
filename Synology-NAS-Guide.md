@@ -45,7 +45,7 @@ Alternatively, you can change the certificates install path to your DSM cert lib
 For example:
  
     $ export CERT_FOLDER="$(find /usr/syno/etc/certificate/_archive/ -maxdepth 1 -mindepth 1 -type d)"
-    $./acme.sh  --issue -d YOURDOMAIN.TLD --dns dns_cf \
+    $ ./acme.sh  --issue -d YOURDOMAIN.TLD --dns dns_cf \
         --certpath "$CERT_FOLDER/cert.pem" \
         --keypath "$CERT_FOLDER/privkey.pem" \
         --fullchainpath "$CERT_FOLDER/fullchain.pem" \
