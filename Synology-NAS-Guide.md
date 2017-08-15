@@ -44,14 +44,13 @@ Alternatively, you can change the certificates install path to your DSM cert lib
 
 For example:
  
+    $ export CERT_FOLDER="$(find /usr/syno/etc/certificate/_archive/ -maxdepth 1 -mindepth 1 -type d)"
     $./acme.sh  --issue -d YOURDOMAIN.TLD --dns dns_cf \
-        --certpath /usr/syno/etc/certificate/_archive/**vPATH**/cert.pem \
-        --keypath /usr/syno/etc/certificate/_archive/**vPATH**/privkey.pem \
-        --fullchainpath /usr/syno/etc/certificate/_archive/**vPATH**/fullchain.pem \
-        --capath /usr/syno/etc/certificate/_archive/**vPATH**/chain.pem \
+        --certpath "$CERT_FOLDER/cert.pem" \
+        --keypath "$CERT_FOLDER/privkey.pem" \
+        --fullchainpath "$CERT_FOLDER/fullchain.pem" \
+        --capath "$CERT_FOLDER/chain.pem" \
         --reloadcmd "/usr/syno/etc/rc.sysv/nginx.sh reload"
-
-You need to manually replace the 'vPATH' field with the directory name under your /usr/syno/etc/certificate/_archive/ . The directory name is a six characters unique name. 
 
 Now you can check the DSM control panel - Security - Certificates to see the nominated certificate has been replaced by letsencrypt one. You can now configure to use this one as default and assign to specific services, like vpn, sftp, etc.
  
