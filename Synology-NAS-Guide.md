@@ -32,8 +32,8 @@ Now it's time to create the certificate for your domain:
           --certpath /usr/syno/etc/certificate/system/default/cert.pem \
           --keypath /usr/syno/etc/certificate/system/default/privkey.pem \
           --fullchainpath /usr/syno/etc/certificate/system/default/fullchain.pem \
-          --reloadcmd "/usr/syno/etc/rc.sysv/nginx.sh reload" \
-          --dnssleep 10
+          --reloadcmd "/usr/syno/sbin/synoservicectl --reload nginx" \
+          --dnssleep 20
 
 Please note, in this way it will replace/overwrite your Synology NAS system default certificate directly. 
 
@@ -52,7 +52,8 @@ For example:
         --keypath "$CERT_FOLDER/privkey.pem" \
         --fullchainpath "$CERT_FOLDER/fullchain.pem" \
         --capath "$CERT_FOLDER/chain.pem" \
-        --reloadcmd "/usr/syno/etc/rc.sysv/nginx.sh reload"
+        --reloadcmd "/usr/syno/sbin/synoservicectl --reload nginx" \
+        --dnssleep 20
 
 Now you can check the DSM control panel - Security - Certificates to see the nominated certificate has been replaced by letsencrypt one. You can now configure to use this one as default and assign to specific services, like vpn, sftp, etc.
  
