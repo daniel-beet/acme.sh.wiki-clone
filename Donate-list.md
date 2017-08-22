@@ -18,3 +18,6 @@
 1. BSDCan
 1. Haiku Lab Limited
 1. Miroslav Lachman
+1. Yannick Grangé
+
+
