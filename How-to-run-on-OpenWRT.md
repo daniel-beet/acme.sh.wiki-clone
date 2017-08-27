@@ -4,7 +4,7 @@ Setup and run acme.sh on your OpenWRT router and have https secured management.
 
 ### Step 1: Install packages
 
-`opkg install curl ca-certificates uhttpd-mod-tls`
+`opkg install curl ca-certificates uhttpd-mod-tls openssl-util`
 
 On LEDE 17.01.2 you will need
 
@@ -44,6 +44,7 @@ On your router:
 mkdir ~/.https
 curl https://raw.githubusercontent.com/Neilpang/acme.sh/master/acme.sh > acme.sh
 chmod a+x "acme.sh"
+./acme.sh --install
 DOMAIN=my.router.net ## this domain must actually point to your router
 ./acme.sh --issue -d $DOMAIN -w /www
 ```
