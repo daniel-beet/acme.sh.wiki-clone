@@ -17,7 +17,7 @@ After installation,
 ```
 /root/.acme.sh/acme.sh  --issue  --standalone  -d <DOMAIN>
 ```
-After issuing, the cert will be automatically every 60 days.
+After issuing, the cert will be automatically renewed every 60 days.
 
 2) Install the cert to Proxmox:
 
@@ -30,7 +30,7 @@ Ok, it's done. Open the link: `https://<DOMAIN>:8006`
 
 ## 3. How to get pkcs12(pfx) format:
 
-After you issue the cert, then you can use `toPkcs` command to convert the cert to pkcs12(pfx) format
+After you issue the cert, you can use the `toPkcs` command to convert the cert to pkcs12(pfx) format
 ```
 acme.sh  --toPkcs  -d <domain>  [--password pfx-password]
 ```
@@ -41,10 +41,10 @@ from: https://cygwin.com/
 
 2) In the installer, select: Net: `curl`, Net: `nc`  and  Admin: `cron` to install.
 
-3) After install finished, you can open Cygwin window and use `curl` to install `le.sh`online:
+3) After install finished, you can open the Cygwin window and use `curl` to install `le.sh`online:
 [https://github.com/Neilpang/le/wiki#1-how-to-install](https://github.com/Neilpang/le/wiki#1-how-to-install)
 
-4) In Cygwin, the cron job is not working by default. So, the issued cert will not be renew automatically.
+4) In Cygwin, the cron job is not working by default. So, the issued cert will not be renewed automatically.
 If you want the cron job to work, you must enable the cron job:
 
 https://stackoverflow.com/questions/707184/how-do-you-run-a-crontab-in-cygwin-on-windows
