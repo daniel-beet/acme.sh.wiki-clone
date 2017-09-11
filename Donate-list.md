@@ -20,7 +20,7 @@
 1. Miroslav Lachman
 1. Yannick Grangé
 1. Christian Kraus
-
+1. Jean-Baptiste Marie
 
 ## 微信捐助列表:
 
