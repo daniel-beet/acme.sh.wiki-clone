@@ -77,7 +77,19 @@ In DSM control panel, open the 'Task Scheduler' and create a new scheduled task 
 
 ```
 # Note: The $CERT_FOLDER must be hardcoded here since the running environment is unknown. Don't blindly copy&paste
+# system default
 rsync -avzh "$CERT_FOLDER" "/usr/syno/etc/certificate/system/default/"
+# smbftp
+rsync -avzh "$CERT_FOLDER" "/usr/syno/etc/certificate/smbftpd/ftpd"
+# app portal
+while read -r dir ; do
+	rsync -avzh "$CERT_FOLDER" "$dir"
+done < <(find /usr/syno/etc/certificate/ReverseProxy -maxdepth 1 -mindepth 1 -type d)
+# reverse proxy
+while read -r dir ; do
+	rsync -avzh "$CERT_FOLDER" "$dir"
+done < <(find /usr/syno/etc/certificate/AppPortal -maxdepth 1 -mindepth 1 -type d)
+# reload certificate
 /usr/syno/sbin/synoservicectl --reload nginx
 ```
 Now you should be all good. 
