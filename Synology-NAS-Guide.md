@@ -104,7 +104,7 @@ fi
 # update and restart all installed packages
 PEMFILES=$(find $PACKAGECERTROOTDIR -name cert.pem)
 if [ ! -z "$PEMFILES" ]; then
-    for DIR in $PEMFILES; do
+	for DIR in $PEMFILES; do
 		rsync -avh "$FULLCERTDIR/" "$(dirname $DIR)/"
 		/usr/syno/bin/synopkg restart $(echo $DIR | awk -F/ '{print $6}')
 	done
