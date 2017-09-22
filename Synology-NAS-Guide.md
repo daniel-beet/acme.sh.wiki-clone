@@ -84,6 +84,7 @@ CERTDIR="AsDFgH"
 # do not change anything beyond this line!
 
 CERTROOTDIR="/usr/syno/etc/certificate"
+CERTROOTLOCALDIR="/usr/local/etc/certificate"
 FULLCERTDIR="$CERTROOTDIR/_archive/$CERTDIR"
 
 # find all subdirectories containing cert.pem files
@@ -99,6 +100,15 @@ fi
 
 # reload
 /usr/syno/sbin/synoservicectl --reload nginx
+
+# update and restart all installed packages
+PEMFILES=$(find $PACKAGECERTROOTDIR -name cert.pem)
+if [ ! -z "$PEMFILES" ]; then
+    for DIR in $PEMFILES; do
+		rsync -avh "$FULLCERTDIR/" "$(dirname $DIR)/"
+		/usr/syno/bin/synopkg restart $(echo $DIR | awk -F/ '{print $6}')
+	done
+fi
 ```
 Now you should be all good. 
 
