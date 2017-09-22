@@ -77,19 +77,27 @@ In DSM control panel, open the 'Task Scheduler' and create a new scheduled task 
 
 ```
 # Note: The $CERT_FOLDER must be hardcoded here since the running environment is unknown. Don't blindly copy&paste
-# system default
-rsync -avzh "$CERT_FOLDER" "/usr/syno/etc/certificate/system/default/"
-# smbftp
-rsync -avzh "$CERT_FOLDER" "/usr/syno/etc/certificate/smbftpd/ftpd"
-# app portal
-while read -r dir ; do
-	rsync -avzh "$CERT_FOLDER" "$dir"
-done < <(find /usr/syno/etc/certificate/ReverseProxy -maxdepth 1 -mindepth 1 -type d)
-# reverse proxy
-while read -r dir ; do
-	rsync -avzh "$CERT_FOLDER" "$dir"
-done < <(find /usr/syno/etc/certificate/AppPortal -maxdepth 1 -mindepth 1 -type d)
-# reload certificate
+# change this sample directory name "AsDFgH" to the name of your Let's Encrypt cert directory
+
+CERTDIR="AsDFgH"
+
+# do not change anything beyond this line!
+
+CERTROOTDIR="/usr/syno/etc/certificate"
+FULLCERTDIR="$CERTROOTDIR/_archive/$CERTDIR"
+
+# find all subdirectories containing cert.pem files
+PEMFILES=$(find $CERTROOTDIR -name cert.pem)
+if [ ! -z "$PEMFILES" ]; then
+        for DIR in $PEMFILES; do
+                # replace all certificates, but not the ones in the _archive folder
+                if [[ $DIR != *"/_archive/"* ]]; then
+                        rsync -avh "$FULLCERTDIR/" "$(dirname $DIR)/"
+                fi
+        done
+fi
+
+# reload
 /usr/syno/sbin/synoservicectl --reload nginx
 ```
 Now you should be all good. 
