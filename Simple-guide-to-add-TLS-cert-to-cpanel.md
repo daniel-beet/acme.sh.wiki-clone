@@ -1,11 +1,11 @@
-# How to install a SSL/TLS Let’s Encrypt cert into a cpanel account
+# How to install a SSL/TLS Let’s Encrypt cert into a cPanel account
 Based on https://github.com/Neilpang/acme.sh/blob/master/deploy/README.md
 
-## We will use acme.sh app, which is a Let’s Encrypt 3rd party client, with its cpanel API.
+## We will use acme.sh app, which is a Let’s Encrypt 3rd party client, with its cPanel API.
 Replace _EXAMPLE.COM_ with your domain
 ***
 
-## First we SSH into your cpanel host.
+## First we SSH into your cPanel host.
 Then install acme running the following command:
 
 `$ curl https://get.acme.sh | sh`
@@ -28,11 +28,11 @@ The default one is ~/public_html , but if you are using an addon domain, it will
 ## If successful, then we issue the real cert:
 `$ acme.sh --issue --keylength ec-256 --ecc --webroot ~/public_html/ -d `_EXAMPLE.COM_ **--force**
 
-## Next we enter the cpanel username (replace with your account name):
-`$ export DEPLOY_CPANEL_USER=_username_`
+## Next we enter the cPanel username (replace with your account name):
+`$ export DEPLOY_cPanel_USER=_username_`
 
-## Next we add the cert to the cpanel database:
-`$ acme.sh --deploy --deploy-hook cpanel_uapi -d `_EXAMPLE.COM_
+## Next we add the cert to the cPanel database:
+`$ acme.sh --deploy --deploy-hook cPanel_uapi -d `_EXAMPLE.COM_
 
 `[Sat Sep 23 06:53:08 EDT 2017] Certificate successfully deployed`
 
@@ -41,9 +41,53 @@ The default one is ~/public_html , but if you are using an addon domain, it will
 ***
 
 ## You can see if a crontab responsible to renew your cert every 60 days has been installed with the following command:
+
 `$ crontab -l`
+
 `56 0 * * * "/home/EXAMPLE.COM/.acme.sh"/acme.sh --cron --home "/home/EXAMPLE.COM/.acme.sh" > /dev/null`
 
-## In your cpanel account, you should see the new cron and also the new TLS cert applied to your domain.
+## In your cPanel account, you should see the new cron and also the new TLS cert applied to your domain.
 
 ## **Final step is create a redirect from http to https**
+Go to cPanel File Manager, create a .htaccess file in the root of your public_html folder, edit, and add the following:
+
+`RewriteCond %{HTTPS} off`
+
+`# First rewrite to HTTPS:`
+
+`RewriteRule .* https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]`
+
+
+# ADVANCE SETUP
+
+## Once your site is running smoothly with TLS, you can have browsers preload HTTPS.
+
+It's called HSTS Preload. Before continuing, read more at https://scotthelme.co.uk/hsts-preloading/
+
+Once informed, edit .htaccess and add the following:
+
+`<IfModule mod_headers.c>`
+
+`Header set Strict-Transport-Security "max-age=60; " env=HTTPS`
+
+`</IfModule>`
+
+This will add HSTS for 60 seconds. If the site is working as expect, increase it to 86400 seconds (one day).
+
+
+`<IfModule mod_headers.c>`
+
+`Header set Strict-Transport-Security "max-age=86400; " env=HTTPS`
+
+`</IfModule>`
+
+Once that is proven to work, change to 6 months.
+
+
+`<IfModule mod_headers.c>`
+
+`Header set Strict-Transport-Security "max-age=15768000; " env=HTTPS`
+
+`</IfModule>`
+
+You may consider to add preload flag and submit to https://hstspreload.org/
