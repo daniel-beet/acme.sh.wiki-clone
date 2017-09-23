@@ -26,7 +26,7 @@ The default one is ~/public_html , but if you are using an addon domain, it will
 `$ acme.sh --issue -w ~/public_html/ -d `_EXAMPLE.COM_ **--staging**
 
 ## If successful, then we issue the real cert:
-`$ acme.sh --issue -w ~/public_html/ -d `_EXAMPLE.COM_
+`$ acme.sh --issue -w ~/public_html/ -d `_EXAMPLE.COM_ **--force**
 
 ## Next we enter the cpanel username (replace with your account name):
 `$ export DEPLOY_CPANEL_USER=_username_`
