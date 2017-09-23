@@ -16,7 +16,7 @@ Then install acme running the following command:
 
 ## Add your email to be notified of issues with the TLS cert:
 
-`$ acme.sh --update-account --accountemail `_USERNAME@EXAMPLE.COM_
+`$ acme.sh --update-account --accountemail `_emailaddress@EXAMPLE.COM_
 
 ## Now let’s issue a test cert to see if everything is in place for the real cert to be issued and put in place.
 We will use the webroot method, which requires the user to enter the location of their public_html folder. 
