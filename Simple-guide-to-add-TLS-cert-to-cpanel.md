@@ -58,6 +58,9 @@ Go to cPanel File Manager, create a .htaccess file in the root of your public_ht
 `RewriteRule .* https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]`
 
 
+***
+
+
 # ADVANCE SETUP
 
 ## Once your site is running smoothly with TLS, you can have browsers preload HTTPS.
@@ -72,8 +75,8 @@ Once informed, edit .htaccess and add the following:
 
 `</IfModule>`
 
-This will add HSTS for 60 seconds. If the site is working as expect, increase it to 86400 seconds (one day).
 
+### This will add HSTS for 60 seconds. If the site is working as expect, increase it to 86400 seconds (one day).
 
 `<IfModule mod_headers.c>`
 
@@ -81,8 +84,8 @@ This will add HSTS for 60 seconds. If the site is working as expect, increase it
 
 `</IfModule>`
 
-Once that is proven to work, change to 6 months.
 
+### Once that is proven to work, change to 6 months.
 
 `<IfModule mod_headers.c>`
 
@@ -90,4 +93,4 @@ Once that is proven to work, change to 6 months.
 
 `</IfModule>`
 
-You may consider to add preload flag and submit to https://hstspreload.org/
+## You may consider to add preload flag and submit to https://hstspreload.org/
