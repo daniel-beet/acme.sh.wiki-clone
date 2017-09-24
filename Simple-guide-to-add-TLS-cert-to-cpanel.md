@@ -38,6 +38,8 @@ The default one is ~/public_html , but if you are using an addon domain, it will
 
 `[Sat Sep 23 06:53:08 EDT 2017] Success`
 
+### Please note, that the cpanel_uapi hook will deploy only the first domain when your certificate will automatically renew. Therefore you should issue a separate certificate for each domain.
+
 ***
 
 ## You can see if a crontab responsible to renew your cert every 60 days has been installed with the following command:
