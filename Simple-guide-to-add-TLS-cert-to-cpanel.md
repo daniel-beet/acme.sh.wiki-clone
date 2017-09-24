@@ -5,20 +5,23 @@ Based on https://github.com/Neilpang/acme.sh/blob/master/deploy/README.md
 Replace _EXAMPLE.COM_ with your domain
 ***
 
-## First we SSH into your cPanel host.
+### First we SSH into your cPanel host.
 `$ ssh -l `_USERNAME_` -p `_PORT_PROVIDED_BY_CPANEL_SUPPORT_ `  ` _SERVER_ADDRESS_
 
-## Then install acme running the following command:
+### Then install acme running the following command:
 
 `$ curl https://get.acme.sh | sh`
 
-## Then you either logoff and ssh again or just source bashrc:
+### Then you either logoff and ssh again or just source bashrc:
 
 `$ source ~/.bashrc`
 
-## Add your email to be notified of issues renewing the TLS cert:
+### Add your email to be notified of issues renewing the TLS cert:
 
 `$ acme.sh --update-account --accountemail `_emailaddress@EXAMPLE.COM_
+
+
+***
 
 ## Now let’s issue a test cert to see if everything is in place for the real cert to be issued and put in place.
 We will use the webroot method, which requires the user to enter the location of their public_html folder. 
@@ -51,7 +54,7 @@ https://letsencrypt.org/docs/staging-environment/
 
 `$ export DEPLOY_cPanel_USER=`_username_
 
-## Next we add the cert to the cPanel database:
+### Next we add the cert to the cPanel database:
 
 `$ acme.sh --deploy --deploy-hook cpanel_uapi --domain `_EXAMPLE.COM_
 
@@ -59,7 +62,7 @@ https://letsencrypt.org/docs/staging-environment/
 
 `[Sat Sep 23 06:53:08 EDT 2017] Success`
 
-### Please note, that the cpanel_uapi hook will deploy only the first domain when your certificate will automatically renew. Therefore you should issue a separate certificate for each domain.
+#### Please note, that the cpanel_uapi hook will deploy only the first domain when your certificate will automatically renew. Therefore you should issue a separate certificate for each domain.
 
 ***
 
@@ -116,4 +119,4 @@ Once informed, edit .htaccess and add the following:
 
 `</IfModule>`
 
-## You may consider to add preload flag and submit to https://hstspreload.org/
+#### You may consider to add preload flag and submit to https://hstspreload.org/
