@@ -24,7 +24,7 @@ Replace _EXAMPLE.COM_ with your domain
 ***
 
 ## Now let’s issue a test cert to see if everything is in place for the real cert to be issued and put in place.
-We will use the webroot method, which requires the user to enter the location of their public_html folder. 
+We will use the [webroot](https://github.com/Neilpang/acme.sh/wiki/How-to-issue-a-cert#1-webroot-mode) method, which requires the user to enter the location of their public_html folder. 
 
 The default one is ~/public_html , but if you are using an addon domain, it will be that folder instead.
 
