@@ -23,16 +23,16 @@ We will use the webroot method, which requires the user to enter the location of
 
 The default one is ~/public_html , but if you are using an addon domain, it will be that folder instead.
 
-`$ acme.sh --issue --keylength ec-256 --ecc --webroot ~/public_html/ -d `_EXAMPLE.COM_ **--staging**
+`$ acme.sh --issue --webroot ~/public_html/ -d `_EXAMPLE.COM_ **--staging**
 
 ## If successful, then we issue the real cert:
-`$ acme.sh --issue --keylength ec-256 --ecc --webroot ~/public_html/ -d `_EXAMPLE.COM_ **--force**
+`$ acme.sh --issue --webroot ~/public_html/ -d `_EXAMPLE.COM_ **--force**
 
 ## Next we enter the cPanel username (replace with your account name):
 `$ export DEPLOY_cPanel_USER=_username_`
 
 ## Next we add the cert to the cPanel database:
-`$ acme.sh --deploy --deploy-hook cpanel_uapi -d `_EXAMPLE.COM_
+`$ acme.sh --deploy --deploy-hook cpanel_uapi --domain `_EXAMPLE.COM_
 
 `[Sat Sep 23 06:53:08 EDT 2017] Certificate successfully deployed`
 
