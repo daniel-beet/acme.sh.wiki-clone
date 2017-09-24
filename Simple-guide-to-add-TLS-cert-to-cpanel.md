@@ -32,7 +32,7 @@ The default one is ~/public_html , but if you are using an addon domain, it will
 `$ export DEPLOY_cPanel_USER=_username_`
 
 ## Next we add the cert to the cPanel database:
-`$ acme.sh --deploy --deploy-hook cPanel_uapi -d `_EXAMPLE.COM_
+`$ acme.sh --deploy --deploy-hook cpanel_uapi -d `_EXAMPLE.COM_
 
 `[Sat Sep 23 06:53:08 EDT 2017] Certificate successfully deployed`
 
