@@ -6,7 +6,9 @@ Replace _EXAMPLE.COM_ with your domain
 ***
 
 ## First we SSH into your cPanel host.
-Then install acme running the following command:
+`$ ssh -l `_USERNAME_` -p `_PORT_PROVIDED_BY_CPANEL_SUPPORT_ `  ` _SERVER_ADDRESS_
+
+## Then install acme running the following command:
 
 `$ curl https://get.acme.sh | sh`
 
