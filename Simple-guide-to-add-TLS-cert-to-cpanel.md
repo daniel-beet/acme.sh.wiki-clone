@@ -25,13 +25,32 @@ The default one is ~/public_html , but if you are using an addon domain, it will
 
 `$ acme.sh --issue --webroot ~/public_html/ -d `_EXAMPLE.COM_ **--staging**
 
-## If successful, then we issue the real cert:
+
+### Be sure that the cert was issued without errors before proceeding. 
+
+Keep in mind Let's Encrypt API limits https://letsencrypt.org/docs/rate-limits/
+
+If errors happen, rerun the command with --debug 2 and see if you detect the problem.
+
+
+## Once successful issue the real cert:
+
 `$ acme.sh --issue --webroot ~/public_html/ -d `_EXAMPLE.COM_ **--force**
 
+We use --force to replace the initially issued staging cert
+
+https://letsencrypt.org/docs/staging-environment/
+
+
+***
+
+
 ## Next we enter the cPanel username (replace with your account name):
-`$ export DEPLOY_cPanel_USER=_username_`
+
+`$ export DEPLOY_cPanel_USER=`_username_
 
 ## Next we add the cert to the cPanel database:
+
 `$ acme.sh --deploy --deploy-hook cpanel_uapi --domain `_EXAMPLE.COM_
 
 `[Sat Sep 23 06:53:08 EDT 2017] Certificate successfully deployed`
