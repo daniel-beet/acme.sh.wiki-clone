@@ -16,7 +16,7 @@ Replace _EXAMPLE.COM_ with your domain
 
 `$ source ~/.bashrc`
 
-## Add your email to be notified of issues with the TLS cert:
+## Add your email to be notified of issues renewing the TLS cert:
 
 `$ acme.sh --update-account --accountemail `_emailaddress@EXAMPLE.COM_
 
