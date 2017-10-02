@@ -42,6 +42,7 @@ Here are some blogs that may help you:
 1. https://yatesun.com/2016/04/lets-encrypt-certificate/
 1. https://simiki.xulog.com/linux/issue%20and%20install%20cert.html
 1. https://zhangly.com/use-acme-sh/
+1. https://www.nanqinlang.com/shell-acme.html
 
 
 ## English
