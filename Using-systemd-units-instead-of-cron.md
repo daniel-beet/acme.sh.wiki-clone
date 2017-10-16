@@ -9,6 +9,8 @@ After=network-online.target
 [Service]
 Type=oneshot
 ExecStart=/path/to/acme.sh <your acme.sh arguments here>
+# acme.sh returns 2 when renewal is skipped (i.e. certs up to date)
+SuccessExitStatus=0 2
 ```
 
 **2. Test that it works before creating the timer:**
