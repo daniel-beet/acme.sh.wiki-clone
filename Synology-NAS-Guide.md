@@ -57,6 +57,8 @@ Please note that this will replace your Synology NAS system default certificate 
 
 Now you can check the DSM control panel - Security - Certificates to see the nominated certificate has been replaced by letsencrypt one. You can now configure to use this one as default and assign to specific services, like vpn, sftp, etc.
  
+
+## Configuring Certificate Renewal
 To auto renew the certificates in the future, you need to configure the cronjob. However, acme.sh seems not properly add tasks to Synology crontab. You have to do this manually. 
 
 Configure crontab for root
@@ -68,7 +70,7 @@ For example, 10:00 am of the 2nd day every month run the cronjob to check if due
 
     0    10    2    *    *    root    /usr/local/share/acme.sh/acme.sh --cron --home /usr/local/share/acme.sh/
 
-The last step is to setup a schedule task to copy renewed certificates in cert library to system default directory and restart the Nginx service.
+If using the alternate method from above, the last step is to setup a schedule task to copy renewed certificates in cert library to system default directory and restart the Nginx service.
 
 In DSM control panel, open the 'Task Scheduler' and create a new scheduled task for a user-defined script.  
 
