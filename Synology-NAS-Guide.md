@@ -84,7 +84,7 @@ CERTDIR="AsDFgH"
 # do not change anything beyond this line!
 
 CERTROOTDIR="/usr/syno/etc/certificate"
-CERTROOTLOCALDIR="/usr/local/etc/certificate"
+PACKAGECERTROOTDIR="/usr/local/etc/certificate"
 FULLCERTDIR="$CERTROOTDIR/_archive/$CERTDIR"
 
 # find all subdirectories containing cert.pem files
