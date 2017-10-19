@@ -10,6 +10,7 @@ The following guide will use the DNS-01 protocol using the [Cloudflare API](http
 
 ## Installation of acme.sh
 
+    $ sudo -i
     $ wget https://github.com/Neilpang/acme.sh/archive/master.tar.gz
     $ tar xvf master.tar.gz
     $ cd acme.sh-master/
