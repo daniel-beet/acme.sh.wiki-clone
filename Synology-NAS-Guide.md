@@ -119,7 +119,7 @@ Now you should be all good.
 
 ## Fix a broken environment after Synology DSM upgrade
 
-    $ cd /urs/local/share/acme.sh
+    $ cd /usr/local/share/acme.sh
     $ ./acme.sh --upgrade --nocron --home /usr/local/share/acme.sh
 
 or manually add below line into /root/.profile
