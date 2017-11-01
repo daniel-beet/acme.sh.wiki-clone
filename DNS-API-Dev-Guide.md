@@ -48,7 +48,24 @@ dns_cf_rm() { }
 ```
 Actually, the `dns_myapi_add()` is required, but `dns_cf_rm()` is optional.  You can just write the add function at the beginning for testing purpose, it's `highly recommended` to implement the rm function too. Otherwise your txt records will increase 1 every 2 months.
 
-### 6. 
+### 6. Guide for the add function
+Steps when you write the `dns_myapi_add()` function:
+#### 1. Get the full domain and the txt record:
+
+```
+dns_cf_add() {
+  fulldomain=$1
+  txtvalue=$2
+....
+
+```
+The full domain is like: 
+1. `_acme-challenge.www.example.com` 
+2. or `_acme-challenge.example.com` 
+3. or `_acme-challenge.example.co.uk`
+4. or `_acme-challenge.www.example.co.uk`
+
+
 
 
 
