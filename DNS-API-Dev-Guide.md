@@ -168,5 +168,20 @@ _egrep_o()
 You can use `sed`, `grep`, `cut`, `paste` etc, Do not use `awk` at all.
 
 
+### 7. Guide for the rm function.
+
+The steps is same as the add function.
+
+Please take care that the rm function and add function are called in 2 different isolated sub shell.  So, you can not pass and env vars from the add function to the rm function.
+
+You must re-do all the preparations of the add function here too.
+
+See:
+https://github.com/Neilpang/acme.sh/blob/ded7a5438ce94c4dd0435068de5c0c384b60e4dd/dnsapi/dns_cf.sh#L85
+
+
+
+
+
 
 
