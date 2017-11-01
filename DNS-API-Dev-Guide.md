@@ -37,7 +37,7 @@ Of cause, if you just use it on your own, it can be any valid shebang on your ma
 
 ### 5. There must be 2 functions in your script:
 
-```
+```sh
 # Usage: add  _acme-challenge.www.domain.com   "XKrxpRBosdIKFzxW_CT3KLZNf6q0HG9i01zxXp5CPBs"
 # Used to add txt record
 dns_myapi_add() { }
@@ -45,6 +45,7 @@ dns_myapi_add() { }
 # Usage: fulldomain txtvalue
 # Used to remove the txt record after validation
 dns_cf_rm() { }
+
 ```
 Actually, the `dns_myapi_add()` is required, but `dns_cf_rm()` is optional.  You can just write the add function at the beginning for testing purpose, it's `highly recommended` to implement the rm function too. Otherwise your txt records will increase 1 every 2 months.
 
@@ -52,20 +53,119 @@ Actually, the `dns_myapi_add()` is required, but `dns_cf_rm()` is optional.  You
 Steps when you write the `dns_myapi_add()` function:
 #### 1. Get the full domain and the txt record:
 
-```
-dns_cf_add() {
+```sh
+dns_myapi_add() {
   fulldomain=$1
   txtvalue=$2
-....
+...
+
+}
 
 ```
-The full domain is like: 
+
+#### 2. You must save your username and password in the add function:
+The credentials such as username, password, api key or api token etc, must be saved, so that acme.sh can renew the cert automatically in future. It will reuse the credentials automatically.
+
+
+```sh
+dns_myapi_add() {
+...
+
+  MYAPI_Username="${MYAPI_Username:-$(_readaccountconf_mutable MYAPI_Username)}"
+  MYAPI_Password="${MYAPI_Password:-$(_readaccountconf_mutable MYAPI_Password)}"
+  if [ -z "$MYAPI_Username" ] || [ -z "$MYAPI_Password" ]; then
+    MYAPI_Username=""
+    MYAPI_Password=""
+    _err "You don't specify cloudflare api key and email yet."
+    _err "Please create you key and try again."
+    return 1
+  fi
+
+  #save the credentials to the account conf file.
+  _saveaccountconf_mutable MYAPI_Username  "$MYAPI_Username"
+  _saveaccountconf_mutable MYAPI_Password  "$MYAPI_Password"
+...
+
+}
+
+```
+
+#### 3. Detect which part is your root zone.
+
+The full domain could be in on of the following formats: 
 1. `_acme-challenge.www.example.com` 
-2. or `_acme-challenge.example.com` 
-3. or `_acme-challenge.example.co.uk`
-4. or `_acme-challenge.www.example.co.uk`
+2. `_acme-challenge.example.com` 
+3. `_acme-challenge.example.co.uk`
+4. `_acme-challenge.www.example.co.uk`
+
+For must of the dns providers, you must determine which part is the domain root zone(example.com or example.co.uk), and which part is the sub domain(_acme-challenge or _acme-challenge.www)
+
+*You can not just split the full domain, and get the first part as sub domain, and the rest as root zone.
+Please make sure you can handle all the formats above.*
+
+A good practice is to list all your root zones through your dns api, then compare and detect which part is the root zone. Then the rest is the sub domain.
+
+See: 
+https://github.com/Neilpang/acme.sh/blob/master/dnsapi/dns_cf.sh#L142
+
+```sh
+dns_myapi_add() {
+...
+
+  _debug "First detect the root zone"
+  if ! _get_root "$fulldomain"; then
+    _err "invalid domain"
+    return 1
+  fi
+
+...
 
 
+```
+
+#### 4. Call your dns api to add txt record.
+
+Most of the dns providers provide a http api or REST api.
+
+So, you can just use http GET/POST/PUT/DELETE method to call their api to add/remove txt record.
+
+acme.sh defined two functions to make http GET/POST/PUT/DELETE connections.
+
+see: 
+https://github.com/Neilpang/acme.sh/blob/master/acme.sh#L1654
+https://github.com/Neilpang/acme.sh/blob/master/acme.sh#L1582
+
+```
+_get() {}
+_post() {}
+```
+
+You can use them directly.
+
+Please take care that the `_post()` function can send POST/PUT/DELETE request, not just `POST`.
+
+See: 
+https://github.com/Neilpang/acme.sh/blob/975a7359a23cd5f8335aca58ceab552d8d967ea7/dnsapi/dns_infoblox.sh#L85
+https://github.com/Neilpang/acme.sh/blob/ded7a5438ce94c4dd0435068de5c0c384b60e4dd/dnsapi/dns_cf.sh#L73
+
+Do not use `curl` or `wget` directly in your script. 
+
+
+#### 5. Process the api response.
+
+The api response could be in text, json or xml format. Here are a lot of functions to process strings:
+
+```sh
+...
+_startswith()
+_endswith()
+_contains()
+_egrep_o()
+
+...
+```
+
+You can use `sed`, `grep`, `cut`, `paste` etc, Do not use `awk` at all.
 
 
 
