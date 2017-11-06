@@ -92,13 +92,14 @@ dns_myapi_add() {
 
 #### 3. Detect which part is your root zone.
 
-The full domain could be in on of the following formats: 
+The full domain could be in one of the following formats: 
 1. `_acme-challenge.www.example.com` 
 2. `_acme-challenge.example.com` 
 3. `_acme-challenge.example.co.uk`
 4. `_acme-challenge.www.example.co.uk`
+5. `_acme-challenge.sub1.sub2.www.example.co.uk`
 
-For must of the dns providers, you must determine which part is the domain root zone(example.com or example.co.uk), and which part is the sub domain(_acme-challenge or _acme-challenge.www)
+For most of the dns providers, you must determine which part is the domain root zone(example.com or example.co.uk), and which part is the sub domain(_acme-challenge or _acme-challenge.www)
 
 *You can not just split the full domain, and get the first part as sub domain, and the rest as root zone.
 Please make sure you can handle all the formats above.*
