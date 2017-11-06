@@ -27,7 +27,7 @@ acme.sh searches the script files in either the  acme.sh home dir(`.acme.sh/`) o
 ### 4. The file shebang must be `sh` not `bash`
 acme.sh is a `unix shell` script,  not just a `bash` script.
 
-If you want to contribute your script, the shebang muse be: 
+If you want to contribute your script, the shebang must be: 
 ```sh
 #!/usr/bin/env sh
 ```
@@ -44,10 +44,10 @@ dns_myapi_add() { }
 
 # Usage: fulldomain txtvalue
 # Used to remove the txt record after validation
-dns_cf_rm() { }
+dns_myapi_rm() { }
 
 ```
-Actually, the `dns_myapi_add()` is required, but `dns_cf_rm()` is optional.  You can just write the add function at the beginning for testing purpose, it's `highly recommended` to implement the rm function too. Otherwise your txt records will increase 1 every 2 months.
+Actually, the `dns_myapi_add()` is required, but `dns_myapi_rm()` is optional.  You can just write the add function at the beginning for testing purpose, it's `highly recommended` to implement the rm function too. Otherwise your txt records will increase 1 every 2 months.
 
 ### 6. Guide for the add function
 Steps when you write the `dns_myapi_add()` function:
