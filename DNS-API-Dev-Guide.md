@@ -173,7 +173,7 @@ You can use `sed`, `grep`, `cut`, `paste` etc, Do not use `awk` at all.
 
 The steps is same as the add function.
 
-Please take care that the rm function and add function are called in 2 different isolated sub shell.  So, you can not pass and env vars from the add function to the rm function.
+Please take care that the rm function and add function are called in 2 different isolated sub shell.  So, you can not pass any env vars from the add function to the rm function.
 
 You must re-do all the preparations of the add function here too.
 
