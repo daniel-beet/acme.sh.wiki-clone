@@ -14,7 +14,7 @@ The following guide will use the DNS-01 protocol using the [Cloudflare API](http
     $ wget https://github.com/Neilpang/acme.sh/archive/master.tar.gz
     $ tar xvf master.tar.gz
     $ cd acme.sh-master/
-    $ ./acme.sh --install --nocron --home /usr/local/share/acme.sh
+    $ ./acme.sh --install --nocron --home /usr/local/share/acme.sh --accountemail "email@gmailcom"
 
 ## Configuring DNS
 
