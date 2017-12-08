@@ -13,7 +13,7 @@ https://github.com/Neilpang/acme.sh/wiki/How-to-install
 
 After installation,
 
-1) Issuer a cert:
+1) Issue a cert:
 ```
 /root/.acme.sh/acme.sh  --issue  --standalone  -d <DOMAIN>
 ```
