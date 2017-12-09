@@ -25,6 +25,8 @@
 1. Chris Gelatt
 1. Petr Líbal
 1. Neil Sabol
+1. Ovchinnikov Alexey
+
 
 ## 微信捐助列表:
 
