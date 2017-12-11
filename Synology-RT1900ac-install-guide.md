@@ -8,7 +8,7 @@ here's the HowTo (xpost https://forum.synology.com/enu/viewtopic.php?f=265&t=123
 I've used https://github.com/Neilpang/acme.sh , a 3rd party client for Let's Encrypt, based on shell scripting. no extra dependencies.
 
 
-I've also used it with DNS01 protocol, which means, I don't have any ports open on the router to do the validation, instead it use Cloudflare API, where I host my domain.
+I've also used it with DNS01 protocol, which means, I don't have any ports open on the router to do the validation, instead it use Cloudflare API, where I host my domain. You can use any name service provider which has an API to automatically add the txt record for certificate renewal. See the wiki page on [DNS API Mode](https://github.com/Neilpang/acme.sh/wiki/How-to-issue-a-cert#5-dns-api-mode).
 
 Since the Router shell is very limited, there are several constraints. the most important of all, there is no crontab.
 
@@ -33,8 +33,8 @@ next, config
 ```
 $ cd /volume1/@appstore/acme.sh
 ```
-get your email, cloudflare account and API (https://www.cloudflare.com/a/account/my-account)
 
+Configure your credentials for DNS API mode. For Cloudflare, you'll need your Cloudflare email and API key (https://www.cloudflare.com/a/account/my-account)
 
 type this to the shell, replace with the values above
 ```
@@ -44,16 +44,15 @@ export CF_Email="xxxx@sss.com"
 
 now to create your cert
 ```
-$ ./acme.sh  --issue --post-hook "/usr/syno/sbin/synoservicecfg --restart httpd-sys" --dns dns_cf --certpath /usr/syno/etc/ssl/ssl.crt/server.crt --keypath /usr/syno/etc/ssl/ssl.key/server.key --fullchainpath /usr/syno/etc/ssl/ssl.intercrt/server-ca.crt --config-home /volume1/@appstore/acme.sh/ --dnssleep 15 -d YOURDOMAIN.TLD 
+$ ./acme.sh  --issue --post-hook "/usr/syno/sbin/synoservicecfg --restart httpd-sys" --dns dns_cf --certpath /usr/syno/etc/ssl/ssl.crt/server.crt --keypath /usr/syno/etc/ssl/ssl.key/server.key --ca-file /usr/syno/etc/ssl/ssl.intercrt/server-ca.crt --config-home /volume1/@appstore/acme.sh/ --dnssleep 15 -d YOURDOMAIN.TLD 
 ```
 
 simple right?
 
-since there is no crontab, we need to manually add it to cron.
+since there is no crontab, we need to manually add it to cron. The Let's Encrypt cert expires in 90 days, so the recommended renewal date 1 month before expiration, i.e. every 2 months. Use a [crontab tester](https://crontab.guru/#3_2_1_1,3,5,7,9,11_*) if you need help with this part. The following updates the certificates at 02:03 on the 1st day in January, March, May, July, September, and November.
 ```
 $ vi /etc/crontab 
-and add something like
-3       2       *       *       2       root    /volume1/@appstore/acme.sh/acme.sh --cron --home /volume1/@appstore/acme.sh
+3       2       1       1,3,5,7,9,11       *       root    /volume1/@appstore/acme.sh/acme.sh --cron --home /volume1/@appstore/acme.sh
 :wq
 ```
 
