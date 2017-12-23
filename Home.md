@@ -13,13 +13,15 @@ https://github.com/Neilpang/acme.sh/wiki/How-to-install
 
 After installation,
 
-1) Issue a cert:
+1) Check if port 80 is opened on Proxmox host.
+
+2) Issue a cert:
 ```
 /root/.acme.sh/acme.sh  --issue  --standalone  -d <DOMAIN>
 ```
 After issuing, the cert will be automatically renewed every 60 days.
 
-2) Install the cert to Proxmox:
+3) Install the cert to Proxmox:
 
 ```
 /root/.acme.sh/acme.sh  --installcert  -d <DOMAIN>  --certpath /etc/pve/local/pveproxy-ssl.pem --keypath /etc/pve/local/pveproxy-ssl.key  --capath  /etc/pve/local/pveproxy-ssl.pem  --reloadcmd  "systemctl restart pveproxy"
