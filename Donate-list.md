@@ -1,7 +1,7 @@
 ## Thanks to those who donate:
 
 (If you want to be listed with your website link here, please write email to me: donate@acme.sh )
-
+(You can also find me on Twitter: [@neilpangxa](https://twitter.com/neilpangxa))
 (In date time order, from the early to the latest)
 
 1. Third Eye
