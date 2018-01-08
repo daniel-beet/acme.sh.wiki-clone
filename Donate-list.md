@@ -26,7 +26,7 @@
 1. Petr Líbal
 1. Neil Sabol
 1. Ovchinnikov Alexey
-
+1. allegronet.de (Klaus Lehmann)
 
 ## 微信捐助列表:
 
