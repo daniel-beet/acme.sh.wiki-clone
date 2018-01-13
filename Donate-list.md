@@ -28,6 +28,8 @@
 1. Neil Sabol
 1. Ovchinnikov Alexey
 1. allegronet.de (Klaus Lehmann)
+1. Maurice Bleuel
+
 
 ## 微信捐助列表:
 
