@@ -29,7 +29,8 @@
 1. Ovchinnikov Alexey
 1. allegronet.de (Klaus Lehmann)
 1. Maurice Bleuel
-
+1. Romain Muller
+1. Stefan Daschek
 
 ## 微信捐助列表:
 
