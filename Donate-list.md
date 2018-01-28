@@ -31,6 +31,9 @@
 1. Maurice Bleuel
 1. Romain Muller
 1. Stefan Daschek
+1. Andreas Vögele
+
+
 
 ## 微信捐助列表:
 
