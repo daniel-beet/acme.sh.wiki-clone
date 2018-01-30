@@ -32,7 +32,7 @@
 1. Romain Muller
 1. Stefan Daschek
 1. Andreas Vögele
-
+1. Moritz Süß
 
 
 ## 微信捐助列表:
