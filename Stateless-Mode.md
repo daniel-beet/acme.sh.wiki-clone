@@ -39,6 +39,3 @@ acme.sh --issue -d example.com  --stateless
 ```
 
 
-Other links:
-1. https://mijndertstuij.nl/writing/posts/using-acme.sh-to-issue-lets-encrypt-certificates/
-
