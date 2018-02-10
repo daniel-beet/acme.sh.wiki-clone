@@ -9,7 +9,8 @@ Ok, let's start.
 ### 1. First set domain CNAME:
 
 ```sh
-_acme-challenge.importantDomain.com  =>   _acme-challenge.aliasDomainForValidationOnly.com
+_acme-challenge.importantDomain.com  
+   =>   _acme-challenge.aliasDomainForValidationOnly.com
 ```
 
 
@@ -34,15 +35,20 @@ If you have multiple (sub)domains, you need add CNAME for each (sub)domain,  but
 For example, you can add the CNAME like:
 
 ```sh
-_acme-challenge.importantDomain.com  =>   _acme-challenge.aliasDomainForValidationOnly.com
+_acme-challenge.importantDomain.com  
+  =>   _acme-challenge.aliasDomainForValidationOnly.com
 
-_acme-challenge.www.importantDomain.com  =>   _acme-challenge.aliasDomainForValidationOnly.com
+_acme-challenge.www.importantDomain.com  
+  =>   _acme-challenge.aliasDomainForValidationOnly.com
 
-_acme-challenge.sub.importantDomain.com  =>   _acme-challenge.aliasDomainForValidationOnly.com
+_acme-challenge.sub.importantDomain.com  
+  =>   _acme-challenge.aliasDomainForValidationOnly.com
 
-_acme-challenge.importantDomain2.com  =>   _acme-challenge.aliasDomainForValidationOnly.com
+_acme-challenge.importantDomain2.com  
+  =>   _acme-challenge.aliasDomainForValidationOnly.com
 
-_acme-challenge.importantDomain3.com  =>   _acme-challenge.aliasDomainForValidationOnly.com
+_acme-challenge.importantDomain3.com  
+  =>   _acme-challenge.aliasDomainForValidationOnly.com
 ```
 
 And then issue cert like bellow:
@@ -79,9 +85,11 @@ Yes, you know, acme.sh support to set alias domain for each domain. Even with di
 You can set CNAME like:
 
 ```sh
-_acme-challenge.importantDomain.com  =>   _acme-challenge.aliasDomainForValidationOnly.com
+_acme-challenge.importantDomain.com  
+  =>   _acme-challenge.aliasDomainForValidationOnly.com
 
-_acme-challenge.importantDomain3.com  =>   _acme-challenge.aliasDomainForValidationOnly2.com
+_acme-challenge.importantDomain3.com  
+  => _acme-challenge.aliasDomainForValidationOnly2.com
 ```
 
 Then issue cert:
