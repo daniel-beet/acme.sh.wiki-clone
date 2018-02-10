@@ -112,3 +112,10 @@ acme.sh --issue  \
 Let's assume the first domain `aliasDomainForValidationOnly.com` is hosted at cloudflare, and the second is hosted at godaddy.
 
 
+### 5. Last
+
+Do not remove the CNAME like : `_acme-challenge.importantDomain.com` after you issue the cert.  It will be reused when acme.sh tries o renew the cert.  The left cname record `_acme-challenge.importantDomain.com` doesn't harm to your domain at all.  Just keep it there.
+
+
+
+
