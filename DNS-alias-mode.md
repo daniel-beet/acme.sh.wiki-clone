@@ -88,7 +88,7 @@ You can set CNAME like:
 _acme-challenge.importantDomain.com  
   =>   _acme-challenge.aliasDomainForValidationOnly.com
 
-_acme-challenge.importantDomain3.com  
+_acme-challenge.importantDomain2.com  
   => _acme-challenge.aliasDomainForValidationOnly2.com
 ```
 
