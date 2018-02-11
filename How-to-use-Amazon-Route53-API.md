@@ -51,8 +51,8 @@ If you want to use a must more restrictive AWS policy, use the following:
       {
          "Effect": "Allow",
          "Action": [
-            "route53:GetHostedZone"
-            "route53:ListResourceRecordSets"
+            "route53:GetHostedZone",
+            "route53:ListResourceRecordSets",
             "route53:ChangeResourceRecordSets"
          ],
          "Resource": "arn:aws:route53:::hostedzone/hosted zone id"
