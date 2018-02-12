@@ -117,5 +117,37 @@ Let's assume the first domain `aliasDomainForValidationOnly.com` is hosted at cl
 Do not remove the CNAME like : `_acme-challenge.importantDomain.com` after you issue the cert.  It will be reused when acme.sh tries o renew the cert.  The left cname record `_acme-challenge.importantDomain.com` doesn't harm to your domain at all.  Just keep it there.
 
 
+### 6. challenge-alias or domain-alias
 
+We have another parameter: `--domain-alias`, it has the same meaning with `--challenge-alias`.
+
+But with `--domain-alias` you don't need to add `_acme-challenge.` prefix.
+
+For example,  if you use `--challenge-alias`, you must set CNAME like bellow:
+
+```sh
+CNAME:
+_acme-challenge.A.com  
+   =>   _acme-challenge.B.com
+```
+Then issue cert like:
+
+```sh
+acme.sh --issue -d  a.com  --challenge-alias  b.com  --dns dns_cf
+```
+
+If you use `--domain-alias`, the CNAME should be like:
+
+```sh
+CNAME:
+_acme-challenge.A.com  
+   =>    myalias.B.com
+
+```
+
+Then issue cert like:
+
+```sh
+acme.sh --issue -d  a.com  --domain-alias  myalias.B.com   --dns dns_cf
+```
 
