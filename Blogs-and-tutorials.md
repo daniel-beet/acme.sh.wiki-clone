@@ -47,6 +47,7 @@ Here are some blogs that may help you:
 
 ## English
 1. [FreeBSD.org switched to acme.sh](https://blog.crashed.org/letsencrypt-in-freebsd-org/)
+1. [Install your Let’s Encrypt SSL certificate with acme.sh](https://kb.virtubox.net/knowledgebase/install-lets-encrypt-ssl-certificate-acme-sh/)
 1. https://east.fm/posts/a-bash-client-for-the-acme-protocol/index.html
 1. https://east.fm/posts/acme-sh-cpanel-a2hosting/index.html
 1. https://kazoo.ga/kazoo-it-speaks-https/
