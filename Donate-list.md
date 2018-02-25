@@ -34,7 +34,7 @@
 1. Andreas Vögele
 1. Moritz Süß
 1. Simon Hengchen
-
+1. Chen Wei Chi
 
 
 
