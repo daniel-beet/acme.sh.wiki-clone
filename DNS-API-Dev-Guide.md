@@ -182,7 +182,8 @@ https://github.com/Neilpang/acme.sh/blob/ded7a5438ce94c4dd0435068de5c0c384b60e4d
 
 
 
+### 8. Please also check this bug to support V2 wildcard cert:
 
-
+https://github.com/Neilpang/acme.sh/issues/1261
 
 
