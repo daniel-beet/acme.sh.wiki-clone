@@ -35,7 +35,7 @@
 1. Moritz Süß
 1. Simon Hengchen
 1. Chen Wei Chi
-
+1. Allen Thompson
 
 
 ## 微信捐助列表:
