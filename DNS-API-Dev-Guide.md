@@ -187,3 +187,9 @@ https://github.com/Neilpang/acme.sh/blob/ded7a5438ce94c4dd0435068de5c0c384b60e4d
 https://github.com/Neilpang/acme.sh/issues/1261
 
 
+### 9. Update the docs to include your dns api and usage.
+1. Update your dns api usage here:  https://github.com/Neilpang/acme.sh/blob/dev/dnsapi/README.md
+2. Add your dns api to the support list: https://github.com/Neilpang/acme.sh/tree/dev#8-automatic-dns-api-integration
+
+
+
