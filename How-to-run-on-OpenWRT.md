@@ -45,6 +45,7 @@ mkdir ~/.https
 curl https://raw.githubusercontent.com/Neilpang/acme.sh/master/acme.sh > acme.sh
 chmod a+x "acme.sh"
 ./acme.sh --install
+cd /root/.acme.sh
 DOMAIN=my.router.net ## this domain must actually point to your router
 ./acme.sh --issue -d $DOMAIN -w /www
 ```
@@ -52,8 +53,8 @@ DOMAIN=my.router.net ## this domain must actually point to your router
 Now if the certificate issue was successful we'll tell the web server to use our new certificate:
 
 ```
-uci set uhttpd.main.key "$(pwd)/$DOMAIN/$DOMAIN.key"
-uci set uhttpd.main.cert "$(pwd)/$DOMAIN/$DOMAIN.cert"
+uci set uhttpd.main.key="$(pwd)/$DOMAIN/$DOMAIN.key"
+uci set uhttpd.main.cert="$(pwd)/$DOMAIN/$DOMAIN.cert"
 uci commit uhttpd
 /etc/init.d/uhttpd restart
 ```
