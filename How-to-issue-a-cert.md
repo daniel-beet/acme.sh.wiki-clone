@@ -21,33 +21,8 @@ If you are using a non-standard `80` port behind a reverse proxy or load balance
 acme.sh  --issue  -d example.com  --standalone --httpport 88
 ```
 
-#### 3) Standalone tls mode:
 
-It's similar to standalone mode.  The builtin webserver can listen at 443 port to issue cert. Make sure your 443 port is free.
-
-```sh
-acme.sh  --issue  -d example.com  --tls
-```
-
-If you are using a non-standard `443` port behind a reverse proxy or load balancer , you can use `--tlsport` to specify your port:
-
-```sh
-acme.sh  --issue  -d example.com  --tls  --tlsport 8443
-```
-
-
-#### 4) Dns manual mode:
-
-You can also issue a cert by adding a txt record to your domain.
-
-```sh
-acme.sh  --issue  -d example.com  --dns
-```
-
-**Take care,  this is dns manual mode, it can not be renewed automatically.  you will have to add a new txt record to your domain by your hand when you renew your cert.**
-
-
-#### 5) Dns api mode:
+#### 3) Dns api mode:
 
 Yes, if your nameservice provider has an api, we can use the api to automatically add the txt record for you. your cert will be automatically issued and renewed.
 
@@ -62,7 +37,19 @@ acme.sh  --issue  -d example.com  --dns dns_cf
 
 How to use dns api:  https://github.com/Neilpang/acme.sh/tree/master/dnsapi
 
-#### 6) Apache mode:
+#### 4) Dns manual mode:
+
+You can also issue a cert by adding a txt record to your domain.
+
+```sh
+acme.sh  --issue  -d example.com  --dns
+```
+
+**Take care,  this is dns manual mode, it can not be renewed automatically.  you will have to add a new txt record to your domain by your hand when you renew your cert.**
+
+
+
+#### 5) Apache mode:
 
 If your website is running apache server, acme.sh can use apache server to issue cert. And acme.sh will restore your apache conf after the cert is issued,  don't worry.
 
@@ -70,7 +57,7 @@ If your website is running apache server, acme.sh can use apache server to issue
 acme.sh  --issue  -d example.com  --apache
 ```
 
-#### 7) Nginx mode:
+#### 6) Nginx mode:
 
 If your website is running nginx server, acme.sh can use nginx server to issue cert. And acme.sh will restore your nginx conf after the cert is issued,  don't worry.
 
@@ -93,17 +80,7 @@ acme.sh  --issue  -d example.com  -w /home/wwwroot/example.com   -d www.example.
 acme.sh  --issue  -d example.com  --standalone  -d www.example.com 
 ```
 
-#### 3) Standalone tls mode:
-```
-acme.sh  --issue  -d example.com  --tls  -d www.example.com 
-```
-
-#### 4) Dns manual mode:
-```
-acme.sh  --issue  -d example.com  --dns  -d www.example.com
-```
-
-#### 5) Dns api mode:
+#### 3) Dns api mode:
 Cloud flare api:
 ```
 export CF_Key="sdfsdfsdfljlbjkljlkjsdfoiwje"
@@ -113,6 +90,10 @@ export CF_Email="xxxx@example.com"
 acme.sh  --issue  -d example.com  --dns dns_cf  -d www.example.com
 ```
 
+#### 4) Dns manual mode:
+```
+acme.sh  --issue  -d example.com  --dns  -d www.example.com
+```
 
 ### 3. Multiple domains, SAN mode,  Hybrid mode
 
@@ -125,15 +106,6 @@ acme.sh  --issue  \
 -d bb.com  --dns dns_cf \
 -d cc.com  --apache \
 -d dd.com  -w /home/wwwroot/dd.com
-```
-
-Or:
-
-```
-acme.sh  --issue  \
--d aa.com  --standalone \
--d bb.com  --dns dns_cf \
--d cc.com  --tls
 ```
 
 
