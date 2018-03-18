@@ -36,6 +36,7 @@
 1. Simon Hengchen
 1. Chen Wei Chi
 1. Allen Thompson
+1. Peter Berbec
 
 
 ## 微信捐助列表:
