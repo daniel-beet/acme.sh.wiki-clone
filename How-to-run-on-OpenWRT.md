@@ -26,12 +26,12 @@ uci set firewall.https.proto=tcp
 uci set firewall.https.dest_port=443
 uci set firewall.https.name='web configuration'
 ##add http firewall rule
-uci set firewall.https=rule
-uci set firewall.https.target=ACCEPT
-uci set firewall.https.src=wan
-uci set firewall.https.proto=tcp
-uci set firewall.https.dest_port=80
-uci set firewall.https.name='http web configuration'
+uci set firewall.http=rule
+uci set firewall.http.target=ACCEPT
+uci set firewall.http.src=wan
+uci set firewall.http.proto=tcp
+uci set firewall.http.dest_port=80
+uci set firewall.http.name='http web configuration'
 uci commit
 /etc/init.d/firewall restart
 /etc/init.d/uhttpd restart
@@ -54,7 +54,7 @@ Now if the certificate issue was successful we'll tell the web server to use our
 
 ```
 uci set uhttpd.main.key="$(pwd)/$DOMAIN/$DOMAIN.key"
-uci set uhttpd.main.cert="$(pwd)/$DOMAIN/$DOMAIN.cert"
+uci set uhttpd.main.cert="$(pwd)/$DOMAIN/$DOMAIN.cer"
 uci commit uhttpd
 /etc/init.d/uhttpd restart
 ```
