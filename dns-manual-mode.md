@@ -1,4 +1,9 @@
-TODO:
+Dns manual mode can not renew automatically.  It's just for testing purpose.
+
+please use dns api mode or [dns alias mode](https://github.com/Neilpang/acme.sh/wiki/DNS-alias-mode) instead.
+
+
+
 
 ```sh
 
