@@ -11,7 +11,8 @@ https://github.com/Neilpang/acme.sh/issues/1029
 1. First step:
 ```sh
 
-acme.sh --issue -d example.com --dns \ --yes-I-know-dns-manual-mode-enough-go-ahead-please
+acme.sh --issue -d example.com --dns \
+ --yes-I-know-dns-manual-mode-enough-go-ahead-please
 
 ```
 
@@ -22,6 +23,7 @@ acme.sh --issue -d example.com --dns \ --yes-I-know-dns-manual-mode-enough-go-ah
 
 ```sh
 
-acme.sh --renew -d example.com \ --yes-I-know-dns-manual-mode-enough-go-ahead-please
+acme.sh --renew -d example.com \
+  --yes-I-know-dns-manual-mode-enough-go-ahead-please
 
 ```
