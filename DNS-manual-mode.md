@@ -1,7 +1,8 @@
-DNS manual mode can not renew automatically. It is recommended to use dns api mode or [dns alias mode](https://github.com/Neilpang/acme.sh/wiki/DNS-alias-mode) instead.
+Warning: DNS manual mode can not renew automatically.
 
+If your domain provider does **not** offer an API where you can add/edit TXT records of your domain, you should use [DNS alias mode](https://github.com/Neilpang/acme.sh/wiki/DNS-alias-mode). 
 
-If your domain provider does **not** offer an API where you can add/edit TXT records of your domain, you can you use [dns alias mode](https://github.com/Neilpang/acme.sh/wiki/DNS-alias-mode) instead. 
+If your domain providor **does** offer an DNS API, you should use DNS api mode.
 
 
 DNS manual mode: 
@@ -16,7 +17,7 @@ acme.sh --issue -d example.com --dns \
 
 ```
 
-2. Please add the TXT record to your DNS records. This step is required every time you renew your certificate.
+2. Please add the TXT record to your DNS records. This step is required every time you renew your certificate. With DNS api mode, this step can be automated.
 
 
 3. Now retry with `--renew` command.
