@@ -1,7 +1,7 @@
 DNS manual mode can not renew automatically. It is recommended to use dns api mode or [dns alias mode](https://github.com/Neilpang/acme.sh/wiki/DNS-alias-mode) instead.
 
 
-If your domain provider does **not** offer an API where you can add/edit TXT records of your domain, you can you use the DNS manual mode. But be advised you will have to renew it YOURSELF manually.
+If your domain provider does **not** offer an API where you can add/edit TXT records of your domain, you can you use [dns alias mode](https://github.com/Neilpang/acme.sh/wiki/DNS-alias-mode) instead. 
 
 
 DNS manual mode: 
