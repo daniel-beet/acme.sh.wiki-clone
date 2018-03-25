@@ -151,3 +151,19 @@ Then issue cert like:
 acme.sh --issue -d  a.com  --domain-alias  myalias.B.com   --dns dns_cf
 ```
 
+
+**Note:** Don't use the domain name only for --domain-alias. 
+```sh
+acme.sh --issue -d  a.com  --domain-alias B.com   --dns dns_cf 
+```
+This would require that a TXT record is created at the domain apex i.e. @ TXT "myvalidationcode".  Since adding a value at the apex of a domain requires a different syntax for adding the DNS records it cannot be used in this form. 
+
+If you really want to create the validation records at the domain apex then depending on the implementation of the dns api you have to use  
+
+```sh
+acme.sh --issue -d  a.com  --domain-alias @.B.com   --dns dns_cf 
+```
+or 
+```sh
+acme.sh --issue -d  a.com  --domain-alias .B.com   --dns dns_cf 
+```
