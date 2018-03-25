@@ -192,4 +192,13 @@ https://github.com/Neilpang/acme.sh/issues/1261
 2. Add your dns api to the support list: https://github.com/Neilpang/acme.sh/tree/dev#8-automatic-dns-api-integration
 
 
+## Style Guidelines
+acme.sh uses shellcheck for new commits and also enforces style guidelines.  
+To avoid the most common travis failures:  
+
+* Use indentation with 2 spaces 
+* remove trailing spaces 
+* Doublequote variables  (use echo  _debug "txtvalue=$txtvalue" instead of  _debug txtvalue=$txtvalue)
+* Always check the travis results after a commit 
+* Consider using shellcheck (https://www.shellcheck.net/) before commiting 
 
