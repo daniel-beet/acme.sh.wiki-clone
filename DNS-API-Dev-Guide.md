@@ -49,6 +49,7 @@ dns_myapi_rm() { }
 ```
 Actually, the `dns_myapi_add()` is required, but `dns_myapi_rm()` is optional.  You can just write the add function at the beginning for testing purpose, it's `highly recommended` to implement the rm function too. Otherwise your txt records will increase 1 every 2 months.
 
+
 ### 6. Guide for the add function
 Steps when you write the `dns_myapi_add()` function:
 #### 1. Get the full domain and the txt record:
@@ -151,6 +152,25 @@ https://github.com/Neilpang/acme.sh/blob/ded7a5438ce94c4dd0435068de5c0c384b60e4d
 
 Do not use `curl` or `wget` directly in your script. 
 
+**Note:** Wildcard certificates require two TXT values. When implementing the method make sure that you append the value instead of replacing it
+
+dig -t txt _acme-challenge.example.com   should return 
+```
+; <<>> DiG 9.10.3-P4-Ubuntu <<>> -t txt _acme-challenge.example.com
+;; global options: +cmd
+;; Got answer:
+;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 35476
+;; flags: qr rd ra; QUERY: 1, ANSWER: 2, AUTHORITY: 0, ADDITIONAL: 1
+
+;; OPT PSEUDOSECTION:
+; EDNS: version: 0, flags:; udp: 4000
+;; QUESTION SECTION:
+;_acme-challenge.example.com.        IN TXT
+
+;; ANSWER SECTION:
+_acme-challenge.example.com. 3600 IN TXT "tye6yGOxJEffnXDzZKNJjOHSsCFtKwU_5L0ykmY8CzE"
+_acme-challenge.example.com. 3600 IN TXT "XhVGx_0VVeR5yiaGLHHXrRl2sAbZhI7IugMSdbfR4go"
+```
 
 #### 5. Process the api response.
 
