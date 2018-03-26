@@ -32,5 +32,5 @@ acme.sh --renew -d example.com \
 ```
 
 
-Known issues:
+### Known issues:
 [The supported validation types are: dns-01 , but you specified: http-01](https://github.com/Neilpang/acme.sh/issues/1433)
