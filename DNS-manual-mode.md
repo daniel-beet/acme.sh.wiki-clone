@@ -30,3 +30,7 @@ acme.sh --renew -d example.com \
   --yes-I-know-dns-manual-mode-enough-go-ahead-please
 
 ```
+
+
+Known issues:
+[The supported validation types are: dns-01 , but you specified: http-01](https://github.com/Neilpang/acme.sh/issues/1433)
