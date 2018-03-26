@@ -86,11 +86,51 @@ or grant access to the service principal after you created it
 az role assignment create --assignee 3b5033b5-7a66-43a5-b3b9-a36b9e7c25ed --role "DNS Zone Contributor" --scope /subscriptions/12345678-9abc-def0-1234-567890abcdef/resourceGroups/deleteme_rg/providers/Microsoft.Network/dnszones/example.edu
 ```
 
-
 \*If you want to use different credentials instead use the --accountconf to use a different configuration file 
 
-#### You can now use acme.sh 
+### Limit access permissions to TXT records 
 
+In Azure DNS you can limit the permissions for the service principal further and only grant permissions to modifiy TXT records for a given DNS Zone.
+(See https://docs.microsoft.com/en-us/azure/dns/dns-protect-zones-recordsets for more details)
+
+Example:  
+* Azure Subscription is 12345678-9abc-def0-1234-567890abcdef
+* The resource group of your DNS Zone is exampledns_rg 
+* The DNS Zone is example.com
+
+
+```sh
+#!/usr/bin/env sh
+# Create a custom RBAC role that grants permissions to modifiy only TXT records
+dnscustomrole='{ 
+    "Name": "DNS TXT Contributor", 
+    "Id": "",
+     "IsCustom": true, 
+    "Description": "Can manage DNS TXT records only.", 
+    "Actions": [ 
+        "Microsoft.Network/dnsZones/TXT/*", 
+        "Microsoft.Network/dnsZones/read", 
+        "Microsoft.Authorization/*/read", 
+        "Microsoft.Insights/alertRules/*", 
+        "Microsoft.ResourceHealth/availabilityStatuses/read", 
+        "Microsoft.Resources/deployments/read", 
+        "Microsoft.Resources/subscriptions/resourceGroups/read" 
+    ],
+    "NotActions": [ 
+    ],
+    "AssignableScopes": [ 
+        "/subscriptions/12345678-9abc-def0-1234-567890abcdef" 
+    ] 
+}'
+az role definition create --role-definition "$dnscustomrole"
+# Create a new service principal and grant permissions to modify TXT recornds in the give DNS Zone
+az ad sp create-for-rbac --name  "AcmeDnsValidator" --role "DNS TXT Contributor" --scopes "/subscriptions/12345678-9abc-def0-1234-567890abcdef/resourceGroups/exampledns_rg/providers/Microsoft.Network/dnszones/example.com 
+
+# or  grant and exitisng service principal permissions to modify TXT recornds in the give DNS Zone
+#az role assignment create  --assignee 3b5033b5-7a66-43a5-b3b9-a36b9e7c25ed --scope "/subscriptions/12345678-9abc-def0-1234-567890abcdef/resourceGroups/exampledns_rg/providers/Microsoft.Network/dnszones/example.com" --role "DNS TXT Contributor"
+```
+
+#### You can now use acme.sh 
 
 ```
 export AZUREDNS_SUBSCRIPTIONID="12345678-9abc-def0-1234-567890abcdef"
