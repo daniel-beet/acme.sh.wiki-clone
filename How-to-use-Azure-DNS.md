@@ -86,7 +86,7 @@ or grant access to the service principal after you created it
 az role assignment create --assignee 3b5033b5-7a66-43a5-b3b9-a36b9e7c25ed --role "DNS Zone Contributor" --scope /subscriptions/12345678-9abc-def0-1234-567890abcdef/resourceGroups/deleteme_rg/providers/Microsoft.Network/dnszones/example.edu
 ```
 
-\*If you want to use different credentials instead use the --accountconf to use a different configuration file 
+\*If you want to use different credentials instead use the --accountconf switch to specifiy a configuration file 
 
 ### Limit access permissions to TXT records 
 
@@ -126,7 +126,7 @@ az role definition create --role-definition "$dnscustomrole"
 # Create a new service principal and grant permissions to modify TXT recornds in the give DNS Zone
 az ad sp create-for-rbac --name  "AcmeDnsValidator" --role "DNS TXT Contributor" --scopes "/subscriptions/12345678-9abc-def0-1234-567890abcdef/resourceGroups/exampledns_rg/providers/Microsoft.Network/dnszones/example.com 
 
-# or  grant and exitisng service principal permissions to modify TXT recornds in the give DNS Zone
+# or  grant an existing service principal permissions to modify TXT recornds in the give DNS Zone
 #az role assignment create  --assignee 3b5033b5-7a66-43a5-b3b9-a36b9e7c25ed --scope "/subscriptions/12345678-9abc-def0-1234-567890abcdef/resourceGroups/exampledns_rg/providers/Microsoft.Network/dnszones/example.com" --role "DNS TXT Contributor"
 ```
 
