@@ -2,7 +2,7 @@ Setup and run acme.sh on your OpenWRT router and have https secured management.
 
 ### Step 1: Install packages
 
-`opkg install luci-ssl-openssl`
+`opkg install luci-ssl-openssl curl ca-bundle`
 
 ### Step 2: Configure Web Server
 Here we'll tell uhttpd not redirect to https
