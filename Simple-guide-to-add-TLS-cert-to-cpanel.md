@@ -86,14 +86,13 @@ Go to cPanel File Manager, create a .htaccess file in the root of your public_ht
 or, for a possibly faster approach try using
 
 `<IfModule rewrite_module>`
-`## Only uncomment these lines if you know what you're doing`
-`#RewriteCond %{HTTP:X-Forwarded-Proto} https [NC]`
-`#RewriteRule ^ - [S=1]`
-`## BEGIN HTTPS Catch-All`
+
 `RewriteCond %{SERVER_PORT} 80`
+
 `RewriteCond %{THE_REQUEST} ^[A-Z]{3,9}\ /(.*)\ HTTP/ [NC]`
+
 `RewriteRule ^(([^/]+/)*)$ https://%{HTTP_HOST}/ [R=301,L]`
-`## END HTTPS Catch-All`
+
 `</IfModule>`
 
 
