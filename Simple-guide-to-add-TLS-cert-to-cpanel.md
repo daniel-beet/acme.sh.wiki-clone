@@ -91,7 +91,7 @@ or, for a possibly faster approach try using
 
 `RewriteCond %{THE_REQUEST} ^[A-Z]{3,9}\ /(.*)\ HTTP/ [NC]`
 
-`RewriteRule ^(([^/]+/)*)$ https://%{HTTP_HOST}/ [R=301,L]`
+`RewriteRule ^(([^/]+/)*)$ https://%{HTTP_HOST}/$1 [R=301,L]`
 
 `</IfModule>`
 
