@@ -83,18 +83,6 @@ Go to cPanel File Manager, create a .htaccess file in the root of your public_ht
 
 `RewriteRule .* https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]`
 
-or, for a possibly faster approach try using
-
-`<IfModule rewrite_module>`
-
-`RewriteCond %{SERVER_PORT} 80`
-
-`RewriteCond %{THE_REQUEST} ^[A-Z]{3,9}\ /(.*)\ HTTP/ [NC]`
-
-`RewriteRule ^(([^/]+/)*)$ https://%{HTTP_HOST}/$1 [R=301,L]`
-
-`</IfModule>`
-
 
 ***
 
