@@ -54,6 +54,7 @@ Here are some blogs that may help you:
 1. https://kazoo.ga/kazoo-it-speaks-https/
 1. https://tryingtobeawesome.com/encryptdaddy/
 1. [Let's Encrypt certificates on Synology DSM 5](http://blog.raorn.name/2017/02/lets-encrypt-certificates-on-synology.html)
+1. http://centosquestions.com/setup-solusvm-with-lets-encrypt-free-ssl-certificate/
 1. http://blog.e-zest.com/ssl-encryption-using-lets-encrypt-on-aws-ec2-amazon-linux
 1. https://odd-one-out.serek.eu/lets-encrypt-dns-challenge-cloudflare-acme-sh/
 1. http://biowikifarm.net/meta/HTTPS_Support_via_Let%E2%80%99s_Encrypt
