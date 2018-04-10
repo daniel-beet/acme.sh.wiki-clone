@@ -97,6 +97,7 @@ Here are some blogs that may help you:
 1. https://www.imagescape.com/blog/2017/04/25/lets-encrypt-alternative-acme-client/
 1. https://wiki.nps.edu/display/~mcgredo/letsencrypt
 1. http://icebearsoft.euweb.cz/letsencrypt-howto/#d1e970
+1. [Free Wildcard Certificates using Azure DNS, Let’s Encrypt and acme.sh](https://noobient.com/post/172797046216/free-wildcard-certificates-using-azure-dns-lets)
 
 
 ## French
