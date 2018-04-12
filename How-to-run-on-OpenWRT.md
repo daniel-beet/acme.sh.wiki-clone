@@ -5,12 +5,12 @@ Setup and run acme.sh on your OpenWRT router and have https secured management.
 `opkg install luci-ssl-openssl curl ca-bundle`
 
 ### Step 2: Configure Web Server
-Here we'll tell uhttpd not redirect to https
+Here we'll tell uhttpd redirect to https
 
 These commands use the OpenWRT [`uci` command](https://wiki.openwrt.org/doc/uci), a brilliant way to parse, get, set, and edit values and sections from config files. It makes scripting OpenWRT a breeze.
 
 ```
-uci set uhttpd.main.redirect_https=0
+uci set uhttpd.main.redirect_https=1
 uci commit
 /etc/init.d/uhttpd restart
 ```
