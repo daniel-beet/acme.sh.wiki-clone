@@ -24,9 +24,9 @@ chmod a+x "acme.sh"
 ./acme.sh --install
 cd /root/.acme.sh
 DOMAIN=my.router.net ## this domain must actually point to your router
-iptables -I input_rule -p tcp --dport 80 -j ACCEPT -m comment --comment ACME
+iptables -I input_rule -p tcp --dport 443 -j ACCEPT -m comment --comment ACME
 ./acme.sh --issue -d $DOMAIN -w /www
-iptables -D input_rule -p tcp --dport 80 -j ACCEPT -m comment --comment ACME
+iptables -D input_rule -p tcp --dport 443 -j ACCEPT -m comment --comment ACME
 ```
 
 Now if the certificate issue was successful we'll tell the web server to use our new certificate:
@@ -42,7 +42,7 @@ uci commit uhttpd
 
 Run `crontab -e` to edit your crontab (use something like `export EDITOR="/usr/bin/nano"` if vim isn't your style). Edit to:
 
-`0 0 * * * "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" --pre-hook "iptables -I input_rule -p tcp --dport 80 -j ACCEPT -m comment --comment ACME" --post-hook "iptables -D input_rule -p tcp --dport 80 -j ACCEPT -m comment --comment ACME" --reloadcmd "/etc/init.d/uhttpd restart" >> /root/.acme.sh/log.txt 2>&1`
+`0 0 * * * "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" --pre-hook "iptables -I input_rule -p tcp --dport 443 -j ACCEPT -m comment --comment ACME" --post-hook "iptables -D input_rule -p tcp --dport 443 -j ACCEPT -m comment --comment ACME" --reloadcmd "/etc/init.d/uhttpd restart" >> /root/.acme.sh/log.txt 2>&1`
 
 
 ### Step 5: Configure Firewall
