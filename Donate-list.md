@@ -39,6 +39,10 @@
 1. Peter Berbec
 1. Гончаров Владимир
 1. Stuart Friedberg
+1. Scott Aitken
+1. Bob Geddes
+1. David Yang
+
 
 
 ## 微信捐助列表:
@@ -59,7 +63,7 @@
 4. 匿名
 4. 匿名
 4. 匿名
-
+4. 匿名
 
 ## 支付宝
 
