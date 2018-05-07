@@ -42,6 +42,8 @@
 1. Scott Aitken
 1. Bob Geddes
 1. David Yang
+1. Techno FAQ
+1. Alex King
 
 
 
@@ -60,6 +62,7 @@
 1. 匿名
 2. 匿名
 3. 匿名
+4. 匿名
 4. 匿名
 4. 匿名
 4. 匿名
