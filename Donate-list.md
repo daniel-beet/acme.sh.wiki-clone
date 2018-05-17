@@ -42,9 +42,9 @@
 1. Scott Aitken
 1. Bob Geddes
 1. David Yang
-1. Techno FAQ
+1. [Techno FAQ](https://technofaq.org)
 1. Alex King
-
+1. Seth Schoen
 
 
 ## 微信捐助列表:
