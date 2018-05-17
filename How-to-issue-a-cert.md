@@ -39,20 +39,7 @@ How to use dns api:  https://github.com/Neilpang/acme.sh/tree/master/dnsapi
 
 #### 4) DNS manual mode:
 
-You can also issue a cert by adding a TXT record to your domain.
-
-```sh
-acme.sh  --issue  -d example.com  --dns
-```
-
-This will tell you to the DNS record to add. Once done, re-run with `--renew` to get the signed certificate:
-
-```sh
-acme.sh  --renew  -d example.com  --dns
-```
-
-**Take care,  this is dns manual mode, it can not be renewed automatically.  you will have to add a new txt record to your domain by your hand when you renew your cert.**
-
+See: https://github.com/Neilpang/acme.sh/wiki/DNS-manual-mode
 
 
 #### 5) Apache mode:
