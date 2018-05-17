@@ -41,7 +41,7 @@ How to use dns api:  https://github.com/Neilpang/acme.sh/tree/master/dnsapi
 
 See: https://github.com/Neilpang/acme.sh/wiki/DNS-manual-mode
 
-### 5) DNS alias mode:
+#### 5) DNS alias mode:
 
 See: https://github.com/Neilpang/acme.sh/wiki/DNS-alias-mode
 
