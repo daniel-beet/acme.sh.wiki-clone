@@ -41,8 +41,11 @@ How to use dns api:  https://github.com/Neilpang/acme.sh/tree/master/dnsapi
 
 See: https://github.com/Neilpang/acme.sh/wiki/DNS-manual-mode
 
+### 5) DNS alias mode:
 
-#### 5) Apache mode:
+See: https://github.com/Neilpang/acme.sh/wiki/DNS-alias-mode
+
+#### 6) Apache mode:
 
 If your website is running apache server, acme.sh can use apache server to issue cert. And acme.sh will restore your apache conf after the cert is issued,  don't worry.
 
@@ -50,7 +53,7 @@ If your website is running apache server, acme.sh can use apache server to issue
 acme.sh  --issue  -d example.com  --apache
 ```
 
-#### 6) Nginx mode:
+#### 7) Nginx mode:
 
 If your website is running nginx server, acme.sh can use nginx server to issue cert. And acme.sh will restore your nginx conf after the cert is issued,  don't worry.
 
