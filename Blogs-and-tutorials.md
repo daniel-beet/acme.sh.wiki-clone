@@ -102,7 +102,7 @@ Here are some blogs that may help you:
 
 
 ## French
-1. https://system42.fr/?d=2017/01/01/19/09/43-mise-en-place-de-https-sur-apache-avec-lets-encrypt
+1. https://ailothaen.fr/a/?d=2017/01/01/19/09/43-mise-en-place-de-https-sur-apache-avec-lets-encrypt
 1. https://howto.biapy.com/fr/debian-gnu-linux/systeme/logiciels/installer-le-client-certbot-lets-encrypt-acme-sh-sur-debian
 1. https://www.thelinuxfr.org/lets-encrypt-acme-sh-debian-nginx/
 1. https://jereze.com/fr/snippets/letsencrypt-acme-no-root
