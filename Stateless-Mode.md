@@ -23,7 +23,7 @@ http {
 ...
   server {
 ...
-    location ~ "^/\.well-known/acme-challenge/([-_a-zA-Z0-9]+)$" {
+    location ~ ^/\.well-known/acme-challenge/([-_a-zA-Z0-9]+)$ {
       default_type text/plain;
       return 200 "$1.6fXAG9VyG0IahirPEU2ZerUtItW2DHzDzD9wZaEKpqd";
     }
