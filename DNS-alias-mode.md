@@ -56,7 +56,7 @@ And then issue cert like bellow:
 ```sh
 
 acme.sh --issue  \
-  -d  importantDomain.com --challenge-alias aliasDomainForValidationOnly.com --dns dns_cf
+  -d  importantDomain.com --challenge-alias aliasDomainForValidationOnly.com --dns dns_cf \
   -d  www.importantDomain.com \
   -d  sub.importantDomain.com \
   -d  importantDomain2.com \
@@ -68,7 +68,7 @@ Even with ACME v2 wildcard cert:
 ```sh
 
 acme.sh --issue  \
-  -d  importantDomain.com --challenge-alias aliasDomainForValidationOnly.com --dns dns_cf
+  -d  importantDomain.com --challenge-alias aliasDomainForValidationOnly.com --dns dns_cf \
   -d  www.importantDomain.com \
   -d  sub.importantDomain.com \
   -d  importantDomain2.com \
@@ -97,7 +97,7 @@ Then issue cert:
 ```sh
 
 acme.sh --issue  \
-  -d  importantDomain.com --challenge-alias aliasDomainForValidationOnly.com --dns dns_cf
+  -d  importantDomain.com --challenge-alias aliasDomainForValidationOnly.com --dns dns_cf \
   -d  importantDomain2.com --challenge-alias aliasDomainForValidationOnly2.com
 ```
 
@@ -105,7 +105,7 @@ Even with different dns provider:
 
 ```sh
 acme.sh --issue  \
-  -d  importantDomain.com --challenge-alias aliasDomainForValidationOnly.com --dns dns_cf
+  -d  importantDomain.com --challenge-alias aliasDomainForValidationOnly.com --dns dns_cf \
   -d  importantDomain2.com --challenge-alias aliasDomainForValidationOnly2.com  --dns dns_gd
 ```
 
