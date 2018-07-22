@@ -43,7 +43,7 @@ export CF_Email="xxxx@sss.com"
 
 Now to create your cert:
 ```
-$ ./acme.sh  --issue --post-hook "/usr/syno/sbin/synoservicecfg --restart httpd-sys" --dns dns_cf --certpath /usr/syno/etc/ssl/ssl.crt/server.crt --keypath /usr/syno/etc/ssl/ssl.key/server.key --ca-file /usr/syno/etc/ssl/ssl.intercrt/server-ca.crt --config-home /volume1/@appstore/acme.sh/ --dnssleep 15 -d YOURDOMAIN.TLD 
+$ ./acme.sh  --issue --post-hook "/usr/syno/sbin/synoservicecfg --restart httpd-sys" --dns dns_cf --certpath /usr/syno/etc/ssl/ssl.crt/server.crt --keypath /usr/syno/etc/ssl/ssl.key/server.key --ca-file /usr/syno/etc/ssl/ssl.intercrt/server-ca.crt --config-home /volume1/@appstore/acme.sh --dnssleep 15 -d YOURDOMAIN.TLD 
 ```
 
 Simple right?
