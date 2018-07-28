@@ -46,7 +46,7 @@
 1. Alex King
 1. Seth Schoen
 1. Andre D Henry
-
+1. Simon Gaynor
 
 
 ## 微信捐助列表:
