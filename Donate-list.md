@@ -47,7 +47,7 @@
 1. Seth Schoen
 1. Andre D Henry
 1. Simon Gaynor
-
+1. Benedykt Mis
 
 ## 微信捐助列表:
 
@@ -109,3 +109,4 @@
 26. *晓枫
 27. *麟
 28. *锐錩
+29. *坚
