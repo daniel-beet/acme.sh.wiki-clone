@@ -48,6 +48,8 @@
 1. Andre D Henry
 1. Simon Gaynor
 1. Benedykt Mis
+1. Andris Reinman
+
 
 ## 微信捐助列表:
 
