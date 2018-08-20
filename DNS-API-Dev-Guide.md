@@ -5,7 +5,7 @@ This guide is to help any developer interested to build a brand new DNS API for 
 ## Some useful tips
 
 1. It's normal to run into errors, so do use `--debug 2` when testing.  For e.g., `acme.sh --issue --debug 2 -d example.com  --dns  dns_myapi`
-2. It's normal to burst rate limits for letsencrypt, so do use `--staging` when testing. For e.g., `acme.sh --issue --staging --debug 2 -d example.com  --dns  dns_myapi` Please read issue for details
+2. It's normal to burst rate limits for letsencrypt, so do use `--staging` when testing. For e.g., `acme.sh --issue --staging --debug 2 -d example.com  --dns  dns_myapi` Read [issue 1787](https://github.com/Neilpang/acme.sh/issues/1787) for details. Remember to remove `--staging` after testing.
 
 
 Let's assume your api name is `myapi`, and you will use your api like:
