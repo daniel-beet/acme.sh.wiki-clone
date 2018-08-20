@@ -1,4 +1,12 @@
-Guide for developing a dns api for acme.sh
+# Guide for developing a dns api for acme.sh
+
+This guide is to help any developer interested to build a brand new DNS API for acme.sh
+
+## Some useful tips
+
+1. It's normal to run into errors, so do use `--debug 2` when testing.  For e.g., `acme.sh --issue --debug 2 -d example.com  --dns  dns_myapi`
+2. It's normal to burst rate limits for letsencrypt, so do use `--staging` when testing. For e.g., `acme.sh --issue --staging --debug 2 -d example.com  --dns  dns_myapi` Please read issue for details
+
 
 Let's assume your api name is `myapi`, and you will use your api like:
 
@@ -221,4 +229,3 @@ To avoid the most common travis failures:
 * Doublequote variables  (use echo  _debug "txtvalue=$txtvalue" instead of  _debug txtvalue=$txtvalue)
 * Always check the travis results after a commit 
 * Consider using shellcheck (https://www.shellcheck.net/) before commiting 
-
