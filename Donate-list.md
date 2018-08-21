@@ -49,6 +49,10 @@
 1. Simon Gaynor
 1. Benedykt Mis
 1. Andris Reinman
+1. Walther Schubert
+1. Mathew Rupp
+1. Richard Shea
+1. Vladislav Bakayev
 
 
 ## 微信捐助列表:
