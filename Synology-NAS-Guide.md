@@ -32,9 +32,9 @@ Now it's time to create the certificate for your domain:
     $ export CERT_DOMAIN="your-domain.tld"
     $ export CERT_DNS="dns_cf"
     $ ./acme.sh --issue -d "$CERT_DOMAIN" --dns "$CERT_DNS" \
-          --certpath /usr/syno/etc/certificate/system/default/cert.pem \
-          --keypath /usr/syno/etc/certificate/system/default/privkey.pem \
-          --fullchainpath /usr/syno/etc/certificate/system/default/fullchain.pem \
+          --cert-file /usr/syno/etc/certificate/system/default/cert.pem \
+          --key-file /usr/syno/etc/certificate/system/default/privkey.pem \
+          --fullchain-file /usr/syno/etc/certificate/system/default/fullchain.pem \
           --reloadcmd "/usr/syno/sbin/synoservicectl --reload nginx" \
           --dnssleep 20
 
@@ -48,9 +48,9 @@ Please note that this will replace your Synology NAS system default certificate 
     $ export CERT_DOMAIN="your-domain.tld"
     $ export CERT_DNS="dns_cf"
     $ ./acme.sh  --issue -d "$CERT_DOMAIN" --dns "$CERT_DNS" \
-        --certpath "$CERT_FOLDER/cert.pem" \
-        --keypath "$CERT_FOLDER/privkey.pem" \
-        --fullchainpath "$CERT_FOLDER/fullchain.pem" \
+        --cert-file "$CERT_FOLDER/cert.pem" \
+        --key-file "$CERT_FOLDER/privkey.pem" \
+        --fullchain-file "$CERT_FOLDER/fullchain.pem" \
         --capath "$CERT_FOLDER/chain.pem" \
         --reloadcmd "/usr/syno/sbin/synoservicectl --reload nginx" \
         --dnssleep 20
