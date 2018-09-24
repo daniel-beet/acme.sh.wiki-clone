@@ -16,6 +16,8 @@ The following guide will use the DNS-01 protocol using the [Cloudflare API](http
     $ cd acme.sh-master/
     $ ./acme.sh --install --nocron --home /usr/local/share/acme.sh --accountemail "email@gmailcom"
 
+Be sure to close your session after installation and reconnect for the following steps. 
+
 ## Configuring DNS
 
 For CloudFlare, we will set two environment variables that acme.sh (specifically, the `dns_cf` script from the `dnsapi` subdirectory) will read to set the DNS record. You can get your CloudFlare [API key here](https://www.cloudflare.com/a/account/my-account).
