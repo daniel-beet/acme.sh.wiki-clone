@@ -11,7 +11,7 @@ root@ed:~# acme.sh --register-account
 [Mon Feb  6 21:40:21 CST 2017] Update success.
 [Mon Feb  6 21:40:21 CST 2017] ACCOUNT_THUMBPRINT='6fXAG9VyG0IahirPEU2ZerUtItW2DHzDzD9wZaEKpqd'
 ```
-Remember the the thumbprint in the last line:
+Remember the thumbprint in the last line:
 `
 6fXAG9VyG0IahirPEU2ZerUtItW2DHzDzD9wZaEKpqd
 `
