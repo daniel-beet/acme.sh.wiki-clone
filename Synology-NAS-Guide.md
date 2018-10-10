@@ -84,7 +84,7 @@ In DSM control panel, open the 'Task Scheduler' and create a new scheduled task 
 # Note: The $CERT_FOLDER must be hardcoded here since the running environment is unknown. Don't blindly copy&paste!
 # if you used the normal method the certificate will be installed in the system/default directory
 CERTDIR="system/default"
-# if you used the alternative method it is copied to an unknown path, change the following example to the output of the creation process. 
+# if you used the alternative method it is copied to an unknown path, change the following example to the output of the creation process and uncomment. 
 #CERTDIR="_archive/AsDFgH"
 
 # do not change anything beyond this line!
