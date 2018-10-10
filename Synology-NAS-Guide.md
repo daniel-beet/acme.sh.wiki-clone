@@ -61,24 +61,13 @@ Now you can check the DSM control panel - Security - Certificates to see the nom
 If you see the Lets Encrypt certificate but it's not being used by DMS yet assign the "system default" service to another certificate (create a self signed one if needed) and after the webserver has restarted assign the "system default" service back to the Lets Encrypt certificate. After the webservice has restarted DSM will be using the lets encrypt certificate. 
 
 ## Configuring Certificate Renewal
-To auto renew the certificates in the future, you need to configure the cronjob. However, acme.sh seems not properly add tasks to Synology crontab. You have to do this manually. 
-
-Configure crontab for root
-
-    $ vim /etc/crontab
-
-Add the following line to the crontab. Remember to use tab for spacing. 
-For example, 10:00 am of the 2nd day every month run the cronjob to check if due to renew the certificates (You can modify the cronjob schedule according to your needs) 
-
-    0    10    2    *    *    root    /usr/local/share/acme.sh/acme.sh --cron --home /usr/local/share/acme.sh/
-
-If using the alternate method from above, the last step is to setup a schedule task to copy renewed certificates in cert library to system default directory and restart the Nginx service.
+To auto renew the certificates in the future, you need to configure a task in the task scheduler. It is not advised to set this up as a custom cronjob (as was previously described in this wiki page) as the DSM security advisor will tell you that you have a critical warning regarding unknown cronjob(s).
 
 In DSM control panel, open the 'Task Scheduler' and create a new scheduled task for a user-defined script.  
 
 * General Setting: Task - Update default Cert. User - root
-* Schedule: Setup the time according to your acme.sh crontab schedule. For example, 11:00 am of the 2nd day every month.
-* Task setting: User-defined-script:
+* Schedule: Setup a monthly renewal. For example, 11:00 am of the 2nd day every month.
+* Task setting: User-defined-script **(modify where needed!)**:
 
 ```
 # Note: The $CERT_FOLDER must be hardcoded here since the running environment is unknown. Don't blindly copy&paste!
@@ -91,6 +80,9 @@ CERTDIR="system/default"
 CERTROOTDIR="/usr/syno/etc/certificate"
 PACKAGECERTROOTDIR="/usr/local/etc/certificate"
 FULLCERTDIR="$CERTROOTDIR/$CERTDIR"
+
+# renew certificates, this used to be explained as a custom cronjob but works just as well within this script according to the output of the task. 
+/usr/local/share/acme.sh/acme.sh --cron --home /usr/local/share/acme.sh/
 
 # find all subdirectories containing cert.pem files
 PEMFILES=$(find $CERTROOTDIR -name cert.pem)
