@@ -81,19 +81,24 @@ In DSM control panel, open the 'Task Scheduler' and create a new scheduled task 
 * Task setting: User-defined-script:
 
 ```
-# do not change anything beyond this line!
+# Note: The $CERT_FOLDER must be hardcoded here since the running environment is unknown. Don't blindly copy&paste!
+# if you used the normal method the certificate will be installed in the system/default directory
+CERTDIR="system/default"
+# if you used the alternative method it is copied to an unknown path, change the following example to the output of the creation process. 
+#CERTDIR="_archive/AsDFgH"
 
+# do not change anything beyond this line!
 CERTROOTDIR="/usr/syno/etc/certificate"
-#CERTROOTDIR="/usr/syno/etc/certificate/system/default/"
 PACKAGECERTROOTDIR="/usr/local/etc/certificate"
-FULLCERTDIR="$CERTROOTDIR/system/default"
+FULLCERTDIR="$CERTROOTDIR/$CERTDIR"
 
 # find all subdirectories containing cert.pem files
 PEMFILES=$(find $CERTROOTDIR -name cert.pem)
 if [ ! -z "$PEMFILES" ]; then
         for DIR in $PEMFILES; do
-                # replace all certificates, but not the ones in the default folder
-                if [[ $DIR != *"/default/"* ]]; then
+                # replace the certificates, but never the ones in the _archive folders as those are all the unique
+                # certificates on the system.
+                if [[ $DIR != *"/_archive/"* ]]; then
                         rsync -avh "$FULLCERTDIR/" "$(dirname $DIR)/"
                 fi
         done
@@ -106,8 +111,11 @@ fi
 PEMFILES=$(find $PACKAGECERTROOTDIR -name cert.pem)
 if [ ! -z "$PEMFILES" ]; then
 	for DIR in $PEMFILES; do
+              #active directory has it's own certificate so we do not update that package
+              if [[ $DIR != *"/ActiveDirectoryServer/"* ]]; then
 		rsync -avh "$FULLCERTDIR/" "$(dirname $DIR)/"
 		/usr/syno/bin/synopkg restart $(echo $DIR | awk -F/ '{print $6}')
+              fi
 	done
 fi
 ```
