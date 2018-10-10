@@ -58,7 +58,7 @@ Please note that this will replace your Synology NAS system default certificate 
         --dnssleep 20
 
 Now you can check the DSM control panel - Security - Certificates to see the nominated certificate has been replaced by letsencrypt one. You can now configure to use this one as default and assign to specific services, like vpn, sftp, etc. 
-If you see the Lets Encrypt certificate but it's not being used by DMS yet you will have to create a temporary self signed certificate, assign the "system default" service to it and after the webserver has restarted assign the "system default" back to the Lets Encrypt certificate. After the webservice has restarted DSM will be using the lets encrypt certificate. 
+If you see the Lets Encrypt certificate but it's not being used by DMS yet assign the "system default" service to another certificate (create a self signed one if needed) and after the webserver has restarted assign the "system default" service back to the Lets Encrypt certificate. After the webservice has restarted DSM will be using the lets encrypt certificate. 
 
 ## Configuring Certificate Renewal
 To auto renew the certificates in the future, you need to configure the cronjob. However, acme.sh seems not properly add tasks to Synology crontab. You have to do this manually. 
