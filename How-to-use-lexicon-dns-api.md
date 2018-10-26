@@ -1,4 +1,4 @@
-## lexicon is a python tool for a number dns providers.
+## lexicon is a python tool for a number of dns providers.
 
 As I'm writing this doc, it supports the following dns api:
 The current supported providers are:
