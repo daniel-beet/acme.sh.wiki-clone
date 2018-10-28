@@ -53,7 +53,11 @@
 1. Mathew Rupp
 1. Richard Shea
 1. Vladislav Bakayev
-
+1. Georgi Petrov
+1. Hank Oxford
+1. Ondrej Sury
+1. Feng Gao
+1. David Tourel [Maildrop](https://www.maildrop.fr)
 
 ## 微信捐助列表:
 
