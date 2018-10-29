@@ -99,6 +99,7 @@ Here are some blogs that may help you:
 1. http://icebearsoft.euweb.cz/letsencrypt-howto/#d1e970
 1. [Free Wildcard Certificates using Azure DNS, Let’s Encrypt and acme.sh](https://noobient.com/post/172797046216/free-wildcard-certificates-using-azure-dns-lets)
 1. [How to use acme.sh to install and update your VMware vCenter and PSC servers](https://wiki.9r.com.au/display/9R/LetsEncrypt+Certificates+for+vCenter+and+PSC)
+1. [Install a SSL reverse proxy on an Asus Router with OVH domain](https://github.com/pedrom34/TutoAsus/)
 
 
 ## French
@@ -107,6 +108,7 @@ Here are some blogs that may help you:
 1. https://www.thelinuxfr.org/lets-encrypt-acme-sh-debian-nginx/
 1. https://jereze.com/fr/snippets/letsencrypt-acme-no-root
 1. https://kb.virtubox.net/fr/knowledgebase/obtenir-installer-certificat-ssl-wildcard-acme-sh-nginx/
+1. [Installer un reverse proxy SSL sur un routeur Asus avec un nom de domaine Ovh](https://github.com/pedrom34/TutoAsus/blob/master/Readme.fr.md)
 
 ## Russian
 1. http://wpb.1gb.ru/2016/08/27/%D1%83%D1%81%D1%82%D0%B0%D0%BD%D0%BE%D0%B2%D0%BA%D0%B0-https-%D0%B4%D0%BB%D1%8F-%D1%81%D0%B0%D0%B9%D1%82%D0%B0-letsencrypt-ssl-%D1%81%D0%B5%D1%80%D1%82%D0%B8%D1%84%D0%B8%D0%BA%D0%B0%D1%82-nginx-debian/
