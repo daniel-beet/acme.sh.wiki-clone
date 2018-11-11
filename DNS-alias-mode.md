@@ -1,4 +1,4 @@
-If your dns provider doesn't support api access,  or if you mind the secure to give the dns api access of your main domain to a shell script.  You can use dns alias mode.
+If your dns provider doesn't support api access,  or if you're concerned about security problems from giving the dns api access to your main domain, then you can use DNS alias mode.
 
 For example,  your main domain is `importantDomain.com`,  which doesn't have api access, or you don't want to give the api access to acme.sh, since it's important.
 
