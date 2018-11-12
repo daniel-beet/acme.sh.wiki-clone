@@ -55,7 +55,7 @@ Explanations :
 
 - `--home` is a customized dir to install `acme.sh` in.  By default, it installs into `~/.acme.sh` 
 - `--config-home` is a writable folder, acme.sh will write all the files(including cert/keys, configs) there. By default, it's in `--home`
-- `--certhome` is a customized dir to save the certs you issue.  By default, it's saved in `--config-home`.
+- `--cert-home` is a customized dir to save the certs you issue.  By default, it's saved in `--config-home`.
 - `--accountemail` is the email used to register account to Let's Encrypt,  you will receive renewal notice email here. Default is empty.
 - `--accountkey` is the file saving your account private key.  By default it's saved in `--config-home`.
 - `--useragent`  is the user-agent header value used to send to Let's Encrypt.
