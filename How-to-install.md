@@ -42,7 +42,7 @@ cd acme.sh
 ./acme.sh --install  \
 --home ~/myacme \
 --config-home ~/myacme/data \
---certhome  ~/mycerts \
+--cert-home  ~/mycerts \
 --accountemail  "hi@acme.sh" \
 --accountkey  ~/myaccount.key \
 --accountconf ~/myaccount.conf \
