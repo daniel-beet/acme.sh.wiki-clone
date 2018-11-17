@@ -8,7 +8,6 @@ Here are some blogs that may help you:
 1. [Windows Tomcat 配置Let’s Encrypt证书并自动更新](http://www.jianshu.com/p/80d72f34140b)
 1. [acme.sh 自动更新 RSA、ECC 双证书实践](https://deepzz.com/post/acmesh-letsencrypt-cert-auto-renew.html)
 1. https://tommyh.io/post/2
-1. [使用acme.sh获取Let’s Encrypt证书](https://hex.moe/2017/08/13/acmesh-to-get-letsencrypt-cert/)
 1. https://hitian.info/notes/2017/02/16/acme-sh-create-letsencrypt-certificates-with-dns-api/
 1. https://nmchgx.com/acme-https/
 1. https://www.gubo.org/acme_sh-lets-encrypt-auto-signing-renewing-script/
