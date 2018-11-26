@@ -25,7 +25,7 @@ acme.sh  command ...[parameters]....
   **--uninstallcronjob**       Uninstall the cron job. The 'uninstall' command can do this automatically.  
   **--cron**                   Run cron job to renew all the certs.  
   **--toPkcs**                 Export the certificate and key to a pfx file.  
-  **--toPkcs8**                Convert to pkcs8 format.
+  **--toPkcs8**                Convert to pkcs8 format.  
   **--updateaccount**          Update account info.  
   **--registeraccount**        Register account key.  
   **--createAccountKey, -cak** Create an account private key, professional use.  
