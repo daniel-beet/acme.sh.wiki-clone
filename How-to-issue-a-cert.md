@@ -22,7 +22,21 @@ acme.sh  --issue  -d example.com  --standalone --httpport 88
 ```
 
 
-#### 3) DNS API mode:
+#### 3) Standalone tls alpn mode:
+
+If you don't have a web server,  maybe you are on a smtp or ftp server, the `443` port is free. you can use standalone tls alpn mode.
+acme.sh has a builtin standalone tls webserver, it can listen at 443 port to issue the cert.
+
+```sh
+acme.sh  --issue  -d example.com  --alpn
+```
+If you are using a non-standard `443` port behind a reverse proxy or load balancer , you can use `--tlsport` to specify your port:
+
+```sh
+acme.sh  --issue  -d example.com  --alpn --tlsport 8443
+```
+
+#### 4) DNS API mode:
 
 Yes, if your nameservice provider has an api, we can use the api to automatically add the txt record for you. your cert will be automatically issued and renewed.
 
@@ -37,15 +51,15 @@ acme.sh  --issue  -d example.com  --dns dns_cf
 
 How to use dns api:  https://github.com/Neilpang/acme.sh/tree/master/dnsapi
 
-#### 4) DNS manual mode:
+#### 5) DNS manual mode:
 
 See: https://github.com/Neilpang/acme.sh/wiki/DNS-manual-mode
 
-#### 5) DNS alias mode:
+#### 6) DNS alias mode:
 
 See: https://github.com/Neilpang/acme.sh/wiki/DNS-alias-mode
 
-#### 6) Apache mode:
+#### 7) Apache mode:
 
 If your website is running apache server, acme.sh can use apache server to issue cert. And acme.sh will restore your apache conf after the cert is issued,  don't worry.
 
@@ -53,7 +67,7 @@ If your website is running apache server, acme.sh can use apache server to issue
 acme.sh  --issue  -d example.com  --apache
 ```
 
-#### 7) Nginx mode:
+#### 8) Nginx mode:
 
 If your website is running nginx server, acme.sh can use nginx server to issue cert. And acme.sh will restore your nginx conf after the cert is issued,  don't worry.
 
