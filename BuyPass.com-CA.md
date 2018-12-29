@@ -38,6 +38,10 @@ Don't worry, all the certs will be automatically renewed as usual.
 
 
 
-1. It only supports ACME v1,  no wildcard cert.
+
+----------------------
+
+1. It only supports ACME v1,  no wildcard cert. but you can add as many domains to the cert as you want.
 2. It has 180 days lifetime.
+3. ECC cert is supported, but the signing root is a RSA root.
 
