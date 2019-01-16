@@ -12,7 +12,7 @@ This article outlines some ways it is possible to configure webservers to work t
 |-----------|--------|---------|
 | Apache httpd | Not yet possible | - | 
 | nginx | Supported | Requires [ngx_stream_ssl_preread_module](http://nginx.org/en/docs/stream/ngx_stream_ssl_preread_module.html) to be compiled. e.g. on Ubuntu 18.04, included in the `nginx-full` package. |
-| haproxy | haproxy>=1.9.1 | - 
+| haproxy | Supported | Requires haproxy >= 1.9.1 
 
 ## Instructions
 
