@@ -92,7 +92,7 @@ When a TLS-ALPN connection for ACME comes in, it will be routed to acme.sh, othe
     $ haproxy -v
     HA-Proxy version 1.9.2 2019/01/16 - https://haproxy.org/
 
-2\. In the haproxy configuration, as well as re-assigning your existing HTTPS frontend to port 8443, you will need to add:
+2\. In the haproxy configuration, as well as re-assigning your existing HTTPS (443) frontend to port 8443, you will need to add:
 
   1. `fe_alpn` - a TCP frontend on 443 to load balance ALPN
   2. `bk_acmesh` - A backend to send requests to acme.sh
@@ -116,7 +116,7 @@ backend bk_acmesh
 backend bk_https
   server https 127.0.0.1:8443
 
-# Existing, changed from 80 -> 8443
+# Existing, changed from 443 -> 8443
 frontend fe_https
   mode http
   bind :8443 ssl crt /etc/ssl/haproxy.pem
