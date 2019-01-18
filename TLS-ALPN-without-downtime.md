@@ -10,7 +10,7 @@ This article outlines some ways it is possible to configure webservers to work t
 
 | Webserver | Status | Caveats |
 |-----------|--------|---------|
-| Apache httpd | Not yet possible | - | 
+| Apache httpd | Not possible | Consider using [mod_md](https://github.com/icing/mod_md), which is an Apache module that replaces acme.sh. It can perform TLS-ALPN validation since version 1.99. | 
 | nginx | Supported | Requires [ngx_stream_ssl_preread_module](http://nginx.org/en/docs/stream/ngx_stream_ssl_preread_module.html) to be compiled. e.g. on Ubuntu 18.04, included in the `nginx-full` package. |
 | haproxy | Supported | Requires haproxy >= 1.9.1 
 
