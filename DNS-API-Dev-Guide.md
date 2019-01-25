@@ -220,6 +220,15 @@ https://github.com/Neilpang/acme.sh/issues/1261
 2. Add your dns api to the support list: https://github.com/Neilpang/acme.sh/tree/dev#8-automatic-dns-api-integration
 
 
+### 10. Please create a new issue for future bugs
+Please report a new issue here: `"Report bugs to xxxx dns api"`  https://github.com/Neilpang/acme.sh/issues
+And please watch to that issue.
+Any future bug will be reported there.
+Example: https://github.com/Neilpang/acme.sh/issues/2057
+
+
+
+
 ## Style Guidelines
 acme.sh uses shellcheck for new commits and also enforces style guidelines.  
 To avoid the most common travis failures:  
