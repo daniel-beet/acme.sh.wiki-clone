@@ -222,8 +222,9 @@ https://github.com/Neilpang/acme.sh/issues/1261
 
 ### 10. Please create a new issue for future bugs
 Please report a new issue here: `"Report bugs to xxxx dns api"`  https://github.com/Neilpang/acme.sh/issues
-And please watch to that issue.
-Any future bug will be reported there.
+
+And please watch to that issue. Any future bug will be reported there.
+
 Example: https://github.com/Neilpang/acme.sh/issues/2057
 
 
