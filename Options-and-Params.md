@@ -29,7 +29,7 @@ acme.sh  command ...[parameters]....
   **--updateaccount**          Update account info.  
   **--registeraccount**        Register account key.  
   **--createAccountKey, -cak** Create an account private key, professional use.  
-  **--createDomainKey, -cdk**  Create an domain private key, professional use.  
+  **--createDomainKey, -cdk**  Create a domain private key, professional use.  
   **--createCSR, -ccsr**       Create CSR , professional use.  
   **--deactivate**             Deactivate the domain authz, professional use.  
 
