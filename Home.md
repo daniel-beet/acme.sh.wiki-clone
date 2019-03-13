@@ -37,7 +37,7 @@ After you issue the cert, you can use the `toPkcs` command to convert the cert t
 acme.sh  --toPkcs  -d <domain>  [--password pfx-password]
 ```
 
-## 4. How to run on Windows with Cygwin.
+## 4. How to run on Windows with Cygwin or git bash.
 1) Download cygwin installer: setup-x86.exe  or setup-x86_64.exe
 from: https://cygwin.com/
 
