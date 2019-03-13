@@ -46,5 +46,6 @@ from: https://cygwin.com/
 3) After install finished, you can open the Cygwin window and use `curl` to install `acme.sh`online:
 [https://github.com/Neilpang/le/wiki#1-how-to-install](https://github.com/Neilpang/le/wiki#1-how-to-install)
 
+4) A scheduler task will be installed in your Windows scheduler to renew your certs.
 
 
