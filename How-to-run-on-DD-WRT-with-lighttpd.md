@@ -10,6 +10,7 @@ This guide is written for a Kong build of DD-WRT, but should work with any that 
 2. **Install acme.sh onto the JFFS.**
     Somewhat arbitrarily, I chose to put it, and related configuration, in `/jffs/usr/ssl`. To do this:
     ```bash
+    mkdir /jffs/usr    
     mkdir /jffs/usr/ssl
     cd /jffs/usr/ssl
     curl --capath /opt/etc/ssl/certs https://raw.githubusercontent.com/Neilpang/acme.sh/master/acme.sh > acme.sh
