@@ -1350,6 +1350,8 @@ acme.sh --issue --dns dns_ultra -d example.com -d www.example.com
 
 `ULTRA_USR` and `ULTRA_PWD` will be saved in `~/.acme.sh/account.conf` and will be resued when needed.
 
+---------------------------------
+
 # Use custom API
 
 If your API is not supported yet, you can write your own DNS API.
