@@ -1368,6 +1368,13 @@ For more details, please check our sample script: [dns_myapi.sh](dns_myapi.sh)
 
 See:  https://github.com/Neilpang/acme.sh/wiki/DNS-API-Dev-Guide
 
+
+
+
+-----------------------------------
+
+**More APIs coming soon...**
+
 # Use lexicon DNS API
 
 https://github.com/Neilpang/acme.sh/wiki/How-to-use-lexicon-dns-api
