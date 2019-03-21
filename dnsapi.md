@@ -1364,6 +1364,19 @@ To issue a certificate run:
 acme.sh --issue --dns dns_desec -d foobar.dedyn.io -d *.foobar.dedyn.io
 ```
 
+## 72. Use OpenProvider API
+
+First, you need to enable API access and retrieve your password hash on https://rcp.openprovider.eu/account/dashboard.php
+
+```
+export OPENPROVIDER_USER='username'
+export OPENPROVIDER_PASSWORDHASH='xxx'
+
+acme.sh --issue --dns dns_openprovider -d example.com -d www.example.com
+```
+
+`OPENPROVIDER_USER` and `OPENPROVIDER_PASSWORDHASH` will be saved in `~/.acme.sh/account.conf` and will be reused when needed.
+
 ---------------------------------
 
 # Use custom API
