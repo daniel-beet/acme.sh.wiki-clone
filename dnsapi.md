@@ -1350,6 +1350,20 @@ acme.sh --issue --dns dns_ultra -d example.com -d www.example.com
 
 `ULTRA_USR` and `ULTRA_PWD` will be saved in `~/.acme.sh/account.conf` and will be resued when needed.
 
+## 71. Use deSEC.io
+
+Sign up for dynDNS at https://desec.io first.
+
+Set your API token (password) and domain (username) from your email sent by desec.io
+```
+export DEDYN_TOKEN=d41d8cd98f00b204e9800998ecf8427e
+export DEDYN_NAME=foobar.dedyn.io
+```
+To issue a certificate run:
+```
+acme.sh --issue --dns dns_desec -d foobar.dedyn.io -d *.foobar.dedyn.io
+```
+
 ---------------------------------
 
 # Use custom API
