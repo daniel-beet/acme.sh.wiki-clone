@@ -1277,7 +1277,7 @@ To issue a new certificate, run:
 acme.sh --issue --dns dns_mydevil -d example.com -d *.example.com
 ```
 
-After certificate is ready, you can install it with [deploy command](../deploy/README.md#14-deploy-your-cert-on-mydevilnet).
+After certificate is ready, you can install it with [deploy command](https://github.com/Neilpang/acme.sh/wiki/deployhooks#14-deploy-your-cert-on-mydevilnet).
 
 ## 67. Use Core-Networks API to automatically issue cert
 
