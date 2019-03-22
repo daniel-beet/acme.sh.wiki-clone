@@ -384,7 +384,7 @@ $ acme.sh --deploy -d example.com --deploy-hook qiniu
 
 ## 14. Deploy your cert on MyDevil.net
 
-Once you have acme.sh installed and certificate issued (see info in [DNS API](../dnsapi/README.md#61-use-mydevilnet)), you can install it by following command:
+Once you have acme.sh installed and certificate issued (see info in [DNS API](https://github.com/Neilpang/acme.sh/wiki/dnsapi#66-use-mydevilnet)), you can install it by following command:
 
 ```sh
 acme.sh --deploy --deploy-hook mydevil -d example.com
