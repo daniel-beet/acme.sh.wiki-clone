@@ -415,7 +415,6 @@ $ acme.sh --deploy -d example.com --deploy-hook mailcow
 ## 16. Deploy the cert to G-Core CDN service
 
 Deploy the cert to G-Core CDN service (https://gcorelabs.com/ru/) using the G-Core Labs API (https://docs.gcorelabs.com/cdn/).
-Uses command line curl for send requests and jq for parse responses.
 
 Then you can deploy now:
 
@@ -424,5 +423,3 @@ export DEPLOY_GCORE_CDN_USERNAME=myusername
 export DEPLOY_GCORE_CDN_PASSWORD=mypassword
 acme.sh --deploy -d example.com --deploy-hook gcore_cdn
 ```
-
-Please note, need installed jq.
