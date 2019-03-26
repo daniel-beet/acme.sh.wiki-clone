@@ -20,7 +20,7 @@ Be sure to close your session after installation and reconnect for the following
 
 ## Configuring DNS
 
-For CloudFlare, we will set two environment variables that acme.sh (specifically, the `dns_cf` script from the `dnsapi` subdirectory) will read to set the DNS record. You can get your CloudFlare [API key here](https://www.cloudflare.com/a/account/my-account).
+For CloudFlare, we will set two environment variables that acme.sh (specifically, the `dns_cf` script from the `dnsapi` subdirectory) will read to set the DNS record. You can get your CloudFlare [API key here](https://dash.cloudflare.com/profile).
 
     export CF_Key="MY_SECRET_KEY_SUCH_SECRET"
     export CF_Email="myemail@example.com"
