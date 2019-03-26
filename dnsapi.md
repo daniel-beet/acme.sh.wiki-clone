@@ -1379,6 +1379,26 @@ acme.sh --issue --dns dns_openprovider -d example.com -d www.example.com
 
 `OPENPROVIDER_USER` and `OPENPROVIDER_PASSWORDHASH` will be saved in `~/.acme.sh/account.conf` and will be reused when needed.
 
+## 73. Use MaraDNS API
+
+Make sure you've configured MaraDNS properly and setup a zone file for your domain. See [`csv2(5)`](https://manpages.debian.org/stretch/maradns/csv2.5.en.html).
+
+Set the path to your zone file, and path to duende's pid file (see, [`duende(8)`](https://manpages.debian.org/stretch/duende/duende.8.en.html) or `ps -C duende o pid,cmd`).
+The pid file is used to ask duende to reload the configuration automatically after DNS records are added.
+```
+export MARA_ZONE_FILE="/etc/maradns/db.domain.com"
+export MARA_DUENDE_PID_PATH="/run/maradns/etc_maradns_mararc.pid"
+```
+
+Ensure that the acme.sh process has write access to the zone file and read access to the pid file.
+
+Issuing a certificate:
+```
+acme.sh --issue --dns dns_maradns -d example.com -d '*.example.com'
+```
+
+`MARA_ZONE_FILE` and `MARA_DUENDE_PID_PATH` will be saved in `~/.acme.sh/account.conf` and will be reused when needed.
+
 ---------------------------------
 
 # Use custom API
