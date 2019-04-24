@@ -1399,6 +1399,21 @@ acme.sh --issue --dns dns_maradns -d example.com -d '*.example.com'
 
 `MARA_ZONE_FILE` and `MARA_DUENDE_PID_PATH` will be saved in `~/.acme.sh/account.conf` and will be reused when needed.
 
+## 74. Use DDNSS.de API
+
+First create an account at https://ddnss.de. After that create a new host record.
+In the defenition for the host make sure to set the checkbox for "Wildcard" and for "TXT".
+
+Note your Api Key displayed at ddnss.de and export in DDNSS_Token variable
+```
+export DDNSS_Token="e4155767few8erwf59353633tz342ce85werddc99432"
+```
+Note: You will only have one token, even if you have multiple Hosts with DDNSS under your account.
+
+After that you can issue a new certificate:
+```
+acme.sh --issue --dns dns_ddnss -d example.com
+```
 ---------------------------------
 
 # Use custom API
