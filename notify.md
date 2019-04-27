@@ -13,7 +13,7 @@ acme.sh --set-notify  [--notify-mode 0]
 
 ```sh
 export  MAILGUN_API_KEY="xxxxxxxx"
-export  MAILGUN_APIDOMAIN="xxxxxx.com" 
+export  MAILGUN_API_DOMAIN="xxxxxx.com" 
 export  MAILGUN_FROM="xxx@xxxxx.com"
 export  MAILGUN_TO="yyyy@gmail.com"
 
