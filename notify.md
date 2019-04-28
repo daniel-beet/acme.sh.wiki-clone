@@ -1,7 +1,7 @@
 # Set notification
 
 acme.sh can send notifications in its cronjob. 
-Every night when the renew cronjob runs, you may receive notifications based on `notify-level` or `notify-mode`.
+Every night when the renew cronjob runs, you may receive notifications based on `notify-level` and `notify-mode`.
 
 The notifications can be emails for another supported way, such as request to a webhook etc.
 
