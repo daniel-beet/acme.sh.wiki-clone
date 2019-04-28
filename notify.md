@@ -6,13 +6,18 @@ Every night when the renew cronjob runs, you may receive notifications based on 
 ```
 
   --notify-level  0|1|2|3           Set the notification level:  Default value is 2.
-                                     0: disabled, no notification will be sent.
-                                     1: send notification only when there is an error. No news is good news.
-                                     2: send notification when a cert is successfully renewed, or there is an error
-                                     3: send notification when a cert is skipped, renewdd, or error
+
+                 0: disabled, no notification will be sent.
+                 1: send notification only when there is an error. No news is good news.
+                 2: send notification when a cert is successfully renewed, or there is an error
+                 3: send notification when a cert is skipped, renewed, or error. You will receive notification every night with this level.
+
+
   --notify-mode   0|1               Set notification mode. Default value is 0.
-                                     0: Bulk mode. Send all the domain's notifications in one message(mail)
-                                     1: Cert mode. Send a message for every single cert.
+
+                  0: Bulk mode. Send all the domain's notifications in one message(email)
+                  1: Cert mode. Send a message for every single cert. You may receive a bulk of emails in one night.
+
   --notify-hook   [hookname]        Set the notify hook
 
 
@@ -33,10 +38,6 @@ acme.sh --set-notify  [--notify-level 2]
 acme.sh --set-notify  [--notify-mode 0]
 
 ```
-
-
-
-
 
 
 
