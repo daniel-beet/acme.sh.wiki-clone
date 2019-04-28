@@ -3,6 +3,21 @@
 acme.sh can send notifications in its cronjob. 
 Every night when the renew cronjob runs, you may receive notifications based on `notify-level` and `notify-mode`.
 
+```
+
+  --notify-level  0|1|2|3           Set the notification level:  Default value is 2.
+                                     0: disabled, no notification will be sent.
+                                     1: send notification only when there is an error. No news is good news.
+                                     2: send notification when a cert is successfully renewed, or there is an error
+                                     3: send notification when a cert is skipped, renewdd, or error
+  --notify-mode   0|1               Set notification mode. Default value is 0.
+                                     0: Bulk mode. Send all the domain's notifications in one message(mail)
+                                     1: Cert mode. Send a message for every single cert.
+  --notify-hook   [hookname]        Set the notify hook
+
+
+```
+
 The notifications can be emails for another supported way, such as request to a webhook etc.
 
 As for now,  there is email notification supported, but there will be more soon. You can also implement your hook.
@@ -19,20 +34,7 @@ acme.sh --set-notify  [--notify-mode 0]
 
 ```
 
-```
 
-  --notify-level  0|1|2|3           Set the notification level:  Default value is 2.
-                                     0: disabled, no notification will be sent.
-                                     1: send notification only when there is an error. No news is good news.
-                                     2: send notification when a cert is successfully renewed, or there is an error
-                                     3: send notification when a cert is skipped, renewdd, or error
-  --notify-mode   0|1               Set notification mode. Default value is 0.
-                                     0: Bulk mode. Send all the domain's notifications in one message(mail)
-                                     1: Cert mode. Send a message for every single cert.
-  --notify-hook   [hookname]        Set the notify hook
-
-
-```
 
 
 
