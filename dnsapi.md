@@ -1428,6 +1428,24 @@ After that you can issue a new certificate:
 ```
 acme.sh --issue --dns dns_ddnss -d example.com
 ```
+
+## 75. Use NLnetLabs NSD
+
+You need to export two variables. Your zonefile which the script will automatically edit:
+```
+export Nsd_ZoneFile="/etc/nsd/zones/example.com.zone"
+```
+And something that calls the nsd-control reload command, either via a script:
+```
+export Nsd_Command="/usr/local/bin/sign-and-update.sh example.com"
+```
+or directly:
+```
+export Nsd_Command="sudo nsd-control reload example.com"
+```
+
+The variables are saved per-domain, not per-account.
+
 ---------------------------------
 
 # Use custom API
