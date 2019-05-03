@@ -1446,6 +1446,23 @@ export Nsd_Command="sudo nsd-control reload example.com"
 
 The variables are saved per-domain, not per-account.
 
+## 76. Use Schlundtech 
+
+[Schlundtech](https://www.schlundtech.de/) offers an [xml api](https://www.schlundtech.de/services/xml-gateway/)  with your standard login credentials, set them like so:
+
+```
+export SCHLUNDTECH_USER="yourusername"
+export SCHLUNDTECH_PASSWORD="password"
+```
+
+Then you can issue your certificates with:
+
+```
+acme.sh --issue --dns dns_schlundtech -d example.com -d www.example.com
+```
+
+The `SCHLUNDTECH_USER` and `SCHLUNDTECH_PASSWORD` settings will be saved in `~/.acme.sh/account.conf` and will be reused when needed.
+
 ---------------------------------
 
 # Use custom API
