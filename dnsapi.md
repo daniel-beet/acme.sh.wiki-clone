@@ -1463,6 +1463,26 @@ acme.sh --issue --dns dns_schlundtech -d example.com -d www.example.com
 
 The `SCHLUNDTECH_USER` and `SCHLUNDTECH_PASSWORD` settings will be saved in `~/.acme.sh/account.conf` and will be reused when needed.
 
+
+
+## 77. Use your one.com credentials as you would login into the control panel.
+
+```
+export ONECOM_User="sdfsdfsdfljlbjkljlkjsdfoiwje"
+export ONECOM_Password="xxxx@sss.com"
+```
+
+Ok, let's issue a cert now:
+```
+acme.sh --issue --dns dns_one -d example.com -d www.example.com
+```
+
+The `ONECOM_User` and `ONECOM_Password` will be saved in `~/.acme.sh/account.conf` and will be reused when needed.
+
+
+
+
+
 ---------------------------------
 
 # Use custom API
