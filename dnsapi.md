@@ -1443,8 +1443,12 @@ or directly:
 ```
 export Nsd_Command="sudo nsd-control reload example.com"
 ```
-
 The variables are saved per-domain, not per-account.
+
+To issue a new certificate, run:
+```
+acme.sh --issue --dns dns_nsd -d example.com -d *.example.com
+```
 
 ## 76. Use Schlundtech 
 
