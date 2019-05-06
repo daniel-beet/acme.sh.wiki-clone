@@ -1483,9 +1483,23 @@ acme.sh --issue --dns dns_one -d example.com -d www.example.com
 
 The `ONECOM_User` and `ONECOM_Password` will be saved in `~/.acme.sh/account.conf` and will be reused when needed.
 
+## 78. Use acmeproxy DNS API
 
+[Acmeproxy](https://github.com/mdbraber/acmeproxy/) can be used to as a single host in your network to request certificates through a DNS API. Clients can connect with one single host (the acmeproxy) so you don't need to store your DNS API credentials on every single host that wants to request a certificate.
 
+```
+export ACMEPROXY_ENDPOINT="https://acmeproxy.yourhost.com:9096"
+export ACMEPROXY_USERNAME="username"
+export ACMEPROXY_PASSWORD="password"
+```
 
+Then you can issue your certificates with:
+
+```
+acme.sh --issue --dns dns_acmeproxy -d example.com -d www.example.com
+```
+
+The `ACMEPROXY_ENDPOINT`, `ACMEPROXY_USERNAME` and `ACMEPROXY_PASSWORD` settings will be saved in `~/.acme.sh/account.conf` and will be reused when needed.
 
 ---------------------------------
 
