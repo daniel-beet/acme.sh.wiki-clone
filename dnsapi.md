@@ -1501,6 +1501,23 @@ acme.sh --issue --dns dns_acmeproxy -d example.com -d www.example.com
 
 The `ACMEPROXY_ENDPOINT`, `ACMEPROXY_USERNAME` and `ACMEPROXY_PASSWORD` settings will be saved in `~/.acme.sh/account.conf` and will be reused when needed.
 
+## 79. Use internetbs.net API
+
+Create an API token in your internetbs.net account.
+
+Set your API token:
+```
+export INTERNETBS_API_KEY="..."
+export INTERNETBS_API_PASSWORD="..."
+```
+
+To issue a certificate run:
+```
+acme.sh --issue --dns dns_internetbs -d example.com -d www.example.com
+```
+
+The `INTERNETBS_API_KEY` and `INTERNETBS_API_PASSWORD` will be saved in `~/.acme.sh/account.conf` and will be reused when needed.
+
 ---------------------------------
 
 # Use custom API
