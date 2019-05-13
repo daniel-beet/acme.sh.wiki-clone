@@ -1,0 +1,1 @@
+If you want to create a Debian package for `acme.sh` (e.g. to include your own configuration files over several hosts with your own APT repository or to use only the Debian installer instead of wget), check out https://github.com/mdbraber/acme.sh-debian
