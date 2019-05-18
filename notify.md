@@ -101,3 +101,22 @@ acme.sh --set-notify  --notify-hook mail
 ```
 
 The `MAIL_BIN`, `MAIL_TO` and `MAIL_FROM` will be saved in ~/.acme.sh/account.conf and will be reused when needed.
+
+
+## 4. Set notification for Slack Webhooks
+
+First get your [Slack Webhook URL](https://slack.com/apps/A0F7XDUAZ-incoming-webhooks), then set it in your systems environment:
+
+```sh
+export SLACK_WEBHOOK_URL="..."
+export SLACK_CHANNEL="..."     # overwrites Slack Webhook channel
+export SLACK_USERNAME="..."    # overwrites Slack Webhook username
+```
+
+Ok, let's set notification hook:
+
+```
+acme.sh --set-notify  --notify-hook slack
+```
+
+The `SLACK_WEBHOOK_URL`, `SLACK_CHANNEL` and `SLACK_USERNAME` will be saved in ~/.acme.sh/account.conf and will be reused when needed.
