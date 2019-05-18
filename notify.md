@@ -84,3 +84,20 @@ acme.sh --set-notify  --notify-hook sendgrid
 ```
 
 
+## 3. Set notification for mail
+
+Set it in your systems environment:
+
+```sh
+export MAIL_BIN="sendmail"     # should be one of following: sendmail, ssmtp, mutt or mail
+export MAIL_FROM="xxx@xxx.com" # currently work only with sendmail
+export MAIL_TO="xxx@xxx.com"   # your account e-mail will be used as default if available
+```
+
+Ok, let's set notification hook:
+
+```
+acme.sh --set-notify  --notify-hook mail
+```
+
+The `MAIL_BIN`, `MAIL_TO` and `MAIL_FROM` will be saved in ~/.acme.sh/account.conf and will be reused when needed.
