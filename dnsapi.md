@@ -1518,6 +1518,26 @@ acme.sh --issue --dns dns_internetbs -d example.com -d www.example.com
 
 The `INTERNETBS_API_KEY` and `INTERNETBS_API_PASSWORD` will be saved in `~/.acme.sh/account.conf` and will be reused when needed.
 
+
+## 80. Use durabledns.com API
+
+Create an API token in your durabledns.com account.
+
+Set your API token:
+```
+export DD_API_User="..."
+export DD_API_Key="..."
+```
+
+To issue a certificate run:
+```
+acme.sh --issue --dns dns_durabledns -d example.com -d '*.example.com'
+```
+
+The `DD_API_User` and `DD_API_Key` will be saved in `~/.acme.sh/account.conf` and will be reused when needed.
+
+
+
 ---------------------------------
 
 # Use custom API
