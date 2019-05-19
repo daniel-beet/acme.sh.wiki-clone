@@ -39,6 +39,20 @@ acme.sh --set-notify  [--notify-mode 0]
 
 ```
 
+There can be multiple `--notify-hook` parameters:
+
+```
+acme.sh --set-notify  --notify-hook mailgun  --notify-hook mail
+```
+
+And, all the parameters can be used together:
+
+```sh
+acme.sh --set-notify  --notify-hook mailgun  --notify-hook mail  \
+  --set-notify  --notify-level 2 \
+  --set-notify  --notify-mode 0
+
+```
 
 
 ## 1. Set notification for mailgun.com
