@@ -89,14 +89,21 @@ acme.sh --set-notify  --notify-hook sendgrid
 Set it in your systems environment:
 
 ```sh
-export MAIL_BIN="sendmail"     # should be one of following: sendmail, ssmtp, mutt or mail
 export MAIL_FROM="xxx@xxx.com" # currently work only with sendmail
 export MAIL_TO="xxx@xxx.com"   # your account e-mail will be used as default if available
 ```
 
+It will try to find and use `sendmail`, `ssmtp`, `mutt` or `mail` automatically, if installed.
+
+If you want to specify which application to use,  please use `MAIL_BIN`:
+
+```sh
+export MAIL_BIN="sendmail"     # should be one of following: sendmail, ssmtp, mutt or mail
+```
+
 Ok, let's set notification hook:
 
-```
+```sh
 acme.sh --set-notify  --notify-hook mail
 ```
 
