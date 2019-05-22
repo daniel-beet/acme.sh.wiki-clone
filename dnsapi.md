@@ -1467,7 +1467,7 @@ acme.sh --issue --dns dns_schlundtech -d example.com -d www.example.com
 
 The `SCHLUNDTECH_USER` and `SCHLUNDTECH_PASSWORD` settings will be saved in `~/.acme.sh/account.conf` and will be reused when needed.
 
-
+If you find any bugs of Schlundtech.de API, please report here: https://github.com/Neilpang/acme.sh/issues/2246
 
 ## 77. Use your one.com credentials as you would login into the control panel.
 
