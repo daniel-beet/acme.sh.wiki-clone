@@ -1261,6 +1261,8 @@ Now, let's issue a cert:
 acme.sh --issue --dns dns_rackspace -d example.com -d www.example.com
 ```
 
+If you find any bugs of Rackspace dns API, please report here: https://github.com/Neilpang/acme.sh/issues/2091
+
 ## 65. Use Online API
 
 First, you'll need to retrive your API key, which is available under https://console.online.net/en/api/access
