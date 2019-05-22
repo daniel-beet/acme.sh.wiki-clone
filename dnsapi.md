@@ -1450,6 +1450,8 @@ To issue a new certificate, run:
 acme.sh --issue --dns dns_nsd -d example.com -d *.example.com
 ```
 
+If you find any bugs of NLnetLabs NSD dns API, please report here: https://github.com/Neilpang/acme.sh/issues/2245
+
 ## 76. Use Schlundtech 
 
 [Schlundtech](https://www.schlundtech.de/) offers an [xml api](https://www.schlundtech.de/services/xml-gateway/)  with your standard login credentials, set them like so:
