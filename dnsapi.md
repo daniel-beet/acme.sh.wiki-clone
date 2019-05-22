@@ -1541,7 +1541,7 @@ acme.sh --issue --dns dns_durabledns -d example.com -d '*.example.com'
 
 The `DD_API_User` and `DD_API_Key` will be saved in `~/.acme.sh/account.conf` and will be reused when needed.
 
-
+If you find any bugs of durabledns.com API, please report here: https://github.com/Neilpang/acme.sh/issues/2281
 
 ---------------------------------
 
