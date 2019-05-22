@@ -1405,6 +1405,8 @@ acme.sh --issue --dns dns_openprovider -d example.com -d www.example.com
 
 `OPENPROVIDER_USER` and `OPENPROVIDER_PASSWORDHASH` will be saved in `~/.acme.sh/account.conf` and will be reused when needed.
 
+If you find any bugs of OpenProvider dns API, please report here: https://github.com/Neilpang/acme.sh/issues/2104
+
 ## 73. Use MaraDNS API
 
 Make sure you've configured MaraDNS properly and setup a zone file for your domain. See [`csv2(5)`](https://manpages.debian.org/stretch/maradns/csv2.5.en.html).
