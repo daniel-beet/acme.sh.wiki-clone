@@ -1208,6 +1208,8 @@ acme.sh --issue --dns dns_nw -d example.com --dnssleep 900
 
 The `NW_API_TOKEN` and `NW_API_ENDPOINT` will be saved in `~/.acme.sh/account.conf` and will be reused when needed.
 
+If you find any bugs of Nexcess dns API, please report here: https://github.com/Neilpang/acme.sh/issues/2088
+
 ## 62. Use Thermo.io API
 
 First, you'll need to login to the [Thermo.io Client Portal](https://core.thermo.io) and [generate a new API token](https://core.thermo.io/api-token).
