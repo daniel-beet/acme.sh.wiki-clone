@@ -1518,6 +1518,7 @@ acme.sh --issue --dns dns_internetbs -d example.com -d www.example.com
 
 The `INTERNETBS_API_KEY` and `INTERNETBS_API_PASSWORD` will be saved in `~/.acme.sh/account.conf` and will be reused when needed.
 
+If you find any bugs of internetbs.net API, please report here: https://github.com/Neilpang/acme.sh/issues/2261
 
 ## 80. Use durabledns.com API
 
