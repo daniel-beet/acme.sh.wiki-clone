@@ -1312,6 +1312,8 @@ acme.sh --issue --dns dns_cn -d example.com -d www.example.com
 
 The `CN_User` and `CN_Password` will be saved in `~/.acme.sh/account.conf` and will be reused when needed.
 
+If you find any bugs of core-networks.de dns API, please report here: https://github.com/Neilpang/acme.sh/issues/2142
+
 ## 68. Use NederHost API
 
 Create an API token in Mijn NederHost.
