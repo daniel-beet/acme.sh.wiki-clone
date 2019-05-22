@@ -1380,6 +1380,9 @@ To issue a certificate run:
 acme.sh --issue --dns dns_desec -d foobar.dedyn.io -d *.foobar.dedyn.io
 ```
 
+If you find any bugs of deSEC.io  API, please report here: https://github.com/Neilpang/acme.sh/issues/2180
+
+
 ## 72. Use OpenProvider API
 
 First, you need to enable API access and retrieve your password hash on https://rcp.openprovider.eu/account/dashboard.php
