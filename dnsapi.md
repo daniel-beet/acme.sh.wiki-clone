@@ -1343,6 +1343,11 @@ acme.sh --issue -d example.com -d www.example.com --dns dns_zone
 
 `ZONE_Username` and `ZONE_Key` will be saved in `~/.acme.sh/account.conf` and will be reused when needed.
 
+
+If you find any bugs of zone.eu (zone.ee) dns API, please report here: https://github.com/Neilpang/acme.sh/issues/2146
+
+
+
 ## 70. Use UltraDNS API
 
 UltraDNS is a paid for service that provides DNS, as well as Web and Mail forwarding (as well as reporting, auditing, and advanced tools).
