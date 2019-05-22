@@ -1429,6 +1429,8 @@ After that you can issue a new certificate:
 acme.sh --issue --dns dns_ddnss -d example.com
 ```
 
+If you find any bugs of ddnss.de API, please report here: https://github.com/Neilpang/acme.sh/issues/2230
+
 ## 75. Use NLnetLabs NSD
 
 You need to export two variables. Your zonefile which the script will automatically edit:
