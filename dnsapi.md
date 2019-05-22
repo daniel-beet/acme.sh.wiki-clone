@@ -1501,6 +1501,8 @@ acme.sh --issue --dns dns_acmeproxy -d example.com -d www.example.com
 
 The `ACMEPROXY_ENDPOINT`, `ACMEPROXY_USERNAME` and `ACMEPROXY_PASSWORD` settings will be saved in `~/.acme.sh/account.conf` and will be reused when needed.
 
+If you find any bugs of acmeproxy DNS API, please report here: https://github.com/Neilpang/acme.sh/issues/2251
+
 ## 79. Use internetbs.net API
 
 Create an API token in your internetbs.net account.
