@@ -1071,6 +1071,8 @@ Now you can issue a certificate.
 acme.sh --issue --dns dns_namecheap -d example.com -d *.example.com
 ```
 
+If you find any bugs of namecheap dns API, please report here: https://github.com/Neilpang/acme.sh/issues/2107
+
 ## 54. Use MyDNS.JP API
 
 First, register to MyDNS.JP and get MasterID and Password.
