@@ -24,7 +24,11 @@ After issuing, the cert will be automatically renewed every 60 days.
 3) Install the cert to Proxmox:
 
 ```
-/root/.acme.sh/acme.sh  --installcert  -d <DOMAIN>  --certpath /etc/pve/local/pveproxy-ssl.pem --keypath /etc/pve/local/pveproxy-ssl.key  --capath  /etc/pve/local/pveproxy-ssl.pem  --reloadcmd  "systemctl restart pveproxy"
+/root/.acme.sh/acme.sh  --installcert  -d <DOMAIN>  \
+    --certpath /etc/pve/local/pveproxy-ssl.pem \
+    --keypath /etc/pve/local/pveproxy-ssl.key  \
+     --capath  /etc/pve/local/pveproxy-ssl.pem  \
+      --reloadcmd  "systemctl restart pveproxy"
 ```
 
 Ok, it's done. Open the link: `https://<DOMAIN>:8006`
