@@ -1277,6 +1277,8 @@ acme.sh --issue --dns dns_online -d example.com -d www.example.com
 
 `ONLINE_API_KEY` will be saved in `~/.acme.sh/account.conf` and will be reused when needed.
 
+If you find any bugs of online.net dns API, please report here: https://github.com/Neilpang/acme.sh/issues/2093
+
 ## 66. Use MyDevil.net
 
 Make sure that you can execute own binaries:
