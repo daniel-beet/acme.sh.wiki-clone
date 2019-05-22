@@ -1334,6 +1334,8 @@ To issue a certificate run:
 acme.sh --issue --dns dns_nederhost -d example.com -d *.example.com
 ```
 
+If you find any bugs of NederHost dns API, please report here: https://github.com/Neilpang/acme.sh/issues/2089
+
 ## 69. Use Zone.ee DNS API
 
 First, you'll need to retrive your API key. Estonian insructions https://help.zone.eu/kb/zoneid-api-v2/
