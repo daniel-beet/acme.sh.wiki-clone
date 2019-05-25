@@ -1435,6 +1435,10 @@ acme.sh --issue --dns dns_maradns -d example.com -d '*.example.com'
 
 `MARA_ZONE_FILE` and `MARA_DUENDE_PID_PATH` will be saved in `~/.acme.sh/account.conf` and will be reused when needed.
 
+
+If you find any bugs of MaraDNS DNS API, please report here: https://github.com/Neilpang/acme.sh/issues/2072
+
+
 ## 74. Use DDNSS.de API
 
 First create an account at https://ddnss.de. After that create a new host record.
