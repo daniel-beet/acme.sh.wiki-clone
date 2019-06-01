@@ -92,6 +92,12 @@ docker  exec \
 
 
 
+## 3. Deploy certs to a container in a remote docker host
+
+TODO:  this feature is not implemented yet.
+If you want this feature, please create an issue, and let me know.
+
+
 
 
 
