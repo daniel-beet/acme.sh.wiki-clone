@@ -1,1 +1,43 @@
 Deploy the cert/key into a docker container.
+
+There are 3 cases that acme.sh can deploy the certs into containers.
+
+1. acme.sh is installed in the docker host machine, it deploys the certs into a container on the machine.
+2. You are running `neilpang/acme.sh` container, that means acme.sh is running in a container, it can also deploy certs to another container on the same machine.
+3. acme.sh is running on a machine, it deploys certs to a container running on another docker host.
+
+Lets explain one by one:
+
+### 1. Deploy certs from docker host to a container
+
+acme.sh is installed on the docker host, it first issues a cert, then you may want to deploy the cert/key into a container.
+
+#### 1. Please set a label on the container, the label will later be used to find the container.
+
+```sh
+docker run --rm -it -d  --label=sh.acme.autoload.domain=example.com   nginx:latest
+```
+
+#### 2. Remember the label value above, we can deploy now:
+
+```sh
+# The label value to find the container
+export DEPLOY_DOCKER_CONTAINER_LABEL=sh.acme.autoload.domain=example.com
+
+# The target file path in the container.
+# The files will be copied to the position in the container.
+export DEPLOY_DOCKER_CONTAINER_KEY_FILE="/etc/nginx/ssl/example.com/key.pem"
+export DEPLOY_DOCKER_CONTAINER_CERT_FILE="/etc/nginx/ssl/example.com/cert.pem"
+export DEPLOY_DOCKER_CONTAINER_CA_FILE="/etc/nginx/ssl/example.com/ca.pem"
+export DEPLOY_DOCKER_CONTAINER_CA_FILE="/etc/nginx/ssl/example.com/ca.pem"
+export DEPLOY_DOCKER_CONTAINER_FULLCHAIN_FILE="/etc/nginx/ssl/example.com/full.pem"
+
+# The command to reload the service in the container.
+export DEPLOY_DOCKER_CONTAINER_RELOAD_CMD="service nginx force-reload"
+
+acme.sh --deploy --deploy-hook docker -d example.com
+
+```
+
+ 
+
