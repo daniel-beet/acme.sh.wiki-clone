@@ -8,7 +8,7 @@ There are 3 cases that acme.sh can deploy the certs into containers.
 
 Lets explain one by one:
 
-### 1. Deploy certs from docker host to a container
+## 1. Deploy certs from docker host to a container
 
 acme.sh is installed on the docker host, it first issues a cert, then you may want to deploy the cert/key into a container.
 
@@ -40,4 +40,36 @@ acme.sh --deploy --deploy-hook docker -d example.com
 ```
 
  
+## 2. Deploy certs from a container to another container
+
+Let's use `neilpang/acme.sh` image as an example,  actually, you can use acme.sh in any container.
+
+#### 1. Ok, same as above, first run the target container with a label:
+
+```sh
+docker run --rm -it -d  --label=sh.acme.autoload.domain=example.com   nginx:latest
+```
+
+#### 2. Run acme.sh in a container
+
+For more details see: https://github.com/Neilpang/acme.sh/wiki/Run-acme.sh-in-docker#3-run-acmesh-as-a-docker-daemon
+
+Let's run acme.sh as a daemon, a difference with the above link is that we mount docker daemon socket `/var/run/docker.sock` in to the container.
+
+```sh
+docker run --rm  -itd  \
+  -v "$(pwd)/out":/acme.sh  \
+  --net=host \
+  --name=acme.sh \
+  -v /var/run/docker.sock:/var/run/docker.sock \
+  neilpang/acme.sh daemon
+```
+
+
+
+
+
+
+
+
 
