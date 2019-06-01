@@ -4,6 +4,8 @@ As one of the big docker fans, I understand that we hate to install anything on 
 
 ### Automated nginx reverse proxy docker image with acme.sh for letsencrpt ssl cert: https://github.com/Neilpang/nginx-proxy
 
+### Deploy to a docker container and reload it: https://github.com/Neilpang/acme.sh/wiki/deploy-to-docker-containers
+
 So, Here "acme.sh in docker" comes.
 
 1. Based on **alpine**, only 5MB size. 
