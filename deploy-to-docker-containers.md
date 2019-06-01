@@ -65,6 +65,31 @@ docker run --rm  -itd  \
   neilpang/acme.sh daemon
 ```
 
+#### 3. Let's issue a cert first:
+
+```sh
+docker  exec \
+    -e CF_Email=xxx@exmaple.com \
+    -e CF_Key=xxxxxxxxxx  \
+    acme.sh --issue -d example.com  --dns dns_cf
+```
+
+#### 4. Let's deploy the cert now:
+
+```sh
+docker  exec \
+    -e DEPLOY_DOCKER_CONTAINER_LABEL=sh.acme.autoload.domain=example.com \
+    -e DEPLOY_DOCKER_CONTAINER_KEY_FILE=/etc/nginx/ssl/example.com/key.pem \
+    -e DEPLOY_DOCKER_CONTAINER_CERT_FILE="/etc/nginx/ssl/example.com/cert.pem" \
+    -e DEPLOY_DOCKER_CONTAINER_CA_FILE="/etc/nginx/ssl/example.com/ca.pem" \
+    -e DEPLOY_DOCKER_CONTAINER_CA_FILE="/etc/nginx/ssl/example.com/ca.pem" \
+    -e DEPLOY_DOCKER_CONTAINER_FULLCHAIN_FILE="/etc/nginx/ssl/example.com/full.pem" \
+    -e DEPLOY_DOCKER_CONTAINER_RELOAD_CMD="service nginx force-reload" \
+    acme.sh --deploy -d example.com  --deploy-hook docker
+```
+
+
+
 
 
 
