@@ -467,3 +467,16 @@ For instance:
 export ROUTER_OS_ADDITIONAL_SERVICES="/ip service set api-ssl certificate=$_cdomain.cer_0"
 ```
 returns 0 means success, otherwise error.
+
+
+## 18. Deploy the cert into docker containers.
+
+See:  
+https://github.com/Neilpang/acme.sh/wiki/deploy-to-docker-containers
+
+
+
+
+
+
+
