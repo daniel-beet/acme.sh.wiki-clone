@@ -351,6 +351,9 @@ Note that you cannot use acme.sh automatic DNS validation for FreeDNS public dom
 you create under a FreeDNS public domain.  You must own the top level domain in order to automatically
 validate with acme.sh at FreeDNS.
 
+If you have any issues with FreeDNS API please report them here...
+https://github.com/Neilpang/acme.sh/issues/2305
+
 ## 16. Use cyon.ch
 
 You only need to set your cyon.ch login credentials.
