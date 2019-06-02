@@ -87,7 +87,33 @@ docker  exec \
 ```
 
 
+#### 5. All together, docker compose example:
 
+```
+version: '3.4'
+services:
+  web:
+    image: nginx
+    container_name: nginx
+    labels:
+      - sh.acme.autoload.domain=example.com
+
+  acme.sh:
+    image: neilpang/acme.sh
+    container_name: acme.sh    
+    command: daemon
+    volumes:
+      - ./acmeout:/acme.sh
+      - /var/run/docker.sock:/var/run/docker.sock 
+    environment:
+      - DEPLOY_DOCKER_CONTAINER_LABEL=sh.acme.autoload.domain=example.com
+      - DEPLOY_DOCKER_CONTAINER_KEY_FILE=/etc/nginx/ssl/example.com/key.pem
+      - DEPLOY_DOCKER_CONTAINER_CERT_FILE="/etc/nginx/ssl/example.com/cert.pem"
+      - DEPLOY_DOCKER_CONTAINER_CA_FILE="/etc/nginx/ssl/example.com/ca.pem"
+      - DEPLOY_DOCKER_CONTAINER_FULLCHAIN_FILE="/etc/nginx/ssl/example.com/full.pem"
+      - DEPLOY_DOCKER_CONTAINER_RELOAD_CMD="service nginx force-reload"
+  
+```
 
 
 ## 3. Deploy certs to a container in a remote docker host
