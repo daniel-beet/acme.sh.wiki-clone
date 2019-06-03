@@ -165,3 +165,5 @@ acme.sh --set-notify  --notify-hook  postmark
 ```
 
 The `POSTMARK_TOKEN`, `POSTMARK_TO` and `POSTMARK_FROM` will be saved in ~/.acme.sh/account.conf and will be reused when needed.
+
+If there are any bugs for postmarkapp.com API, please report here: https://github.com/Neilpang/acme.sh/issues/2309
