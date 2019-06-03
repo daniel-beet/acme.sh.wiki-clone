@@ -141,3 +141,27 @@ acme.sh --set-notify  --notify-hook slack
 ```
 
 The `SLACK_WEBHOOK_URL`, `SLACK_CHANNEL` and `SLACK_USERNAME` will be saved in ~/.acme.sh/account.conf and will be reused when needed.
+
+
+## 5. Set notification for postmarkapp.com
+
+Send notification by postmarkapp.com API. The notification email will be sent to your email address. First get your [token](https://account.postmarkapp.com), then set it in your systems environment:
+
+```sh
+#The api token.
+export  POSTMARK_TOKEN="xxxxxxxx"
+
+#The mail to address.
+export  POSTMARK_TO="xxx@xxx.com"
+
+#The mail from address.
+export  POSTMARK_FROM="xxx@xxx.com"
+```
+
+Ok, let's set notification hook:
+
+```sh
+acme.sh --set-notify  --notify-hook  postmark
+```
+
+The `POSTMARK_TOKEN`, `POSTMARK_TO` and `POSTMARK_FROM` will be saved in ~/.acme.sh/account.conf and will be reused when needed.
