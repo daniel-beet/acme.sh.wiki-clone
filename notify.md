@@ -167,3 +167,31 @@ acme.sh --set-notify  --notify-hook  postmark
 The `POSTMARK_TOKEN`, `POSTMARK_TO` and `POSTMARK_FROM` will be saved in ~/.acme.sh/account.conf and will be reused when needed.
 
 If there are any bugs for postmarkapp.com API, please report here: https://github.com/Neilpang/acme.sh/issues/2309
+
+## 6. Set notification for pushover.net
+
+Send notification via pushover.net's api. The notification will be pushed to the specified pushover application.
+
+Make a note of your PushOver user key from your account dashboard
+Create your pushover application at https://pushover.net/apps/build and note the API Token.
+
+```sh
+#The application token.
+export PUSHOVER_TOKEN="xxxxxxxx"
+
+#Your User key.
+export PUSHOVER_USER="xxxxxxxx"
+
+#Optional, name of a custom sound listed at https://pushover.net/api#sounds (Blank or not set will play default)
+export PUSHOVER_SOUND="xxxxxxxx"
+```
+
+Ok, let's set notification hook:
+
+```sh
+acme.sh --set-notify  --notify-hook  pushover
+```
+
+The PUSHOVER_TOKEN, PUSHOVER_USER and PUSHOVER_SOUND will be saved in ~/.acme.sh/account.conf and will be reused when needed.
+
+If there are any bugs for postmarkapp.com API, please report here: https://github.com/Neilpang/acme.sh/issues/2329
