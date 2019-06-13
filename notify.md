@@ -194,4 +194,4 @@ acme.sh --set-notify  --notify-hook  pushover
 
 The PUSHOVER_TOKEN, PUSHOVER_USER and PUSHOVER_SOUND will be saved in ~/.acme.sh/account.conf and will be reused when needed.
 
-If there are any bugs for postmarkapp.com API, please report here: https://github.com/Neilpang/acme.sh/issues/2329
+If there are any bugs for pushover.net API, please report here: https://github.com/Neilpang/acme.sh/issues/2329
