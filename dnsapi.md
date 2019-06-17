@@ -1577,6 +1577,24 @@ The `DD_API_User` and `DD_API_Key` will be saved in `~/.acme.sh/account.conf` an
 If you find any bugs of durabledns.com API, please report here: https://github.com/Neilpang/acme.sh/issues/2281
 
 ---------------------------------
+## 81. Use reg.ru API
+
+Set your API credentials:
+```
+export REGRU_API_Username='test'
+export REGRU_API_Password='test'
+```
+
+To issue a certificate run:
+```
+acme.sh --issue --dns dns_regru -d 'example.com' -d '*.example.com'
+```
+
+The `REGRU_API_Username` and `REGRU_API_Password` will be saved in `~/.acme.sh/account.conf` and will be reused when needed.
+
+If you find any bugs of reg.ru API, please report here: https://github.com/Neilpang/acme.sh/issues/2336
+
+---------------------------------
 
 # Use custom API
 
