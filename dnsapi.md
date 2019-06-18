@@ -590,6 +590,7 @@ And now you can issue certs with:
 ```
 acme.sh --issue --dns dns_namecom -d example.com -d www.example.com
 ```
+If you had Two-step Authentication enabled, make sure to change your security setting, read this guide for help: [Using API with Two-step Authentication](https://www.name.com/support/articles/360007989433-Using-API-with-Two-step-Authentication)
 
 For issues, please report to https://github.com/raidenii/acme.sh/issues.
 
