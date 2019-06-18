@@ -184,6 +184,12 @@ export PUSHOVER_USER="xxxxxxxx"
 
 #Optional, name of a custom sound listed at https://pushover.net/api#sounds (Blank or not set will play default)
 export PUSHOVER_SOUND="xxxxxxxx"
+
+#Optional, name of a registered pushover client device, names are available on your dashboard. Default = "" (all devices)
+export PUSHOVER_DEVICE="xxxxxxxx"
+
+#Optional, Priority level of notification, Lowest Priority (-2), Low Priority (-1), Normal Priority (0), High Priority (1). Default=Normal Priority
+export PUSHOVER_SOUND="x"
 ```
 
 Ok, let's set notification hook:
