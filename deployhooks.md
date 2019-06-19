@@ -468,6 +468,9 @@ export ROUTER_OS_ADDITIONAL_SERVICES="/ip service set api-ssl certificate=$_cdom
 ```
 returns 0 means success, otherwise error.
 
+If there are any bugs for routeros hook, 
+
+please report here: https://github.com/Neilpang/acme.sh/issues/2344
 
 ## 18. Deploy the cert into docker containers.
 
