@@ -1593,7 +1593,7 @@ acme.sh --issue --dns dns_regru -d 'example.com' -d '*.example.com'
 
 The `REGRU_API_Username` and `REGRU_API_Password` will be saved in `~/.acme.sh/account.conf` and will be reused when needed.
 
-If you find any bugs of reg.ru API, please report here: https://github.com/Neilpang/acme.sh/issues/2336
+If you find any bugs of reg.ru API, please report here: [Issue #2336](../../issues/2336)
 
 ---------------------------------
 
@@ -1611,9 +1611,9 @@ Let's assume you want to name it 'myapi':
 acme.sh --issue --dns dns_myapi -d example.com -d www.example.com
 ```
 
-For more details, please check our sample script: [dns_myapi.sh](dns_myapi.sh)
+For more details, please check our sample script: [dns_myapi.sh](../../blob/master/dnsapi/dns_myapi.sh)
 
-See:  https://github.com/Neilpang/acme.sh/wiki/DNS-API-Dev-Guide
+See:  [DNS API Dev Guide](../DNS-API-Dev-Guide)
 
 
 
@@ -1624,6 +1624,4 @@ See:  https://github.com/Neilpang/acme.sh/wiki/DNS-API-Dev-Guide
 
 # Use lexicon DNS API
 
-https://github.com/Neilpang/acme.sh/wiki/How-to-use-lexicon-dns-api
-
-
+[How to use lexicon DNS API](../How-to-use-lexicon-dns-api)
