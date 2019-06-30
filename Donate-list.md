@@ -58,6 +58,44 @@
 1. Ondrej Sury
 1. Feng Gao
 1. David Tourel [Maildrop](https://www.maildrop.fr)
+1. Falinder Patric
+1. Ovchinnikov Alexey
+1. Demiri Adil
+1. Forsythe R G
+1. Tekampe Nils
+1. Zimmermann Christoph
+1. Bucciarelli Mark
+1. Muller Romain
+1. H. Meier Thomas
+1. Xibo Signage Ltd
+1. Rzepka Norman
+1. Biere Christian
+1. Burkard Marius
+1. Autie Nicolas
+1. Campitelli da Silva Pinto Vinícius
+1. Haslinger Daniel
+1. Drolet Jean-Yves
+1. Zensiri Alexander
+1. Losev Vladimir
+1. Wyde Patrik
+1. G2Soft.Net
+1. Hueskes Robin
+1. Tichý Petr
+1. Herbers Stephan
+1. Васильев​Константин
+1. Pérez Fuster José Joaquín
+1. Strasser Joel
+1. Growls LLC
+1. Miehler Axel
+1. Dalla Stella Marco
+1. Zhou Hao
+1. Silberman Jonathan
+1. Jäger Max
+1. Gollnick Joerg
+
+
+
+
 
 ## 微信捐助列表:
 
