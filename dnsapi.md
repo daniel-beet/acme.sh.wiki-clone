@@ -1577,7 +1577,7 @@ The `DD_API_User` and `DD_API_Key` will be saved in `~/.acme.sh/account.conf` an
 
 If you find any bugs of durabledns.com API, please report here: https://github.com/Neilpang/acme.sh/issues/2281
 
----------------------------------
+
 ## 81. Use reg.ru API
 
 Set your API credentials:
@@ -1595,7 +1595,25 @@ The `REGRU_API_Username` and `REGRU_API_Password` will be saved in `~/.acme.sh/a
 
 If you find any bugs of reg.ru API, please report here: [Issue #2336](../../issues/2336)
 
----------------------------------
+
+## 82. Use Vultr DNS API to automatically issue cert
+
+You'll need an API key for your Vultr account which you can find [under the Account settings](https://my.vultr.com/settings/#settingsapi) and you'll want to ensure the API key is allowed for any IPs you might be using acme.sh with.
+
+Vultr supports creating sub-accounts with limited permissions, and it's a good idea to create a sub-account with only the 'Manage DNS' permission and use an API key from that sub-account.
+
+```sh
+export VULTR_API_KEY="<Your API key>"
+```
+
+To issue a cert:
+
+```sh
+acme.sh --issue --dns dns_vultr -d example.com -d www.example.com
+```
+
+The `VULTR_API_KEY` will be saved in `~/.acme.sh/account.conf` and will be reused when needed.
+If you find any bugs of reg.ru API, please report here: [Issue #2336](../../issues/2374)
 
 # Use custom API
 
