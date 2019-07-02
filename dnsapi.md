@@ -1613,6 +1613,7 @@ acme.sh --issue --dns dns_vultr -d example.com -d www.example.com
 ```
 
 The `VULTR_API_KEY` will be saved in `~/.acme.sh/account.conf` and will be reused when needed.
+
 If you find any bugs of reg.ru API, please report here: [Issue #2336](../../issues/2374)
 
 # Use custom API
