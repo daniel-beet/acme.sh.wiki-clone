@@ -1616,6 +1616,30 @@ The `VULTR_API_KEY` will be saved in `~/.acme.sh/account.conf` and will be reuse
 
 If you find any bugs of Vultr API, please report here: [Issue #2336](../../issues/2374)
 
+
+
+## 83. Use jdcloud.com DNS API to automatically issue cert
+
+支持京东云 jdcloud.com 的免费dns服务.  请先登陆控制改获取 api key id 和 api key secret:
+
+https://uc.jdcloud.com/account/accesskey
+
+```sh
+export JD_ACCESS_KEY_ID="sdfsdfsdfljlbjkljlkjsdfoiwje"
+export JD_ACCESS_KEY_SECRET="xxxxxxx"
+```
+
+然后生成证书:
+
+```sh
+acme.sh --issue --dns dns_jd  -d example.com -d www.example.com
+```
+
+`JD_ACCESS_KEY_ID` 和 `JD_ACCESS_KEY_SECRET` 会自动保存在这里 `~/.acme.sh/account.conf`, 下次再生成证书时, 可以自动重用.
+
+有 bug 的话可以报到这里: https://github.com/Neilpang/acme.sh/issues/2388
+
+
 # Use custom API
 
 If your API is not supported yet, you can write your own DNS API.
