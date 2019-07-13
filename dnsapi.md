@@ -1620,7 +1620,7 @@ If you find any bugs of Vultr API, please report here: [Issue #2336](../../issue
 
 ## 83. Use jdcloud.com DNS API to automatically issue cert
 
-支持京东云 jdcloud.com 的免费dns服务.  请先登陆控制改获取 api key id 和 api key secret:
+支持京东云 jdcloud.com 的免费dns服务.  请先登陆控制台获取 api key id 和 api key secret:
 
 https://uc.jdcloud.com/account/accesskey
 
@@ -1636,6 +1636,12 @@ acme.sh --issue --dns dns_jd  -d example.com -d www.example.com
 ```
 
 `JD_ACCESS_KEY_ID` 和 `JD_ACCESS_KEY_SECRET` 会自动保存在这里 `~/.acme.sh/account.conf`, 下次再生成证书时, 可以自动重用.
+
+高级选项:
+1. 默认使用的是 `cn-north-1` 区域. 目前不需要改动, 如果需要改的话, 再生成证书之前执行:
+```
+export JD_REGION="cn-north-1" # 这里写你要改的区域
+```
 
 有 bug 的话可以报到这里: https://github.com/Neilpang/acme.sh/issues/2388
 
