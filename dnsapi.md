@@ -1648,13 +1648,28 @@ export JD_REGION="cn-north-1" # 这里写你要改的区域
 
 ## 84. Use hexonet.com DNS API to automatically issue a cert
 
-You'll need username and password.
+Create a role user in your Account -> Settings -> ShareAccess
 
+Set the Access Control like bellow:
+```
+QueryDNSZoneRRList(dnszone=*):ALLOW
+UpdateDNSZone():ALLOW
+```
+
+Remember the role id and role password.
 
 ```sh
-export Hexonet_Username="xxxxxxxxxx"
-export Hexonet_Password="xxxxxxxxxx"
+export Hexonet_Login='username!roleId'
+export Hexonet_Password="role password"
 ```
+
+For example:
+My user name is `neilpang`, my role id is: `testid`. So I use the following format:
+
+```sh
+export Hexonet_Login='neilpang!testid'
+```
+
 
 To issue a cert:
 
@@ -1662,7 +1677,7 @@ To issue a cert:
 acme.sh --issue --dns dns_hexonet  -d example.com -d www.example.com
 ```
 
-The `Hexonet_Username` and `Hexonet_Password` will be saved in `~/.acme.sh/account.conf` and will be reused when needed.
+The `Hexonet_Login` and `Hexonet_Password` will be saved in `~/.acme.sh/account.conf` and will be reused when needed.
 
 If you find any bugs, please report here: 
 
