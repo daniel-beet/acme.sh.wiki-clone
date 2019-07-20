@@ -1646,6 +1646,29 @@ export JD_REGION="cn-north-1" # 这里写你要改的区域
 有 bug 的话可以报到这里: https://github.com/Neilpang/acme.sh/issues/2388
 
 
+## 84. Use hexonet.com DNS API to automatically issue a cert
+
+You'll need username and password.
+
+
+```sh
+export Hexonet_Username="xxxxxxxxxx"
+export Hexonet_Password="xxxxxxxxxx"
+```
+
+To issue a cert:
+
+```sh
+acme.sh --issue --dns dns_hexonet  -d example.com -d www.example.com
+```
+
+The `Hexonet_Username` and `Hexonet_Password` will be saved in `~/.acme.sh/account.conf` and will be reused when needed.
+
+If you find any bugs, please report here: 
+
+https://github.com/Neilpang/acme.sh/issues/2389
+
+
 # Use custom API
 
 If your API is not supported yet, you can write your own DNS API.
