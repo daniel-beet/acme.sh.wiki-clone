@@ -201,3 +201,32 @@ acme.sh --set-notify  --notify-hook  pushover
 The PUSHOVER_TOKEN, PUSHOVER_USER and PUSHOVER_SOUND will be saved in ~/.acme.sh/account.conf and will be reused when needed.
 
 If there are any bugs for pushover.net notify, please report here: https://github.com/Neilpang/acme.sh/issues/2329
+
+## 7. Set notification for IFTTT Webhooks
+
+Send notification via IFTTT Webhooks so that you can make acme.sh work with tons of [IFTTT](https://ifttt.com) services.
+
+Firstly, connect our IFTTT to Webhooks service at [https://ifttt.com/maker_webhooks](https://ifttt.com/maker_webhooks) and click "Documentation" in the top right corner to get the API key.
+
+Secondly, create our IFTTT applet with Webhooks as `this' and whatever as `that', we'll setup the event name(e.g. acme_status) for this applet trigger.
+
+Now we can set acme.sh notification hook:
+
+```sh
+#The API key.
+export IFTTT_API_KEY="xxxx"
+
+#Our event name, this should be same as the setting of your applet.
+export IFTTT_EVENT_NAME="acme_status"
+
+#Optional: the key of notification subject, available values are "value1", "value2", "value3", default "value1"
+export IFTTT_SUBJECT_KEY="value1"
+
+#Optional: the key of notification content, available values are "value1", "value2", "value3", default "value2"
+export IFTTT_CONTENT_KEY="value2"
+
+#Now we're ready to set notify hook
+acme.sh --set-notify --notify-hook ifttt
+```
+
+The `IFTTT_API_KEY`, `IFTTT_EVENT_NAME`, `IFTTT_SUBJECT_KEY` and `IFTTT_CONTENT_KEY` will be saved in ~/.acme.sh/account.conf and will be reused when needed.
