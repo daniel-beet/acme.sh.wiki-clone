@@ -230,3 +230,5 @@ acme.sh --set-notify --notify-hook ifttt
 ```
 
 The `IFTTT_API_KEY`, `IFTTT_EVENT_NAME`, `IFTTT_SUBJECT_KEY` and `IFTTT_CONTENT_KEY` will be saved in ~/.acme.sh/account.conf and will be reused when needed.
+
+If there are any bugs for IFTTT Webhooks notify, please report here: https://github.com/Neilpang/acme.sh/issues/2421
