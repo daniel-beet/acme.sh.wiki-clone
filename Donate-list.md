@@ -92,6 +92,11 @@
 1. Silberman Jonathan
 1. Jäger Max
 1. Gollnick Joerg
+1. Petkov Petko
+1. Kevin Rosbach
+1. Hueskes Robin
+1. ByrdBrain.com
+1. Jensen Thomas
 1. [The Citizen](http://thecitizen.pk)
 
 
