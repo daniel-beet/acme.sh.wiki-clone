@@ -232,3 +232,41 @@ acme.sh --set-notify --notify-hook ifttt
 The `IFTTT_API_KEY`, `IFTTT_EVENT_NAME`, `IFTTT_SUBJECT_KEY` and `IFTTT_CONTENT_KEY` will be saved in ~/.acme.sh/account.conf and will be reused when needed.
 
 If there are any bugs for IFTTT Webhooks notify, please report here: https://github.com/Neilpang/acme.sh/issues/2421
+
+
+## 8. Set notification for xmpp (aka jabber)
+
+Install and `sendxmpp` manually or using your distributions package manager. Configure the sending account in `~/.sendxmpprc` e.g.:
+
+```sh
+username: example
+jserver: example.com
+password: xxxxxxxx
+```
+
+Set it in your systems environment:
+
+```sh
+export XMPP_TO="xxx@xxx.com"                         # the xmpp account to send notifications to
+```
+
+Currently only `sendxmpp` is supported for sending notifications but support for similar tools can be added easily.
+
+If you want to specify which application to use, please use `XMPP_BIN`:
+
+```sh
+export XMPP_BIN="/usr/bin/sendxmpp"                  # optional: override command to send xmpp messages
+export XMPP_BIN_ARGS="--tls-ca-path=/etc/ssl/certs'" # optional: arguments for the xmpp command
+```
+
+Ok, let's set notification hook:
+
+```sh
+acme.sh --set-notify  --notify-hook xmpp
+```
+
+The `XMPP_TO`, `XMPP_BIN` and `XMPP_BIN_ARGS` will be saved in ~/.acme.sh/account.conf and will be reused when needed.
+
+On debian based systems `sendxmpp` has problems validating certificates (see https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=854210).
+
+
