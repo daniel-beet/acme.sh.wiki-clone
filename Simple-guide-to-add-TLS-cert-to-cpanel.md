@@ -1,122 +1,95 @@
-# How to install a SSL/TLS Let’s Encrypt cert into a cPanel account
-Based on https://github.com/Neilpang/acme.sh/blob/master/deploy/README.md
+# How to use acme.sh with cPanel for automatically renewing Let's Encrypt SSL 
+This guide will demonstrate how to use acme.sh with a cPanel account to setup automatically renewing Let's Encrypt certificates.
 
-## We will use acme.sh app, which is a Let’s Encrypt 3rd party client, with its cPanel API.
-Replace _EXAMPLE.COM_ with your domain
-***
+**Prerequisites**: SSH access to your cPanel account is required. Contact your host to find out whether this is available. Sometimes they will enable it on request.
 
-### First we SSH into your cPanel host.
-`$ ssh -l `_USERNAME_` -p `_PORT_PROVIDED_BY_CPANEL_SUPPORT_ `  ` _SERVER_ADDRESS_
+In the example commands below, make the following substitutions:
 
-### Then install acme running the following command:
-
-`$ curl https://get.acme.sh | sh`
-
-### Then you either logoff and ssh again or just source bashrc:
-
-`$ source ~/.bashrc`
-
-### Add your email to be notified of issues renewing the TLS cert:
-
-`$ acme.sh --update-account --accountemail `_emailaddress@EXAMPLE.COM_
+| Variable | Substitute With | Example Value |
+|----------|-----------------|---------------|
+| `_EXAMPLE.COM_` | The domain name you want an SSL certificate for. | `example.com` |
+| `_CPANEL_USERNAME_` | The username you use to login to cPanel | `user123` |
+| `_SSH_PORT_` | The port number you use to connect to SSH (ask your cPanel provider) | `22` |
+| `_SSH_ADDRESS_` | The server address you use to connect to SSH (ask your cPanel provider) | `cpanel-123.example-host.com` |
 
 
 ***
 
-## Now let’s issue a test cert to see if everything is in place for the real cert to be issued and put in place.
-We will use the [webroot](https://github.com/Neilpang/acme.sh/wiki/How-to-issue-a-cert#1-webroot-mode) method, which requires the user to enter the location of their public_html folder. 
+## 1. Setting up acme.sh in cPanel.
 
-The default one is ~/public_html , but if you are using an addon domain, it will be that folder instead.
+Login to your cPanel account via SSH:
 
-`$ acme.sh --issue --webroot ~/public_html/ -d `_EXAMPLE.COM_ **--staging**
+    ssh -l _CPANEL_USERNAME_ -p _SSH_PORT_  _SSH_ADDRESS_
 
+Install acme.sh with the following command:
 
-### Be sure that the cert was issued without errors before proceeding. 
+    curl https://get.acme.sh | sh
 
-Keep in mind Let's Encrypt API limits https://letsencrypt.org/docs/rate-limits/
+Log-off and login to SSH again, or run the following command:
 
-If errors happen, rerun the command with --debug 2 and see if you detect the problem.
+    source ~/.bashrc
 
+Register a Let's Encrypt account with your email, so you can be notified of any renewal issues:
 
-## Once successful issue the real cert:
+    acme.sh --register-account --accountemail email@example.com
 
-`$ acme.sh --issue --webroot ~/public_html/ -d `_EXAMPLE.COM_ **--force**
+And confirm that acme.sh has setup a cron job for automatic renewals:
 
-We use --force to replace the initially issued staging cert
-
-https://letsencrypt.org/docs/staging-environment/
-
-
-***
-
-
-## Next we enter the cPanel username (replace with your account name):
-
-`$ export DEPLOY_cPanel_USER=`_username_
-
-### Next we add the cert to the cPanel database:
-
-`$ acme.sh --deploy --deploy-hook cpanel_uapi --domain `_EXAMPLE.COM_
-
-`[Sat Sep 23 06:53:08 EDT 2017] Certificate successfully deployed`
-
-`[Sat Sep 23 06:53:08 EDT 2017] Success`
-
-#### Please note, that the cpanel_uapi hook will deploy only the first domain when your certificate will automatically renew. Therefore you should issue a separate certificate for each domain.
+    crontab -l | grep acme.sh
+    
+    # The above command should output something like the below:
+    10 0 * * * "/home/_CPANEL_USERNAME_/.acme.sh"/acme.sh --cron --home "/home/_CPANEL_USERNAME_/.acme.sh" > /dev/null
 
 ***
 
-## You can see if a crontab responsible to renew your cert every 60 days has been installed with the following command:
+## 2. Issuing a test certificate for your domain.
+We will use the [webroot](https://github.com/Neilpang/acme.sh/wiki/How-to-issue-a-cert#1-webroot-mode) method, which requires you to enter the document root of your domain. The webroot for your main domain is `~/public_html`, but addon domains and subdomains will be located in other directories.
 
-`$ crontab -l`
+<details>
+<summary>(Click to see how you can locate the webroot for a domain using the uapi command)</summary>
 
-`56 0 * * * "/home/EXAMPLE.COM/.acme.sh"/acme.sh --cron --home "/home/EXAMPLE.COM/.acme.sh" > /dev/null`
+    uapi DomainInfo single_domain_data domain=_EXAMPLE.COM_ | grep documentroot
 
-## In your cPanel account, you should see the new cron and also the new TLS cert applied to your domain.
+</details>
 
-## **Final step is create a redirect from http to https**
-Go to cPanel File Manager, create a .htaccess file in the root of your public_html folder, edit, and add the following:
+Try issue a test certificate now:
 
-`RewriteCond %{HTTPS} off`
+    acme.sh --issue --webroot ~/public_html -d _EXAMPLE.COM_ --staging
 
-`# First rewrite to HTTPS:`
+If this domain has alias/parked domains, include those with additional `-d` parameters, such as:
 
-`RewriteRule .* https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]`
+    acme.sh --issue --webroot ~/public_html -d example.com -d www.example.com --staging
 
+Ensure that this step is successful. If you encountered an error, ensure that the webroot is correct, or try to run acme.sh with `--debug 2` for further information.
+
+
+## 3. Issuing a real certificate for your domain.
+Use the same parameters as for your test certificate, except replace `--staging` with `--force`:
+
+    acme.sh --issue --webroot ~/public_html -d _EXAMPLE.COM_ --force
+
+This re-issues the certificate as a real, trusted SSL certificate, rather than a test one from the [staging environment](https://letsencrypt.org/docs/staging-environment/).
 
 ***
 
+## 4. Installing your certificate to your cPanel account.
 
-# ADVANCE SETUP
+After issuing the real certificate, we need to tell acme.sh how to install it to our domain, so it can automatically perform that task at every renewal.
 
-## Once your site is running smoothly with TLS, you can have browsers preload HTTPS.
+    acme.sh --deploy --deploy-hook cpanel_uapi --domain _EXAMPLE.COM_
 
-It's called HSTS Preload. Before continuing, read more at https://scotthelme.co.uk/hsts-preloading/
+This should result in a success message:
 
-Once informed, edit .htaccess and add the following:
+    [Tue Aug  6 03:56:25 EDT 2019] Certificate successfully deployed
+    [Tue Aug  6 03:56:25 EDT 2019] Success
 
-`<IfModule mod_headers.c>`
+You should now be able to visit your domain in your browser and see that it is protected by a Let's Encrypt certificate.
 
-`Header set Strict-Transport-Security "max-age=60; " env=HTTPS`
+**Please note, this will only deploy to a single virtualhost in your cPanel account. For other addon and subdomains, you should create separate certificates.**.
 
-`</IfModule>`
+***
 
+## 5. Redirecting HTTP to HTTPS for your domain (Optional).
+To automatically redirect insecure HTTP traffic to HTTPS, please enable *Force HTTPS Redirection* in cPanel: https://blog.cpanel.com/force-https-redirection/
 
-### This will add HSTS for 60 seconds. If the site is working as expect, increase it to 86400 seconds (one day).
-
-`<IfModule mod_headers.c>`
-
-`Header set Strict-Transport-Security "max-age=86400; " env=HTTPS`
-
-`</IfModule>`
-
-
-### Once that is proven to work, change to 6 months.
-
-`<IfModule mod_headers.c>`
-
-`Header set Strict-Transport-Security "max-age=15768000; " env=HTTPS`
-
-`</IfModule>`
-
-#### You may consider to add preload flag and submit to https://hstspreload.org/
+***
