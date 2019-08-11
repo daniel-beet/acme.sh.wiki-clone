@@ -23,9 +23,9 @@ Every night when the renew cronjob runs, you may receive notifications based on 
 
 ```
 
-The notifications can be emails for another supported way, such as request to a webhook etc.
+The notifications can be emails for any other supported way, such as requesting to a webhook, etc.
 
-As for now,  there is email notification supported, but there will be more soon. You can also implement your hook.
+You can also implement your own hook.
 
 See example: `mailgun.sh`  or `sendgrid.sh`
 
