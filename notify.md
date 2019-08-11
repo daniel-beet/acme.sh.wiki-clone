@@ -1,4 +1,4 @@
-# Set notification
+# Set notifications
 
 acme.sh can send notifications in its cronjob. 
 Every night when the renew cronjob runs, you may receive notifications based on `notify-level` and `notify-mode`.
