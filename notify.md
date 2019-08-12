@@ -3,6 +3,8 @@
 acme.sh can send notifications in its cronjob. 
 Every night when the renew cronjob runs, you may receive notifications based on `notify-level` and `notify-mode`.
 
+To configure notifications, use the `--set-notify` argument. This will send test notifications and update account.conf with the new settings. Do not include `--set-notify` in your cron job.
+
 ```
 
   --notify-level  0|1|2|3           Set the notification level:  Default value is 2.
@@ -268,5 +270,3 @@ acme.sh --set-notify  --notify-hook xmpp
 The `XMPP_TO`, `XMPP_BIN` and `XMPP_BIN_ARGS` will be saved in ~/.acme.sh/account.conf and will be reused when needed.
 
 On debian based systems `sendxmpp` has problems validating certificates (see https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=854210).
-
-
