@@ -3,7 +3,7 @@
 acme.sh can send notifications in its cronjob. 
 Every night when the renew cronjob runs, you may receive notifications based on `notify-level` and `notify-mode`.
 
-To configure notifications, use the `--set-notify` argument. This will send test notifications and update account.conf with the new settings. Do not include `--set-notify` in your cron job.
+The settings on this page are used for testing and configuration of notifications. They should not be included in your cron job. To configure notifications, use the `--set-notify` argument. This will send test notifications and update account.conf with the new settings. 
 
 ```
 
