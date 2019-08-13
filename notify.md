@@ -25,7 +25,7 @@ The settings on this page are used for testing and configuration of notification
 
 ```
 
-The notifications can be emails for any other supported way, such as requesting to a webhook, etc.
+The notifications can be emails or any other supported ways, such as requesting to a webhook, etc.
 
 You can also implement your own hook.
 
