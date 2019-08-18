@@ -82,14 +82,14 @@ acme.sh  command ...[parameters]....
   **--insecure**                        Do not check the server certificate, in some devices, the api server's certificate may not be trusted.  
   **--ca-path**                         Specifies directory containing CA certificates in PEM format, used by wget or  curl to verify API server's certificate.  
   **--ca-bundle**                       Specifies the CA certificate bundle file used by wget or curl to verify API server's certificate.  
-  **--nocron**                          Only valid for '--install' command, which means: do not install the default cron job. In this case, the certs will not be renewed automatically. 
-  **--noprofile**                       Only valid for '--install' command, which means: do not install aliases to user profile. 
+  **--nocron**                          Only valid for '--install' command, which means: do not install the default cron job. In this case, the certs will not be renewed automatically.  
+  **--noprofile**                       Only valid for '--install' command, which means: do not install aliases to user profile.  
   **--ecc**                             Specifies to use the ECC cert. Valid for '--installcert', '--renew', '--revoke', '--toPkcs' and '--createCSR'  
   **--csr**                             Specifies the input csr.  
   **--ocsp-must-staple, --ocsp**        Generate ocsp must Staple extension.  
   **--auto-upgrade   [0|1]**            Valid for '--upgrade' command, indicating whether to upgrade automatically in future.  
   **--listen-v4**                       Force standalone/tls server to listen at ipv4.  
-  **--listen-v6**                       Force standalone/tls server to listen at ipv6.
+  **--listen-v6**                       Force standalone/tls server to listen at ipv6.  
 
 
 
