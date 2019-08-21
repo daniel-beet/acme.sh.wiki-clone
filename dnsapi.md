@@ -19,6 +19,8 @@ export CF_Email="xxxx@sss.com"
 export CF_Token="sdfsdfsdfljlbjkljlkjsdfoiwje"
 export CF_Account_ID="xxxxxxxxxxxxx"
 ```
+In order to use the new token, the token currently needs access read access to Zone.Zone, and write access to Zone.DNS, across all Zones.
+
 
 Ok, let's issue a cert now:
 ```
