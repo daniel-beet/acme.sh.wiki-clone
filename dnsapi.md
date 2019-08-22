@@ -1728,9 +1728,9 @@ Let's assume you want to name it 'myapi':
 acme.sh --issue --dns dns_myapi -d example.com -d www.example.com
 ```
 
-For more details, please check our sample script: [dns_myapi.sh](../blob/master/dnsapi/dns_myapi.sh)
+For more details, please check our sample script: [dns_myapi.sh](https://github.com/Neilpang/acme.sh/blob/master/dnsapi/dns_myapi.sh)
 
-See:  [DNS API Dev Guide](./DNS-API-Dev-Guide)
+See:  [DNS API Dev Guide](https://github.com/Neilpang/acme.sh/wiki/DNS-API-Dev-Guide)
 
 
 
@@ -1741,4 +1741,4 @@ See:  [DNS API Dev Guide](./DNS-API-Dev-Guide)
 
 # Use lexicon DNS API
 
-[How to use lexicon DNS API](../How-to-use-lexicon-dns-api)
+[How to use lexicon DNS API](https://github.com/Neilpang/acme.sh/wiki/How-to-use-lexicon-DNS-API)
