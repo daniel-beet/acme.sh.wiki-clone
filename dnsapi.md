@@ -1714,6 +1714,34 @@ If you find any bugs, please report here:
 
 https://github.com/Neilpang/acme.sh/issues/2457
 
+
+## 86. Use OPNsense embedded API to automatically issue cert
+
+First you need to login to your OPNsense account and create an API Key for a user with access to the Bind service.
+
+https://docs.opnsense.org/development/api.html
+
+```
+#OPNs_Host="opnsense.example.com"¬
+#OPNs_Port="443"¬
+#OPNs_Key="qocfU9RSbt8vTIBcnW8bPqCrpfAHMDvj5OzadE7Str+rbjyCyk7u6yMrSCHtBXabgDDXx/dY0POUp7ZA"¬
+#OPNs_Token="pZEQ+3ce8dDlfBBdg3N8EpqpF5I1MhFqdxX06le6Gl8YzyQvYCfCzNaFX9O9+IOSyAs7X71fwdRiZ+Lv"¬
+#OPNs_Api_Insecure=0
+```
+
+Ok, let's issue a cert now:
+```
+acme.sh --issue --dns dns_opnsense -d example.com -d www.example.com
+```
+
+The `OPNs_Host`, `OPNs_Port`, `OPNs_Key`, `OPNs_Token` and `OPNs_Api_Insecure` will be saved in `~/.acme.sh/account.conf` and will be reused when needed.
+
+If you find any bugs, please report here: 
+
+https://github.com/Neilpang/acme.sh/issues/2480
+
+
+
 # Use custom API
 
 If your API is not supported yet, you can write your own DNS API.
