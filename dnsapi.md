@@ -1759,7 +1759,7 @@ The `RCODE0_API_TOKEN` will be saved in `~/.acme.sh/account.conf` and will be re
 
 If you find any bugs, please report here: 
 
-
+https://github.com/Neilpang/acme.sh/issues/2490
 
 # Use custom API
 
