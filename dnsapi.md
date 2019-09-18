@@ -1740,6 +1740,25 @@ If you find any bugs, please report here:
 
 https://github.com/Neilpang/acme.sh/issues/2480
 
+## 87. Use the RcodeZero API to automatically issue cert
+
+First you need to login to your Rcode0 account, enable the REST API and generate an ACME API token (only the ACME API token will work wih acme.sh. It has limited access and could only be used to add/remove challenges to the zones).
+
+https://my.rcodezero.at/enableapi
+
+```
+RCODE0_API_TOKEN="acme_1232342342343OEH1G1gDcKNMsN7mx9EZgSU6AX79u5KRSxWnC"
+```
+
+Ok, let's issue a cert now:
+```
+acme.sh --issue --dns dns_rcode0 -d example.com -d www.example.com
+```
+
+The `RCODE0_API_TOKEN` will be saved in `~/.acme.sh/account.conf` and will be reused when needed.
+
+If you find any bugs, please report here: 
+
 
 
 # Use custom API
