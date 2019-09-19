@@ -8,13 +8,14 @@ https://github.com/Neilpang/acme.sh/wiki/DNS-alias-mode
 
 There are 2 ways to use cloudflare API.
 
-1. Using the global api key:
+### Using the global api key
 First you need to login to your CloudFlare account to get your [API key](https://dash.cloudflare.com/profile). 
 ```
 export CF_Key="sdfsdfsdfljlbjkljlkjsdfoiwje"
 export CF_Email="xxxx@sss.com"
 ```
-2. Using the new cloudflare api token.
+
+### Using the new cloudflare api token
 ```
 export CF_Token="sdfsdfsdfljlbjkljlkjsdfoiwje"
 export CF_Account_ID="xxxxxxxxxxxxx"
