@@ -40,7 +40,7 @@ acme.sh  --issue  -d example.com  --alpn --tlsport 8443
 
 Yes, if your nameservice provider has an api, we can use the api to automatically add the txt record for you. your cert will be automatically issued and renewed.
 
-Cloud flare api:
+Cloudflare api:
 ```sh
 export CF_Key="sdfsdfsdfljlbjkljlkjsdfoiwje"
 
