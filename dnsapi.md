@@ -1743,7 +1743,7 @@ https://github.com/Neilpang/acme.sh/issues/2480
 
 ## 87. Use the RcodeZero API to automatically issue cert
 
-First you need to login to your Rcode0 account, enable the REST API and generate an ACME API token (only the ACME API token will work wih acme.sh. It has limited access and could only be used to add/remove challenges to the zones).
+First you need to login to your RcodeZero account, enable the REST API and generate an ACME API token (only the ACME API token will work wih acme.sh. It has limited access and could only be used to add/remove challenges to the zones).
 
 https://my.rcodezero.at/enableapi
 
@@ -1757,6 +1757,16 @@ acme.sh --issue --dns dns_rcode0 -d example.com -d www.example.com
 ```
 
 The `RCODE0_API_TOKEN` will be saved in `~/.acme.sh/account.conf` and will be reused when needed.
+
+The RcodeZero API driver supports two addtional environment variables
+```
+export RCODE0_URL=https://my.rcodezero.at
+```
+Use a different RcodeZero API Endpoint (e.g. the RcodeZero Testsystem) 
+```
+export RCODE0_TTL=60
+``` 
+Use a different TTL for the generated records
 
 If you find any bugs, please report here: 
 
