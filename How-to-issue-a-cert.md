@@ -75,6 +75,19 @@ If your website is running nginx server, acme.sh can use nginx server to issue c
 acme.sh  --issue  -d example.com  --nginx
 ```
 
+Sometimes, nginx conf file can not be found automatically, you can specify one:
+
+```
+acme.sh  --issue  -d example.com  --nginx /etc/nginx/nginx.conf
+```
+
+You can also specify the website conf:
+
+```
+acme.sh  --issue  -d example.com  --nginx /etc/nginx/conf.d/example.com.conf
+```
+
+
 ### 2. Multiple domains, SAN mode
 
 Issue a single cert including multiple domains.  All the domains use the same validation method:
