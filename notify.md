@@ -105,7 +105,7 @@ acme.sh --set-notify  --notify-hook sendgrid
 Set it in your systems environment:
 
 ```sh
-export MAIL_FROM="xxx@xxx.com" # currently work only with sendmail
+export MAIL_FROM="xxx@xxx.com" # or "Xxx Xxx <xxx@xxx.com>", currently works only with sendmail
 export MAIL_TO="xxx@xxx.com"   # your account e-mail will be used as default if available
 ```
 
