@@ -132,6 +132,17 @@ the same file.  This will result in the certificate being appended
 to the same file as the private key... a common requirement of several
 services.
 
+The next example illustrates deploying certificates to regular linux server with certbot and nginx installed
+```sh
+export DEPLOY_SSH_USER="root"
+export DEPLOY_SSH_SERVER="example.com"
+export DEPLOY_SSH_KEYFILE="/etc/letsencrypt/archive/example.com/privkey2.pem"
+export DEPLOY_SSH_FULLCHAIN="/etc/letsencrypt/archive/example.com/fullchain2.pem"
+export DEPLOY_SSH_CAFILE="/etc/letsencrypt/archive/example.com/cert2.pem"
+export DEPLOY_SSH_REMOTE_CMD="systemctl restart nginx"
+acme.sh --deploy -d example.com --deploy-hook ssh
+```
+
 The next example illustrates deploying certificates to a Unifi
 Controller (tested with version 5.4.11).
 
