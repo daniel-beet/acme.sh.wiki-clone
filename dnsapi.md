@@ -1772,6 +1772,25 @@ If you find any bugs, please report here:
 
 https://github.com/Neilpang/acme.sh/issues/2490
 
+## 88. Use MailinaBox
+
+Use the MailinaBox (MIAB) Custom DNS REST API interface to MIAB DNS. You only need to set your MIAB login credentials and the fully qualified domain name of the MIAB Server.
+
+```
+export MIAB_Username="your_MIAB_admin_username"
+export MIAB_Password="your_MIAB_admin_password"
+export MIAB_Server="your_FQDN_to_MIAB_Server"
+```
+
+To issue a cert:
+```
+acme.sh --issue --dns dns_miab -d example.com -d www.example.com
+```
+
+The `MIAB_Username`, `MIAB_Password` and `MIAB_Server` will be saved in `~/.acme.sh/account.conf` and will be reused when needed.
+
+
+
 # Use custom API
 
 If your API is not supported yet, you can write your own DNS API.
