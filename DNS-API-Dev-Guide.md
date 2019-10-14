@@ -180,7 +180,26 @@ _acme-challenge.example.com. 3600 IN TXT "tye6yGOxJEffnXDzZKNJjOHSsCFtKwU_5L0ykm
 _acme-challenge.example.com. 3600 IN TXT "XhVGx_0VVeR5yiaGLHHXrRl2sAbZhI7IugMSdbfR4go"
 ```
 
-#### 5. Process the api response.
+#### 5. Additional HTTP headers.
+
+Your HTTP method call may require additional headers for Authorization, ContentType, Accept, Cookies, etc. for the  DNS providers api to add/remove the txt record. You can export _H*n* (_H1, _H2, _H3, etc.) environment variables with the [HTTP header](https://en.wikipedia.org/wiki/List_of_HTTP_header_fields) needed:
+
+```
+...
+  myusername='admin@dnsprovider.com'
+  mypassword='secret_password'
+  mycredentials="$("$myusername":"$mypassword")" | _base64
+
+  export _H1="Authorization: Basic $mycredentials"
+  export _H2="ContentType: application/json"
+...
+```
+
+Just number the _H*n* in the order that you need the headers. Please review [these](https://github.com/Neilpang/acme.sh/blob/master/dnsapi/dns_zone.sh#L110) [few](https://github.com/Neilpang/acme.sh/blob/master/dnsapi/dns_desec.sh#L151) [examples](https://github.com/Neilpang/acme.sh/blob/master/dnsapi/dns_jd.sh#L184) for inspiration.
+
+This is only way to pass the equivalent wget's _--user_ and _--password_ and curl's _--user_ parameters. 
+
+#### 6. Process the api response.
 
 The api response could be in text, json or xml format. Here are a lot of functions to process strings:
 
