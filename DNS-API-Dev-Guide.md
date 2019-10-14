@@ -186,8 +186,8 @@ Your HTTP method call may require additional headers for Authorization, ContentT
 
 ```
 ...
-  myusername="$DNS_API_username"
-  mypassword="$DNS_API_password"
+  myusername="$MYAPI_username"
+  mypassword="$MYAPI_password"
   mycredentials="$(printf "%s" "$myusername:$mypassword" | _base64)"
 
   export _H1="Authorization: Basic $mycredentials"
