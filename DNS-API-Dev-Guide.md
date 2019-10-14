@@ -184,7 +184,7 @@ _acme-challenge.example.com. 3600 IN TXT "XhVGx_0VVeR5yiaGLHHXrRl2sAbZhI7IugMSdb
 
 Your HTTP method call may require additional headers for Authorization, ContentType, Accept, Cookies, etc. for the  DNS providers api to add/remove the txt record. You can export _H*n* (_H1, _H2, _H3, etc.) environment variables with the [HTTP header](https://en.wikipedia.org/wiki/List_of_HTTP_header_fields) needed:
 
-```
+```sh
 ...
   myusername="$MYAPI_username"
   mypassword="$MYAPI_password"
