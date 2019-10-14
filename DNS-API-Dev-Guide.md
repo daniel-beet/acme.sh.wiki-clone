@@ -188,7 +188,7 @@ Your HTTP method call may require additional headers for Authorization, ContentT
 ...
   myusername='admin@dnsprovider.com'
   mypassword='secret_password'
-  mycredentials="$("$myusername":"$mypassword")" | _base64
+  mycredentials="$(printf "%s" "$MIAB_Username:$MIAB_Password" | _base64)"
 
   export _H1="Authorization: Basic $mycredentials"
   export _H2="ContentType: application/json"
