@@ -1790,6 +1790,26 @@ acme.sh --issue --dns dns_miab -d example.com -d www.example.com
 The `MIAB_Username`, `MIAB_Password` and `MIAB_Server` will be saved in `~/.acme.sh/account.conf` and will be reused when needed.
 
 
+## 89. Use nic.ru DNS
+You need to login to nic.ru account and get your NIC_Token [here](https://www.nic.ru/manager/oauth.cgi?step=oauth.app_register).
+
+Docs: https://www.nic.ru/help/upload/file/API_DNS-hosting-en.pdf
+
+```
+export NIC_Username='000000/NIC-D'
+export NIC_Password='xxxxxxxx'
+export NIC_Token='YOUR_TOKEN_HERE'
+```
+
+To issue a cert:
+```
+acme.sh --issue --dns dns_nic -d domain.com -d www.domain.com
+```
+The NIC_Username, NIC_Password and NIC_Token will be saved in ~/.acme.sh/account.conf and will be reused when needed.
+
+If you find any bugs, please report here:
+
+https://github.com/Neilpang/acme.sh/issues/2547
 
 # Use custom API
 
