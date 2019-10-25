@@ -1827,7 +1827,7 @@ acme.sh --issue --dns dns_leaseweb -d example.com -d www.example.com
 
 The `LSW_Key` will be saved in `~/.acme.sh/account.conf` and will be reused when needed.
 
-https://github.com/Neilpang/acme.sh/issues/2558
+If you find any bugs, please report here: https://github.com/Neilpang/acme.sh/issues/2558
 
 
 # Use custom API
