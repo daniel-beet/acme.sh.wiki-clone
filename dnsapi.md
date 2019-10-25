@@ -1811,6 +1811,23 @@ If you find any bugs, please report here:
 
 https://github.com/Neilpang/acme.sh/issues/2547
 
+
+## 90. Use Leaseweb.com domain API to automatically issue cert
+
+First you need to login to your Leaseweb account to get your API Key.
+
+```
+export LSW_Key="safas-3fs3sd-34sdf-safss"
+```
+
+Ok, let's issue a cert now:
+```
+acme.sh --issue --dns dns_leaseweb -d example.com -d www.example.com
+```
+
+The `LSW_Key` will be saved in `~/.acme.sh/account.conf` and will be reused when needed.
+
+
 # Use custom API
 
 If your API is not supported yet, you can write your own DNS API.
