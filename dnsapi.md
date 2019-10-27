@@ -1845,7 +1845,7 @@ acme.sh --issue --dns dns_variomedia -d example.com -d www.example.com
 
 The `VARIOMEDIA_API_TOKEN` will be saved in `~/.acme.sh/account.conf` and will be reused when needed.
 
-If you find any bugs, please report here: https://github.com/Neilpang/acme.sh/issues/2558
+If you find any bugs, please report here: https://github.com/Neilpang/acme.sh/issues/2564
 
 
 # Use custom API
