@@ -1830,6 +1830,24 @@ The `LSW_Key` will be saved in `~/.acme.sh/account.conf` and will be reused when
 If you find any bugs, please report here: https://github.com/Neilpang/acme.sh/issues/2558
 
 
+## 91. Use variomedia.de domain API to automatically issue cert
+
+First you need to obtain your API Key from variomedia's customer support.
+
+```
+export VARIOMEDIA_API_TOKEN="sdfsdfsdfljlbjkljlkjsdfoiwjesdfsdfsdfljlbjkljlkjsdfoiwje"
+```
+
+Ok, let's issue a cert now:
+```
+acme.sh --issue --dns dns_variomedia -d example.com -d www.example.com
+```
+
+The `VARIOMEDIA_API_TOKEN` will be saved in `~/.acme.sh/account.conf` and will be reused when needed.
+
+If you find any bugs, please report here: https://github.com/Neilpang/acme.sh/issues/2558
+
+
 # Use custom API
 
 If your API is not supported yet, you can write your own DNS API.
