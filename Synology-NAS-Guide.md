@@ -25,6 +25,11 @@ For CloudFlare, we will set two environment variables that acme.sh (specifically
     export CF_Key="MY_SECRET_KEY_SUCH_SECRET"
     export CF_Email="myemail@example.com"
 
+If you generated an API Token, instead of using your global account key, set CF_Token instead.
+
+    export CF_Token="MY_SECRET_TOKEN_SUCH_SECRET"
+    export CF_Email="myemail@example.com"
+
 In case you use another DNS service, check the `dnsapi` directory. Instructions for many DNS providers are already included. You can also find instructions on how to add another DNS service there, although that requires some software development skills.
 
 ## Creating the certificate
