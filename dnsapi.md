@@ -9,7 +9,7 @@ https://github.com/Neilpang/acme.sh/wiki/DNS-alias-mode
 There are 2 ways to use cloudflare API.
 
 ### Using the global api key
-First you need to login to your CloudFlare account to get your [API key](https://dash.cloudflare.com/profile). 
+First you need to login to your CloudFlare account to get your [API key](https://dash.cloudflare.com/profile).
 ```
 export CF_Key="sdfsdfsdfljlbjkljlkjsdfoiwje"
 export CF_Email="xxxx@sss.com"
@@ -1381,7 +1381,7 @@ UltraDNS is a paid for service that provides DNS, as well as Web and Mail forwar
 
 More information can be found here: https://www.security.neustar/lp/ultra20/index.html
 
-The REST API documentation for this service is found here: https://portal.ultradns.com/static/docs/REST-API_User_Guide.pdf 
+The REST API documentation for this service is found here: https://portal.ultradns.com/static/docs/REST-API_User_Guide.pdf
 
 Set your UltraDNS User name, and password; these would be the same you would use here:
 
@@ -1495,7 +1495,7 @@ acme.sh --issue --dns dns_nsd -d example.com -d *.example.com
 
 If you find any bugs of NLnetLabs NSD dns API, please report here: https://github.com/Neilpang/acme.sh/issues/2245
 
-## 76. Use Schlundtech 
+## 76. Use Schlundtech
 
 [Schlundtech](https://www.schlundtech.de/) offers an [xml api](https://www.schlundtech.de/services/xml-gateway/)  with your standard login credentials, set them like so:
 
@@ -1690,7 +1690,7 @@ acme.sh --issue --dns dns_hexonet  -d example.com -d www.example.com
 
 The `Hexonet_Login` and `Hexonet_Password` will be saved in `~/.acme.sh/account.conf` and will be reused when needed.
 
-If you find any bugs, please report here: 
+If you find any bugs, please report here:
 
 https://github.com/Neilpang/acme.sh/issues/2389
 
@@ -1711,7 +1711,7 @@ acme.sh --issue --dns dns_domeneshop -d example.com -d www.example.com
 
 The `DOMENESHOP_Token` and `DOMENESHOP_Secret` will be saved in `~/.acme.sh/account.conf` and will be reused when needed.
 
-If you find any bugs, please report here: 
+If you find any bugs, please report here:
 
 https://github.com/Neilpang/acme.sh/issues/2457
 
@@ -1723,11 +1723,11 @@ First you need to login to your OPNsense account and create an API Key for a use
 https://docs.opnsense.org/development/api.html
 
 ```
-#OPNs_Host="opnsense.example.com"¬
-#OPNs_Port="443"¬
-#OPNs_Key="qocfU9RSbt8vTIBcnW8bPqCrpfAHMDvj5OzadE7Str+rbjyCyk7u6yMrSCHtBXabgDDXx/dY0POUp7ZA"¬
-#OPNs_Token="pZEQ+3ce8dDlfBBdg3N8EpqpF5I1MhFqdxX06le6Gl8YzyQvYCfCzNaFX9O9+IOSyAs7X71fwdRiZ+Lv"¬
-#OPNs_Api_Insecure=0
+export OPNs_Host="opnsense.example.com"
+export OPNs_Port="443"
+export OPNs_Key="qocfU9RSbt8vTIBcnW8bPqCrpfAHMDvj5OzadE7Str+rbjyCyk7u6yMrSCHtBXabgDDXx/dY0POUp7ZA"
+export OPNs_Token="pZEQ+3ce8dDlfBBdg3N8EpqpF5I1MhFqdxX06le6Gl8YzyQvYCfCzNaFX9O9+IOSyAs7X71fwdRiZ+Lv"
+export OPNs_Api_Insecure=0
 ```
 
 Ok, let's issue a cert now:
@@ -1737,7 +1737,7 @@ acme.sh --issue --dns dns_opnsense -d example.com -d www.example.com
 
 The `OPNs_Host`, `OPNs_Port`, `OPNs_Key`, `OPNs_Token` and `OPNs_Api_Insecure` will be saved in `~/.acme.sh/account.conf` and will be reused when needed.
 
-If you find any bugs, please report here: 
+If you find any bugs, please report here:
 
 https://github.com/Neilpang/acme.sh/issues/2480
 
@@ -1748,7 +1748,7 @@ First you need to login to your RcodeZero account, enable the REST API and gener
 https://my.rcodezero.at/enableapi
 
 ```
-RCODE0_API_TOKEN="acme_1232342342343OEH1G1gDcKNMsN7mx9EZgSU6AX79u5KRSxWnC"
+export RCODE0_API_TOKEN="acme_1232342342343OEH1G1gDcKNMsN7mx9EZgSU6AX79u5KRSxWnC"
 ```
 
 Ok, let's issue a cert now:
@@ -1762,13 +1762,13 @@ The RcodeZero API driver supports two addtional environment variables
 ```
 export RCODE0_URL=https://my.rcodezero.at
 ```
-Use a different RcodeZero API Endpoint (e.g. the RcodeZero Testsystem) 
+Use a different RcodeZero API Endpoint (e.g. the RcodeZero Testsystem)
 ```
 export RCODE0_TTL=60
-``` 
+```
 Use a different TTL for the generated records
 
-If you find any bugs, please report here: 
+If you find any bugs, please report here:
 
 https://github.com/Neilpang/acme.sh/issues/2490
 
