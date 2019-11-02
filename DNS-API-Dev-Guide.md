@@ -41,7 +41,7 @@ If you want to contribute your script, the shebang must be:
 ```
 After the installation, acme.sh could change the shebang to bash to get a better performance if you have bash on your machine.
 
-Of cause, if you just use it on your own, it can be any valid shebang on your machine. It could be `sh` or `bash`, it's up to you.
+Of course, if you just use it on your own, it can be any valid shebang on your machine. It could be `sh` or `bash`, it's up to you.
 
 ### 5. There must be 2 functions in your script:
 
