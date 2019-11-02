@@ -277,7 +277,10 @@ On debian based systems `sendxmpp` has problems validating certificates (see htt
 Push notification to dingtalk group by group robot webhook api.
 First create a group robot, get your webhook url, and set a keyword.
 
-推送通知到钉钉群聊天机器人. 现在群设置中添加一个 webhook 机器人. 获得 webhook url. 并设置一个 keyword. 目前不支持签名模式.
+推送通知到钉钉群聊天机器人. 
+先在群设置中添加一个 webhook 机器人. 获得 webhook url. 并设置一个 keyword. 目前不支持签名模式.
+
+https://ding-doc.dingtalk.com/doc#/serverapi2/qf2nxq
 
 ```sh
 export DINGTALK_WEBHOOK='https://oapi.dingtalk.com/robot/send?access_token=b05ccexxxxx'
