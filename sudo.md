@@ -8,4 +8,4 @@ Using `sudo` is not recommended. If not properly configured to not ask for passw
 
 Now, if you are completely sure of the issues and the possibilities with the usage of `sudo` and still want to use it, you can pass the `--force` parameter.
 
-**Remember:** Using `sudo` is not recommended. You have the option to force it at your own risk. You have been warned!
+**Remember:** Using `sudo` is not recommended. You have the option to force it at your own risk. You have been warned.
