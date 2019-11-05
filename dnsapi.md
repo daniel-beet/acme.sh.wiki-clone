@@ -4,9 +4,9 @@ If your dns provider doesn't provide api access, you can use our dns alias mode:
 
 https://github.com/Neilpang/acme.sh/wiki/DNS-alias-mode
 
-## 1. Use CloudFlare domain API to automatically issue cert
+## CloudFlare Option:
 
-There are 2 ways to use cloudflare API.
+CloudFlare Domain API offers two methods to automatically issue certs.
 
 ### Using the global api key
 First you need to login to your CloudFlare account to get your [API key](https://dash.cloudflare.com/profile).
@@ -28,13 +28,11 @@ Ok, let's issue a cert now:
 acme.sh --issue --dns dns_cf -d example.com -d www.example.com
 ```
 
-
 The `CF_Key` and `CF_Email` or `CF_Token`and `CF_Account_ID`will be saved in `~/.acme.sh/account.conf` and will be reused when needed.
 
+## DNSPod.cn Option:
 
-## 2. Use DNSPod.cn domain API to automatically issue cert
-
-First you need to login to your DNSPod account to get your API Key and ID.
+The DNSPod.cn Domain API option requires that you first login to your account to get a DNSPod API Key and ID.
 
 ```
 export DP_Id="1234"
