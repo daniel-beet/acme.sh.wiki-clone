@@ -1789,6 +1789,12 @@ acme.sh --issue --dns dns_miab -d example.com -d www.example.com
 
 The `MIAB_Username`, `MIAB_Password` and `MIAB_Server` will be saved in `~/.acme.sh/account.conf` and will be reused when needed.
 
+If you find any bugs, please report here:
+
+https://github.com/Neilpang/acme.sh/issues/2550
+
+
+
 
 ## 89. Use nic.ru DNS
 You need to login to nic.ru account and get your NIC_Token [here](https://www.nic.ru/manager/oauth.cgi?step=oauth.app_register).
