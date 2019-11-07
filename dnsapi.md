@@ -1852,6 +1852,32 @@ The `VARIOMEDIA_API_TOKEN` will be saved in `~/.acme.sh/account.conf` and will b
 If you find any bugs, please report here: https://github.com/Neilpang/acme.sh/issues/2564
 
 
+## 92. Use Plesk XML API to automatically issue cert
+
+Before using the module, you must set your Plesk user name and password, and the address of your Plesk XML API (sometimes called a URI, URL or web link). The URI usually looks similar to this:
+
+```
+https://address-of-my-plesk-server.net:8443/enterprise/control/agent.php
+```
+
+All commands are CASE SENSITIVE:
+
+```
+export pleskxml_uri="address of my Plesk server's API"
+export pleskxml_user="my plesk username"
+export pleskxml_pass="my plesk password"
+```
+
+Ok, let's issue a cert now:
+```
+acme.sh --issue --dns dns_pleskxml -d example.com -d www.example.com
+```
+
+The `pleskxml_uri`, `pleskxml_user` and `pleskxml_pass` will be saved in `~/.acme.sh/account.conf` and reused when needed.
+
+If you find any bugs, please report here: https://github.com/Neilpang/acme.sh/issues/2577
+
+
 # Use custom API
 
 If your API is not supported yet, you can write your own DNS API.
