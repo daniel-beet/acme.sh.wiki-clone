@@ -1,4 +1,9 @@
 ## Thanks to those who donate:
+大家好，我是与panglong99 私下合作一个项目，就是证书更新项目
+最近遇到一些问题但 微信名称：不靠谱%100，收了费用不处理问题
+我已经屡次配合他，但现在微信也拉黑
+请大家主持公道，谢谢
+
 
 (If you want to be listed with your website link here, please write email to me: donate@acme.sh )
 (You can also find me on Twitter: [@neilpangxa](https://twitter.com/neilpangxa))
