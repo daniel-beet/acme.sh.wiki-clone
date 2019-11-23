@@ -12,7 +12,7 @@ This article outlines some ways it is possible to configure webservers to work t
 |-----------|--------|---------|
 | Apache httpd | Not possible | Consider using [mod_md](https://github.com/icing/mod_md), which is an Apache module that replaces acme.sh. It can perform TLS-ALPN validation since version 1.99. | 
 | nginx | Supported | Requires [ngx_stream_ssl_preread_module](http://nginx.org/en/docs/stream/ngx_stream_ssl_preread_module.html) to be compiled. e.g. on Ubuntu 18.04, included in the `nginx-full` package. |
-| haproxy | Supported | Requires haproxy >= 1.9.1 
+| HAProxy | Supported | Requires HAProxy >= 1.9.1 
 
 ## Instructions
 
@@ -81,22 +81,24 @@ stream {
 
     $ sudo acme.sh --issue --alpn --tlsport 10443 -d example.org
 
-### haproxy
+### HAProxy
 
-With haproxy, what we have to do is run an ALPN load balancer frontend in TCP mode on port 443, and re-assign all HTTPS frontends to an alternate port.
+With HAProxy, what we have to do is run an ALPN load balancer frontend in TCP mode on port 443, and re-assign all HTTPS frontends to an alternate port.
 
 When a TLS-ALPN connection for ACME comes in, it will be routed to acme.sh, otherwise, the connection is forwarded to the normal HTTPS frontend.
 
-1\. Verify that haproxy is at least version 1.9.1:
+1\. Verify that HAProxy is at least version 1.9.1:
 
     $ haproxy -v
     HA-Proxy version 1.9.2 2019/01/16 - https://haproxy.org/
 
-2\. In the haproxy configuration, as well as re-assigning your existing HTTPS (443) frontend to port 8443, you will need to add:
+2\. In the HAProxy configuration, as well as re-assigning your existing HTTPS (443) frontend to port 8443, you will need to add:
 
   1. `fe_alpn` - a TCP frontend on 443 to load balance ALPN
   2. `bk_acmesh` - A backend to send requests to acme.sh
   3. `bk_https` - A backend to send requests to your regular HTTPS frontend
+
+In this example the PROXY protocol is used between `bk_https` and `fe_https` so the original clients source IP is known.
 
 ```haproxy
 # New
@@ -114,12 +116,12 @@ backend bk_acmesh
 
 # New
 backend bk_https
-  server https 127.0.0.1:8443
+  server https 127.0.0.1:8443 send-proxy-v2
 
-# Existing, changed from 443 -> 8443
+# Existing, changed from :443 -> 127.0.0.1:8443
 frontend fe_https
   mode http
-  bind :8443 ssl crt /etc/ssl/haproxy.pem
+  bind 127.0.0.1:8443 ssl crt /etc/ssl/haproxy.pem accept-proxy
   # ...
 ```
 
