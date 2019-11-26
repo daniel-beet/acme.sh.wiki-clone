@@ -91,8 +91,8 @@ dns_myapi_add() {
   fi
 
   #save the credentials to the account conf file.
-  _saveaccountconf_mutable MYAPI_Username  "$MYAPI_Username"
-  _saveaccountconf_mutable MYAPI_Password  "$MYAPI_Password"
+  _saveaccountconf_mutable MYAPI_Username "$MYAPI_Username"
+  _saveaccountconf_mutable MYAPI_Password "$MYAPI_Password"
 ...
 
 }
