@@ -1877,6 +1877,26 @@ The `pleskxml_uri`, `pleskxml_user` and `pleskxml_pass` will be saved in `~/.acm
 
 If you find any bugs, please report here: https://github.com/Neilpang/acme.sh/issues/2577
 
+## 93. Use PDNS Manager API
+
+[PDNS Manager](https://pdnsmanager.org/) is a web frontend for [Power DNS](https://www.powerdns.com/).
+
+This script uses PDNS Manager API and its "[Update via GET request](https://pdnsmanager.org/documentation/api/)" method. So only single record update possible and no wildcards, for now.
+
+```
+export PDNS_MANAGER_URL=https://mypdnsmanagerurl.nx
+export PDNS_MANAGER_RECORDID=<record id>
+export PDNS_MANAGER_PASSWORD=<record password>
+```
+
+* Add your domain to PDNS Manager.
+* [Create a password](https://pdnsmanager.org/documentation/api/) for your record.
+
+Then issue a new certificate:
+
+```
+acme.sh --issue -d example.com --dns dns_pdnsmanager
+```
 
 # Use custom API
 
