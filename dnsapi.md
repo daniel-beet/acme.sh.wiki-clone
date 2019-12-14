@@ -1898,6 +1898,19 @@ Then issue a new certificate:
 acme.sh --issue -d example.com --dns dns_pdnsmanager
 ```
 
+## 94. Use Misaka.io domain API
+
+Get your API token at https://console.misaka.io/settings
+
+```
+export Misaka_Key="sdfsdfsdfljlbjkljlkjsdfoiwje"
+```
+
+To issue a cert:
+```
+acme.sh --issue --dns dns_misaka -d example.com -d www.example.com
+```
+
 # Use custom API
 
 If your API is not supported yet, you can write your own DNS API.
