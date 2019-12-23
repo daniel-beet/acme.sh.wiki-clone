@@ -1602,7 +1602,7 @@ acme.sh --issue --dns dns_regru -d 'example.com' -d '*.example.com'
 
 The `REGRU_API_Username` and `REGRU_API_Password` will be saved in `~/.acme.sh/account.conf` and will be reused when needed.
 
-If you find any bugs of reg.ru API, please report here: [Issue #2336](../../issues/2336)
+If you find any bugs of reg.ru API, please report here: [Issue #2336](../issues/2336)
 
 
 ## 82. Use Vultr DNS API to automatically issue cert
