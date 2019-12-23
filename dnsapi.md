@@ -1911,6 +1911,26 @@ To issue a cert:
 acme.sh --issue --dns dns_misaka -d example.com -d www.example.com
 ```
 
+## 95. Use easyDNS.net API to automatically issue a cert
+You need to sign up for beta API access [here](http://docs.sandbox.rest.easydns.net/beta_signup.php).
+Docs: http://sandbox.rest.easydns.net:3000/
+
+```
+export EASYDNS_Key="xxxxxxxxxxxxxxxxx.xxxxxxxx"
+export EASYDNS_Token="xxxxxxxxxxxxxxx.xxxxxxxx"
+```
+
+Ok, let's issue a cert now:
+```
+acme.sh --issue --dns dns_easydns -d example.com -d www.example.com
+```
+The `EASYDNS_Key` and `EASYDNS_Token` will be saved in `~/.acme.sh/account.conf` and will be reused when needed.
+
+If you find any bugs, please report here:
+
+https://github.com/Neilpang/acme.sh/issues/2647
+
+
 # Use custom API
 
 If your API is not supported yet, you can write your own DNS API.
