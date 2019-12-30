@@ -488,6 +488,19 @@ please report here: https://github.com/Neilpang/acme.sh/issues/2344
 See:  
 https://github.com/Neilpang/acme.sh/wiki/deploy-to-docker-containers
 
+## 19. Deploy the cert into Palo Alto Networks Firewall.
+
+In PAN-OS create a new user with superuser access. This user should only be used for the purpose of deploying certs.
+
+```
+export PANOS_USER="your_cert_user"
+export PANOS_PASS="yourpassword"
+export PANOS_HOST="10.0.0.1" // Replace with Firewall/Panorama Host
+acme.sh --deploy -d example.com --deploy-hook panos_api
+```
+
+**Note:** after a successful deploy you can remove these environment variables as they will be stored by acme.sh. If the password for the user changes you will need to set the variables again.
+
 
 
 
