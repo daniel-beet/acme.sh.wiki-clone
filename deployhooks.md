@@ -494,7 +494,7 @@ In PAN-OS create a new user with superuser access. This user should only be used
 
 ```
 export PANOS_USER="your_cert_user"
-export PANOS_PASS="yourpassword"
+export PANOS_PASS="your_password"
 export PANOS_HOST="10.0.0.1" // Replace with Firewall/Panorama Host
 acme.sh --deploy -d example.com --deploy-hook panos_api
 ```
