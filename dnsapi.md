@@ -1795,7 +1795,13 @@ https://github.com/Neilpang/acme.sh/issues/2550
 
 
 ## 89. Use nic.ru DNS
-You need to login to nic.ru account and get your NIC_Token [here](https://www.nic.ru/manager/oauth.cgi?step=oauth.app_register).
+You need to login to nic.ru account and register your application [here](https://www.nic.ru/manager/oauth.cgi?step=oauth.app_register).
+
+NIC_Token is base64 encoded string `<client_id>:<client_secret>`
+
+`<client_id>` is application identifier
+
+`<client_secret>` - application password
 
 Docs: https://www.nic.ru/help/upload/file/API_DNS-hosting-en.pdf
 
