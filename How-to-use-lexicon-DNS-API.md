@@ -13,6 +13,7 @@ The current supported providers are:
 * NS1
 * PointHQ
 * Rage4
+* TransIP
 * Vultr
 
 
@@ -41,6 +42,14 @@ export LEXICON_NAMESILO_TOKEN="namesilo-api-token"
 acme.sh --issue  -d test.acme.sh  --dns dns_lexicon  --dnssleep 960
 ```
 
+### 3. Using lexicon TransIP api:
+```
+export PROVIDER=TRANSIP
+export LEXICON_TRANSIP_USERNAME="username"
+export LEXICON_TRANSIP_API_KEY="/path/to/file.key"
+
+acme.sh --issue  -d test.acme.sh  --dns  dns_lexicon
+```
 
 For more examples, please check lexicon page: https://github.com/AnalogJ/lexicon
 
