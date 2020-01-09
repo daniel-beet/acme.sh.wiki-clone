@@ -1797,30 +1797,33 @@ https://github.com/Neilpang/acme.sh/issues/2550
 ## 89. Use nic.ru DNS
 You need to login to nic.ru account and register your application [here](https://www.nic.ru/manager/oauth.cgi?step=oauth.app_register).
 
-NIC_Token is base64 encoded string `<client_id>:<client_secret>`
+You need to define the following environment variables befor issuing a cert: 
+* `NIC_Username` - login for site `nic.ru` in form `000000/NIC-D`
+* `NIC_Password` - password for site `nic.ru`. It may be administrative or technical password ([details](https://www.nic.ru/help/use-of-administrative-and-technical-passwords-according-to-the-agreement_6148.html))
+* `NIC_ClientID` - your application identifier ([details](https://www.nic.ru/help/oauth-server_5809.html))
+* `NIC_ClientSecret` - your application secret
+* _`NIC_Token` is base64 encoded string `<client_id>:<client_secret>`. **This variable is deprecated**. It is used for backward compatibility. If NIC_ClientID and NIC_ClientSecret are not defined, then they are calculated using old NIC_Token variable._
 
-`<client_id>` is application identifier
-
-`<client_secret>` - application password
-
-Docs: https://www.nic.ru/help/upload/file/API_DNS-hosting-en.pdf
-
-```
+```bash
 export NIC_Username='000000/NIC-D'
 export NIC_Password='xxxxxxxx'
-export NIC_Token='YOUR_TOKEN_HERE'
+export NIC_ClientID='xxxxxxxx'
+export NIC_ClientSecret='xxxxxxxx'
 ```
 
 To issue a cert:
-```
+```bash
 acme.sh --issue --dns dns_nic -d domain.com -d www.domain.com
 ```
-The NIC_Username, NIC_Password and NIC_Token will be saved in ~/.acme.sh/account.conf and will be reused when needed.
+The NIC_Username, NIC_Password, NIC_ClientID and NIC_ClientSecret will be saved in ~/.acme.sh/account.conf and will be reused when needed.
 
 If you find any bugs, please report here:
 
 https://github.com/Neilpang/acme.sh/issues/2547
 
+Docs: 
+* https://www.nic.ru/help/upload/file/API_DNS-hosting-en.pdf
+* https://www.nic.ru/help/oauth-server_5809.html
 
 ## 90. Use Leaseweb.com domain API to automatically issue cert
 
