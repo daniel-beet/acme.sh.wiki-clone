@@ -646,6 +646,8 @@ Follow these instructions to get the token for your domain https://tech.yandex.c
 acme.sh --issue --dns dns_yandex -d mydomain.example.org
 ```
 
+Sometimes cloudflare / google doesn't pick new dns records fast enough. You can add `--dnssleep XXX` to params as workaround.
+
 For issues, please report to https://github.com/non7top/acme.sh/issues.
 
 ## 31. Use Hurricane Electric
