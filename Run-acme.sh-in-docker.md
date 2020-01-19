@@ -1,6 +1,6 @@
 # acme.sh 💕 docker
 
-As one of the big docker fans, I understand that we hate to install anything on a docker host, even if it's just copying a shell script. 
+As one of the big docker fans, I understand that we hate installing anything on a docker host, even if it's just copying a shell script. 
 
 ### Automated nginx reverse proxy docker image with acme.sh for letsencrpt ssl cert: https://github.com/Neilpang/nginx-proxy
 
