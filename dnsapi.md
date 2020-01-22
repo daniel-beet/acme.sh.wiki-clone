@@ -1941,6 +1941,24 @@ If you find any bugs, please report here:
 
 https://github.com/Neilpang/acme.sh/issues/2647
 
+## 96. Use CloudDNS API to automatically issue a cert
+Docs: https://github.com/vshosting/clouddns
+
+```
+export CLOUDDNS_EMAIL="email@example.com"
+export CLOUDDNS_PASSWORD="xxxxxxxx"
+export CLOUDDNS_CLIENT_ID="xxxxxxxxxxxxxxxxxxxx"
+```
+
+Ok, let's issue a cert now:
+```
+acme.sh --issue --dns dns_clouddns -d example.com -d www.example.com
+```
+The `CLOUDDNS_EMAIL`, `CLOUDDNS_PASSWORD` and `CLOUDDNS_CLIENT_ID` will be saved in `~/.acme.sh/account.conf` and will be reused when needed.
+
+If you find any bugs, please report here:
+
+https://github.com/Neilpang/acme.sh/issues/2699
 
 # Use custom API
 
