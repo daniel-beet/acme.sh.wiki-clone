@@ -1960,6 +1960,16 @@ If you find any bugs, please report here:
 
 https://github.com/Neilpang/acme.sh/issues/2699
 
+## 97. Use dynv6 API to automatically issue a cert
+This uses the [dynv6 SSH API](https://dynv6.com/docs/apis) to issue the certificate. You will need a ssh key to authenticate. You can specify your own key with `export KEY="path/to/keyfile"` or if no key is specified one will be created for you which you will have to add [here](https://dynv6.com/keys). In both cases the path to the keyfile will be saved for reuse. 
+
+To issue a cert use:
+```
+acme.sh --issue --dns dns_dynv6 -d www.example.dynv6.net
+```
+If you find any bugs, please report here:  
+https://github.com/Neilpang/acme.sh/issues/2702
+
 # Use custom API
 
 If your API is not supported yet, you can write your own DNS API.
