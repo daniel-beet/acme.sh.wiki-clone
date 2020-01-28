@@ -32,7 +32,7 @@ If you don't specify days, it will renew at 60 days by default.
 Once issued,  you can renew the cert without `--server` parameter.
 
 ```sh
-acme.sh --renew --always-force-new-domain-key -d example.com
+acme.sh --renew -d example.com
 ```
 
 Don't worry, all the certs will be automatically renewed as usual. 
