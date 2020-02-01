@@ -107,6 +107,7 @@ Here are some blogs that may help you:
 1. https://jereze.com/fr/snippets/letsencrypt-acme-no-root
 1. https://kb.virtubox.net/fr/knowledgebase/obtenir-installer-certificat-ssl-wildcard-acme-sh-nginx/
 1. [Installer un reverse proxy SSL sur un routeur Asus avec un nom de domaine Ovh](https://github.com/pedrom34/TutoAsus/blob/master/Readme.fr.md)
+1. [Certificat Let’s Encrypt sur Azure Container Instances et NGINX](https://r3dlin3.github.io/2020/01/30/aci-letsencrypt-nginx/)
 
 ## Russian
 1. http://wpb.1gb.ru/2016/08/27/%D1%83%D1%81%D1%82%D0%B0%D0%BD%D0%BE%D0%B2%D0%BA%D0%B0-https-%D0%B4%D0%BB%D1%8F-%D1%81%D0%B0%D0%B9%D1%82%D0%B0-letsencrypt-ssl-%D1%81%D0%B5%D1%80%D1%82%D0%B8%D1%84%D0%B8%D0%BA%D0%B0%D1%82-nginx-debian/
