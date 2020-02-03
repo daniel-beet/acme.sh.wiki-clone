@@ -1988,6 +1988,19 @@ For more details, please check our sample script: [dns_myapi.sh](https://github.
 
 See:  [DNS API Dev Guide](https://github.com/Neilpang/acme.sh/wiki/DNS-API-Dev-Guide)
 
+## 98. Use All-Inkl.com domain API to automatically issue cert
+
+You need your login credentials for All-Inkl (https://kas.all-inkl.com).
+```
+export KAS_Login="....."
+export KAS_Authtype="sha1"
+export KAS_Authdata="....."
+```
+Now you are able to issue a cert:
+```
+acme.sh --issue --dns dns_kas -d example.com -d www.example.com
+```
+The `KAS_Login`, `KAS_Authtype` and `KAS_Authdata` will be saved in `~/.acme.sh/account.conf` and will be reused when needed.
 
 
 
