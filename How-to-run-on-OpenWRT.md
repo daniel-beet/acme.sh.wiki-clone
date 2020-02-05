@@ -38,11 +38,12 @@ uci commit uhttpd
 /etc/init.d/uhttpd restart
 ```
 
-### Step 4: Modify crontab (automatic renew)
 
-Run `crontab -e` to edit your crontab (use something like `export EDITOR="/usr/bin/nano"` if vim isn't your style). Edit to:
+~~### Step 4: Modify crontab (automatic renew)~~
 
-`0 0 * * * "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" --pre-hook "iptables -I input_rule -p tcp --dport 443 -j ACCEPT -m comment --comment ACME" --post-hook "iptables -D input_rule -p tcp --dport 443 -j ACCEPT -m comment --comment ACME" --reloadcmd "/etc/init.d/uhttpd restart" >> /root/.acme.sh/log.txt 2>&1`
+~~Run `crontab -e` to edit your crontab (use something like `export EDITOR="/usr/bin/nano"` if vim isn't your style). Edit to:~~
+
+~~`0 0 * * * "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" --pre-hook "iptables -I input_rule -p tcp --dport 443 -j ACCEPT -m comment --comment ACME" --post-hook "iptables -D input_rule -p tcp --dport 443 -j ACCEPT -m comment --comment ACME" --reloadcmd "/etc/init.d/uhttpd restart" >> /root/.acme.sh/log.txt 2>&1`~~
 
 
 ### Step 5: Configure Firewall
