@@ -2002,6 +2002,21 @@ acme.sh --issue --dns dns_kas -d example.com -d www.example.com
 ```
 The `KAS_Login`, `KAS_Authtype` and `KAS_Authdata` will be saved in `~/.acme.sh/account.conf` and will be reused when needed.
 
+## 99. Use Constellix domain API
+
+Get your API credentials at https://manage.constellix.com/users
+
+```
+export CONSTELLIX_Key="XXX"
+export CONSTELLIX_Secret="XXX"
+```
+
+To issue a cert:
+```
+acme.sh --issue --dns dns_constellix -d example.com -d www.example.com
+```
+
+The `CONSTELLIX_Key` and `CONSTELLIX_Secret` will be saved in `~/.acme.sh/account.conf` and will be reused when needed.
 
 
 -----------------------------------
