@@ -306,7 +306,7 @@ CoolQ 是一个第三方开发的无头 QQ 客户端，并提供了一些插件�
 
 ### English version
 
-Push notifications to QQ via the plugin CQHTTP of CoolQ. a self-built CQHTTP server is needed, visit [the community of CoolQ](https://cqp.cc) and [the docs of CQHTTP](https://cqhttp.cc) for the details of deployment.
+Push notifications to QQ via the plugin CQHTTP of CoolQ. A self-built CQHTTP server is needed. Visit [the community of CoolQ](https://cqp.cc) and [the docs of CQHTTP](https://cqhttp.cc) for the details of deployment.
 
 CoolQ is a third-party headless QQ client, which provides a strong plugin system. Before we start, you need to prepare a QQ number for the robot. And ensure that your QQ number is a friend of the robot. CQHTTP is a plugin of CoolQ, which provides HTTP API for CoolQ.
 
@@ -326,7 +326,7 @@ export CQHTTP_APIROOT="http://cqhttp-server.local:5700"     # That's your server
 
 acme.sh  --set-notify  --notify-hook cqhttp
 ```
-After that, you'll recieve a message (在这之后，你将收到一条信息如下):
+After that, you'll receive a message (在这之后，你将收到一条信息如下):
 ```plain
 A message from acme.sh: Hello, this is a notification from acme.sh
 If you receive this message, your notification works.
