@@ -290,6 +290,47 @@ acme.sh  --set-notify  --notify-hook dingtalk
 
 ```
 
+## 10. Set notification for QQ with self-built CQHTTP API
+
+### 中文说明
+通过 CoolQ 的插件 CQHTTP 将消息推送到 QQ。需要您自行部署 CQHTTP 服务端。部署详情参见 [CoolQ 社区](https://cqp.cc)和 [CQHTTP](https://cqhttp.cc) 的文档。
+
+CoolQ 是一个第三方开发的无头 QQ 客户端，并提供了一些插件功能。在开始之前，您需要自行准备一个 QQ 号码作为机器人，并保证您的 QQ 和机器人 QQ 是好友关系以便发送通知。CQHTTP 是 CoolQ 的一个插件，为 CoolQ 提供了 HTTP API。
+
+这个 hook 有四个环境变量可供传入:
+
+- `CQHTTP_TOKEN`: 必需，将 CQHTTP 配置文件中填写的 Access Token 填入。如果您没有设置 Access Token，请将其设为 `__ACME_SH_TOKEN_EMPTY__`。
+- `CQHTTP_USER`: 必需，接收推送通知的 QQ 号码。您需要自行保证机器人号码可以向接收者的 QQ 号码发送消息。
+- `CQHTTP_APIROOT`: 必需，您搭建的 CQHTTP 服务器的 URL (不包含斜杠结尾)。
+- `CQHTTP_CUSTOM_MSGHEAD`: 可选，自定义的消息开头。默认值是 "A message from acme.sh:".
+
+### English version
+
+Push notifications to QQ via the plugin CQHTTP of CoolQ. a self-built CQHTTP server is needed, visit [the community of CoolQ](https://cqp.cc) and [the docs of CQHTTP](https://cqhttp.cc) for the details of deployment.
+
+CoolQ is a third-party headless QQ client, which provides a strong plugin system. Before we start, you need to prepare a QQ number for the robot. And ensure that your QQ number is a friend of the robot. CQHTTP is a plugin of CoolQ, which provides HTTP API for CoolQ.
+
+This hook can parse four environment variables:
+
+- `CQHTTP_TOKEN`: Required, QQ application token, which is set in CQHTTP server. If it's empty, please set it to `__ACME_SH_TOKEN_EMPTY__`.
+- `CQHTTP_USER`: Required, QQ receiver ID. Make sure that the sender has right permission to send message to the receiver.
+- `CQHTTP_APIROOT`: Required, CQHTTP Server URL (without slash suffix)
+- `CQHTTP_CUSTOM_MSGHEAD`: Optional, custom message header. Default value is "A message from acme.sh:".
+
+### Demo
+
+```sh
+export CQHTTP_TOKEN="Itsjustat0ken,qwq"       # That's the access token
+export CQHTTP_USER="10086"     # That's your QQ number (receiver)
+export CQHTTP_APIROOT="http://cqhttp-server.local:5700"     # That's your server address
+
+acme.sh  --set-notify  --notify-hook cqhttp
+```
+After that, you'll recieve a message (在这之后，你将收到一条信息如下):
+```plain
+A message from acme.sh: Hello, this is a notification from acme.sh
+If you receive this message, your notification works.
+```
 
 
 
