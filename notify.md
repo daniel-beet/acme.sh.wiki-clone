@@ -299,7 +299,7 @@ CoolQ 是一个第三方开发的无头 QQ 客户端，并提供了一些插件�
 
 这个 hook 有四个环境变量可供传入:
 
-- `CQHTTP_TOKEN`: 必需，将 CQHTTP 配置文件中填写的 Access Token 填入。如果您没有设置 Access Token，请将其设为 `__ACME_SH_TOKEN_EMPTY__`。
+- `CQHTTP_TOKEN`: 建议非空，将 CQHTTP 配置文件中您设置的 Access Token 填入。
 - `CQHTTP_USER`: 必需，接收推送通知的 QQ 号码。您需要自行保证机器人号码可以向接收者的 QQ 号码发送消息。
 - `CQHTTP_APIROOT`: 必需，您搭建的 CQHTTP 服务器的 URL (不包含斜杠结尾)。
 - `CQHTTP_CUSTOM_MSGHEAD`: 可选，自定义的消息开头。默认值是 "A message from acme.sh:".
@@ -312,7 +312,7 @@ CoolQ is a third-party headless QQ client, which provides a strong plugin system
 
 This hook can parse four environment variables:
 
-- `CQHTTP_TOKEN`: Required, QQ application token, which is set in CQHTTP server. If it's empty, please set it to `__ACME_SH_TOKEN_EMPTY__`.
+- `CQHTTP_TOKEN`: Recommend to be not empty, QQ application token, which is set in CQHTTP server.
 - `CQHTTP_USER`: Required, QQ receiver ID. Make sure that the sender has right permission to send message to the receiver.
 - `CQHTTP_APIROOT`: Required, CQHTTP Server URL (without slash suffix)
 - `CQHTTP_CUSTOM_MSGHEAD`: Optional, custom message header. Default value is "A message from acme.sh:".
