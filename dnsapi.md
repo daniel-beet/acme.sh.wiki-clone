@@ -1970,24 +1970,6 @@ acme.sh --issue --dns dns_dynv6 -d www.example.dynv6.net
 If you find any bugs, please report here:  
 https://github.com/Neilpang/acme.sh/issues/2702
 
-# Use custom API
-
-If your API is not supported yet, you can write your own DNS API.
-
-Let's assume you want to name it 'myapi':
-
-1. Create a bash script named `~/.acme.sh/dns_myapi.sh`,
-2. In the script you must have a function named `dns_myapi_add()` which will be called by acme.sh to add the DNS records.
-3. Then you can use your API to issue cert like this:
-
-```
-acme.sh --issue --dns dns_myapi -d example.com -d www.example.com
-```
-
-For more details, please check our sample script: [dns_myapi.sh](https://github.com/Neilpang/acme.sh/blob/master/dnsapi/dns_myapi.sh)
-
-See:  [DNS API Dev Guide](https://github.com/Neilpang/acme.sh/wiki/DNS-API-Dev-Guide)
-
 ## 98. Use All-Inkl.com domain API to automatically issue cert
 
 You need your login credentials for All-Inkl (https://kas.all-inkl.com).
@@ -2018,6 +2000,23 @@ acme.sh --issue --dns dns_constellix -d example.com -d www.example.com
 
 The `CONSTELLIX_Key` and `CONSTELLIX_Secret` will be saved in `~/.acme.sh/account.conf` and will be reused when needed.
 
+# Use custom API
+
+If your API is not supported yet, you can write your own DNS API.
+
+Let's assume you want to name it 'myapi':
+
+1. Create a bash script named `~/.acme.sh/dns_myapi.sh`,
+2. In the script you must have a function named `dns_myapi_add()` which will be called by acme.sh to add the DNS records.
+3. Then you can use your API to issue cert like this:
+
+```
+acme.sh --issue --dns dns_myapi -d example.com -d www.example.com
+```
+
+For more details, please check our sample script: [dns_myapi.sh](https://github.com/Neilpang/acme.sh/blob/master/dnsapi/dns_myapi.sh)
+
+See:  [DNS API Dev Guide](https://github.com/Neilpang/acme.sh/wiki/DNS-API-Dev-Guide)
 
 -----------------------------------
 
