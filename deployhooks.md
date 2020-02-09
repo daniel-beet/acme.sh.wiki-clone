@@ -502,8 +502,18 @@ acme.sh --deploy -d example.com --deploy-hook panos_api
 **Note:** after a successful deploy you can remove these environment variables as they will be stored by acme.sh. If the password for the user changes you will need to set the variables again.
 
 
+## 20. Deploy the cert into Synology DSM
 
+```sh
+# export SYNO_Scheme="http" # Can be set to HTTPS, defaults to HTTP
+# export SYNO_Host="localhost" # Specify if not using on localhost
+# export SYNO_Port="5000" # Port of DSM WebUI, defaults to 5000 for HTTP and 5001 for HTTPS
+export SYNO_Username="DSM_Admin_Username"
+export SYNO_Password="DSM_Admin_Password"
+export SYNO_Certificate="acme.sh certificate" # Description text in Control Panel -> Security -> Certificates
+export SYNO_Create=1 # defaults to off, this setting is not saved.  By setting to 1 we create the certificate if it's not in DSM
+acme.sh --deploy -d example.com --deploy-hook synology_dsm
+```
 
-
-
+Certificate should now show up in "Control Panel" -> "Security" -> "Certificates" and can be assigned to Services or set as the default certificate.
 
