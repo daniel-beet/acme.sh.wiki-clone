@@ -490,7 +490,9 @@ https://github.com/Neilpang/acme.sh/wiki/deploy-to-docker-containers
 
 ## 19. Deploy the cert into Palo Alto Networks Firewall.
 
-In PAN-OS create a new admin role with API permissions to import and commit. Create a user that will only be used for the purpose of deploying certs. Assign this user to the role you created.
+In PAN-OS 9.1+ create a new admin role with API permissions to import and commit. Create a user that will only be used for the purpose of deploying certs. Assign this user to the role you created. 
+
+For prior versions of PAN-OS the admin must have superuser access to upload the private key. 
 
 ```
 export PANOS_USER="your_cert_user"
