@@ -496,7 +496,7 @@ In PAN-OS create a new admin role with API permissions to import and commit. Cre
 export PANOS_USER="your_cert_user"
 export PANOS_PASS="your_password"
 export PANOS_HOST="10.0.0.1" // Replace with Firewall/Panorama Host
-acme.sh --deploy -d example.com --deploy-hook panos_api
+acme.sh --deploy -d example.com --deploy-hook panos_api --insecure
 ```
 
 **Note:** after a successful deploy you can remove these environment variables as they will be stored by acme.sh. If the password for the user changes you will need to set the variables again.
