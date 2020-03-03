@@ -209,6 +209,7 @@ https://github.com/Neilpang/acme.sh/wiki/How-to-use-Amazon-Route53-API
 ```
 export  AWS_ACCESS_KEY_ID=XXXXXXXXXX
 export  AWS_SECRET_ACCESS_KEY=XXXXXXXXXXXXXXX
+export AWS_DNS_SLOWRATE=1 (sleep between API requests in seconds)
 ```
 
 To issue a cert:
@@ -216,7 +217,7 @@ To issue a cert:
 acme.sh --issue --dns dns_aws -d example.com -d www.example.com
 ```
 
-The `AWS_ACCESS_KEY_ID` and `AWS_SECRET_ACCESS_KEY` will be saved in `~/.acme.sh/account.conf` and will be reused when needed.
+The `AWS_ACCESS_KEY_ID`, `AWS_SECRET_ACCESS_KEY` and `AWS_DNS_SLOWRATE` will be saved in `~/.acme.sh/account.conf` and will be reused when needed. The `AWS_DNS_SLOWRATE` will enable the sleep between API requests to AWS servers. It will help to mitigate the AWS rate limit
 
 ## 11. Use Aliyun domain API to automatically issue cert
 
