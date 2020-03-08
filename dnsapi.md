@@ -2007,6 +2007,23 @@ acme.sh --issue --dns dns_constellix -d example.com -d www.example.com
 
 The `CONSTELLIX_Key` and `CONSTELLIX_Secret` will be saved in `~/.acme.sh/account.conf` and will be reused when needed.
 
+## 100. Use Namemaster domain API
+
+Get your API credentials at https://namemaster.de DNS/API 
+
+```
+export NM_user="XXX"
+export NM_md5="XXX"
+```
+
+To issue a cert:
+```
+acme.sh --issue --dns dns_nm -d example.com -d www.example.com
+```
+
+The `NM_user` and `NM_md5` will be saved in `~/.acme.sh/account.conf` and will be reused when needed.
+
+
 # Use custom API
 
 If your API is not supported yet, you can write your own DNS API.
