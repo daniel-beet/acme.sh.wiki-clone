@@ -17,10 +17,10 @@ The following guide will use the DNS-01 protocol using the [Cloudflare API](http
     $ ./acme.sh --install --nocron --home /usr/local/share/acme.sh --accountemail "email@gmailcom"
 
 ## Installation of reload-certs.sh (optional)
-You can use this script to automatically restart services for which certificates were changed.
+You can use [this third party script](https://github.com/bartowl/synology-stuff/blob/master/reload-certs.sh) to automatically restart services for which certificates were changed.
 
-    $ wget -o /usr/local/share/reload-certs.sh https://github.com/bartowl/synology-stuff/raw/master/reload-certs.sh
-    $ chmod +x /usr/local/share/reload-certs.sh
+    $ wget -o /usr/local/bin/reload-certs.sh https://github.com/bartowl/synology-stuff/raw/master/reload-certs.sh
+    $ chmod +x /usr/local/bin/reload-certs.sh
 
 Be sure to close your session after installation and reconnect for the following steps. 
 
@@ -64,12 +64,13 @@ This requires the reload-certs.sh script.
     $ export CERT_DNS="dns_cf"
     $ cp -a INFO INFO.bak
     $ jq '.+={"'$CERT_DIR'":{"desc":"'$CERT_DOMAIN'","services":[]}}' INFO.bak > INFO
+    $ cd /usr/local/share/acme.sh
     $ ./acme.sh  --issue -d "$CERT_DOMAIN" --dns "$CERT_DNS" \
         --cert-file "$CERT_FOLDER/cert.pem" \
         --key-file "$CERT_FOLDER/privkey.pem" \
         --fullchain-file "$CERT_FOLDER/fullchain.pem" \
         --capath "$CERT_FOLDER/chain.pem" \
-        --reloadcmd "/usr/local/share/reload-certs.sh" \
+        --reloadcmd "/usr/local/bin/reload-certs.sh" \
         --dnssleep 20
 
 Now you can check the DSM control panel - Security - Certificates to see the new certificate that has been created. 
