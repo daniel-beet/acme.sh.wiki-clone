@@ -16,6 +16,12 @@ The following guide will use the DNS-01 protocol using the [Cloudflare API](http
     $ cd acme.sh-master/
     $ ./acme.sh --install --nocron --home /usr/local/share/acme.sh --accountemail "email@gmailcom"
 
+## Installation of reload-certs.sh (optional)
+You can use this script to automatically restart services for which certificates were changed.
+
+    $ wget -o /usr/local/share/reload-certs.sh https://github.com/bartowl/synology-stuff/raw/master/reload-certs.sh
+    $ chmod +x /usr/local/share/reload-certs.sh
+
 Be sure to close your session after installation and reconnect for the following steps. 
 
 ## Configuring DNS
@@ -45,25 +51,29 @@ Now it's time to create the certificate for your domain:
           --reloadcmd "/usr/syno/sbin/synoservicectl --reload nginx" \
           --dnssleep 20
 
-Please note that this will replace your Synology NAS system default certificate directly.
+Please note that this will replace your Synology NAS system default certificate directly without rolling out for other services, just the DSM console.
 
 ---------------------------------------------------------------------------------------------------------
-## Alternative method that preserves your Synology NAS system default certificate
+## Alternative and recommended method that fully integrates with Synology NAS system certificate management
+This requires the reload-certs.sh script.
 
-    $ export CERT_FOLDER="$(find /usr/syno/etc/certificate/_archive/ -maxdepth 1 -mindepth 1 -type d)"
-    $ # Make sure $CERT_FOLDER is only one name. Else you have to manually specify the folder.
+    $ cd /usr/syno/etc/certificate/_archive
+    $ export CERT_DIR="$(mktemp -d XXXXXX)"
+    $ export CERT_FOLDER="/usr/syno/etc/certificate/_archive/$CERT_DIR"
     $ export CERT_DOMAIN="your-domain.tld"
     $ export CERT_DNS="dns_cf"
+    $ cp -a INFO INFO.bak
+    $ jq '.+={"'$CERT_DIR'":{"desc":"'$CERT_DOMAIN'","services":[]}}' INFO.bak > INFO
     $ ./acme.sh  --issue -d "$CERT_DOMAIN" --dns "$CERT_DNS" \
         --cert-file "$CERT_FOLDER/cert.pem" \
         --key-file "$CERT_FOLDER/privkey.pem" \
         --fullchain-file "$CERT_FOLDER/fullchain.pem" \
         --capath "$CERT_FOLDER/chain.pem" \
-        --reloadcmd "/usr/syno/sbin/synoservicectl --reload nginx" \
+        --reloadcmd "/usr/local/share/reload-certs.sh" \
         --dnssleep 20
 
-Now you can check the DSM control panel - Security - Certificates to see the nominated certificate has been replaced by letsencrypt one. You can now configure to use this one as default and assign to specific services, like vpn, sftp, etc. 
-If you see the Lets Encrypt certificate but it's not being used by DMS yet assign the "system default" service to another certificate (create a self signed one if needed) and after the webserver has restarted assign the "system default" service back to the Lets Encrypt certificate. After the webservice has restarted DSM will be using the lets encrypt certificate. 
+Now you can check the DSM control panel - Security - Certificates to see the new certificate that has been created. 
+You can now configure to use this one as default and/or assign to specific services, like vpn, sftp, etc.
 
 ## Configuring Certificate Renewal
 To auto renew the certificates in the future, you need to configure a task in the task scheduler. It is not advised to set this up as a custom cronjob (as was previously described in this wiki page) as the DSM security advisor will tell you that you have a critical warning regarding unknown cronjob(s).
@@ -71,52 +81,14 @@ To auto renew the certificates in the future, you need to configure a task in th
 In DSM control panel, open the 'Task Scheduler' and create a new scheduled task for a user-defined script.  
 
 * General Setting: Task - Update default Cert. User - root
-* Schedule: Setup a monthly renewal. For example, 11:00 am of the 2nd day every month.
-* Task setting: User-defined-script **(modify where needed!)**:
+* Schedule: Setup a weekly renewal. For example, 11:00 am every saturday.
+* Task setting: User-defined-script:
 
 ```
-# Note: The $CERT_FOLDER must be hardcoded here since the running environment is unknown. Don't blindly copy&paste!
-# if you used the normal method the certificate will be installed in the system/default directory
-CERTDIR="system/default"
-# if you used the alternative method it is copied to an unknown path, change the following example to the output of the creation process and uncomment. 
-#CERTDIR="_archive/AsDFgH"
-
-# do not change anything beyond this line!
-CERTROOTDIR="/usr/syno/etc/certificate"
-PACKAGECERTROOTDIR="/usr/local/etc/certificate"
-FULLCERTDIR="$CERTROOTDIR/$CERTDIR"
-
 # renew certificates, this used to be explained as a custom cronjob but works just as well within this script according to the output of the task. 
 /usr/local/share/acme.sh/acme.sh --cron --home /usr/local/share/acme.sh/
-
-# find all subdirectories containing cert.pem files
-PEMFILES=$(find $CERTROOTDIR -name cert.pem)
-if [ ! -z "$PEMFILES" ]; then
-        for DIR in $PEMFILES; do
-                # replace the certificates, but never the ones in the _archive folders as those are all the unique
-                # certificates on the system.
-                if [[ $DIR != *"/_archive/"* ]]; then
-                        rsync -avh "$FULLCERTDIR/" "$(dirname $DIR)/"
-                fi
-        done
-fi
-
-# reload
-/usr/syno/sbin/synoservicectl --reload nginx
-
-# update and restart all installed packages
-PEMFILES=$(find $PACKAGECERTROOTDIR -name cert.pem)
-if [ ! -z "$PEMFILES" ]; then
-	for DIR in $PEMFILES; do
-              #active directory has it's own certificate so we do not update that package
-              if [[ $DIR != *"/ActiveDirectoryServer/"* ]]; then
-		rsync -avh "$FULLCERTDIR/" "$(dirname $DIR)/"
-		/usr/syno/bin/synopkg restart $(echo $DIR | awk -F/ '{print $6}')
-              fi
-	done
-fi
 ```
-Now you should be all good. 
+Make sure you created the certificates with proper reloadcmd. Now you should be all good. 
 
 --------------------------------------------------------------------------------------------------------------------
 
