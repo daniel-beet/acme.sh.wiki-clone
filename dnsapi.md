@@ -22,6 +22,13 @@ export CF_Account_ID="xxxxxxxxxxxxx"
 ```
 In order to use the new token, the token currently needs access read access to Zone.Zone, and write access to Zone.DNS, across all Zones.  See [Issue #2398](https://github.com/Neilpang/acme.sh/issues/2398) for more info.
 
+To restrict permissions to the greatest extent possible, you can create an API Token with write access to Zone.DNS for a single domain, and then specify the `CF_Zone_ID` directly:
+
+```
+export CF_Token="sdfsdfsdfljlbjkljlkjsdfoiwje"
+export CF_Account_ID="xxxxxxxxxxxxx"
+export CF_Zone_ID="xxxxxxxxxxxxx"
+```
 
 Ok, let's issue a cert now:
 ```
