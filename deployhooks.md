@@ -518,3 +518,10 @@ acme.sh --deploy -d example.com --deploy-hook synology_dsm
 ```
 
 Certificate should now show up in "Control Panel" -> "Security" -> "Certificates" and can be assigned to Services or set as the default certificate.
+
+**With OTP (2-Factor-Authentication)**
+
+Use your browser to sign in with the admin account you want to use. When entering the OTP code, check the "Save this device" checkbox and continue. Get the device ID from the cookie `did` (Left click on the lock to the left side of the URL -> Cookies and Copy the content of the `did` cookie). Set the environment variable to the cookie value:
+```sh
+export SYNO_DID=A1Bjk...
+```
