@@ -2030,6 +2030,27 @@ acme.sh --issue --dns dns_nm -d example.com -d www.example.com
 
 The `NM_user` and `NM_md5` will be saved in `~/.acme.sh/account.conf` and will be reused when needed.
 
+## 101. Use HostingUkraine domain API
+
+How get your API credentials: https://api.adm.tools/osnovnie-polozheniya/dostup-k-api/
+Add your credentials:
+```
+# Your login:
+HostingUkraine_Login="XXX"
+# Your api token:
+HostingUkraine_Token="XXX"
+```
+
+To issue a cert:
+```
+./acme.sh --issue --dns dns_hostingukraine -d yourdomain.com -d www.yourdomain.com
+```
+To issue a wildcard cert: 
+```
+./acme.sh --issue --dns dns_hostingukraine -d yourdomain.com -d '*.yourdomain.com' 
+```
+
+The `HostingUkraine_Login` and `HostingUkraine_Token` will be saved in `~/.acme.sh/account.conf` and will be reused when needed.
 
 # Use custom API
 
