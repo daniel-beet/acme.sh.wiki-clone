@@ -2033,7 +2033,7 @@ The `NM_user` and `NM_md5` will be saved in `~/.acme.sh/account.conf` and will b
 ## 101. Use HostingUkraine domain API
 
 How get your API credentials: https://api.adm.tools/osnovnie-polozheniya/dostup-k-api/
-Add your credentials:
+
 ```
 # Your login:
 HostingUkraine_Login="XXX"
