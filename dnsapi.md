@@ -2020,7 +2020,7 @@ Get your API credentials at https://namemaster.de DNS/API
 
 ```
 export NM_user="XXX"
-export NM_md5="XXX"
+export NM_sha256="XXX"
 ```
 
 To issue a cert:
@@ -2028,7 +2028,7 @@ To issue a cert:
 acme.sh --issue --dns dns_nm -d example.com -d www.example.com
 ```
 
-The `NM_user` and `NM_md5` will be saved in `~/.acme.sh/account.conf` and will be reused when needed.
+The `NM_user` and `NM_sha256` will be saved in `~/.acme.sh/account.conf` and will be reused when needed.
 
 ## 101. Use HostingUkraine domain API
 
