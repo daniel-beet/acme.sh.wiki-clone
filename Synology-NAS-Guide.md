@@ -19,7 +19,7 @@ The following guide will use the DNS-01 protocol using the [Cloudflare API](http
 ## Installation of reload-certs.sh (optional)
 You can use [this third party script](https://github.com/bartowl/synology-stuff/blob/master/reload-certs.sh) to automatically restart services for which certificates were changed.
 
-    $ wget -o /usr/local/bin/reload-certs.sh https://github.com/bartowl/synology-stuff/raw/master/reload-certs.sh
+    $ wget -O /usr/local/bin/reload-certs.sh https://github.com/bartowl/synology-stuff/raw/master/reload-certs.sh
     $ chmod +x /usr/local/bin/reload-certs.sh
 
 Be sure to close your session after installation and reconnect for the following steps. 
