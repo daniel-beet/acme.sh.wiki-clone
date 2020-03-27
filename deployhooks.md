@@ -444,7 +444,8 @@ Before you can deploy the certificate to router os, you need
 to add the id_rsa.pub key to the routeros and assign a user
 to that key.
 
-The user need to have access to ssh, ftp, read and write.
+The user need's to have the following policies enabled:
+ssh, ftp, read, write, password and sensitive.
 
 There are no need to enable ftp service for the script to work,
 as they are transmitted over SCP, however ftp is needed to store
