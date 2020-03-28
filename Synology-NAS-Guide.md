@@ -58,7 +58,7 @@ Please note that this will replace your Synology NAS system default certificate 
 This requires the reload-certs.sh script.
 
     $ cd /usr/syno/etc/certificate/_archive
-    $ export CERT_DIR="$(mktemp -d XXXXXX)"
+    $ export CERT_DIR="$(mktemp -d zXXXXX)"
     $ export CERT_FOLDER="/usr/syno/etc/certificate/_archive/$CERT_DIR"
     $ export CERT_DOMAIN="your-domain.tld"
     $ export CERT_DNS="dns_cf"
