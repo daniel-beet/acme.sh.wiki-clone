@@ -367,6 +367,13 @@ $ export QINIU_CDN_DOMAIN=".cdn.example.com"
 $ acme.sh --deploy -d example.com --deploy-hook qiniu
 ```
 
+假如需要部署多个域名, 使用空格将域名分隔开来:
+
+```sh
+$ export QINIU_CDN_DOMAIN="cdn1.example.com cdn2.example.com"
+$ acme.sh --deploy -d example.com --deploy-hook qiniu
+```
+
 ### English version
 
 You should create AccessKey/SecretKey pair in https://portal.qiniu.com/user/key 
@@ -390,6 +397,13 @@ you want to update (please note the leading dot):
 
 ```sh
 $ export QINIU_CDN_DOMAIN=".cdn.example.com"
+$ acme.sh --deploy -d example.com --deploy-hook qiniu
+```
+
+If you want to deploy more than one domain, just use space to splite them:
+
+```sh
+$ export QINIU_CDN_DOMAIN="cdn1.example.com cdn2.example.com"
 $ acme.sh --deploy -d example.com --deploy-hook qiniu
 ```
 
