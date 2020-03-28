@@ -2052,6 +2052,21 @@ To issue a wildcard cert:
 
 The `HostingUkraine_Login` and `HostingUkraine_Token` will be saved in `~/.acme.sh/account.conf` and will be reused when needed.
 
+## 102. Use ArvanCloud domain API
+
+Get your API token at https://npanel.arvancloud.com/profile/api-keys
+
+```
+export Arvan_Token="fsdasdfsdfljlbjkljlkjsdfoiwje"
+```
+
+To issue a cert:
+```
+acme.sh --issue --dns dns_arvan -d example.com -d www.example.com
+```
+
+The `Arvan_Token` will be saved in `~/.acme.sh/account.conf` and will be reused when needed.
+
 # Use custom API
 
 If your API is not supported yet, you can write your own DNS API.
