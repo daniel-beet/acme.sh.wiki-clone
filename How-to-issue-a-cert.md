@@ -131,5 +131,10 @@ acme.sh  --issue  \
 -d dd.com  -w /home/wwwroot/dd.com
 ```
 
-
+```
+acme.sh  --issue  \
+-d aa.com  --dns dns_dp \
+-d bb.com  --dns dns_cf \
+-d cc.com  --dns dns_ns 
+```
 
