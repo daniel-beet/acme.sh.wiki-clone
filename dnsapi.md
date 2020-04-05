@@ -2067,6 +2067,27 @@ acme.sh --issue --dns dns_arvan -d example.com -d www.example.com
 
 The `Arvan_Token` will be saved in `~/.acme.sh/account.conf` and will be reused when needed.
 
+## 103. Use Joker.com domain API
+
+You must activate Dynamic DNS in Joker.com DNS configuration first. Username and password below refer to Dynamic DNS authentication, not your Joker.com login credentials. See https://joker.com/faq/content/11/427/en/what-is-dynamic-dns-dyndns.html.
+
+**NOTE:** This script does not support wildcard certificates, because Joker.com API does not support adding two TXT records with the same subdomain. Adding the second record will overwrite the first one. See https://joker.com/faq/content/6/496/en/let_s-encrypt-support.html:
+> ... this request will replace all TXT records for the specified label by the provided content...
+
+Report bugs to https://github.com/acmesh-official/acme.sh/issues/2840
+
+```
+export JOKER_USERNAME="xxxx"
+export JOKER_PASSWORD="xxxx"
+```
+
+To issue a cert:
+```
+acme.sh --issue --dns dns_joker -d example.com
+```
+
+The `JOKER_USERNAME`  and `JOKER_PASSWORD` will be saved in `~/.acme.sh/account.conf` and will be reused when needed.
+
 # Use custom API
 
 If your API is not supported yet, you can write your own DNS API.
