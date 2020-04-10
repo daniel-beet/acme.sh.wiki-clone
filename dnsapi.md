@@ -2088,7 +2088,8 @@ acme.sh --issue --dns dns_joker -d example.com
 
 The `JOKER_USERNAME`  and `JOKER_PASSWORD` will be saved in `~/.acme.sh/account.conf` and will be reused when needed.
 
-## 104. Use 1984Hosting
+## 104. Use 1984Hosting domain API
+
 [1984Hosting](https://1984hosting.com/) does not provide an API to update DNS records 
 (other than IPv4 and IPv6 dynamic DNS addresses). The `acme.sh` plugin therefore 
 retrieves and updates domain TXT records by logging into the 1984Hosting 
