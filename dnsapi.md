@@ -2088,6 +2088,32 @@ acme.sh --issue --dns dns_joker -d example.com
 
 The `JOKER_USERNAME`  and `JOKER_PASSWORD` will be saved in `~/.acme.sh/account.conf` and will be reused when needed.
 
+## 104. User 1984Hosting
+1984Hosting (https://1984hosting.com/) does not provide an API to update DNS records 
+(other than IPv4 and IPv6 dynamic DNS addresses). The `acme.sh` plugin therefore 
+retrieves and updates domain TXT records by logging into the 1984Hosting 
+website to read the HTML and posting updates as HTTP. The plugin needs to 
+know your username and password for the 1984Hosting website.
+
+```sh
+export One984HOSTING_Username=<your_username>
+export One984HOSTING_Password=<your_password>
+```
+
+You need only provide this the first time you run the `acme.sh` client with 1984Hosting 
+validation and then again whenever you change your password at the 1984Hosting site. 
+The `acme.sh` 1984Hosting plugin does not store your username or password, 
+but rather saves an authentication token returned by 1984Hosting 
+in `~/.acme.sh/account.conf` and reuses it when needed.
+
+Ok, let's issue a cert now:
+
+```sh
+acme.sh --issue --dns dns_1984hosting -d example.com -d *.example.com
+```
+
+If you have any issues with FreeDNS API please report them here... https://github.com/Neilpang/acme.sh/issues/2851
+
 # Use custom API
 
 If your API is not supported yet, you can write your own DNS API.
