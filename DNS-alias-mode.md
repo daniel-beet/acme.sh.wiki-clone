@@ -1,16 +1,22 @@
-If your dns provider doesn't support api access,  or if you're concerned about security problems from giving the dns api access to your main domain, then you can use DNS alias mode.
+If your DNS provider doesn't support API access, or if you're concerned about security problems from giving the DNS API access to your main domain, then you can use DNS alias mode.
 
-For example,  your main domain is `example.com`,  which doesn't have api access, or you don't want to give the api access to acme.sh, since it's important.
+For example, your main domain is **example.com**, which doesn't have API access, or you don't want to give the API access to acme.sh, since it's important.
 
-And you have another domain:  "aliasDomainForValidationOnly.com", which has a supported dns api.  This domain is less important, and maybe it's used for validation only.
+And you have another domain: **aliasDomainForValidationOnly.com**, which has a supported DNS API. This domain is less important, and maybe it's used for validation only.
 
 Ok, let's start.
 
 ### 1. First set domain CNAME:
 
-```sh
+```text
 _acme-challenge.example.com
    =>   _acme-challenge.aliasDomainForValidationOnly.com
+```
+
+or, in standard [DNS zone file](https://en.wikipedia.org/wiki/Zone_file) format, (like ISC BIND or NSD):
+
+```text.zone_file
+_acme-challenge.example.com	IN	CNAME	_acme-challenge.aliasDomainForValidationOnly.com.
 ```
 
 
@@ -21,17 +27,17 @@ acme.sh --issue  \
   -d  example.com --challenge-alias aliasDomainForValidationOnly.com --dns dns_cf
 ```
 
-The Letsencrypt CA server checks the txt record of original domain `_acme-challenge.example.com` to validate your domain,  but you have set the CNAME in step 1,  so it goes forward to the aliased domain `_acme-challenge.aliasDomainForValidationOnly.com` to check.
+The Letsencrypt CA server checks the txt record of original domain `_acme-challenge.example.com` to validate your domain, but you have set the CNAME in step 1, so it goes forward to the aliased domain `_acme-challenge.aliasDomainForValidationOnly.com` to check.
 
 And acme.sh knows that, so it just added the correct txt record to `_acme-challenge.aliasDomainForValidationOnly.com`.
 
-So, it's done.  you will get a cert for `example.com`, but you don't need to give the domain control out.
+So, it's done. you will get a cert for `example.com`, but you don't need to give the domain control out.
 
 
 
 ### 3. Share the same aliased domain:
 
-If you have multiple (sub)domains, you need add CNAME for each (sub)domain,  but they can share the same aliased domain.
+If you have multiple (sub)domains, you need add CNAME for each (sub)domain, but they can share the same aliased domain.
 For example, you can add the CNAME like:
 
 ```sh
@@ -114,7 +120,7 @@ Let's assume the first domain `aliasDomainForValidationOnly.com` is hosted at cl
 
 ### 5. Last
 
-Do not remove the CNAME like : `_acme-challenge.example.com` after you issue the cert.  It will be reused when acme.sh tries to renew the cert.  The left cname record `_acme-challenge.example.com` doesn't harm your domain at all.  Just keep it there.
+Do not remove the CNAME like : `_acme-challenge.example.com` after you issue the cert. It will be reused when acme.sh tries to renew the cert. The left cname record `_acme-challenge.example.com` doesn't harm your domain at all. Just keep it there.
 
 
 ### 6. challenge-alias or domain-alias
@@ -123,7 +129,7 @@ We have another parameter: `--domain-alias`, it has the same meaning with `--cha
 
 But with `--domain-alias` you don't need to add `_acme-challenge.` prefix.
 
-For example,  if you use `--challenge-alias`, you must set CNAME like bellow:
+For example, if you use `--challenge-alias`, you must set CNAME like bellow:
 
 ```sh
 CNAME:
@@ -151,12 +157,11 @@ Then issue cert like:
 acme.sh --issue -d  a.com  --domain-alias  myalias.B.com   --dns dns_cf
 ```
 
-
 **Note:** Don't use the domain name only for --domain-alias.
 ```sh
 acme.sh --issue -d  a.com  --domain-alias B.com   --dns dns_cf
 ```
-This would require that a TXT record is created at the domain apex i.e. @ TXT "myvalidationcode".  Since adding a value at the apex of a domain requires a different syntax for adding the DNS records it cannot be used in this form.
+This would require that a TXT record is created at the domain apex i.e. @ TXT "myvalidationcode". Since adding a value at the apex of a domain requires a different syntax for adding the DNS records it cannot be used in this form.
 
 If you really want to create the validation records at the domain apex then depending on the implementation of the dns api you have to use
 
