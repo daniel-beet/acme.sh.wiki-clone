@@ -2115,6 +2115,23 @@ acme.sh --issue --dns dns_1984hosting -d example.com -d *.example.com
 
 If you have any issues with 1984Hosting DNS API please report them [here](https://github.com/Neilpang/acme.sh/issues/2851).
 
+## 105. Use Aruba domain API
+
+Get your api token following instruction here at https://admin.arubabusiness.it/DashBoard/WebApiGuide.aspx
+```
+export ARUBA_TK="sdfsdfsdfljlbjkljlkjsdfoiwje"
+export ARUBA_AK="xxxxxxxxxxxxx"
+export ARUBA_AS="xxxxxxxxxxxxx"
+```
+Ok, let's issue a cert now:
+```
+acme.sh --issue --dns dns_aruba -d example.com -d www.example.com
+```
+
+If you find any bugs, please report here:
+https://github.com/JTrotta/acme.sh/issues
+
+
 # Use custom API
 
 If your API is not supported yet, you can write your own DNS API.
