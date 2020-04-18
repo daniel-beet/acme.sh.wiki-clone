@@ -109,12 +109,18 @@ export MAIL_FROM="xxx@xxx.com" # or "Xxx Xxx <xxx@xxx.com>", currently works onl
 export MAIL_TO="xxx@xxx.com"   # your account e-mail will be used as default if available
 ```
 
-It will try to find and use `sendmail`, `ssmtp`, `mutt` or `mail` automatically, if installed.
+It will try to find and use `sendmail`, `ssmtp`, `mutt`, `mail` or `msmtp` automatically, if installed.
 
-If you want to specify which application to use,  please use `MAIL_BIN`:
+If you want to specify which application to use, please use `MAIL_BIN`:
 
 ```sh
-export MAIL_BIN="sendmail"     # should be one of following: sendmail, ssmtp, mutt or mail
+export MAIL_BIN="sendmail"     # should be one of following: sendmail, ssmtp, mutt, mail or msmtp (with or without path)
+```
+
+Use the given account instead of the account named "default" in `msmtp` command.
+
+```sh
+export MAIL_MSMTP_ACCOUNT="account"
 ```
 
 Ok, let's set notification hook:
