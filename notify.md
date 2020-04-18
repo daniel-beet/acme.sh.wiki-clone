@@ -338,7 +338,25 @@ A message from acme.sh: Hello, this is a notification from acme.sh
 If you receive this message, your notification works.
 ```
 
+## 11. Set notification for Microsoft Teams
 
+First get your [Microsoft Teams Webhook URL](https://docs.microsoft.com/en-us/microsoftteams/platform/concepts/connectors/connectors-using#setting-up-a-custom-incoming-webhook), then set it in your systems environment:
+
+```sh
+export TEAMS_WEBHOOK_URL=""
+export TEAMS_THEME_COLOR=""
+export TEAMS_SUCCESS_COLOR=""
+export TEAMS_ERROR_COLOR=""
+export TEAMS_SKIP_COLOR=""
+```
+
+Ok, let's set notification hook:
+
+```
+acme.sh --set-notify  --notify-hook teams
+```
+
+The `TEAMS_WEBHOOK_URL`, `TEAMS_THEME_COLOR`, `TEAMS_SUCCESS_COLOR`, `TEAMS_ERROR_COLOR` and `TEAMS_SKIP_COLOR` will be saved in ~/.acme.sh/account.conf and will be reused when needed.
 
 
 
