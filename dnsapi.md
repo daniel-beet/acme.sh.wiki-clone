@@ -1540,7 +1540,24 @@ Ok, let's issue a cert now:
 acme.sh --issue --dns dns_one -d example.com -d www.example.com
 ```
 
-The `ONECOM_User` and `ONECOM_Password` will be saved in `~/.acme.sh/account.conf` and will be reused when needed.
+Note:
+It's no longer possible to add TXT Records with the Name "_acme-challenge" to the base Domain.  
+To override the fallback value, you must use a CNAME and proxy it.  
+For example:  
+CNAME _acme-challenge.yourdomain.com => proxy_acme-challenge.yourdomain.com  
+The TXT Records have to be created on proxy_acme-challenge.yourdomain.com  
+Since the default CNAME TTL is 3600 seconds, it is recommended to leave the CNAME record.  
+But if you would like to use the build-in SSL (for your Web-Site etc.) from one.com, you have to delete the Record. 
+
+You can set "ONECOM_KeepCnameProxy" to keep the CNAME record.
+
+```
+export ONECOM_KeepCnameProxy=1
+```
+
+By default the CNAME record will be removed.
+
+The `ONECOM_User`,`ONECOM_Password` and `ONECOM_KeepCnameProxy` will be saved in `~/.acme.sh/account.conf` and will be reused when needed.
 
 If you find any bugs of one.com dns API, please report here: https://github.com/Neilpang/acme.sh/issues/2103
 
