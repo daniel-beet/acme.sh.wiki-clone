@@ -344,10 +344,10 @@ First get your [Microsoft Teams Webhook URL](https://docs.microsoft.com/en-us/mi
 
 ```sh
 export TEAMS_WEBHOOK_URL=""
-export TEAMS_THEME_COLOR=""
-export TEAMS_SUCCESS_COLOR=""
-export TEAMS_ERROR_COLOR=""
-export TEAMS_SKIP_COLOR=""
+export TEAMS_THEME_COLOR="586069"
+export TEAMS_SUCCESS_COLOR="2cbe4e"
+export TEAMS_ERROR_COLOR="cb2431"
+export TEAMS_SKIP_COLOR="586069"
 ```
 
 Ok, let's set notification hook:
@@ -358,5 +358,5 @@ acme.sh --set-notify  --notify-hook teams
 
 The `TEAMS_WEBHOOK_URL`, `TEAMS_THEME_COLOR`, `TEAMS_SUCCESS_COLOR`, `TEAMS_ERROR_COLOR` and `TEAMS_SKIP_COLOR` will be saved in ~/.acme.sh/account.conf and will be reused when needed.
 
-
+To omit default color set variable value to any non xdigit character, eg. `TEAMS_SUCCESS_COLOR="-"`.
 
