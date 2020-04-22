@@ -2136,9 +2136,9 @@ If you have any issues with 1984Hosting DNS API please report them [here](https:
 
 Get your api token following instruction here at https://admin.arubabusiness.it/DashBoard/WebApiGuide.aspx
 ```
-export ARUBA_TK="sdfsdfsdfljlbjkljlkjsdfoiwje"
-export ARUBA_AK="xxxxxxxxxxxxx"
-export ARUBA_AS="xxxxxxxxxxxxx"
+export ARUBA_TK="sdfsdfsdfljlbjkljlkjsdfoiwje" #ARUBA API Token
+export ARUBA_AK="xxxxxxxxxxxxx" #ARUBA Username
+export ARUBA_AS="xxxxxxxxxxxxx" #ARUBA Password
 ```
 Ok, let's issue a cert now:
 ```
