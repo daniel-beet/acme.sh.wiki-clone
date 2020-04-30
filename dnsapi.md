@@ -2165,6 +2165,21 @@ If you find any bugs, please report here:
 https://github.com/biker-ruud/acme.sh/issues
 
 
+## 107. Use dyndnsfree.de API
+
+```
+export df_user="XXX"
+export df_password="XXX"
+```
+
+To issue a cert:
+```
+acme.sh --issue --dns dns_df -d example.com -d www.example.com
+```
+
+The `df_user` and `df_password` will be saved in `~/.acme.sh/account.conf` and will be reused when needed.
+
+
 # Use custom API
 
 If your API is not supported yet, you can write your own DNS API.
