@@ -2193,6 +2193,19 @@ acme.sh --issue --dns dns_njalla -d example.com -d www.example.com
 Please report any bugs here: https://github.com/acmesh-official/acme.sh/issues/2913
 
 
+## 109. Use Vercel API
+
+Obtain an account token from http://vercel.com/account/tokens.
+
+```
+export VERCEL_TOKEN="sdfsdfsdfljlbjkljlkjsdfoiwje"
+```
+
+To issue a cert:
+```
+acme.sh --issue --dns dns_vercel -d example.com -d www.example.com
+```
+
 # Use custom API
 
 If your API is not supported yet, you can write your own DNS API.
