@@ -202,6 +202,7 @@ export DEPLOY_SSH_BACKUP=no
 ```
 
 The next example illustrates deploying certificates to VMware ESXi (tested with version 6.7u3).
+Requires Acme 2.8.6 or later.
 
 Note that by default ESXi hosts have ssh access disabled and VMware recommends
 only enabling it if necessary for administrative purposes - displaying a
