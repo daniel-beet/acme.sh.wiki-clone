@@ -85,20 +85,20 @@ URL or IP Address of the remote server.  If not provided then the domain
 name provided on the acme.sh --deploy command line is used.
 
 **DEPLOY_SSH_KEYFILE**
-Target filename for the private key issued by LetsEncrypt.
+Target path and filename _on the remote server_ for the private key issued by LetsEncrypt.
 
 **DEPLOY_SSH_CERTFILE**
-Target filename for the certificate issued by LetsEncrypt.
+Target path and filename _on the remote server_ for the certificate issued by LetsEncrypt.
 If this is the same as the previous filename (for keyfile) then it is
 appended to the same file.
 
 **DEPLOY_SSH_CAFILE**
-Target filename for the CA intermediate certificate issued by LetsEncrypt.
+Target path and filename _on the remote server_ for the CA intermediate certificate issued by LetsEncrypt.
 If this is the same as a previous filename (for keyfile or certfile) then
 it is appended to the same file.
 
 **DEPLOY_SSH_FULLCHAIN**
-Target filename for the fullchain certificate issued by LetsEncrypt.
+Target path and filename _on the remote server_ for the fullchain certificate issued by LetsEncrypt.
 If this is the same as a previous filename (for keyfile, certfile or
 cafile) then it is appended to the same file.
 
@@ -110,8 +110,8 @@ the service.
 **DEPLOY_SSH_BACKUP**
 Before writing a certificate file to the remote server the existing
 certificate will be copied to a backup directory on the remote server.
-These are placed in a hidden directory in the home directory of the SSH
-user
+By default these are placed in a hidden directory in the home directory of
+the SSH user
 ```sh
 ~/.acme_ssh_deploy/[domain name]-backup-[timestamp]
 ```
@@ -119,7 +119,7 @@ Any backups older than 180 days will be deleted when new certificates
 are deployed.  This defaults to "yes" set to "no" to disable backup.
 
 **DEPLOY_SSH_BACKUP_PATH**
-Path to directory on the remote server into which to backup certificates
+Path to directory _on the remote server_ into which to backup certificates
 if DEPLOY_SSH_BACKUP is set to yes.  Defaults to ".acme_ssh_deploy" which
 is a hidden directory in the home directory of the SSH user.
 
@@ -165,6 +165,7 @@ Controller (tested with version 5.4.11).
 
 ```sh
 export DEPLOY_SSH_USER="root"
+export DEPLOY_SSH_SERVER="unifi.example.com"
 export DEPLOY_SSH_KEYFILE="/var/lib/unifi/unifi.example.com.key"
 export DEPLOY_SSH_FULLCHAIN="/var/lib/unifi/unifi.example.com.cer"
 export DEPLOY_SSH_REMOTE_CMD="openssl pkcs12 -export \
@@ -198,6 +199,18 @@ export DEPLOY_SSH_BACKUP=no
       /var/lib/unifi/unifi.example.com.cer \
       /var/lib/unifi/unifi.example.com.p12 \
 && service unifi restart
+```
+
+Example of deploying certificate to VMware ESXi (tested with version 6.7u2).
+
+```sh
+export DEPLOY_SSH_USER="root"
+export DEPLOY_SSH_SERVER="vmwareesxi.example.com"
+export DEPLOY_SSH_KEYFILE="/etc/vmware/ssl/rui.key"
+export DEPLOY_SSH_FULLCHAIN="/etc/vmware/ssl/rui.crt"
+export DEPLOY_SSH_REMOTE_CMD="/etc/init.d/hostd restart"
+export DEPLOY_SSH_MULTI_CALL="yes"
+acme.sh --deploy -d vmwareesxi.example.com --deploy-hook ssh
 ```
 
 ## 4. Deploy the cert to local vsftpd server
