@@ -2195,7 +2195,7 @@ Please report any bugs here: https://github.com/acmesh-official/acme.sh/issues/2
 
 ## 109. Use Vercel API
 
-Obtain an account token from http://vercel.com/account/tokens.
+Obtain an account token from https://vercel.com/account/tokens.
 
 ```
 export VERCEL_TOKEN="sdfsdfsdfljlbjkljlkjsdfoiwje"
