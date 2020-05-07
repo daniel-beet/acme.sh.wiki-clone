@@ -2179,6 +2179,19 @@ acme.sh --issue --dns dns_df -d example.com -d www.example.com
 
 The `df_user` and `df_password` will be saved in `~/.acme.sh/account.conf` and will be reused when needed.
 
+## 108. Use Njalla API
+
+```
+export NJALLA_Token="XXX"
+```
+
+To issue a cert:
+```
+acme.sh --issue --dns dns_njalla -d example.com -d www.example.com
+```
+
+Please report any bugs here: https://github.com/acmesh-official/acme.sh/issues/2913
+
 
 # Use custom API
 
