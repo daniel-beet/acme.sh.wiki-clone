@@ -58,7 +58,11 @@ export DEPLOY_SSH_FULLCHAIN=filename for fullchain file
 export DEPLOY_SSH_REMOTE_CMD=command to execute on remote host
 export DEPLOY_SSH_BACKUP=yes or no
 ```
-
+Added in Acme release 2.8.6...
+```
+export DEPLOY_SSH_BACKUP_PATH=path on remote server to backup certificates
+export DEPLOY_SSH_MULTI_CALL=yes or no
+```
 **DEPLOY_SSH_USER**
 Username at the remote host that SSH will login with. Note that
 SSH must be able to login to remote host without a password... SSH Keys
@@ -74,7 +78,7 @@ You can customize the ssh command used to connect to the remote host. For exampl
 if you need to connect to a specific port at the remote server you can set this
 to, for example, "ssh -p 22" or to use `sshpass` to provide password inline
 instead of exchanging ssh keys (this is not recommended, using keys is
-more secure).
+more secure).  Defaults to "ssh -T"
 
 **DEPLOY_SSH_SERVER**
 URL or IP Address of the remote server.  If not provided then the domain
@@ -113,6 +117,19 @@ user
 ```
 Any backups older than 180 days will be deleted when new certificates
 are deployed.  This defaults to "yes" set to "no" to disable backup.
+
+**DEPLOY_SSH_BACKUP_PATH**
+Path to directory on the remote server into which to backup certificates
+if DEPLOY_SSH_BACKUP is set to yes.  Defaults to ".acme_ssh_deploy" which
+is a hidden directory in the home directory of the SSH user.
+
+**DEPLOY_SSH_MULTI_CALL**
+By default this plugin collects up all the required commands to be executed
+on the remote server and sends them to the remote server in a single
+SSH call.  This fails on some target servers if the command line buffer
+is not long enough to hold all the data sent in SSH.  This is known to
+affect servers using busybox.  By setting this value to "yes" the certificate
+deployment process is split into multiple SSH calls to work around this problem.
 
 ### Examples using SSH deploy
 The following example illustrates deploying certificates to a QNAP NAS
