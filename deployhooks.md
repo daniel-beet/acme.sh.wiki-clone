@@ -201,7 +201,11 @@ export DEPLOY_SSH_BACKUP=no
 && service unifi restart
 ```
 
-Example of deploying certificate to VMware ESXi (tested with version 6.7u2).
+Example of deploying certificate to VMware ESXi (tested with version 6.7u3).
+Note that by default ESXi hosts have ssh access disabled and VMware recommends
+only enabling it if necessary for administrative purposes - displaying a
+warning notice on the ESXi web interface.  You must enable ssh on ESXi and have
+exchanged ssh keys for this deploy hook to work.
 
 ```sh
 export DEPLOY_SSH_USER="root"
