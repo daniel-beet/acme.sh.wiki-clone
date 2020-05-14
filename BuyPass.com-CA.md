@@ -42,7 +42,7 @@ Don't worry, all the certs will be automatically renewed as usual.
 
 ----------------------
 
-1. It only supports ACME v1,  no wildcard cert. You can only add `example.com` and `www.example.com`, or `sub.example.com` and `www.sub.example.com`.
+1. It only supports ACME v1,  no wildcard cert, but you can add up to 5 domains per cert.
 2. It has 180 days lifetime.
 3. ECC cert is supported, but the signing root is a RSA root.
 
