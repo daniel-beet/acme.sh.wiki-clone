@@ -2206,6 +2206,30 @@ To issue a cert:
 acme.sh --issue --dns dns_vercel -d example.com -d www.example.com
 ```
 
+
+## 110. Use Hetzner DNS API
+
+First you need to create/obtain API tokens on your [Hetzner DNS console](https://dns.hetzner.com/settings/api-token).
+
+```sh
+export HETZNER_Token="somelongrandomstring"
+```
+
+Ok, let's issue a cert now:
+```sh
+acme.sh --issue --dns dns_hetzner -d example.com -d www.example.com
+```
+
+The `HETZNER_Token` settings will be saved in `[acme.sh-config-home-path]/account.conf`
+ and will be reused when needed.
+The domain(s) zone_id(s) will be saved in `CERT_HOME/[domain]/[domain].conf` 
+in order to avoid multiple `get_zone_id` requests two months later. 
+
+> If you're not already using the new "gases" name servers (hydrogen, oxygen and helium)
+> don't forget to change the domain's whois ns section to them and wait about 24-48 Hours.
+> See [Hetzner wiki](https://wiki.hetzner.de/index.php/What_has_changed).
+
+
 # Use custom API
 
 If your API is not supported yet, you can write your own DNS API.
