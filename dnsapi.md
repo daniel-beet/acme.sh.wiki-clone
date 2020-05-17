@@ -2,7 +2,7 @@
 
 If your dns provider doesn't provide api access, you can use our dns alias mode:
 
-https://github.com/Neilpang/acme.sh/wiki/DNS-alias-mode
+https://github.com/acmesh-official/acme.sh/wiki/DNS-alias-mode
 
 ## 1. CloudFlare Option:
 
