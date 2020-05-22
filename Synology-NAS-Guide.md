@@ -13,7 +13,7 @@ With the [Synology DSM deployhook](https://github.com/acmesh-official/acme.sh/wi
 ## Installation of acme.sh
 
 ```sh
-$ sudo -i
+$ sudo su
 $ wget https://github.com/Neilpang/acme.sh/archive/master.tar.gz
 $ tar xvf master.tar.gz
 $ cd acme.sh-master/
