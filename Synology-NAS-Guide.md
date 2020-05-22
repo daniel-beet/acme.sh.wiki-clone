@@ -14,10 +14,12 @@ With the [Synology DSM deployhook](https://github.com/acmesh-official/acme.sh/wi
 
 ```sh
 $ sudo su
+$ cd ~
 $ wget https://github.com/Neilpang/acme.sh/archive/master.tar.gz
 $ tar xvf master.tar.gz
 $ cd acme.sh-master/
 $ ./acme.sh --install --nocron --home /usr/local/share/acme.sh --accountemail "email@gmailcom"
+$ source ~/.profile
 ```
 
 ## Configuring DNS
