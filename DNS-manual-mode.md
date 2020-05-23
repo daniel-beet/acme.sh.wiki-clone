@@ -3,8 +3,7 @@ Warning: DNS manual mode can not renew automatically.
 If your domain provider offers an DNS API, it's highly recommended to use DNS API mode instead. With the DNS API mode, you can automate the renewals. 
 
 
-If your domain provider does **not** offer an API where you can add/edit TXT records of your domain, it is recommended to use [DNS alias mode](https://github.com/Neilpang/acme.sh/wiki/DNS-alias-mode) instead. 
-
+If your domain provider does **not** offer an API where you can add/edit TXT records of your domain, it is recommended to use [DNS alias mode](https://github.com/Neilpang/acme.sh/wiki/DNS-alias-mode) instead. Or change the dns servers of your domain to anyone that support DNS api.
 
 DNS manual mode **should** be used for testing. If you do use it for your production server, remember to renew your certificate within 90 days. [Please, make sure you understand DNS manual mode](https://github.com/Neilpang/acme.sh/issues/1029).
 
