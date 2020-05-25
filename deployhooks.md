@@ -83,6 +83,8 @@ more secure).  Defaults to "ssh -T"
 **DEPLOY_SSH_SERVER**
 URL or IP Address of the remote server.  If not provided then the domain
 name provided on the acme.sh --deploy command line is used.
+New in Acme release 2.8.7 this may be space separated list of servers to which exactly the
+same deploy commands can be sent.
 
 **DEPLOY_SSH_KEYFILE**
 Target path and filename _on the remote server_ for the private key issued by LetsEncrypt.
@@ -161,24 +163,26 @@ acme.sh --deploy -d example.com --deploy-hook ssh
 ```
 
 The next example illustrates deploying certificates to a Unifi
-Controller (tested with version 5.4.11).
+Controller (tested with version 5.12.72).
 
 ```sh
 export DEPLOY_SSH_USER="root"
 export DEPLOY_SSH_SERVER="unifi.example.com"
 export DEPLOY_SSH_KEYFILE="/var/lib/unifi/unifi.example.com.key"
 export DEPLOY_SSH_FULLCHAIN="/var/lib/unifi/unifi.example.com.cer"
-export DEPLOY_SSH_REMOTE_CMD="openssl pkcs12 -export \
-   -inkey /var/lib/unifi/unifi.example.com.key \
-   -in /var/lib/unifi/unifi.example.com.cer \
-   -out /var/lib/unifi/unifi.example.com.p12 \
-   -name ubnt -password pass:temppass \
+export DEPLOY_SSH_REMOTE_CMD="DIR=/var/lib/unifi && FQDN=unifi.example.com \
+ && openssl pkcs12 -export \
+   -inkey $DIR/$FQDN.key -in $DIR/$FQDN.cer -out $DIR/$FQDN.p12 \
+   -name ubnt -password pass:aircontrolenterprise \
+ && keytool -delete -alias unifi -keystore $DIR/keystore \
+   -deststorepass aircontrolenterprise \
  && keytool -importkeystore -deststorepass aircontrolenterprise \
    -destkeypass aircontrolenterprise \
-   -destkeystore /var/lib/unifi/keystore \
-   -srckeystore /var/lib/unifi/unifi.example.com.p12 \
+   -destkeystore $DIR/keystore -srckeystore /$DIR/$FQDN.p12 \
    -srcstoretype PKCS12 -srcstorepass temppass -alias ubnt -noprompt \
+ && chown -R unifi:unifi $DIR/keystore
  && service unifi restart"
+export DEPLOY_SSH_MULTI_CALL="yes"
 
 acme.sh --deploy -d unifi.example.com --deploy-hook ssh
 ```
