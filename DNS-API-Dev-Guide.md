@@ -107,6 +107,7 @@ The full domain could be in one of the following formats:
 3. `_acme-challenge.example.co.uk`
 4. `_acme-challenge.www.example.co.uk`
 5. `_acme-challenge.sub1.sub2.www.example.co.uk`
+6. `sub1.sub2.example.co.uk`
 
 For most of the dns providers, you must determine which part is the domain root zone(example.com or example.co.uk), and which part is the sub domain(_acme-challenge or _acme-challenge.www)
 
