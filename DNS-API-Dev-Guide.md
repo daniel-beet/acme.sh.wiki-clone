@@ -257,6 +257,6 @@ To avoid the most common travis failures:
 
 * Use indentation with 2 spaces 
 * remove trailing spaces 
-* Doublequote variables  (use echo  _debug "txtvalue=$txtvalue" instead of  _debug txtvalue=$txtvalue)
+* Doublequote variables  (use _debug txtvalue "$txtvalue" instead of  _debug txtvalue=$txtvalue)
 * Always check the travis results after a commit 
 * Consider using shellcheck (https://www.shellcheck.net/) before commiting 
