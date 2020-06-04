@@ -2229,6 +2229,34 @@ in order to avoid multiple `get_zone_id` requests two months later.
 > don't forget to change the domain's whois ns section to them and wait about 24-48 Hours.
 > See [Hetzner wiki](https://wiki.hetzner.de/index.php/What_has_changed).
 
+## 111. Use kapper.net DNS API
+Contact kapper.net support via support@kapper.net to get your kapper.net DNS Panel API Key and Secret.
+
+For initialzation call following in commandline
+
+export KAPPERNETDNS_Key="yourKAPPERNETapikey"
+export KAPPERNETDNS_Secret="yourKAPPERNETapisecret"
+
+or open dns_kappernet.sh file and configure with the credentials provided by kapper.net.
+Be sure, that the leading "#" is removed.
+```
+KAPPERNETDNS_Key="yourKAPPERNETapikey"
+KAPPERNETDNS_Secret="yourKAPPERNETapisecret"
+```
+You can start the acme.sh with following parameters for testing
+```
+acme.sh --issue --dns dns_kappernet -d <example.com> --debug --test --force
+or for a wildcertificate
+acme.sh --issue --dns dns_kappernet -d <example.com> -d *.<example.com> --debug --test --force
+```
+Please replace "<example.com>" with the name of the domain you wish to create a certificate for.
+
+After the test you can replace your kapper.net DNS Panel API Key and Secret, it is stored in ~/.acme.sh/account.conf.
+
+For repeated calls use
+```
+acme.sh --issue --dns dns_kappernet -d <example.com>
+```
 
 # Use custom API
 
