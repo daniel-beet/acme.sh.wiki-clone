@@ -775,7 +775,7 @@ The `AUTODNS_USER`, `AUTODNS_PASSWORD` and `AUTODNS_CONTEXT` settings will be sa
 
 ## 37. Use Azure DNS
 
-You have to create a service principal first. See:[How to use Azure DNS](../../../wiki/How-to-use-Azure-DNS)
+You have to create a service principal first. See:[How to use Azure DNS](https://github.com/acmesh-official/acme.sh/wiki/How-to-use-Azure-DNS)
 
 ```
 export AZUREDNS_SUBSCRIPTIONID="12345678-9abc-def0-1234-567890abcdef"
@@ -1656,7 +1656,7 @@ acme.sh --issue --dns dns_vultr -d example.com -d www.example.com
 
 The `VULTR_API_KEY` will be saved in `~/.acme.sh/account.conf` and will be reused when needed.
 
-If you find any bugs of Vultr API, please report here: [Issue #2336](../../issues/2374)
+If you find any bugs of Vultr API, please report here: [Issue #2374](../../issues/2374)
 
 
 
