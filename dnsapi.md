@@ -2233,10 +2233,10 @@ in order to avoid multiple `get_zone_id` requests two months later.
 Contact kapper.net support via support@kapper.net to get your kapper.net DNS Panel API Key and Secret.
 
 For initialzation call following in commandline
-
+```
 export KAPPERNETDNS_Key="yourKAPPERNETapikey"
 export KAPPERNETDNS_Secret="yourKAPPERNETapisecret"
-
+```
 or open dns_kappernet.sh file and configure with the credentials provided by kapper.net.
 Be sure, that the leading "#" is removed.
 ```
