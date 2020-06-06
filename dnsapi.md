@@ -2152,17 +2152,16 @@ https://github.com/JTrotta/acme.sh/issues
 ## 106. Use TransIP domain API:
 
 ### Using the access token
-First you need to login to your TransIP account to get your [API key](https://www.transip.nl/cp/account/api/).
+First you need to login to your TransIP account to get your [private key](https://www.transip.nl/cp/account/api/).
 ```
-export TRANSIP_Token="ey..."
-export TRANSIP_DomainName="domain.com"
+export TRANSIP_Username="MyUserName"
+export TRANSIP_Key_File="private_key"
 ```
 
-Your access token has limited lifespan (max 1 month), so make sure it is valid.
-Obtaining a new access token is not supported (yet).
+This script will create a new access token with a default lifetime of 30 minutes.
 
 If you find any bugs, please report here:
-https://github.com/biker-ruud/acme.sh/issues
+https://github.com/mdbraber/acme.sh/issues
 
 
 ## 107. Use dyndnsfree.de API
