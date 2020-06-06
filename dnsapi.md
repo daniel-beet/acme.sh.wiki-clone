@@ -2158,6 +2158,21 @@ export TRANSIP_Username="MyUserName"
 export TRANSIP_Key_File="private_key"
 ```
 Note: TransIP is rather slow, so adding a --dnssleep of 300 might be adviced.
+Note 2: if the DNS fails with something like
+```
+Please refer to https://curl.haxx.se/libcurl/c/libcurl-errors.html for error code: 60
+== Info: SSL certificate problem: unable to get local issuer certificate
+```
+Than maybe the root CA of TransIP is NOT in your cacerts.
+You can check this manually with
+```
+curl -vvI https://api.transip.nl
+```
+Currently, the root CA of TransIP is COMODO_RSA_Certification_Authority.crt
+you can add this trusted root CA with
+```
+--ca-bundle COMODO_RSA_Certification_Authority.crt
+```
 
 This script will create a new access token with a default lifetime of 30 minutes.
 
