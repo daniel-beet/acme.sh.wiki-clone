@@ -2157,6 +2157,7 @@ First you need to login to your TransIP account to get your [private key](https:
 export TRANSIP_Username="MyUserName"
 export TRANSIP_Key_File="private_key"
 ```
+Note: TransIP is rather slow, so adding a --dnssleep of 300 might be adviced.
 
 This script will create a new access token with a default lifetime of 30 minutes.
 
