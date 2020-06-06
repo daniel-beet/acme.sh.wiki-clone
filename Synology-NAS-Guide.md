@@ -6,7 +6,7 @@ On the other hand, many of us don't want to expose port 80/443 to the Internet, 
 
 But we can access the NAS via SSH and configure it to renew certs instead of using the web dashboard.
 
-The following guide will use the DNS-01 protocol using the [Cloudflare API](https://api.cloudflare.com/), where I host my domain. However, [since acme.sh supports many DNS services](https://github.com/Neilpang/acme.sh/tree/master/dnsapi), you can also choose the one you like.
+The following guide will use the DNS-01 protocol using the [Cloudflare API](https://api.cloudflare.com/), where I host my domain. However, [since acme.sh supports many DNS services](https://github.com/acmesh-official/acme.sh/tree/master/dnsapi), you can also choose the one you like.
 
 With the [Synology DSM deployhook](https://github.com/acmesh-official/acme.sh/wiki/deployhooks#20-deploy-the-cert-into-synology-dsm) included in 2.8.6, it is no longer required to run acme.sh on your Synology device to rotate the certificate. acme.sh just needs to be run on something that has access to the DSM's administrative interface. Additionally, the previous deployment methods can be drastically simplified with the following instructions.
 
@@ -15,7 +15,7 @@ With the [Synology DSM deployhook](https://github.com/acmesh-official/acme.sh/wi
 ```sh
 $ sudo su
 $ cd ~
-$ wget https://github.com/Neilpang/acme.sh/archive/master.tar.gz
+$ wget https://github.com/acmesh-official/acme.sh/archive/master.tar.gz
 $ tar xvf master.tar.gz
 $ cd acme.sh-master/
 $ ./acme.sh --install --nocron --home /usr/local/share/acme.sh --accountemail "email@gmailcom"
