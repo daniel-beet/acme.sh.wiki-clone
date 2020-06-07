@@ -2273,6 +2273,27 @@ For repeated calls use
 acme.sh --issue --dns dns_kappernet -d <example.com>
 ```
 
+## 112. Use Wedos API
+
+First create your WAPI password and add your IP address to access list at customer portal. For more info visit, [https://kb.wedos.com/en/kategorie/wapi-api-interface/](https://kb.wedos.com/en/kategorie/wapi-api-interface/)
+
+Set variables:
+
+```
+export WEDOS_User='xxx@xxx.xx'
+export WEDOS_Pass='xxx123'
+or use sha1 hash of WEDOS_Pass directly
+export WEDOS_Hash='xxxxxxxxxx'
+```
+
+Issue your certs:
+```
+acme.sh --issue --dns dns_wedos -d xxx.xx -d www.xxx.xx
+```
+
+WEDOS_User and WEDOS_Hash will be stored in `~/.acme.sh/account.conf` and will be reused when needed.
+
+
 # Use custom API
 
 If your API is not supported yet, you can write your own DNS API.
