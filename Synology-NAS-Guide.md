@@ -63,6 +63,8 @@ $ export SYNO_Certificate=""
 $ ./acme.sh --deploy -d "$CERT_DOMAIN" --deploy-hook synology_dsm
 ```
 
+Note that the user entered into `SYNO_Username` must not have two-factor authentication enabled. If it has, an error will say that the user/password is wrong, even if they are correct. If the chosen user has 2fa enabled, a workaround is to create a new user in the `admin` group just for this task.
+
 ### Deploying additional certificates
 
 By specifying a different `SYNO_Certificate` and (optionally) `SYNO_Create`, we can deploy multiple certificates to the DSM.  These commands assume you are still working in the same terminal and have exported all other necessary variables described above.
