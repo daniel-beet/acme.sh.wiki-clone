@@ -2293,6 +2293,31 @@ acme.sh --issue --dns dns_wedos -d xxx.xx -d www.xxx.xx
 
 WEDOS_User and WEDOS_Hash will be stored in `~/.acme.sh/account.conf` and will be reused when needed.
 
+## 113. Use Shellrent API
+
+Shellrent API offers one method to automatically issue certs.
+
+First you need to login to your Shellrent account to get your API key.
+In order to use the token, you need to authorize your IP to have access to it.
+More Info on https://api.shellrent.com and https://guide.shellrent.com
+```
+export SH_Username="usrXXXX"
+export SH_Token="sdfsdfsdfljlbjkljlkjsdfoiwje"
+```
+
+Alternatively, if the certificate only covers a single zone, you can speed up the process by specify the SH_Domain_ID directly:
+
+```
+export SH_Username="usrXXXX"
+export SH_Token="sdfsdfsdfljlbjkljlkjsdfoiwje"
+export SH_Domain_ID="xxxxxxxxxxxxx"
+```
+Let's issue a cert now:
+
+```
+acme.sh --issue --dns dns_shellrent -d example.com -d www.example.com
+```
+The SH_Username and SH_Token and SH_Domain_ID will be saved in ~/.acme.sh/account.conf and will be reused when needed.
 
 # Use custom API
 
