@@ -63,7 +63,11 @@ $ export SYNO_Certificate=""
 $ ./acme.sh --deploy -d "$CERT_DOMAIN" --deploy-hook synology_dsm
 ```
 
-Note that the user entered into `SYNO_Username` must not have two-factor authentication enabled. If it has, an error will say that the user/password is wrong, even if they are correct. If the chosen user has 2fa enabled, a workaround is to create a new user in the `admin` group just for this task.
+Note that if the user entered for `SYNO_Username` has enabled two-factor authentication (2FA), the login will fail and the error states that user/password is wrong, even if both are correct.
+To fix this, simply follow the steps described at the [Synology DSM deployhook](https://github.com/acmesh-official/acme.sh/wiki/deployhooks#20-deploy-the-cert-into-synology-dsm) wiki page - in short: log into your DSM via its website, making sure you've ticked `Remember this device` when asked for your OTP, get the `did` cookie's value and set the environment variable:
+```sh
+export SYNO_DID='YOUR VALUE'
+```
 
 ### Deploying additional certificates
 
