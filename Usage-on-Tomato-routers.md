@@ -6,10 +6,11 @@ Much of the setup is done through SSH, but you'll also need Tomato's web admin, 
 
 ### Prerequisites
 - A router with USB ports running [FreshTomato](https://www.linksysinfo.org/index.php?threads/fork-freshtomato-arm.74117/) or another recent Tomato fork with a fully featured OpenSSL and web server. A fast CPU is recommended. There are [unconfirmed reports](https://github.com/acmesh-official/acme.sh/issues/1581#issuecomment-651678412) of MIPS-based routers having problems.
-- Unless you happen to have a static public IP, you need a dynamic DNS (DDNS) service configured in Tomato. Some [DNS services](https://community.letsencrypt.org/t/dns-providers-who-easily-integrate-with-lets-encrypt-dns-validation/86438) also provide API control, enabling [DNS mode](https://github.com/acmesh-official/acme.sh/wiki/dnsapi) for acme.sh. You can point additional regular CNAME records to the DDNS hostname, so not all your hostnames need to be dynamic.
+- Unless you happen to have a static public IP, you need a dynamic DNS (DDNS) service configured in Tomato. Some [DNS services](https://community.letsencrypt.org/t/dns-providers-who-easily-integrate-with-lets-encrypt-dns-validation/86438) also provide API control, enabling [DNS mode](https://github.com/acmesh-official/acme.sh/wiki/dnsapi) for acme.sh. You can point additional regular CNAME records to the DDNS hostname, so not all your hostnames need to be dynamic. In this guide _tomato.example.com_ and _www.tomato.example.com_ are used as examples.
 - At least one plain HTTP web service or site running on either a LAN host or Tomato itself. It's a good idea to assign static IP addresses for servers.
 
 If you're going to [issue certificates](https://github.com/acmesh-official/acme.sh/wiki/How-to-issue-a-cert) using webroot mode, Tomato's web server must be running in port 80, so make sure your service provider doesn't block that port and that the web admin service is not using the same port.
+
 
 **Standalone modes won't work**, as there's no `socat` in Tomato (without [entware](https://github.com/Entware/Entware/wiki)).
 
