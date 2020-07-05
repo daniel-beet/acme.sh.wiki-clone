@@ -35,7 +35,7 @@ You're now ready to install. Change the email address before running this instal
 ```
 Finally remove the installer directory: `cd .. && rm -Rf acme.sh-master`
 
-The installer wrote a line to the `.profile` file in the root user's home directory. Tomato keeps this directory on a RAM disk, so you need to make this permanent by adding this command to **Administration→Scripts→Init**:
+The installer wrote a line to the `.profile` file in the root user's home directory. Tomato keeps this directory on a RAM disk that won't survive reboots, so you need to make this permanent by adding this command to **Administration→Scripts→Init**:
 ```sh
 echo '. "/tmp/mnt/flash/acme.sh/acme.sh.env"' >> /tmp/home/root/.profile
 ```
