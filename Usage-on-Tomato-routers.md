@@ -64,7 +64,7 @@ mkdir -p /tmp/mnt/flash/www/.well-known/acme-challenge
 
 
 ### Issuing certificates
-There's nothing Tomato-specific about this, except that you can only use webroot or DNS mode.
+There's nothing Tomato-specific about this, except that you can only use webroot or DNS mode. To avoid tripping failure limits, it's best to do a dry run first by adding the `--test` flag to the command. If the dry run works, your DNS and router configurations are OK.
 
 Webroot mode:
 ```sh
