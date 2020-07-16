@@ -5,9 +5,9 @@ Traffic to HTTPS port(s) (the usual 443 or whatever you use) in your public IP a
 Much of the setup is done through SSH, but you'll also need Tomato's web admin, marked in this guide as **Menu→Submenu**.
 
 ### Prerequisites
-- A router with USB ports running [FreshTomato](https://www.linksysinfo.org/index.php?threads/fork-freshtomato-arm.74117/) or another recent Tomato fork with a fully featured OpenSSL and web server. A fast CPU is recommended. There are [unconfirmed reports](https://github.com/acmesh-official/acme.sh/issues/1581#issuecomment-651678412) of MIPS-based routers having problems.
+- A router with USB ports running [FreshTomato](https://www.linksysinfo.org/index.php?threads/fork-freshtomato-arm.74117/) or another recent Tomato fork with a fully featured OpenSSL and web server. A fast CPU and large NVRAM are recommended. There's an [unconfirmed report](https://github.com/acmesh-official/acme.sh/issues/1581#issuecomment-651678412) of MIPS-based routers having problems.
 - Unless you happen to have a static public IP, you need a dynamic DNS (DDNS) service configured in Tomato. Some [DNS services](https://community.letsencrypt.org/t/dns-providers-who-easily-integrate-with-lets-encrypt-dns-validation/86438) also provide API control, enabling [DNS mode](https://github.com/acmesh-official/acme.sh/wiki/dnsapi) for acme.sh. You can point additional regular CNAME records to the DDNS hostname, so not all your hostnames need to be dynamic. In this guide _tomato.example.com_ and _www.tomato.example.com_ are used as examples.
-- At least one plain HTTP web service or site running on either a LAN host or Tomato itself. It's a good idea to assign static IP addresses for servers.
+- At least one plain HTTP web service or site running on either a LAN host or Tomato itself. It's a good idea to assign static IP addresses for servers (**Basic→Static DHCP/ARP/IPT**).
 
 If you're going to [issue certificates](https://github.com/acmesh-official/acme.sh/wiki/How-to-issue-a-cert) using webroot mode, Tomato's web server must be running in port 80, so make sure your service provider doesn't block that port and that the web admin service is not using the same port.
 
@@ -16,7 +16,7 @@ If you're going to [issue certificates](https://github.com/acmesh-official/acme.
 
 
 ### Installing
-Format a USB HDD or flash drive as ext4 (or ext2 if you don't need journaling) and name the partition as you wish. For this example I named my partition "flash", so Tomato auto-mounts it to `/tmp/mnt/flash`. **Don't forget to change every path mentioned in this guide to match the name you choose.**
+Format a USB HDD or flash drive as ext4 (or ext2 if you don't need journaling) and name the partition as you wish. For this guide the partition was named "flash", so Tomato auto-mounts it to `/tmp/mnt/flash`. **Don't forget to change every path mentioned in this guide to match the name you choose.**
 
 You could use Tomato's [JFFS partition](http://tomatousb.org/doc:jffs) instead of an external drive, but firmware upgrades need JFFS disabled, so it's rather inconvenient.
 
@@ -40,12 +40,13 @@ The installer wrote a line to the `.profile` file in the root user's home direct
 ```sh
 echo '. "/tmp/mnt/flash/acme.sh/acme.sh.env"' >> /tmp/home/root/.profile
 ```
-Close the current SSH session and start a new one to activate the change.
+Save the settings. Close the current SSH session and start a new one to activate the change.
 
 Now go to **Administration→Scheduler**. Scheduled commands ignore the `.profile` file, so you need to provide the full path to acme.sh and set the directory options. Put this line in one of the custom command fields and set it to run daily, preferrably at a time when there's least traffic:
 ```sh
 /tmp/mnt/flash/acme.sh/acme.sh --cron --home /tmp/mnt/flash/acme.sh --config-home /tmp/mnt/flash/acme.sh/conf
 ```
+Save the scheduler settings.
 
 
 ### Configuring Tomato's web server
