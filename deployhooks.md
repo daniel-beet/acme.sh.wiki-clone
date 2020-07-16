@@ -580,3 +580,38 @@ Use your browser to sign in with the admin account you want to use. When enterin
 ```sh
 export SYNO_DID=A1Bjk...
 ```
+
+## 21. Deploy the cert to OpenStack Barbican
+
+This provider supports [OpenStack Barbican](https://docs.openstack.org/barbican)
+secret manager.
+
+Report any issues to https://github.com/acmesh-official/acme.sh/issues/3056
+
+This provider requires the OpenStack Client (python-openstackclient) and
+Barbican client (python-barbicanclient) be installed and available in your path.
+
+It also requires you use Keystone V3 credentials, which can be either password or
+application credentials provided as environment variables.
+
+You will most likely want to source your OpenStack RC file to set your environment variables:
+
+```
+. openrc.sh
+```
+or manually like:
+```
+export OS_AUTH_URL=https://keystone.example.com:5000/
+export OS_USERNAME=<username>
+export OS_PASSWORD=<password>
+export OS_PROJECT_NAME=<project name>
+export OS_PROJECT_DOMAIN_NAME=Default
+export OS_USER_DOMAIN_NAME=Default
+```
+
+To deploy a cert:
+```
+acme.sh --deploy -d example.com --deploy-hook openstack
+```
+
+Your OpenStack credentials will be saved to `~/.acme.sh/account.conf`.
