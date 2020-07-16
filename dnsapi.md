@@ -2319,6 +2319,42 @@ acme.sh --issue --dns dns_shellrent -d example.com -d www.example.com
 ```
 The SH_Username and SH_Token and SH_Domain_ID will be saved in ~/.acme.sh/account.conf and will be reused when needed.
 
+## 114. Use OpenStack domain API
+
+This provider supports [OpenStack Designate](https://docs.openstack.org/designate)
+for creating DNS records.
+
+Report any issues to https://github.com/acmesh-official/acme.sh/issues/3054
+
+This provider requires the OpenStack Client (python-openstackclient) and
+Designate client (python-designateclient) be installed and available in your path.
+
+It also requires you use Keystone V3 credentials, which can be either password or
+application credentials provided as environment variables. Any other
+authentication method will not save your credentials for renewal.
+
+You will most likely want to source your OpenStack RC file to set your environment variables:
+
+```
+. openrc.sh
+```
+or manually like:
+```
+export OS_AUTH_URL=https://keystone.example.com:5000/
+export OS_USERNAME=<username>
+export OS_PASSWORD=<password>
+export OS_PROJECT_NAME=<project name>
+export OS_PROJECT_DOMAIN_NAME=Default
+export OS_USER_DOMAIN_NAME=Default
+```
+
+To issue a cert:
+```
+acme.sh --issue --dns dns_openstack -d example.com
+```
+
+Your OpenStack credentials will be saved to `~/.acme.sh/account.conf` and reused on renewal.
+
 # Use custom API
 
 If your API is not supported yet, you can write your own DNS API.
