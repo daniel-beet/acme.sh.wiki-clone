@@ -2355,6 +2355,22 @@ acme.sh --issue --dns dns_openstack -d example.com
 
 Your OpenStack credentials will be saved to `~/.acme.sh/account.conf` and reused on renewal.
 
+## Use Netlify API
+
+1. Generate a Personal Access Token at https://app.netlify.com/user/applications
+
+2. Set your token for use with
+
+```
+export NETLIFY_ACCESS_TOKEN='arstdhneioqwfpgjluyzxcvbkm'
+```
+
+3.  Issue a cert with:
+
+```
+acme.sh --issue --dns dns_netlify -d example.com -d www.example.com
+```
+
 # Use custom API
 
 If your API is not supported yet, you can write your own DNS API.
