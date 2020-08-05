@@ -2371,6 +2371,8 @@ export NETLIFY_ACCESS_TOKEN='arstdhneioqwfpgjluyzxcvbkm'
 acme.sh --issue --dns dns_netlify -d example.com -d www.example.com
 ```
 
+[Report a Netlify-related Bug](https://github.com/acmesh-official/acme.sh/issues/3088)
+
 # Use custom API
 
 If your API is not supported yet, you can write your own DNS API.
