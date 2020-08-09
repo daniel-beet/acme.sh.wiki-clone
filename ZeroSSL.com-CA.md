@@ -3,6 +3,8 @@ Using ZeroSSL.com CA
 
 1. Get your External Account Binding(EAB) credentials at www.zerossl.com
 
+    Register an acccount at www.zerossl.com, and generate you EAB credentials.
+
 2. Register acme account:
 
 ```
