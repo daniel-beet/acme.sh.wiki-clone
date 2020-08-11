@@ -5,6 +5,7 @@ Thanks to  www.buypass.com
 https://api.buypass.com/acme/directory
 
 https://www.buypass.com/ssl/resources/go-ssl-technical-specification
+
 https://community.buypass.com/t/63d4ay/buypass-go-ssl-endpoints
 
 Usage:
