@@ -1,4 +1,6 @@
-Using ZeroSSL.com CA
+Using ZeroSSL.com CA  
+
+https://zerossl.com/letsencrypt-alternative/#acme
 
 
 1. Get your External Account Binding(EAB) credentials at www.zerossl.com
