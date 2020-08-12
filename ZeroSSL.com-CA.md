@@ -2,11 +2,15 @@ Using ZeroSSL.com CA
 
 https://zerossl.com/letsencrypt-alternative/#acme
 
+### 1.  Register your account with an email address:
 
-1. Get your External Account Binding(EAB) credentials at www.zerossl.com
+```
+acme.sh  --register-account  -m myemail@example.com --server zerossl
+```
 
-    Register an acccount at www.zerossl.com, and generate you EAB credentials.
+If you already have an account at www.zerossl.com, you can register your acme account with External Account Binding(EAB) credentials.
 
+1. Generate your EAB credentials at: https://app.zerossl.com/developer
 2. Register acme account:
 
 ```
@@ -15,7 +19,7 @@ acme.sh  --register-account  --server zerossl \
         --eab-hmac-key  xxxxxxxxx
 ```
 
-3. Done.  You can use Zerossl.com with `--server zerossl` as normal now.
+### 2. Done.  You can use Zerossl.com with `--server zerossl` as normal now.
 
 ```
 acme.sh --server zerossl  \
@@ -23,11 +27,14 @@ acme.sh --server zerossl  \
      --dns dns_cf
 ```
 
-4. If you don't want to specify `--server zerossl` every time you issue a cert, you can set `zerossl` as the default CA:
+### 3. If you don't want to specify `--server zerossl` every time you issue a cert, you can set `zerossl` as the default CA:
 
 ```
 acme.sh --set-default-ca  --server zerossl
 ```
+
+See: https://github.com/acmesh-official/acme.sh/wiki/Server
+
 Then you can issue any cert from zerossl:
 
 ```
@@ -35,6 +42,7 @@ acme.sh --issue -d  example.com --dns dns_cf
 ```
 
 
+More details: 
 
-More details: https://github.com/acmesh-official/acme.sh/wiki/How-to-issue-a-cert
+https://github.com/acmesh-official/acme.sh/wiki/How-to-issue-a-cert
 
