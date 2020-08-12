@@ -24,4 +24,30 @@ acme.sh --issue ....   --server  https://acme.zerossl.com/v2/DV90
 ```
 
 
+For now, the default CA is `letsencrypt`.   If you want to use another CA, you need to specify `--server` for each command.
+
+For example, if your want to use `zerossl` CA :
+
+```
+acme.sh  --register-account  --server zerossl  -m  myemail@example.com
+
+--or--
+
+acme.sh  --issue --server zerossl  -d  example.com  --dns dns_cf
+
+```
+
+There is a way to change the default CA:
+
+```
+acme.sh  --set-default-ca  zerossl
+```
+
+From now on,  you will issue cert from `zerossl` without `--server` parameters.
+
+```
+acme.sh --issue  -d example.com  --dns dns_cf
+```
+
+
 
