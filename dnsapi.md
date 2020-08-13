@@ -2252,17 +2252,12 @@ For initialzation call following in commandline
 export KAPPERNETDNS_Key="yourKAPPERNETapikey"
 export KAPPERNETDNS_Secret="yourKAPPERNETapisecret"
 ```
-or open dns_kappernet.sh file and configure with the credentials provided by kapper.net.
-Be sure, that the leading "#" is removed.
-```
-KAPPERNETDNS_Key="yourKAPPERNETapikey"
-KAPPERNETDNS_Secret="yourKAPPERNETapisecret"
-```
+
 You can start the acme.sh with following parameters for testing
 ```
-acme.sh --issue --dns dns_kappernet -d <example.com> --debug --test --force
+acme.sh --issue --dns dns_kappernet -d <example.com> --debug --tes
 or for a wildcertificate
-acme.sh --issue --dns dns_kappernet -d <example.com> -d *.<example.com> --debug --test --force
+acme.sh --issue --dns dns_kappernet -d <example.com> -d *.<example.com> --debug --test
 ```
 Please replace "<example.com>" with the name of the domain you wish to create a certificate for.
 
