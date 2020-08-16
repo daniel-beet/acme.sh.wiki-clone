@@ -13,7 +13,7 @@ If the ACME CA provides multiple cert chain, you can use `--preferred-chain` to 
 
     You select the ca like:
 ```
-acme.sh  --issue -d example.com .....     --preferred-chain  "Fake LE Root X2"
+acme.sh  --issue -d example.com .....  --test    --preferred-chain  "Fake LE Root X2"
 ```
 
 2. For Letsencrypt.org Production server:
