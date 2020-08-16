@@ -27,7 +27,7 @@ acme.sh  --issue -d example.com .....  --test    --preferred-chain  "Fake LE Roo
 
     You select the ca like:
 ```
-acme.sh  --issue -d example.com .....     --preferred-chain  "ISRG Root X1"
+acme.sh  --issue -d example.com .....  --server letsencrypt   --preferred-chain  "ISRG Root X1"
 ```
 
 
