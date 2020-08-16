@@ -43,7 +43,7 @@ There is a way to change the default CA:
 acme.sh  --set-default-ca  --server zerossl
 ```
 
-From now on,  you will issue cert from `zerossl` without `--server` parameters.
+From now on,  you will issue cert from `zerossl` if you don't specify any `--server` parameter.
 
 ```
 acme.sh --issue  -d example.com  --dns dns_cf
