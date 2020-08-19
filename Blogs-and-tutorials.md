@@ -120,7 +120,7 @@ Here are some blogs that may help you:
 1. https://holas.pl/2016/02/24/zabezpiecz-swoja-strone-www-za-darmo-certyfikatem-ssl-od-lets-encrypt/
 
 ## Italian 
-1. http://mater.kurgan.org/kb/LetsEncrypt
+1. https://kb.kurgan.org/LetsEncrypt
 
 
 ## Japanese
