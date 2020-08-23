@@ -384,6 +384,9 @@ variable to anything (ex: "1") before running `acme.sh`:
 export FABIO="1"
 ```
 
+You can also use `--deploy-hook vault` instead of `vault_cli`. In that case Vault's HTTP
+API will be used allowing you to use Docker image for deployment without Vault binary.
+
 ## 13. Deploy your certificate to Qiniu.com
 
 使用 acme.sh 部署到七牛之前，需要确保部署的域名已打开 HTTPS 功能，您可以访问[融合 CDN - 域名管理](https://portal.qiniu.com/cdn/domain) 设置。
