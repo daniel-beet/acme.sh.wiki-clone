@@ -244,7 +244,7 @@ If there are any bugs for IFTTT Webhooks notify, please report here: https://git
 
 ## 8. Set notification for xmpp (aka jabber)
 
-Install and `sendxmpp` manually or using your distributions package manager. Configure the sending account in `~/.sendxmpprc` e.g.:
+Install `sendxmpp` manually or using your distributions package manager. Configure the sending account in `~/.sendxmpprc` e.g.:
 
 ```sh
 username: example
