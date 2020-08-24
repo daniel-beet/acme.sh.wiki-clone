@@ -1,8 +1,8 @@
-# How acme.sh deals with the private key file modes ?
+# How acme.sh deals with the private key file modes?
 
 A short answer is:  **we deal with the file permission as little as possible.**
 
-A shorter answer is: **we almost don't change the file permissions, you set it yourself, and it will keep forever.**
+A longer answer is: **we almost don't change the file permissions, you set it yourself, and it will be kept forever.**
 
 Ok, let me give a longer answer:
 
