@@ -38,4 +38,5 @@ WantedBy=timers.target
 ```
 
 **4. Enable timer:**
+`sudo systemctl start acme_letsencrypt.timer`
 `sudo systemctl enable acme_letsencrypt.timer`
