@@ -1994,12 +1994,16 @@ https://github.com/Neilpang/acme.sh/issues/2699
 ## 97. Use dynv6 API to automatically issue a cert
 This uses the [dynv6 SSH API](https://dynv6.com/docs/apis) to issue the certificate. You will need a ssh key to authenticate. You can specify your own key with `export KEY="path/to/keyfile"` or if no key is specified one will be created for you which you will have to add [here](https://dynv6.com/keys). In both cases the path to the keyfile will be saved for reuse. 
 
+Alternatively you can use the [HTTP REST API](https://dynv6.github.io/api-spec/). For this you will need a HTTP Token, which you can generate from the [dynv6 website](https://dynv6.com/keys). Use it with `export DYNV6_TOKEN="value"`.
+
+If both a SSH Key and a HTTP Token are specified the REST API will be used.
+
 To issue a cert use:
 ```
 acme.sh --issue --dns dns_dynv6 -d www.example.dynv6.net
 ```
 If you find any bugs, please report here:  
-https://github.com/Neilpang/acme.sh/issues/2702
+https://github.com/acmesh-official/acme.sh/issues/2702
 
 ## 98. Use All-Inkl.com domain API to automatically issue cert
 
