@@ -1,5 +1,10 @@
 Using ZeroSSL.com CA  
 
+ZeroSSL doesn't have stagging and no production rate limit, you can issue unlimited SSL of 90 Days.
+
+Alternatively you can create Account and grab your acme creditentals faster on ZeroSSL.com and even manage issued SSL. 
+
+
 https://zerossl.com/letsencrypt-alternative/#acme
 
 ### 1.  Register your account with an email address:
