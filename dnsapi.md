@@ -4,6 +4,8 @@ If your DNS provider doesn't provide API access, you can use our DNS alias mode:
 
 https://github.com/acmesh-official/acme.sh/wiki/DNS-alias-mode
 
+Currently Cloudflare doesn't allow API access in free tld domain. You will get the Txt records insert failed. Make sure to verify your api token before editing  dns_cf, you can alternatively use DNS manual mode. 
+
 ## 1. CloudFlare Option:
 
 CloudFlare Domain API offers two methods to automatically issue certs.
