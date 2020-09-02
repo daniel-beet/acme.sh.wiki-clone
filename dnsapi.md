@@ -1,4 +1,4 @@
-# How to use DNS API
+# How to use DNS API 
 
 If your DNS provider doesn't provide API access, you can use our DNS alias mode:
 
