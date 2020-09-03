@@ -30,7 +30,8 @@ acme.sh --renew -d example.com \
 
 ```
 ```sh
-if your DNS _acme challange fails when using renew CA will generate new _acme challenge, make sure to wait 1 min for dns entries to reflect before using renew.
+if your DNS _acme challange fails when using renew, your respective CA will generate new _acme challenge, 
+make sure to wait 1 min for dns entries to reflect before using renew.
 
 ```
 
@@ -42,9 +43,16 @@ acme.sh --renew -d example.com -d *.example.com --dns \
 ```
 
 ```sh
-if you had issued a Stagging Certificate with ECC/SHA CSR then use the --force switch to overwrite any entries of old CER and issue fresh CER.
+if you had issued a Stagging/Production Certificate with SHA CSR then use the --force switch to overwrite any entries of old CER and issue fresh CER.
 acme.sh --renew-d example.com -d *.example.com --dns \
- --yes-I-know-dns-manual-mode-enough-go-ahead-please --force
+ --yes-I-know-dns-manual-mode-enough-go-ahead-please --force 
+
+```
+for ECC
+```sh
+if you had issued a Stagging/Production Certificate with ECC/SHA CSR then use the --ecc --force switch to overwrite any entries of old CER and issue fresh CER.
+acme.sh --renew-d example.com -d *.example.com --dns \
+ --yes-I-know-dns-manual-mode-enough-go-ahead-please --ecc --force 
 
 ```
 
