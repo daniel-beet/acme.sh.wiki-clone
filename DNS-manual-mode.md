@@ -29,11 +29,13 @@ acme.sh --renew -d example.com \
   --yes-I-know-dns-manual-mode-enough-go-ahead-please
 
 ```
-```sh
-if your DNS _acme challange fails when using renew, your respective CA will generate new _acme challenge, 
-make sure to wait 1 min for dns entries to reflect before using renew.
 
-```
+**## if your DNS _acme challange fails when using renew, your respective CA will generate new _acme challenge, **
+**## make sure to wait 1 min for dns entries to reflect before using renew.**
+***
+
+
+
 
 ```sh
 if you had issued an ECC CSR then use the --ecc switch.
