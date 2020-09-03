@@ -42,14 +42,14 @@ _**make sure to wait 1 min for dns entries to reflect before using renew.**_
 _**if you had issued a Stagging/Production Certificate with SHA CSR then use the --force switch to overwrite any entries of old CER and issue fresh CER.**_
 
 ```sh
-acme.sh --renew-d example.com -d *.example.com --dns \
+acme.sh --renew -d example.com -d *.example.com --dns \
  --yes-I-know-dns-manual-mode-enough-go-ahead-please --force 
 
 ```
 
 _**if you had issued a Stagging/Production Certificate with ECC CSR then use the --ecc --force switch to overwrite any entries of old CER and issue fresh CER.**_
 ```sh
-acme.sh --renew-d example.com -d *.example.com --dns \
+acme.sh --renew -d example.com -d *.example.com --dns \
  --yes-I-know-dns-manual-mode-enough-go-ahead-please --ecc --force 
 
 ```
