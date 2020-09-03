@@ -30,8 +30,8 @@ acme.sh --renew -d example.com \
 
 ```
 
-**## if your DNS _acme challange fails when using renew, your respective CA will generate new _acme challenge, **
-**## make sure to wait 1 min for dns entries to reflect before using renew.**
+** if your DNS _acme challange fails when using renew, your respective CA will generate new _acme challenge, **
+** _make sure to wait 1 min for dns entries to reflect before using renew._**
 ***
 
 
