@@ -1,4 +1,4 @@
-_`# Update your Linux repo to latest or else some issues will occur when generating your free SSL.`_
+_`# Update your Linux repo, firmware with updated CA bundle to latest or else some issues will occur when generating your free SSL.`_
 
 ## 1. Install from web: https://get.acme.sh
 
