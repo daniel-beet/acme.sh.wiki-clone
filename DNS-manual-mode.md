@@ -35,24 +35,16 @@ acme.sh --renew -d example.com \
 ***
 
 
-
-
-```sh
-if you had issued an ECC CSR then use the --ecc switch.
-acme.sh --renew -d example.com -d *.example.com --dns \
- --yes-I-know-dns-manual-mode-enough-go-ahead-please --ecc
-
-```
+_**if you had issued a Stagging/Production Certificate with SHA CSR then use the --force switch to overwrite any entries of old CER and issue fresh CER.**_
 
 ```sh
-if you had issued a Stagging/Production Certificate with SHA CSR then use the --force switch to overwrite any entries of old CER and issue fresh CER.
 acme.sh --renew-d example.com -d *.example.com --dns \
  --yes-I-know-dns-manual-mode-enough-go-ahead-please --force 
 
 ```
-for ECC
+
+_**if you had issued a Stagging/Production Certificate with ECC CSR then use the --ecc --force switch to overwrite any entries of old CER and issue fresh CER.**_
 ```sh
-if you had issued a Stagging/Production Certificate with ECC/SHA CSR then use the --ecc --force switch to overwrite any entries of old CER and issue fresh CER.
 acme.sh --renew-d example.com -d *.example.com --dns \
  --yes-I-know-dns-manual-mode-enough-go-ahead-please --ecc --force 
 
