@@ -30,6 +30,19 @@ acme.sh --renew -d example.com \
 
 ```
 
+```sh
+if you had issued an ECC CSR then use the --ecc switch.
+acme.sh --issue -d example.com -d *.example.com --dns \
+ --yes-I-know-dns-manual-mode-enough-go-ahead-please --ecc
+
+```
+
+```sh
+if you had issued a Stagging Certificate with ECC/SHA CSR then use the --force switch to overwrite any entries of old CER and issue fresh CER.
+acme.sh --issue -d example.com -d *.example.com --dns \
+ --yes-I-know-dns-manual-mode-enough-go-ahead-please --force
+
+```
 
 ### Known issues:
 [The supported validation types are: dns-01 , but you specified: http-01](https://github.com/Neilpang/acme.sh/issues/1433)
