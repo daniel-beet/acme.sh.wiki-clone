@@ -30,9 +30,13 @@ acme.sh --renew -d example.com \
 
 ```
 
+***
+
 **if your DNS _acme challange fails when using renew, your respective CA will generate new _acme challenge,**
 _**make sure to wait 1 min for dns entries to reflect before using renew.**_
 
+
+***
 
 
 _**if you had issued a Stagging/Production Certificate with SHA CSR then use the --force switch to overwrite any entries of old CER and issue fresh CER.**_
