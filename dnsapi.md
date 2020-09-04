@@ -11,13 +11,13 @@ Currently Cloudflare doesn't allow API access in free tld domain. You will get t
 Cloudflare Domain API offers two methods to automatically issue certs.
 
 ### Using the global API key
-First you need to login to your Cloudflare account to get your [API key](https://dash.cloudflare.com/profile). Each token generated is not stored on cloudflare account and will have expiry if not set correctly. You will get this in API keys section. 
+First you need to login to your Cloudflare account to get your [API key](https://dash.cloudflare.com/profile). Each token generated is not stored on cloudflare account and will have expiry if not set correctly. You will get this in API keys section.  
 ```
 export CF_Key="sdfsdfsdfljlbjkljlkjsdfoiwje"
 export CF_Email="xxxx@sss.com"
 ```
 
-### Using the new cloudflare api token, you will get this after normal login and  scroll down on dashboard and copy credentials.
+### Using the new cloudflare api token, you will get this after normal login and  scroll down on dashboard and copy credentials. 
 ```
 export CF_Token="sdfsdfsdfljlbjkljlkjsdfoiwje"
 export CF_Account_ID="xxxxxxxxxxxxx"
