@@ -17,7 +17,7 @@ SuccessExitStatus=0 2
 **2. Test that it works before creating the timer:**
 ```
 sudo systemctl daemon-reload
-sudo systemctl start acme_letsencrypt --now
+sudo systemctl start acme_letsencrypt
 ```
 
 **3. Create systemd timer unit for the service above:**
