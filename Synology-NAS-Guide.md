@@ -47,7 +47,7 @@ Now it's time to create the certificate for your domain:
 $ cd /usr/local/share/acme.sh
 $ export CERT_DOMAIN="your-domain.tld"
 $ export CERT_DNS="dns_cf"
-$ ./acme.sh --issue -d "$CERT_DOMAIN" --dns "$CERT_DNS"
+$ ./acme.sh --issue --home . -d "$CERT_DOMAIN" --dns "$CERT_DNS"
 ```
 
 ## Deploy the default certificate
@@ -60,7 +60,7 @@ $ export SYNO_Username='Admin_Username'
 $ export SYNO_Password='Admin_Password!123'
 # You must specify SYNO_Certificate, for the default certificate, we use an empty string
 $ export SYNO_Certificate=""
-$ ./acme.sh --deploy -d "$CERT_DOMAIN" --deploy-hook synology_dsm
+$ ./acme.sh --deploy --home . -d "$CERT_DOMAIN" --deploy-hook synology_dsm
 ```
 
 Note that if the user entered for `SYNO_Username` has enabled two-factor authentication (2FA), the login will fail and the error states that user/password is wrong, even if both are correct.
@@ -74,11 +74,11 @@ export SYNO_DID='YOUR VALUE'
 By specifying a different `SYNO_Certificate` and (optionally) `SYNO_Create`, we can deploy multiple certificates to the DSM.  These commands assume you are still working in the same terminal and have exported all other necessary variables described above.
 
 ```sh
-$ ./acme.sh --issue -d "subdomain.$CERT_DOMAIN" --dns "$CERT_DNS"
+$ ./acme.sh --issue --home . -d "subdomain.$CERT_DOMAIN" --dns "$CERT_DNS"
 # SYNO_Certificate is the description shown under Security -> Certificates in the DSM Control Panel
 $ export SYNO_Certificate="A different certificate"
 $ export SYNO_Create=1 # Says to create the certificate if it doesn't exist
-$ ./acme.sh --deploy -d "subdomain.$CERT_DOMAIN" --deploy-hook synology_dsm
+$ ./acme.sh --deploy --home . -d "subdomain.$CERT_DOMAIN" --deploy-hook synology_dsm
 ```
 
 ## Configuring Certificate Renewal
