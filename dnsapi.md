@@ -2378,6 +2378,29 @@ acme.sh --issue --dns dns_netlify -d example.com -d www.example.com
 
 [Report a Netlify-related Bug](https://github.com/acmesh-official/acme.sh/issues/3088)
 
+## 116. Use Akamai Edge DNS API
+
+This provider supports the [Akamai Edge DNS](https://developer.akamai.com/api/cloud_security/edge_dns_zone_management/v2.html) API for creating DNS records.
+
+Report any issues to https://github.com/acmesh-official/acme.sh/issues/3157
+
+This provider requires Akamai Open Edgegrid Credentials with EdgeDNS API access authorization. To create and establish your Akamai OPEN CREDENTIALS, see the [authorization](https://developer.akamai.com/legacy/introduction/Prov_Creds.html) and [credentials](https://developer.akamai.com/legacy/introduction/Conf_Client.html) sections of the Akamai Developer Get Started guide.
+
+The Akamai Open Edgegrid credentials must be specified as environment variables as follows:
+```
+export AKAMAI_CLIENT_TOKEN=<akamai edgegrid client token>
+export AKAMAI_ACCESS_TOKEN=<akamai edgegrid access token>
+export AKAMAI_CLIENT_SECRET=<akamai edgegrid client secret>
+export AKAMAI_HOST=<akamai edgegrid api host>
+```
+
+To issue a cert:
+```
+acme.sh --issue --dns dns_edgedns -d example.com
+```
+
+Your Akamai Edgegrid credentials will be saved to `~/.acme.sh/account.conf` and reused on renewal.
+
 # Use custom API
 
 If your API is not supported yet, you can write your own DNS API.
