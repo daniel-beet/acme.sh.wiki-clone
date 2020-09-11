@@ -15,18 +15,30 @@ acme.sh  --issue  -d  myExample.com  --dns  dns_myapi
 
 ### 2.  You need to set up the following "Github actions Secrets":
 
-Open the follow `"Settings"` -> `"Secrets"` -> `"New secret"`
+Open the menu: `"Settings"` -> `"Secrets"` -> `"New secret"`
+
+Set the following secrets:
 
 ```
 TokenName1 =  MyDnsKey1
+```
+```
 TokenValue1 = myValue1
-
+```
+```
 TokenName2 =  MyDnsKey2
+```
+```
 TokenValue2 = myValue2
-
+```
+```
 
 TEST_DNS = dns_myapi  
+```
+```
 TestingDomain = myExample.com
+```
+```
 
 TEST_DNS_SLEEP = 120
 ```
