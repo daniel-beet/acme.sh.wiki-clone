@@ -3,7 +3,7 @@ There is a CI workflow to test your dns api when you send PR to add new dns api.
 
 This test must be passing before your PR can get merged.
 
-### 1.  Let assume the usage of your api is like bellow:
+### 1.  Let's assume the usage of your api is like bellow:
 
 ```
 export  MyDnsKey1=myValue1
