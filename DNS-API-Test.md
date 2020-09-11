@@ -43,6 +43,12 @@ TestingDomain = myExample.com
 TEST_DNS_SLEEP = 120
 ```
 
+The `TEST_DNS_SLEEP` is the time (in seconds) to sleep to wait for your DNS records to propagate. 
+
+Different DNS provider may require different propagate time,  please ask your DNS provider support for the time.
+
+Usually, it's larger than `120` seconds.
+
 
  
 
