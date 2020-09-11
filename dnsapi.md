@@ -2401,6 +2401,24 @@ acme.sh --issue --dns dns_edgedns -d example.com
 
 Your Akamai Edgegrid credentials will be saved to `~/.acme.sh/account.conf` and reused on renewal.
 
+## 117. Use WEDOS DNS API
+WEDOS DNS provider comes from Czech Republic. DNS API implementation for WEDOS require your WEDOS's account to allow WAPI interface. You have to login to WEDOS administration, in setting allow WAPI interface (in days when this manual were written it was for free completelly). Configure WAPI interface to XML interface and register the IP addresses (IPv4 and IPv6) of the server where you plan to use acme.sh. That is from the manual side.
+
+By doing this setting you should have WEDOS web account username and configured WAPI password. This must be configured to your acme.sh account in the first execution of acme.sh script. To save it to `~/.acme.sh/account.conf` (and for subsequent acme.sh executions) just execute following before first execution of acme.sh script.
+```
+export WEDOS_Username=<your user name to login to wedos web account>
+export WEDOS_Wapipass=<your WAPI passwords you setup using wedos web pages>
+```
+
+Then you can issue a certificates:
+```
+acme.sh --issue --dns dns_wedos -d "*.example.com" -d "examle.com"
+```
+
+If you face any bug, please use this [page](https://github.com/acmesh-official/acme.sh/issues/3166) to report it. But before reporting run the acme.sh with `--debug 2` switch and append full acme.sh output to the issue report. 
+
+Enjoy it.
+
 # Use custom API
 
 If your API is not supported yet, you can write your own DNS API.
