@@ -16,6 +16,7 @@ acme.sh  --issue  -d  myExample.com  --dns  dns_myapi
 ### 2.  You need to set up the following "Github actions Secrets":
 
 Open the menu: `"Settings"` -> `"Secrets"` -> `"New secret"`
+** The secrets are only visible to yourself, nobody else can read the secrets.**
 
 Set the following secrets:
 
