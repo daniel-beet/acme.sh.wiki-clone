@@ -18,7 +18,7 @@ acme.sh  --issue  -d  myExample.com  --dns  dns_myapi
 Open the menu: `"Settings"` -> `"Secrets"` -> `"New secret"`
 
 
-** The secrets are only visible to yourself, nobody else can read the secrets.**
+**The secrets are only visible to yourself, nobody else can read the secrets.**
 
 
 Set the following secrets:
