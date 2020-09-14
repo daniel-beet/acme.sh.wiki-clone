@@ -9,7 +9,7 @@ This test must be passing before your PR can get merged.
 export  MyDnsKey1=myValue1
 export  MyDnsKey2=myValue2
 
-acme.sh  --issue  -d  myExample.com  --dns  dns_myapi  
+acme.sh  --issue  -d  mytest.myExample.com  --dns  dns_myapi  
 
 ```
 
@@ -40,7 +40,7 @@ TokenValue2 = myValue2
 TEST_DNS = dns_myapi  
 ```
 ```
-TestingDomain = myExample.com
+TestingDomain = mytest.myExample.com
 ```
 ```
 
