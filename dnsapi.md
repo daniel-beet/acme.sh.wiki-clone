@@ -2422,8 +2422,8 @@ Enjoy it.
 ## 118. Use Websupport DNS API
 Obtain an api key and secret from https://admin.websupport.sk/en/auth/apiKey
 ```
-export WS_ApiKey="xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
-export WS_ApiSecret="xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+export WS_APIKEY="xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+export WS_APISECRET="xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
 ```
 
 To issue a cert:
