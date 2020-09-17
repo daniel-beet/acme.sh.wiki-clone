@@ -2419,6 +2419,20 @@ If you face any bug, please use this [page](https://github.com/acmesh-official/a
 
 Enjoy it.
 
+## 118. Use Websupport DNS API
+Obtain an api key and secret from https://admin.websupport.sk/en/auth/apiKey
+```
+export WS_ApiKey="xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+export WS_ApiSecret="xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+```
+
+To issue a cert:
+```
+acme.sh --issue --dns dns_vercel -d example.com -d www.example.com
+```
+
+Report any issues to https://github.com/trgosk/acme.sh/issues
+
 # Use custom API
 
 If your API is not supported yet, you can write your own DNS API.
