@@ -2428,7 +2428,7 @@ export WS_APISECRET="xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
 
 To issue a cert:
 ```
-acme.sh --issue --dns dns_vercel -d example.com -d www.example.com
+acme.sh --issue --dns dns_websupport -d example.com -d www.example.com
 ```
 
 Report any issues to https://github.com/trgosk/acme.sh/issues
