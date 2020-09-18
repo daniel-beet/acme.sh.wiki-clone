@@ -193,7 +193,7 @@ Your HTTP method call may require additional headers for Authorization, ContentT
   mycredentials="$(printf "%s" "$myusername:$mypassword" | _base64)"
 
   export _H1="Authorization: Basic $mycredentials"
-  export _H2="ContentType: application/json"
+  export _H2="Content-Type: application/json"
 
 ...
 ```
