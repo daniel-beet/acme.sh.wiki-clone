@@ -2433,6 +2433,20 @@ acme.sh --issue --dns dns_websupport -d example.com -d www.example.com
 
 Report any issues to https://github.com/trgosk/acme.sh/issues
 
+## 119. Use infomaniak.com API
+
+Infomaniak hosts a large number of domains and other hosted services.
+Create a token with Domain scope in the API dashboard at
+https://manager.infomaniak.com/v3/<account_id>/api/dashboard
+and export it as an environment variable:
+
+```
+export INFOMANIAK_API_TOKEN=xxx
+acme.sh --issue --dns dns_infomaniak -d example.com -d www.example.com
+```
+
+Please report any issue to https://github.com/acmesh-official/acme.sh/issues/3188
+
 # Use custom API
 
 If your API is not supported yet, you can write your own DNS API.
