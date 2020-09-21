@@ -1,7 +1,11 @@
 
-There is a CI workflow to test your dns api when you send PR to add new dns api.
+There is a CI workflow `DNS.yml` to test your dns api when you send PR to add new dns api.
 
 This test must be passing before your PR can get merged.
+
+However, as a limitation of github actions,  the workflow `DNS.yml` can only run in your Forked repo when you push code to it.
+So, please enable Github Actions on your Forked repo first, and then push code to your repo, it will run there.
+
 
 ### 1.  Let's assume the usage of your api is like below:
 
