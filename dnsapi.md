@@ -2180,7 +2180,7 @@ you can add this trusted root CA with
 --ca-bundle COMODO_RSA_Certification_Authority.crt
 ```
 
-This script will create a new access token with a default lifetime of 30 minutes.
+This script will create a new access token with a default lifetime of 30 minutes. Note that these tokens are by default IP-whitelisted and will not work if your IP is not whitelisted in the Transip control panel.
 
 If you find any bugs, please report here:
 https://github.com/mdbraber/acme.sh/issues
