@@ -1656,6 +1656,9 @@ response='{
    "result" : "error"
 }'
 ```
+Диапазоны IP-адресов
+acme-v02.api.letsencrypt.org - `172.65.32.248` для получения SSL и api.reg.ru - `194.58.116.30` для тхт записи _acme-challenge
+
 Для авторизатции в API выполните:
 ```
 export REGRU_API_Username='водим свой логин для входа на REG.RU'
