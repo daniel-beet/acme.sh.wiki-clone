@@ -1639,6 +1639,35 @@ The `REGRU_API_Username` and `REGRU_API_Password` will be saved in `~/.acme.sh/a
 
 If you find any bugs of reg.ru API, please report here: [Issue #2336](../issues/2336)
 
+RU:
+
+Установите свои учетные данные API:
+
+В [Настройки API](https://www.reg.ru/user/account/#/settings/api/) для авторизации устанавливаем пароль в настройках "Альтернативный пароль", и добавляем IP в "Диапазоны IP-адресов" для избежание ошибки
+```
+response='{
+   "charset" : "utf-8",
+   "error_code" : "ACCESS_DENIED_FROM_IP",
+   "error_params" : {
+      "command_name" : "service/get_list"
+   },
+   "error_text" : "Access to API from this IP denied",
+   "messagestore" : null,
+   "result" : "error"
+}'
+```
+Для авторизатции в API выполните:
+```
+export REGRU_API_Username='водим свой логин для входа на REG.RU'
+export REGRU_API_Password='водим пароль каторый настроили в настройках API для авторизации'
+```
+Для получения сертификата выполните:
+```
+acme.sh --issue --dns dns_regru -d 'example.com' -d '*.example.com'
+```
+Настройки для авторизации `REGRU_API_Username` и `REGRU_API_Password` будут сохранены в `~/.acme.sh/account.conf` и будут использоваться повторно при необходимости из конфига acme.
+
+Если вы обнаружите какие-либо ошибки в API reg.ru, сообщите об этом здесь: [Issue #2336](../issues/2336)
 
 ## 82. Use Vultr DNS API to automatically issue cert
 
