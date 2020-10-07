@@ -552,7 +552,7 @@ The `Dynu_ClientId` and `Dynu_Secret` will be saved in `~/.acme.sh/account.conf`
 
 First you need to login to your DNSimple account and generate a new oauth token.
 
-https://dnsimple.com/a/{your account id}/account/access_tokens
+https://dnsimple.com/a/{your account id}/account/automation
 
 Note that this is an _account_ token and not a user token. The account token is
 needed to infer the `account_id` used in requests. A user token will not be able
