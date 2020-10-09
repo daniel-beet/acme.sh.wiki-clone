@@ -2479,6 +2479,20 @@ acme.sh --issue --dns dns_infomaniak -d example.com -d www.example.com
 
 Please report any issue to https://github.com/acmesh-official/acme.sh/issues/3188
 
+## 120. Use bookmyname.com API
+
+Bookmyname hosts domains and has a small API.
+
+Export your login/pass as an environment variable:
+
+```
+export BOOKMYNAME_USERNAME=xxx
+export BOOKMYNAME_PASSWORD=yyy
+acme.sh --issue --dns dns_bookmyname --dnssleep 600 -d example.com -d www.example.com
+```
+
+Please report any issue to https://github.com/acmesh-official/acme.sh/issues/3209
+
 # Use custom API
 
 If your API is not supported yet, you can write your own DNS API.
