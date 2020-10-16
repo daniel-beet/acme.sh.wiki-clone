@@ -2,11 +2,11 @@ This article describes using a router with Linux-based [Tomato firmware](https:/
 
 Traffic to HTTPS port(s) (the usual 443 or whatever you use) in your public IP address will be forwarded to plain HTTP services on your LAN hosts with your Tomato router functioning as a reverse proxy. This way you can have multiple (sub)domains in a single public port pointed to several LAN servers with Tomato handling all the HTTPS stuff, which is not possible with simple port forwarding. A configuration example is provided.
 
-Much of the setup is done through SSH, but you'll also need Tomato's web admin, marked in this guide as **Menu→Submenu**.
+Much of the setup is done through SSH, but you'll also need Tomato's web interface, marked in this guide as **Menu→Submenu**.
 
 ### Prerequisites
 - A router with USB ports running [FreshTomato](https://freshtomato.org/) or another recent Tomato fork with a fully featured OpenSSL and web server. A fast CPU and large NVRAM are recommended. There's an [unconfirmed report](https://github.com/acmesh-official/acme.sh/issues/1581#issuecomment-651678412) of MIPS-based routers having problems, possibly because of missing ext4 support, but ext3 or ext2 can be used instead.
-- Unless you happen to have a static public IP, you need a dynamic DNS (DDNS) service configured in Tomato. Some [DNS services](https://community.letsencrypt.org/t/dns-providers-who-easily-integrate-with-lets-encrypt-dns-validation/86438) also provide API control, enabling [DNS mode](https://github.com/acmesh-official/acme.sh/wiki/dnsapi) for acme.sh. You can point additional regular CNAME records to the DDNS hostname, so not all your hostnames need to be dynamic. In this guide _tomato.example.com_ and _www.tomato.example.com_ are used as examples.
+- Unless you happen to have a static public IP, you need a dynamic DNS (**Basic→DDNS**) service configured in Tomato. Some [DNS services](https://community.letsencrypt.org/t/dns-providers-who-easily-integrate-with-lets-encrypt-dns-validation/86438) also provide API control, enabling [DNS mode](https://github.com/acmesh-official/acme.sh/wiki/dnsapi) for acme.sh. You can point additional regular CNAME records to the DDNS hostname, so not all your hostnames need to be dynamic. In this guide _tomato.example.com_ and _www.tomato.example.com_ are used as examples.
 - At least one plain HTTP web service or site running on either a LAN host or Tomato itself. It's a good idea to assign static IP addresses for servers (**Basic→Static DHCP/ARP/IPT**).
 
 If you're going to [issue certificates](https://github.com/acmesh-official/acme.sh/wiki/How-to-issue-a-cert) using webroot mode, Tomato's web server must be running in port 80, so make sure your service provider doesn't block that port and that the web admin service is not using the same port.
@@ -36,8 +36,8 @@ You're now ready to install. Change the email address before running this instal
 ```
 Finally remove the installer directory: `cd .. && rm -Rf acme.sh-master`
 
-The installer wrote a line to the `.profile` file in the root user's home directory. Tomato keeps this directory on a RAM disk that won't survive reboots, so you need to make this permanent by adding this command to **Administration→Scripts→Init**:
-```sh
+The installer wrote a line to the `.profile` file in the root user's home directory. Tomato keeps this directory on a RAM disk that won't survive reboots, so you need to make this permanent by adding this line to **Administration→Scripts→Init**:
+```
 echo '. "/tmp/mnt/flash/acme.sh/acme.sh.env"' >> /tmp/home/root/.profile
 ```
 Save the settings. Close the current SSH session and start a new one to activate the change.
@@ -122,6 +122,5 @@ Save the settings and wait for Tomato to restart nginx. You should now be able t
 
 
 ### Notes
-- While testing this stuff I came across some situations where Tomato's RAM disk ran out of space, causing failures writing configuration files. I'm not sure what causes it, but you can check with `df -h /tmp`, and a reboot fixes it.
 - Not all HTTP services are proxy-compatible. For example, absolute URLs can be troublesome, although you can fix them with [http_sub](https://nginx.org/en/docs/http/ngx_http_sub_module.html) filters.
-- This should be obvious, but people can be surprisingly dumb: **Don't create public proxy connections to LAN devices/services without proper password protection.**
+- This should be obvious, but people can be surprisingly dumb: **Don't create public proxy connections to private LAN devices/services without proper password protection.**
