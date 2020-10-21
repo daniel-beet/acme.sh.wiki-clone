@@ -9,8 +9,8 @@ After=network-online.target
 [Service]
 Type=oneshot
 # --home's argument should be where the acme.sh script resides.
-ExecStart=/path/to/acme.sh --home /path/to <your acme.sh arguments here>
-# acme.sh returns 2 when renewal is skipped (i.e. certs up to date)
+ExecStart=/path/to/acme.sh --home /path/to/acme.sh
+
 SuccessExitStatus=0 2
 ```
 
