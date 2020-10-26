@@ -69,6 +69,20 @@ To fix this, simply follow the steps described at the [Synology DSM deployhook](
 export SYNO_DID='YOUR VALUE'
 ```
 
+When we want to use https to deploy the new certificate, we need to add the --insecure option to the deploy command to prevent curl errors. refer to [https://github.com/acmesh-official/acme.sh/wiki/Options-and-Params]
+
+```sh
+$ cd /usr/local/share/acme.sh
+# Single quotes prevents some escaping issues if your password or username contains certain special characters
+$ export SYNO_Username='Admin_Username'
+$ export SYNO_Password='Admin_Password!123'
+$ export SYNO_Scheme="https"
+$ export SYNO_Port="5001"
+# You must specify SYNO_Certificate, for the default certificate, we use an empty string
+$ export SYNO_Certificate=""
+$ ./acme.sh --insecure --deploy --home . -d "$CERT_DOMAIN" --deploy-hook synology_dsm
+```
+
 ### Deploying additional certificates
 
 By specifying a different `SYNO_Certificate` and (optionally) `SYNO_Create`, we can deploy multiple certificates to the DSM.  These commands assume you are still working in the same terminal and have exported all other necessary variables described above.
