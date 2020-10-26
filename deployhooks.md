@@ -575,6 +575,12 @@ export SYNO_Create=1 # defaults to off, this setting is not saved.  By setting t
 acme.sh --deploy -d example.com --deploy-hook synology_dsm
 ```
 
+when using https we need to add the --insecure option to the deploy command
+
+```sh
+acme.sh --insecure --deploy -d example.com --deploy-hook synology_dsm
+```
+
 Certificate should now show up in "Control Panel" -> "Security" -> "Certificates" and can be assigned to Services or set as the default certificate.
 
 **With OTP (2-Factor-Authentication)**
