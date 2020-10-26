@@ -575,7 +575,7 @@ export SYNO_Create=1 # defaults to off, this setting is not saved.  By setting t
 acme.sh --deploy -d example.com --deploy-hook synology_dsm
 ```
 
-when using https we need to add the --insecure option to the deploy command
+When using https we need to add the --insecure option to the deploy command. refer to [https://github.com/acmesh-official/acme.sh/wiki/Options-and-Params]
 
 ```sh
 acme.sh --insecure --deploy -d example.com --deploy-hook synology_dsm
