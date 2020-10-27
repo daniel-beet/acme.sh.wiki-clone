@@ -575,7 +575,7 @@ export SYNO_Create=1 # defaults to off, this setting is not saved.  By setting t
 acme.sh --deploy -d example.com --deploy-hook synology_dsm
 ```
 
-When using https we need to add the --insecure option to the deploy command. refer to [https://github.com/acmesh-official/acme.sh/wiki/Options-and-Params]
+When using https to connect to "localhost" we need to add the --insecure option to the deploy command. refer to [https://github.com/acmesh-official/acme.sh/wiki/Options-and-Params]. If you enabled HTTP/2 you still receive a curl 16 error but the script succeeds.
 
 ```sh
 acme.sh --insecure --deploy -d example.com --deploy-hook synology_dsm
