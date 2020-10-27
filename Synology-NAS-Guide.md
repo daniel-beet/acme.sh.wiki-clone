@@ -69,13 +69,14 @@ To fix this, simply follow the steps described at the [Synology DSM deployhook](
 export SYNO_DID='YOUR VALUE'
 ```
 
-When we want to use https to deploy the new certificate, we need to add the --insecure option to the deploy command to prevent curl errors. refer to [https://github.com/acmesh-official/acme.sh/wiki/Options-and-Params]
+When we want to use https to deploy the new certificate and connect to "localhost", we need to add the --insecure option to the deploy command to prevent curl errors. refer to [https://github.com/acmesh-official/acme.sh/wiki/Options-and-Params]. If you enabled HTTP/2 you still receive a curl 16 error but the script succeeds.
 
 ```sh
 $ cd /usr/local/share/acme.sh
 # Single quotes prevents some escaping issues if your password or username contains certain special characters
 $ export SYNO_Username='Admin_Username'
 $ export SYNO_Password='Admin_Password!123'
+# export SYNO_Hostname="localhost" # Specify if not using on localhost
 $ export SYNO_Scheme="https"
 $ export SYNO_Port="5001"
 # You must specify SYNO_Certificate, for the default certificate, we use an empty string
