@@ -69,7 +69,7 @@ To fix this, simply follow the steps described at the [Synology DSM deployhook](
 export SYNO_DID='YOUR VALUE'
 ```
 
-When we want to use https to deploy the new certificate and connect to "localhost", we need to add the --insecure option to the deploy command to prevent curl errors. refer to [https://github.com/acmesh-official/acme.sh/wiki/Options-and-Params]. If you enabled HTTP/2 you still receive a curl 16 error but the script succeeds.
+When we want to use https to deploy the new certificate and connect to "localhost", we need to add the --insecure option to the deploy command to prevent curl errors. refer to [https://github.com/acmesh-official/acme.sh/wiki/Options-and-Params]. If you enabled HTTP/2 you still receive a curl 16 error probably due to missing http2 dependencies on the NAS but the script succeeds.
 
 ```sh
 $ cd /usr/local/share/acme.sh
