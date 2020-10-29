@@ -2493,6 +2493,18 @@ acme.sh --issue --dns dns_bookmyname --dnssleep 600 -d example.com -d www.exampl
 
 Please report any issue to https://github.com/acmesh-official/acme.sh/issues/3209
 
+## 121. Use anexia.com CloudDNS API
+
+For DNS records managed via https://engine.anexia-it.com/clouddns
+
+Export your token as an environment variable:
+
+```
+export ANX_Token='XXXXXXXXXXXXXXXXXXX'
+acme.sh --issue --dns dns_anx -d example.com -d www.example.com
+```
+Please report any issue to https://github.com/acmesh-official/acme.sh/issues/3238
+
 # Use custom API
 
 If your API is not supported yet, you can write your own DNS API.
