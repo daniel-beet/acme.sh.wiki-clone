@@ -2505,6 +2505,17 @@ acme.sh --issue --dns dns_anx -d example.com -d www.example.com
 ```
 Please report any issue to https://github.com/acmesh-official/acme.sh/issues/3238
 
+## 122. Use Synology DSM Synology DNS Server API
+To issue a cert:
+
+    ./acme.sh --issue --dns dns_synology_dsm -d example.com -d www.example.com
+To issue a wildcard cert:
+
+    ./acme.sh --issue --dns dns_synology_dsm -d example.com -d *.example.com
+You can find more details [here](https://github.com/arabezar/acme.sh/wiki)
+
+Please report any issue [here](https://github.com/acmesh-official/acme.sh/issues/3248)
+
 # Use custom API
 
 If your API is not supported yet, you can write your own DNS API.
