@@ -2536,6 +2536,23 @@ To issue a wildcard cert:
 ./acme.sh --issue --dns dns_huaweicloud -d example.com -d *.example.com
 ```
 
+## 124. Use Simply API (Under Development)
+Export your credentials, you will find your API key by logging in to your Simply.com account:
+
+```
+export SIMPLY_AccountName=<Your accountname>
+export SIMPLY_ApiKey=<Your API-key>
+```
+
+To issue a cert:
+```
+./acme.sh --issue --dns dns_simply -d example.com -d www.example.com
+```
+To issue a wildcard cert:
+```
+./acme.sh --issue --dns dns_simply -d example.com -d *.example.com
+```
+
 # Use custom API
 
 If your API is not supported yet, you can write your own DNS API.
