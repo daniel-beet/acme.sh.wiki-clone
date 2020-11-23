@@ -2516,6 +2516,26 @@ You can find more details [here](https://github.com/arabezar/acme.sh/wiki)
 
 Please report any issue [here](https://github.com/acmesh-official/acme.sh/issues/3248)
 
+## 123. Use HuaweiCloud API (Under Development)
+Export your credentials as an environment variable:
+
+ProjectID can be found at [here](https://console-intl.huaweicloud.com/iam/?region=ap-southeast-1#/myCredential)
+
+```
+export HUAWEICLOUD_Username=<Your Username> # Usually hwxxxxxx
+export HUAWEICLOUD_Password=<Your Password>
+export HUAWEICLOUD_ProjectID=<A Project ID> 
+```
+
+To issue a cert:
+```
+./acme.sh --issue --dns dns_huaweicloud -d example.com -d www.example.com
+```
+To issue a wildcard cert:
+```
+./acme.sh --issue --dns dns_huaweicloud -d example.com -d *.example.com
+```
+
 # Use custom API
 
 If your API is not supported yet, you can write your own DNS API.
