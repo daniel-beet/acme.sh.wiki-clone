@@ -249,6 +249,9 @@ And please watch to that issue. Any future bug will be reported there.
 
 Example: https://github.com/Neilpang/acme.sh/issues/2057
 
+### 11. Please read and follow the instruction before creating pull request
+Please follow the guide: https://github.com/acmesh-official/acme.sh/wiki/DNS-API-Test
+
 
 
 
