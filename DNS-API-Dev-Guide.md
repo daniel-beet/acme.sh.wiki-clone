@@ -19,7 +19,7 @@ acme.sh --issue -d example.com  --dns  dns_myapi
 
 Here we go:
 
-### 1. The cloudflare dns api is a recommended reference:
+### 1. The Cloudflare dns api is a recommended reference:
     Read it first:
     https://github.com/Neilpang/acme.sh/blob/master/dnsapi/dns_cf.sh
 
@@ -41,7 +41,7 @@ Here we go:
     ```sh
     #!/usr/bin/env sh
     ```
-    After the installation, acme.sh could change the shebang to bash to get a better performance if you have bash on your machine.
+    After the installation, acme.sh could change the shebang to bash to get better performance if you have bash on your machine.
 
     Of course, if you just use it on your own, it can be any valid shebang on your machine. It could be `sh` or `bash`, it's up to you.
 
@@ -57,7 +57,7 @@ Here we go:
     dns_myapi_rm() { }
 
     ```
-    Actually, the `dns_myapi_add()` is required, but `dns_myapi_rm()` is optional.  You can just write the add function at the beginning for testing purpose, it's `highly recommended` to implement the rm function too. Otherwise your txt records will increase 1 every 2 months.
+    Actually, the `dns_myapi_add()` is required, but `dns_myapi_rm()` is optional.  You can just write the add function at the beginning for testing purpose, it's `highly recommended` to implement the rm function too. Otherwise, your txt records will increase 1 every 2 months.
 
 
 ### 6. Guide for the add function
@@ -75,7 +75,7 @@ dns_myapi_add() {
 ```
 
 #### 2. You must save your username and password in the add function:
-The credentials such as username, password, api key or api token etc, must be saved, so that acme.sh can renew the cert automatically in future. It will reuse the credentials automatically.
+The credentials such as username, password, api key or api token etc, must be saved so that acme.sh can renew the cert automatically in future. It will reuse the credentials automatically.
 
 
 ```sh
@@ -88,7 +88,7 @@ dns_myapi_add() {
     MYAPI_Username=""
     MYAPI_Password=""
     _err "You don't specify cloudflare api key and email yet."
-    _err "Please create you key and try again."
+    _err "Please create your key and try again."
     return 1
   fi
 
@@ -111,12 +111,12 @@ The full domain could be in one of the following formats:
 5. `_acme-challenge.sub1.sub2.www.example.co.uk`
 6. `sub1.sub2.example.co.uk`
 
-For most of the dns providers, you must determine which part is the domain root zone(example.com or example.co.uk), and which part is the sub domain(_acme-challenge or _acme-challenge.www)
+For most of the dns providers, you must determine which part is the domain root zone(example.com or example.co.uk), and which part is the subdomain(_acme-challenge or _acme-challenge.www)
 
-*You can not just split the full domain, and get the first part as sub domain, and the rest as root zone.
+*You can not just split the full domain, and get the first part as subdomain, and the rest as root zone.
 Please make sure you can handle all the formats above.*
 
-A good practice is to list all your root zones through your dns api, then compare and detect which part is the root zone. Then the rest is the sub domain.
+A good practice is to list all your root zones through your dns api, then compare and detect which part is the root zone. Then the rest is the subdomain.
 
 See: 
 https://github.com/Neilpang/acme.sh/blob/master/dnsapi/dns_cf.sh#L142
@@ -138,9 +138,9 @@ dns_myapi_add() {
 
 #### 4. Call your dns api to add txt record.
 
-Most of the dns providers provide a http api or REST api.
+Most of the dns providers provide a HTTP api or REST api.
 
-So, you can just use http GET/POST/PUT/DELETE method to call their api to add/remove txt record.
+So, you can just use HTTP GET/POST/PUT/DELETE method to call their api to add/remove txt record.
 
 acme.sh defined two functions to make http GET/POST/PUT/DELETE connections.
 
@@ -225,7 +225,7 @@ You can use `sed`, `grep`, `cut`, `paste` etc, Do not use `awk` at all.
 
 The steps are the same as the add function.
 
-Please take care that the rm function and add function are called in 2 different isolated subshell.  So, you can not pass any env vars from the add function to the rm function.
+Please take care that the rm function and add function are called in 2 different isolated subshells.  So, you can not pass any env vars from the add function to the rm function.
 
 You must re-do all the preparations of the add function here too.
 
