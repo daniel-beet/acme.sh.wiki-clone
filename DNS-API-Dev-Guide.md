@@ -241,7 +241,7 @@ https://github.com/Neilpang/acme.sh/issues/1261
 
 ### 9. Update the docs to include your dns api usage.
 
-please append your api at last: https://github.com/Neilpang/acme.sh/wiki/dnsapi
+please append your api at the end: https://github.com/Neilpang/acme.sh/wiki/dnsapi
 
 
 ### 10. Please create a new issue for future bugs
@@ -255,10 +255,12 @@ Example: https://github.com/Neilpang/acme.sh/issues/2057
 Please follow the guide: https://github.com/acmesh-official/acme.sh/wiki/DNS-API-Test
 
 
-### 12. Others
-    1. Don't use `grep -o` options, please use `_egrep_o()` function instead.
-    2. Don't use `curl` or `wget`,  please use `_get()` or `_post()` function instead.  The `_post()` function can send `POST`, `PUT` or `UPDATE` requests.
+### 12. Cross Platform Compatibility Guide
 
+1. Don't use `grep -o` options, please use `_egrep_o()` function instead, other grep options may be used with caution.
+2. Don't use `curl` or `wget`,  please use `_get()` or `_post()` function instead.  The `_post()` function can send `POST`, `PUT` or `UPDATE` requests.
+3. Do not use `sed -e`.
+4. Do not use sed with label.
 
 ## Style Guidelines
 acme.sh uses shellcheck for new commits and also enforces style guidelines.  
