@@ -202,7 +202,7 @@ Your HTTP method call may require additional headers for Authorization, ContentT
 
 Just number the _H*n* in the order that you need the headers. Please review [these](https://github.com/Neilpang/acme.sh/blob/master/dnsapi/dns_zone.sh#L110) [few](https://github.com/Neilpang/acme.sh/blob/master/dnsapi/dns_desec.sh#L151) [examples](https://github.com/Neilpang/acme.sh/blob/master/dnsapi/dns_jd.sh#L184) for inspiration.
 
-This is only way to pass the equivalent wget's _--user_ and _--password_ and curl's _--user_ parameters. 
+This is the only way to pass the equivalent wget's _--user_ and _--password_ and curl's _--user_ parameters. 
 
 #### 6. Process the api response.
 
@@ -223,9 +223,9 @@ You can use `sed`, `grep`, `cut`, `paste` etc, Do not use `awk` at all.
 
 ### 7. Guide for the rm function.
 
-The steps is same as the add function.
+The steps are the same as the add function.
 
-Please take care that the rm function and add function are called in 2 different isolated sub shell.  So, you can not pass any env vars from the add function to the rm function.
+Please take care that the rm function and add function are called in 2 different isolated subshell.  So, you can not pass any env vars from the add function to the rm function.
 
 You must re-do all the preparations of the add function here too.
 
@@ -245,22 +245,24 @@ please append your api at the end: https://github.com/Neilpang/acme.sh/wiki/dnsa
 
 
 ### 10. Please create a new issue for future bugs
-Please report a new issue here: `"Report bugs to xxxx dns api"`  https://github.com/Neilpang/acme.sh/issues
+Please report a new issue here: `" Report bugs to xxxx dns api"`  https://github.com/Neilpang/acme.sh/issues
 
 And please watch to that issue. Any future bug will be reported there.
 
 Example: https://github.com/Neilpang/acme.sh/issues/2057
 
-### 11. Please read and follow the instruction before creating pull request
+### 11. Please read and follow the instruction before creating a pull request
 Please follow the guide: https://github.com/acmesh-official/acme.sh/wiki/DNS-API-Test
 
 
-### 12. Cross Platform Compatibility Guide
+### 12. Cross-Platform Compatibility Guide
 
 1. Don't use `grep -o` options, please use `_egrep_o()` function instead, other grep options may be used with caution.
 2. Don't use `curl` or `wget`,  please use `_get()` or `_post()` function instead.  The `_post()` function can send `POST`, `PUT` or `UPDATE` requests.
-3. Do not use `sed -e`.
-4. Do not use sed with label.
+3. Do not use `sed -e`, which causes a problem in OS X and BSD.
+4. Do not use `sed` with labels, which causes `Label too long` problem in Solaris.
+
+If you need a BSD or Solaris development environment, please head to [vmactions](https://github.com/vmactions). For example, you can use [solaris-shell](https://github.com/vmactions/shell-solaris) to get a shell environment in Solaris.
 
 ## Style Guidelines
 acme.sh uses shellcheck for new commits and also enforces style guidelines.  
