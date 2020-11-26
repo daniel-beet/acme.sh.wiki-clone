@@ -2553,6 +2553,23 @@ To issue a wildcard cert:
 ./acme.sh --issue --dns dns_simply -d example.com -d *.example.com
 ```
 
+## 125. Use World4You API
+Export your credentials as an environment variable:
+
+```
+export WORLD4YOU_USERNAME=<customer-id>
+export WORLD4YOU_PASSWORD=<password>
+```
+
+To issue a cert:
+```
+./acme.sh --issue --dns dns_world4you -d example.com -d www.example.com
+```
+To issue a wildcard cert:
+```
+./acme.sh --issue --dns dns_world4you -d example.com -d *.example.com
+```
+
 # Use custom API
 
 If your API is not supported yet, you can write your own DNS API.
