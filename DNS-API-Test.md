@@ -60,4 +60,9 @@ Usually, it's larger than `120` seconds.
 
 
  
+# How to get a Solaris server
+
+If you need a solaris shell to debug your script,  please see this project: https://github.com/vmactions/shell-solaris
+
+
 
