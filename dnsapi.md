@@ -2454,13 +2454,13 @@ Enjoy it.
 ## 118. Use Websupport DNS API
 Obtain an api key and secret from https://admin.websupport.sk/en/auth/apiKey
 ```
-export WS_APIKEY="xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
-export WS_APISECRET="xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+export WS_ApiKey="xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+export WS_ApiSecret="xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
 ```
 
 To issue a cert:
 ```
-acme.sh --issue --dns dns_websupport -d example.com -d www.example.com
+acme.sh --issue --dns dns_websupport -d "*.example.com" -d "examle.com"
 ```
 
 Report any issues to https://github.com/trgosk/acme.sh/issues
