@@ -624,3 +624,24 @@ acme.sh --deploy -d example.com --deploy-hook openstack
 ```
 
 Your OpenStack credentials will be saved to `~/.acme.sh/account.conf`.
+
+## 22. Deploy the cert to CleverReach
+
+For this provide you need a OAuth App with Client Credential rights. You can create it at https://eu.cleverreach.com/admin/account_rest.php
+For the rights please contact the CleverReach support.
+
+Please ensure that your domain for the cert. is already added to your account.
+
+After this set the following variables:
+
+```sh
+export DEPLOY_CLEVERREACH_CLIENT_ID="Your CleverReach OAuth Client ID"
+export DEPLOY_CLEVERREACH_CLIENT_SECRET="Your CleverReach OAuth Client Secret"
+```
+
+To deploy the cert now run:
+```sh
+acme.sh --deploy -d example.com --deploy-hook cleverreach
+```
+
+Now the cert is added to all domains that are covered by it.
