@@ -2516,10 +2516,11 @@ You can find more details [here](https://github.com/arabezar/acme.sh/wiki)
 
 Please report any issue [here](https://github.com/acmesh-official/acme.sh/issues/3248)
 
-## 123. Use HuaweiCloud API (Under Development)
+## 123. Use HuaweiCloud API
 Export your credentials as an environment variable:
 
 ProjectID can be found at [here](https://console-intl.huaweicloud.com/iam/?region=ap-southeast-1#/myCredential)
+It seems that project ID can be retrieved automatically, but this dnsapi does not implement it yet.
 
 ```
 export HUAWEICLOUD_Username=<Your Username> # Usually hwxxxxxx
