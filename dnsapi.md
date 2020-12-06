@@ -2571,6 +2571,20 @@ To issue a wildcard cert:
 ./acme.sh --issue --dns dns_world4you -d example.com -d *.example.com
 ```
 
+## 126. Use Scaleway API
+
+First, you'll need to retrieve your [Api Key](https://www.scaleway.com/en/docs/generate-api-keys/)
+
+```
+export SCALEWAY_API_TOKEN='xxx'
+```
+
+To issue a cert run:
+
+```
+acme.sh --issue --dns dns_scaleway -d example.com -d www.example.com
+```
+
 # Use custom API
 
 If your API is not supported yet, you can write your own DNS API.
@@ -2588,20 +2602,6 @@ acme.sh --issue --dns dns_myapi -d example.com -d www.example.com
 For more details, please check our sample script: [dns_myapi.sh](https://github.com/Neilpang/acme.sh/blob/master/dnsapi/dns_myapi.sh)
 
 See:  [DNS API Dev Guide](https://github.com/Neilpang/acme.sh/wiki/DNS-API-Dev-Guide)
-
-## 126. Use Scaleway API
-
-First, you'll need to retrieve your [Api Key](https://www.scaleway.com/en/docs/generate-api-keys/)
-
-```
-export SCALEWAY_API_TOKEN='xxx'
-```
-
-To issue a cert run:
-
-```
-acme.sh --issue --dns dns_scaleway -d example.com -d www.example.com
-```
 
 -----------------------------------
 
