@@ -2589,6 +2589,20 @@ For more details, please check our sample script: [dns_myapi.sh](https://github.
 
 See:  [DNS API Dev Guide](https://github.com/Neilpang/acme.sh/wiki/DNS-API-Dev-Guide)
 
+## 126. Use Scaleway API
+
+First, you'll need to retrieve your [Api Key](https://www.scaleway.com/en/docs/generate-api-keys/)
+
+```
+export SCALEWAY_API_TOKEN='xxx'
+```
+
+To issue a cert run:
+
+```
+acme.sh --issue --dns dns_scaleway -d example.com -d www.example.com
+```
+
 -----------------------------------
 
 **More APIs coming soon...**
