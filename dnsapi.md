@@ -2585,6 +2585,8 @@ To issue a cert run:
 acme.sh --issue --dns dns_scaleway -d example.com -d www.example.com
 ```
 
+Please report any issue [here](https://github.com/acmesh-official/acme.sh/issues/3295)
+
 # Use custom API
 
 If your API is not supported yet, you can write your own DNS API.
