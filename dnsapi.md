@@ -2585,6 +2585,8 @@ To issue a cert run:
 acme.sh --issue --dns dns_scaleway -d example.com -d www.example.com
 ```
 
+Please report any issue [here](https://github.com/acmesh-official/acme.sh/issues/3295)
+
 ## 127 First you need to login to your LS account to get your API Key.
 
 ```
@@ -2595,8 +2597,6 @@ Ok, let's issue a cert now:
 ```
 acme.sh --issue --dns dns_ls -d example.com -d www.example.com
 ```
-
-Please report any issue [here](https://github.com/acmesh-official/acme.sh/issues/3295)
 
 # Use custom API
 
