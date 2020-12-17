@@ -65,4 +65,9 @@ Usually, it's larger than `120` seconds.
 If you need a solaris shell to debug your script,  please see this project: https://github.com/vmactions/shell-solaris
 
 
+# How to get a FreeBSD server
+
+If you need a freebsd shell to debug your script,  please see this project: https://github.com/vmactions/shell-freebsd
+
+
 
