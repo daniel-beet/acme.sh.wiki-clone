@@ -2,7 +2,7 @@
 
 As one of the big docker fans, I understand that we hate installing anything on a docker host, even if it's just copying a shell script. 
 
-### Automated nginx reverse proxy docker image with acme.sh for letsencrpt ssl cert: https://github.com/Neilpang/nginx-proxy
+### Automated nginx reverse proxy docker image with acme.sh for letsencrypt ssl cert: https://github.com/Neilpang/nginx-proxy
 
 ### Deploy to a docker container and reload it: https://github.com/Neilpang/acme.sh/wiki/deploy-to-docker-containers
 
