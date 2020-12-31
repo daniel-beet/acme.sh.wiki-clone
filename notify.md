@@ -360,3 +360,49 @@ The `TEAMS_WEBHOOK_URL`, `TEAMS_THEME_COLOR`, `TEAMS_SUCCESS_COLOR`, `TEAMS_ERRO
 
 To omit default color set variable value to any non xdigit character, eg. `TEAMS_SUCCESS_COLOR="-"`.
 
+
+## 12. Set notification for SMTP
+
+acme.sh can send email notifications by connecting directly to an SMTP mail server. Most commercial email service providers (ESPs) and corporate email systems support sending through SMTP, including Amazon SES, GSuite/Google Workspaces, Outlook.com, and others.
+
+> SMTP support is pending merge of PR [#3330](https://github.com/acmesh-official/acme.sh/pull/3330). To try it out before that, grab the updated [acme.sh/notify/smtp.sh](https://github.com/medmunds/acme.sh/blob/feature/notify-smtp/notify/smtp.sh) from the pull request.
+
+SMTP notifications in acme.sh require Python (2.7 or 3) on the machine where you run acme.sh. (If you don't have Python available, you may be able to use [mail notifications](#3-set-notification-for-mail) instead.)
+
+First, get the SMTP connection information for your server or service. You'll need to know:
+* the SMTP hostname (e.g., smtp.example.com) and port (e.g., 587)
+* type of secure connection required: "tls" (called _STARTTLS_ or _explicit TLS_), "ssl" (called _TLS wrapper_ or _implicit TLS_), or "none"
+* whether authentication (login) is required, and if so the username and password to use
+
+Set in your system environment:
+```sh
+# These are required:
+SMTP_FROM="from@example.com"  # just the email address (no display names)
+SMTP_TO="to@example.com,to2@example.net"  # just the email address, use commas between multiple emails
+SMTP_HOST="smtp.example.com"
+SMTP_SECURE="none"  # one of "none", "ssl" (implicit TLS, TLS Wrapper), "tls" (explicit TLS, STARTTLS)
+
+# The default port depends on SMTP_SECURE: none=25, ssl=465, tls=587.
+# If your SMTP server uses a different port, set it:
+SMTP_PORT="2525"
+
+# If your SMTP server requires AUTH (login), set:
+SMTP_USERNAME="<username>"
+SMTP_PASSWORD="<password>"
+
+# acme.sh will try to use the system python3 (preferred) or python.
+# If it can't find one, or to run a specific Python interpreter, set:
+SMTP_PYTHON="/path/to/python"
+
+# If your SMTP server is slow to respond, you may need to set:
+SMTP_TIMEOUT="15"  # seconds for SMTP operations to timeout, default 15
+```
+
+Ok, let's set notification hook:
+```sh
+acme.sh --set-notify --notify-hook smtp
+```
+
+If everything works, you will see a "success" message and receive a test email at the `SMTP_TO` address. If you get an error message, read it carefully: it will usually explain what went wrong somewhere (possibly mixed in with less helpful error codes). For additional troubleshooting, run the command again with `--debug` or `--debug 2`. (At debug level 2 or higher the output will show the complete SMTP dialogue, which may include the SMTP password.)
+
+All of the `SMTP_*` settings will be saved in ~/.acme.sh/account.conf and will be reused when needed.
