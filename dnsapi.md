@@ -2598,6 +2598,21 @@ Ok, let's issue a cert now:
 acme.sh --issue --dns dns_ls -d example.com -d www.example.com
 ```
 
+## 128. Use RackCorp API
+Export your credentials as an environment variable:
+```
+export RACKCORP_APIUUID="UUIDHERE"
+export RACKCORP_APISECRET="SECRETHERE"
+```
+To issue a cert:
+```
+./acme.sh --issue --dns dns_rackcorp -d example.com -d www.example.com
+```
+To issue a wildcard cert:
+```
+./acme.sh --issue --dns dns_rackcorp -d example.com -d *.example.com
+```
+
 # Use custom API
 
 If your API is not supported yet, you can write your own DNS API.
