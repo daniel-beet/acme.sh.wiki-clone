@@ -696,3 +696,24 @@ DEPLOY_UNIFI_CLOUDKEY_CERTDIR="/etc/ssl/private"
 DEPLOY_UNIFI_RELOAD="service nginx restart && service unifi restart"
 ```
 
+## 24. Deploy the cert into a Peplink router
+
+```sh
+# Required settings
+export PEPLINK_Hostname="192.168.0.1"
+export PEPLINK_Username="Peplink_Admin_Username"
+export PEPLINK_Password="Peplink_Admin_Password"
+# Optional settings (and default values)
+# export PEPLINK_Certtype="webadmin" # The type of certificate in "Network" -> "Certificate Manager". Possible options are: "chub" (ContentHub), "openvpn" (OpenVPN CA), "portal" (Captive Portal SSL),"webadmin" (Web Admin SSL), "webproxy" (Proxy Root CA), "wwan_ca" (Wi-Fi WAN CA), "wwan_client" (Wi-Fi WAN Client)
+# export PEPLINK_Scheme="https" # Can be set to HTTP, defaults to HTTPS
+# export PEPLINK_Port="443" # Port of Peplink WebUI, defaults to 443
+acme.sh --deploy -d example.com --deploy-hook peplink
+```
+
+When using https to connect to the Web UI with an existing self-signed certificate (e.g. the default certificate) we need to add the --insecure option to the deploy command. refer to [https://github.com/acmesh-official/acme.sh/wiki/Options-and-Params].
+
+```sh
+acme.sh --insecure --deploy -d example.com --deploy-hook peplink
+```
+
+The certificate should now show up in  "Network" -> "Certificate Manager".
