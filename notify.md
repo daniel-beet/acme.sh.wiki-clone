@@ -412,7 +412,7 @@ All of the `SMTP_*` settings will be saved in ~/.acme.sh/account.conf and will b
 
 To have notifications delivered via Telegram, you first need to [create a new Telegram bot](https://core.telegram.org/bots#creating-a-new-bot), by talking to [@BotFather](https://t.me/botfather) within your Telegram client. Save the bot token that is returned after creation.
 
-Next, you need the `chat_id` of your Telegram account (or a group). The simplest way to do this is to start a conversation with your new bot, and send a simple test message to it. Then, using `curl`, fetch the `getUpdates` API endpoint, and look for the chat id in the json object for the message you sent. For example:
+Next, you need the `chat_id` of your Telegram account (or a group). The simplest way to do this is to start a conversation with your new bot, and send a simple test message to it. Then, using `curl`, fetch the [`getUpdates`](https://core.telegram.org/bots/api#getupdates) API endpoint, and look for the chat id in the json object for the message you sent. For example:
 
 ```sh
 $ bot_token="...." # enter your new bot's API token here.
@@ -429,6 +429,8 @@ $ curl -s "https://api.telegram.org/bot${bot_token}/getUpdates" | python -mjson.
                     "type": "private",
                     "username": "joebloggs"
                 },
+                ......
+                "text": "text of the test message you sent",
                 ......
 <snip rest of output>
 $
