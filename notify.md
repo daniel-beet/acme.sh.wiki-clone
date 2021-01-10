@@ -406,3 +406,43 @@ acme.sh --set-notify --notify-hook smtp
 If everything works, you will see a "success" message and receive a test email at the `SMTP_TO` address. If you get an error message, read it carefully: it will usually explain what went wrong somewhere (possibly mixed in with less helpful error codes). For additional troubleshooting, run the command again with `--debug` or `--debug 2`. (At debug level 2 or higher the output will show the complete SMTP dialogue, which may include the SMTP password.)
 
 All of the `SMTP_*` settings will be saved in ~/.acme.sh/account.conf and will be reused when needed.
+
+
+## 13. Set notification for Telegram
+
+To have notifications delivered via Telegram, you first need to [create a new Telegram bot](https://core.telegram.org/bots#creating-a-new-bot), by talking to [@BotFather](https://t.me/botfather) within your Telegram client. Save the bot token that is returned after creation.
+
+Next, you need the `chat_id` of your Telegram account (or a group). The simplest way to do this is to start a conversation with your new bot, and send a simple test message to it. Then, using `curl`, fetch the `getUpdates` API endpoint, and look for the chat id in the json object for the message you sent. For example:
+
+```sh
+$ bot_token="...." # enter your new bot's API token here.
+$ curl -s "https://api.telegram.org/bot${bot_token}/getUpdates" | python -mjson.tool
+{
+    "ok": true,
+    "result": [
+        {
+            "message": {
+                "chat": {
+                    "first_name": "Joe",
+                    "id": 12345678,            <----- This is the Chat ID.
+                    "last_name": "Bloggs",
+                    "type": "private",
+                    "username": "joebloggs"
+                },
+                ......
+<snip rest of output>
+$
+```
+
+Once you have both the API token, and the chat ID for where you want the Bot to set notifications, set the following two variables to be used by the notification hook script:
+
+```sh
+export TELEGRAM_BOT_APITOKEN="..."   # Token returned by @BotFather during bot creation above.
+export TELEGRAM_BOT_CHATID="..."     # Chat ID fetched above.
+```
+
+And then set notification hook:
+
+```
+acme.sh --set-notify --notify-hook telegram
+```
