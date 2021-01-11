@@ -650,21 +650,24 @@ Now the cert is added to all domains that are covered by it.
 
 ## 23. Deploy the cert on a Unifi Controller or Cloud Key
 
+The unifi deploy hook supports self-hosted Unifi Controller, Unifi Cloud Key Gen1,
+and UnifiOS (including Cloud Key Gen2).
+
 These instructions are for running acme.sh locally on the Unifi Controller 
 machine or on a Unifi Cloud Key device. If you run acme.sh on a remote machine, 
 follow the Unifi examples under [ssh deploy](#examples-using-ssh-deploy) instead.
 
 Report any issues to https://github.com/acmesh-official/acme.sh/issues/3359
 
-> Note: Full support for Cloud Key devices is pending merge of [PR #3327](https://github.com/acmesh-official/acme.sh/pull/3327)]
+> Note: Support for Cloud Key devices is pending merge of [PR #3327](https://github.com/acmesh-official/acme.sh/pull/3327)
 
 To deploy the cert run:
 ```sh
 acme.sh --deploy -d example.com --deploy-hook unifi
 ```
 
-You may see a warning that "the JKS keystore uses a proprietary format."
-It can be ignored.
+You may see a warning about "Overwriting existing alias unifi in destination keystore"
+or that "the JKS keystore uses a proprietary format." Both can be ignored.
 
 The "service unifi restart" step may take a minute or more as it reloads the
 Unifi Controller.
@@ -674,29 +677,17 @@ firmware upgrades when installed in the default location (/root/.acme.sh).
 But the renewal cron job may be lost after some firmware upgrades; use `crontab -l` 
 to check, and re-install with `acme.sh --install-cronjob` if necessary.
 
-If you have a non-standard Unifi Controller installation, you may need
-to set some variables before running the deploy hook the first time.
-Most users do not need to set these:
+The unifi deploy hook automatically detects supported Unifi environments, and
+should not need additional configuration. However, if you have a non-standard (self hosted) 
+Unifi Controller installation, you may need to set some variables before running the deploy 
+hook the first time, e.g:
 
 ```sh
-# Settings for Unifi Controller:
-# Location of keystore or unifi.keystore.jks file:
-DEPLOY_UNIFI_KEYSTORE="/usr/lib/unifi/data/keystore"
-# Keystore password (built into Unifi Controller, not a user-set password):
-DEPLOY_UNIFI_KEYPASS="aircontrolenterprise"
-# Command to restart the Controller:
-DEPLOY_UNIFI_RELOAD="service unifi restart"
-
-# Additional settings for Unifi Cloud Key:
-# Whether to also deploy certs for Cloud Key maintenance pages
-# (default is "yes" when running on Cloud Key, "no" otherwise):
-DEPLOY_UNIFI_CLOUDKEY="yes"
-# Directory where cloudkey.crt and cloudkey.key live:
-DEPLOY_UNIFI_CLOUDKEY_CERTDIR="/etc/ssl/private"
-# Command to restart maintenance pages and Controller
-# (same setting as above, default is updated when running on Cloud Key):
-DEPLOY_UNIFI_RELOAD="service nginx restart && service unifi restart"
+export DEPLOY_UNIFI_KEYSTORE="/path/to/custom/java/keystore"
 ```
+
+See the comments at the top of [notify.sh](https://github.com/acmesh-official/acme.sh/blob/master/deploy/unifi.sh)
+for a list of settings. (Most users should not need to do this.)
 
 ## 24. Deploy the cert into a Peplink router
 
