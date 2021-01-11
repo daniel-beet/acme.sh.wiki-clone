@@ -2606,11 +2606,11 @@ export RACKCORP_APISECRET="SECRETHERE"
 ```
 To issue a cert:
 ```
-./acme.sh --issue --dns dns_rackcorp -d example.com -d www.example.com
+acme.sh --issue --dns dns_rackcorp -d example.com -d www.example.com
 ```
 To issue a wildcard cert:
 ```
-./acme.sh --issue --dns dns_rackcorp -d example.com -d *.example.com
+acme.sh --issue --dns dns_rackcorp -d example.com -d *.example.com
 ```
 
 # Use custom API
