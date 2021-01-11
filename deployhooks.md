@@ -654,7 +654,9 @@ These instructions are for running acme.sh locally on the Unifi Controller
 machine or on a Unifi Cloud Key device. If you run acme.sh on a remote machine, 
 follow the Unifi examples under [ssh deploy](#examples-using-ssh-deploy) instead.
 
-[Full support for Cloud Key pending merge of [PR #3327](https://github.com/acmesh-official/acme.sh/pull/3327)]
+Report any issues to https://github.com/acmesh-official/acme.sh/issues/3359
+
+> Note: Full support for Cloud Key devices is pending merge of [PR #3327](https://github.com/acmesh-official/acme.sh/pull/3327)]
 
 To deploy the cert run:
 ```sh
