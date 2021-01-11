@@ -365,6 +365,8 @@ To omit default color set variable value to any non xdigit character, eg. `TEAMS
 
 acme.sh can send email notifications by connecting directly to an SMTP mail server. Most commercial email service providers (ESPs) and corporate email systems support sending through SMTP, including Amazon SES, GSuite/Google Workspaces, Outlook.com, and others.
 
+Please report bugs in the SMTP notify hook in [issue #3358](https://github.com/acmesh-official/acme.sh/issues/3358).
+
 > SMTP support is pending merge of PR [#3330](https://github.com/acmesh-official/acme.sh/pull/3330). To try it out before that, grab the updated [acme.sh/notify/smtp.sh](https://github.com/medmunds/acme.sh/blob/feature/notify-smtp/notify/smtp.sh) from the pull request.
 
 SMTP notifications in acme.sh require Python (2.7 or 3) on the machine where you run acme.sh. (If you don't have Python available, you may be able to use [mail notifications](#3-set-notification-for-mail) instead.)
