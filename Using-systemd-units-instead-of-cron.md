@@ -9,7 +9,7 @@ After=network-online.target
 [Service]
 Type=oneshot
 # --home's argument should be where the acme.sh script resides.
-ExecStart=/path/to/acme.sh --home /path/to/acme.sh
+ExecStart=/path/to/acme.sh --cron --home /path/to/acme.sh
 
 SuccessExitStatus=0 2
 ```
