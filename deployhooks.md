@@ -650,8 +650,8 @@ Now the cert is added to all domains that are covered by it.
 
 ## 23. Deploy the cert on a Unifi Controller or Cloud Key
 
-The unifi deploy hook supports self-hosted Unifi Controller, Unifi Cloud Key Gen1,
-and UnifiOS (including Cloud Key Gen2).
+The unifi deploy hook supports self-hosted Unifi Controller, Unifi Cloud Key (Gen1/2/2+),
+and Unifi Cloud Key running UnifiOS (v2.0.0+, Gen2/2+ only).
 
 These instructions are for running acme.sh locally on the Unifi Controller 
 machine or on a Unifi Cloud Key device. If you run acme.sh on a remote machine, 
