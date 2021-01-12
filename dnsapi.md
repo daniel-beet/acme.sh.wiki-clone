@@ -744,7 +744,7 @@ Both, `SERVERCOW_API_Username` and `SERVERCOW_API_Password` will be saved in `~/
 
 ## 35. Use Namesilo.com API
 
-You'll need to generate an API key at https://www.namesilo.com/account_api.php
+You'll need to generate an API key at https://www.namesilo.com/account/api-manager
 Optionally you may restrict the access to an IP range there.
 
 ```
