@@ -110,8 +110,8 @@ The full domain could be in either one of the following formats:
 4. `_acme-challenge.www.example.co.uk`
 5. `_acme-challenge.sub1.sub2.www.example.co.uk`
 6. `sub1.sub2.example.co.uk`
-7. `example.com`
-8. `example.co.uk`
+7. `example.com`  ( For [dns alias mode](https://github.com/acmesh-official/acme.sh/wiki/DNS-alias-mode))
+8. `example.co.uk` ( For [dns alias mode](https://github.com/acmesh-official/acme.sh/wiki/DNS-alias-mode))
 
 For most of the dns providers, you must determine which part is the domain root zone(example.com or example.co.uk), and which part is the subdomain(_acme-challenge or _acme-challenge.www)
 
