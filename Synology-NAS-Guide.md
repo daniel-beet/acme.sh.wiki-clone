@@ -59,6 +59,8 @@ $ cd /usr/local/share/acme.sh
 $ export SYNO_Username='Admin_Username'
 $ export SYNO_Password='Admin_Password!123'
 # You must specify SYNO_Certificate, for the default certificate, we use an empty string
+# Please be aware that the empty string only works if you haven't added/changed the description for
+# the default certificate. If you have, you'll need to specify the description here.
 $ export SYNO_Certificate=""
 $ ./acme.sh --deploy --home . -d "$CERT_DOMAIN" --deploy-hook synology_dsm
 ```
@@ -80,6 +82,8 @@ $ export SYNO_Password='Admin_Password!123'
 $ export SYNO_Scheme="https"
 $ export SYNO_Port="5001"
 # You must specify SYNO_Certificate, for the default certificate, we use an empty string
+# Please be aware that the empty string only works if you haven't added/changed the description for
+# the default certificate. If you have, you'll need to specify the description here.
 $ export SYNO_Certificate=""
 $ ./acme.sh --insecure --deploy --home . -d "$CERT_DOMAIN" --deploy-hook synology_dsm
 ```
