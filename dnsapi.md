@@ -2613,6 +2613,26 @@ To issue a wildcard cert:
 acme.sh --issue --dns dns_rackcorp -d example.com -d *.example.com
 ```
 
+## 129. Using the IONOS domain API
+
+Read [Getting Started](https://developer.hosting.ionos.de/docs/getstarted) to learn how to create an API key.
+Export your credentials as environment variables:
+
+```
+export IONOS_PREFIX="..."
+export IONOS_SECRET="..."
+```
+
+To issue a certificate, execute:
+```
+acme.sh --issue --dns dns_ionos -d example.com -d www.example.com
+```
+
+To issue a wildcard certificate, execute:
+```
+acme.sh --issue --dns dns_ionos -d example.com -d *.example.com
+```
+
 # Use custom API
 
 If your API is not supported yet, you can write your own DNS API.
