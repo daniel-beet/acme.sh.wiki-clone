@@ -13,12 +13,13 @@ https://zerossl.com/letsencrypt-alternative/#acme
 acme.sh  --register-account  -m myemail@example.com --server zerossl
 ```
 
+```
 If you already have an account at www.zerossl.com, you can register your acme account with External Account Binding(EAB) credentials.
 
 1. Generate your EAB credentials at: https://app.zerossl.com/developer
 2. Register acme account:
 
-```
+
 acme.sh  --register-account  --server zerossl \
         --eab-kid  xxxxxxxxxxxx  \
         --eab-hmac-key  xxxxxxxxx
