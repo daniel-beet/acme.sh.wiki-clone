@@ -1,5 +1,5 @@
 
-As for now, if no `server` is provided, or you don't `--set-default-ca`, acme.sh uses letsencrypt as the default CA.
+As for now, if no `server` is provided, or you have not `--set-default-ca` yet, acme.sh uses letsencrypt as the default CA.
 
 https://github.com/acmesh-official/acme.sh/wiki/Server
 
