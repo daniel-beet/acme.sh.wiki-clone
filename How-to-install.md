@@ -45,7 +45,7 @@ cd acme.sh
 --home ~/myacme \
 --config-home ~/myacme/data \
 --cert-home  ~/mycerts \
---m  "my@example.com" \
+--email  "my@example.com" \
 --accountkey  ~/myaccount.key \
 --accountconf ~/myaccount.conf \
 --useragent  "this is my client."
