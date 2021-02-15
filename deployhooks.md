@@ -651,15 +651,14 @@ Now the cert is added to all domains that are covered by it.
 ## 23. Deploy the cert on a Unifi Controller or Cloud Key
 
 The unifi deploy hook supports self-hosted Unifi Controller, Unifi Cloud Key (Gen1/2/2+),
-and Unifi Cloud Key running UnifiOS (v2.0.0+, Gen2/2+ only).
+and Unifi Cloud Key running UnifiOS (v2.0.0+, Gen2/2+ only). Full support for Cloud Key
+devices is available in acme.sh v2.8.9 or later.
 
 These instructions are for running acme.sh locally on the Unifi Controller 
 machine or on a Unifi Cloud Key device. If you run acme.sh on a remote machine, 
 follow the Unifi examples under [ssh deploy](#examples-using-ssh-deploy) instead.
 
 Report any issues to https://github.com/acmesh-official/acme.sh/issues/3359
-
-> Note: Support for Cloud Key devices is pending merge of [PR #3327](https://github.com/acmesh-official/acme.sh/pull/3327)
 
 To deploy the cert run:
 ```sh
@@ -686,7 +685,7 @@ hook the first time, e.g:
 export DEPLOY_UNIFI_KEYSTORE="/path/to/custom/java/keystore"
 ```
 
-See the comments at the top of [notify.sh](https://github.com/acmesh-official/acme.sh/blob/master/deploy/unifi.sh)
+See the comments at the top of [unifi.sh](https://github.com/acmesh-official/acme.sh/blob/master/deploy/unifi.sh)
 for a list of settings. (Most users should not need to do this.)
 
 ## 24. Deploy the cert into a Peplink router
