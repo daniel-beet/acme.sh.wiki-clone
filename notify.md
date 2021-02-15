@@ -369,10 +369,10 @@ Please report bugs in the SMTP notify hook in [issue #3358](https://github.com/a
 
 > SMTP support is pending merge of PR [#3330](https://github.com/acmesh-official/acme.sh/pull/3330). To try it out before that, grab the updated [acme.sh/notify/smtp.sh](https://github.com/medmunds/acme.sh/blob/feature/notify-smtp/notify/smtp.sh) from the pull request.
 
-SMTP notifications in acme.sh require Python (2.7 or 3) on the machine where you run acme.sh. (If you don't have Python available, you may be able to use [mail notifications](#3-set-notification-for-mail) instead.)
+SMTP notifications in acme.sh require either `curl` or Python (2.7 or 3) on the machine where you run acme.sh. (If you don't have curl or Python available, you may be able to use [mail notifications](#3-set-notification-for-mail) instead.)
 
 First, get the SMTP connection information for your server or service. You'll need to know:
-* the SMTP hostname (e.g., smtp.example.com) and port (e.g., 587)
+* the SMTP hostname (e.g., smtp.example.com) and port if non-standard (e.g., 587)
 * type of secure connection required: "tls" (called _STARTTLS_ or _explicit TLS_), "ssl" (called _TLS wrapper_ or _implicit TLS_), or "none"
 * whether authentication (login) is required, and if so the username and password to use
 
@@ -392,12 +392,12 @@ SMTP_PORT="2525"
 SMTP_USERNAME="<username>"
 SMTP_PASSWORD="<password>"
 
-# acme.sh will try to use the system python3 (preferred) or python.
-# If it can't find one, or to run a specific Python interpreter, set:
-SMTP_PYTHON="/path/to/python"
+# acme.sh will try to use the curl, python3, or python found on your PATH.
+# If it can't find one, or to run a specific command, set:
+SMTP_BIN="/path/to/curl_or_python"
 
 # If your SMTP server is slow to respond, you may need to set:
-SMTP_TIMEOUT="15"  # seconds for SMTP operations to timeout, default 15
+SMTP_TIMEOUT="30"  # seconds for SMTP operations to timeout, default 30
 ```
 
 Ok, let's set notification hook:
