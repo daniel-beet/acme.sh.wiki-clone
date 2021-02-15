@@ -39,7 +39,7 @@ cd acme.sh
 ## 4. Advanced installation
 
 ```
-git clone https://github.com/Neilpang/acme.sh.git
+git clone https://github.com/acmesh-official/acme.sh.git
 cd acme.sh
 ./acme.sh --install  \
 --home ~/myacme \
