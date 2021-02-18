@@ -110,6 +110,7 @@ export MAIL_TO="xxx@xxx.com"   # your account e-mail will be used as default if 
 ```
 
 It will try to find and use `sendmail`, `ssmtp`, `mutt`, `mail` or `msmtp` automatically, if installed.
+(If you don't have any of these, you may be able to use [smtp notifications](#12-set-notification-for-smtp) instead.)
 
 If you want to specify which application to use, please use `MAIL_BIN`:
 
@@ -365,13 +366,12 @@ To omit default color set variable value to any non xdigit character, eg. `TEAMS
 
 acme.sh can send email notifications by connecting directly to an SMTP mail server. Most commercial email service providers (ESPs) and corporate email systems support sending through SMTP, including Amazon SES, GSuite/Google Workspaces, Outlook.com, and others.
 
+SMTP notification is available in acme.sh v2.8.9 or later.
 Please report bugs in the SMTP notify hook in [issue #3358](https://github.com/acmesh-official/acme.sh/issues/3358).
 
-> SMTP support is pending merge of PR [#3330](https://github.com/acmesh-official/acme.sh/pull/3330). To try it out before that, grab the updated [acme.sh/notify/smtp.sh](https://github.com/medmunds/acme.sh/blob/feature/notify-smtp/notify/smtp.sh) from the pull request.
+SMTP notifications in acme.sh require Python 3.4 or later, Python 2.7, or curl on the machine where you run acme.sh. (If you don't have Python or curl, you may be able to use [mail notifications](#3-set-notification-for-mail) instead.)
 
-SMTP notifications in acme.sh require either `curl` or Python (2.7 or 3) on the machine where you run acme.sh. (If you don't have curl or Python available, you may be able to use [mail notifications](#3-set-notification-for-mail) instead.)
-
-First, get the SMTP connection information for your server or service. You'll need to know:
+First, get the SMTP connection information for your mail server or service. You'll need to know:
 * the SMTP hostname (e.g., smtp.example.com) and port if non-standard (e.g., 587)
 * type of secure connection required: "tls" (called _STARTTLS_ or _explicit TLS_), "ssl" (called _TLS wrapper_ or _implicit TLS_), or "none"
 * whether authentication (login) is required, and if so the username and password to use
@@ -379,33 +379,37 @@ First, get the SMTP connection information for your server or service. You'll ne
 Set in your system environment:
 ```sh
 # These are required:
-SMTP_FROM="from@example.com"  # just the email address (no display names)
-SMTP_TO="to@example.com,to2@example.net"  # just the email address, use commas between multiple emails
-SMTP_HOST="smtp.example.com"
-SMTP_SECURE="none"  # one of "none", "ssl" (implicit TLS, TLS Wrapper), "tls" (explicit TLS, STARTTLS)
+export SMTP_FROM="from@example.com"  # just the email address (no display names)
+export SMTP_TO="to@example.com,to2@example.net"  # just the email address, use commas between multiple emails
+export SMTP_HOST="smtp.example.com"
+export SMTP_SECURE="tls"  # one of "none", "ssl" (implicit TLS, TLS Wrapper), "tls" (explicit TLS, STARTTLS)
 
 # The default port depends on SMTP_SECURE: none=25, ssl=465, tls=587.
 # If your SMTP server uses a different port, set it:
-SMTP_PORT="2525"
+export SMTP_PORT="2525"
 
 # If your SMTP server requires AUTH (login), set:
-SMTP_USERNAME="<username>"
-SMTP_PASSWORD="<password>"
+export SMTP_USERNAME="<username>"
+export SMTP_PASSWORD="<password>"
 
-# acme.sh will try to use the curl, python3, or python found on your PATH.
+# acme.sh will try to use the python3, python2.7, or curl found on the PATH.
 # If it can't find one, or to run a specific command, set:
-SMTP_BIN="/path/to/curl_or_python"
+export SMTP_BIN="/path/to/python_or_curl"
 
-# If your SMTP server is slow to respond, you may need to set:
-SMTP_TIMEOUT="30"  # seconds for SMTP operations to timeout, default 30
+# If your SMTP server is very slow to respond, you may need to set:
+export SMTP_TIMEOUT="30"  # seconds for SMTP operations to timeout, default 30
 ```
+
+> **Note:** cron does not load shell init files like .bashrc, so will not have any PATH changes from them. If python or curl are not found in the default PATH used by cron, SMTP notifications may succeed when you are setting them up from your shell, but will fail during certificate renewal from cron. To avoid this, set `SMTP_BIN` to the absolute path to your specific python or curl command.
 
 Ok, let's set notification hook:
 ```sh
 acme.sh --set-notify --notify-hook smtp
 ```
 
-If everything works, you will see a "success" message and receive a test email at the `SMTP_TO` address. If you get an error message, read it carefully: it will usually explain what went wrong somewhere (possibly mixed in with less helpful error codes). For additional troubleshooting, run the command again with `--debug` or `--debug 2`. (At debug level 2 or higher the output will show the complete SMTP dialogue, which may include the SMTP password.)
+If everything works, you will see a "success" message and receive a test email at the `SMTP_TO` address. 
+
+If you get an error message, it should explain what went wrong somewhere. The exact problem may be mixed in with less helpful error codes, so read through the message carefully. For additional troubleshooting, run the command again with `--debug` or `--debug 2`. (At debug level 2 or higher the output will show the complete SMTP session transcript, which may include the SMTP password.)
 
 All of the `SMTP_*` settings will be saved in ~/.acme.sh/account.conf and will be reused when needed.
 
