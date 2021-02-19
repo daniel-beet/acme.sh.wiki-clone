@@ -400,7 +400,6 @@ export SMTP_BIN="/path/to/python_or_curl"
 export SMTP_TIMEOUT="30"  # seconds for SMTP operations to timeout, default 30
 ```
 
-> **Note:** cron does not load shell init files like .bashrc, so will not have any PATH changes from them. If python or curl are not found in the default PATH used by cron, SMTP notifications may succeed when you are setting them up from your shell, but will fail during certificate renewal from cron. To avoid this, set `SMTP_BIN` to the absolute path to your specific python or curl command.
 
 Ok, let's set notification hook:
 ```sh
