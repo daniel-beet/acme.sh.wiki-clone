@@ -463,12 +463,18 @@ export KNOT_SERVER="dns.example.com"
 export KNOT_KEY=`grep \# /etc/knot/acme.key | cut -d' ' -f2`
 ```
 
+and optionally (if you use challenge alias zone)
+
+```
+export KNOT_ZONE="le.example.com"
+```
+
 Ok, let's issue a cert now:
 ```
 acme.sh --issue --dns dns_knot -d example.com -d www.example.com
 ```
 
-The `KNOT_SERVER` and `KNOT_KEY` settings will be saved in `~/.acme.sh/account.conf` and will be reused when needed.
+The `KNOT_SERVER` and `KNOT_KEY` and `KNOT_ZONE` settings will be saved in `~/.acme.sh/account.conf` and will be reused when needed.
 
 ## 20. Use DigitalOcean API (native)
 
