@@ -1,4 +1,4 @@
-In dns mode, after the dns record is add, acme.sh will use  cloudflare public dns or google dns to check if the record has taken effect.
+In dns mode, after the dns record is added, acme.sh will use cloudflare public dns or google dns to check if the record has taken effect.
 
 If you don't want this check,  please use `--dnssleep 300`.
 
