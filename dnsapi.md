@@ -2639,6 +2639,26 @@ To issue a wildcard certificate, execute:
 acme.sh --issue --dns dns_ionos -d example.com -d *.example.com
 ```
 
+## 130. Using the Porkbun API
+
+Read [Getting Started](https://porkbun.com/api/json/v3/documentation) to learn how to create an API key.
+Export your credentials as environment variables:
+
+```
+export PORKBUN_API_KEY="..."
+export PORKBUN_SECRET_API_KEY="..."
+```
+
+To issue a certificate, execute:
+```
+acme.sh --issue --dns dns_porkbun -d example.com -d www.example.com
+```
+
+To issue a wildcard certificate, execute:
+```
+acme.sh --issue --dns dns_porkbun -d example.com -d *.example.com
+```
+
 # Use custom API
 
 If your API is not supported yet, you can write your own DNS API.
