@@ -2659,6 +2659,26 @@ To issue a wildcard certificate, execute:
 acme.sh --issue --dns dns_porkbun -d example.com -d *.example.com
 ```
 
+## 131. Using the Aurora API
+
+[PCextreme B.V.](https://www.pcextreme.nl/) is a Dutch cloud provider offering cloud services under the family name Aurora. Head over to [DNS & Health Checks > Users](https://cp.pcextreme.nl/auroradns/users) to get your API credentials.
+Export your credentials as environment variables:
+
+```
+export AURORA_Key="..."
+export AURORA_Secret="..."
+# Optionally, you can provide the zone id (visible in the URL when editing DNS records) to prevent some API-calls.
+export AURORA_Zone_ID="..."
+```
+
+To issue a certificate, execute:
+```
+acme.sh --issue --dns dns_aurora -d example.com -d www.example.com
+```
+
+Please report any issue to https://github.com/acmesh-official/acme.sh/issues/3459
+
+
 # Use custom API
 
 If your API is not supported yet, you can write your own DNS API.
