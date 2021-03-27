@@ -2667,8 +2667,6 @@ Export your credentials as environment variables:
 ```
 export AURORA_Key="..."
 export AURORA_Secret="..."
-# Optionally, you can provide the zone id (visible in the URL when editing DNS records) to prevent some API-calls.
-export AURORA_Zone_ID="..."
 ```
 
 To issue a certificate, execute:
