@@ -629,8 +629,8 @@ Your OpenStack credentials will be saved to `~/.acme.sh/account.conf`.
 
 Report any issues to https://github.com/acmesh-official/acme.sh/issues/3276
 
-For this provider you need a OAuth App with "client_credential" rights. You can create it at https://eu.cleverreach.com/admin/account_rest.php
-For the rights please contact the CleverReach support.
+For this provider you need a OAuth App with "client_credential" rights. You can create it at https://eu.cleverreach.com/admin/account_rest.php. Make sure that at least the "SSL" scope is checked.
+For the "client_credential" rights please contact the CleverReach support.
 
 Please ensure that your domain for the cert. is already added to your account.
 
@@ -647,6 +647,13 @@ acme.sh --deploy -d example.com --deploy-hook cleverreach
 ```
 
 Now the cert is added to all domains that are covered by it.
+
+If you are an agency and want to deploy a certificate to a subaccount of yours you add set following additional variable:
+
+```sh
+export DEPLOY_CLEVERREACH_SUBCLIENT_ID="Desired subaccount Client ID (not OAuth Client ID)"
+```
+For the required rights please contact the CleverReach support.
 
 ## 23. Deploy the cert on a Unifi Controller or Cloud Key
 
