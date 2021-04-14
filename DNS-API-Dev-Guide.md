@@ -263,6 +263,7 @@ Please follow the guide: https://github.com/acmesh-official/acme.sh/wiki/DNS-API
 2. Don't use `curl` or `wget`,  please use `_get()` or `_post()` function instead.  The `_post()` function can send `POST`, `PUT` or `UPDATE` requests.
 3. Do not use `sed -e`, which causes a problem in OS X and BSD.
 4. Do not use `sed` with labels, which causes `Label too long` problem in Solaris.
+5. Do not use `sed` with newlines (`\n`), which causes a problem in OS X and BSD.
 
 If you need a BSD or Solaris development environment, please head to [vmactions](https://github.com/vmactions). For example, you can use [solaris-shell](https://github.com/vmactions/shell-solaris) to get a shell environment in Solaris.
 
