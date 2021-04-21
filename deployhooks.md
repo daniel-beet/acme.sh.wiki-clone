@@ -629,8 +629,8 @@ Your OpenStack credentials will be saved to `~/.acme.sh/account.conf`.
 
 Report any issues to https://github.com/acmesh-official/acme.sh/issues/3276
 
-For this provider you need a OAuth App with "client_credential" rights. You can create it at https://eu.cleverreach.com/admin/account_rest.php. Make sure that at least the "SSL" scope is checked.
-For the "client_credential" rights please contact the CleverReach support.
+For this provider you need a OAuth App. You can create it at https://eu.cleverreach.com/admin/account_rest.php. 
+Make sure that at least the "SSL" scope is checked.
 
 Please ensure that your domain for the cert. is already added to your account.
 
