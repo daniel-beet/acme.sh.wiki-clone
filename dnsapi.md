@@ -292,36 +292,6 @@ when needed.
 
 ## 14. Use Linode domain API
 
-The tokens created in the classic manager and cloud manager are incompatible
-with one another. While the classic manager makes an all or nothing API, the
-newer cloud manager interface promises to produce API keys with a finer
-permission system. However, either way works just fine.
-
-### Classic Manager ###
-
-Classic Manager: https://manager.linode.com/profile/api
-
-First you need to login to your Linode account to get your API Key.
-
-Then add an API key with label *ACME* and copy the new key into the following
-command.
-
-```sh
-export LINODE_API_KEY="..."
-```
-
-Due to the reload time of any changes in the DNS records, we have to use the
-`dnssleep` option to wait at least 15 minutes for the changes to take effect.
-
-Ok, let's issue a cert now:
-
-```sh
-acme.sh --issue --dns dns_linode --dnssleep 900 -d example.com -d www.example.com
-```
-
-The `LINODE_API_KEY` will be saved in `~/.acme.sh/account.conf` and will be
-reused when needed.
-
 ### Cloud Manager ###
 
 Cloud Manager: https://cloud.linode.com/profile/tokens
