@@ -2439,7 +2439,7 @@ To issue a cert:
 acme.sh --issue --dns dns_websupport -d "*.example.com" -d "examle.com"
 ```
 
-Report any issues to https://github.com/trgosk/acme.sh/issues
+Report any issues to https://github.com/akulumbeg/acme.sh/issues
 
 ## 119. Use infomaniak.com API
 
