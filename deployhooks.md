@@ -384,6 +384,13 @@ variable to anything (ex: "1") before running `acme.sh`:
 export FABIO="1"
 ```
 
+If you are using **v2** of the **kv** api then set the  `VAULT_KV_V2` environment variable to
+anything (ex: "1") before running `acme.sh` (do not forget to change VAULT_PREFIX as well)
+
+```sh
+export VAULT_KV_V2="1"
+```
+
 You can also use `--deploy-hook vault` instead of `vault_cli`. In that case Vault's HTTP
 API will be used allowing you to use Docker image for deployment without Vault binary.
 
