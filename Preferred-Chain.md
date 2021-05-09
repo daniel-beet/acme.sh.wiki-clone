@@ -2,7 +2,7 @@ Using `--preferred-chain` to select alternate chain.
 
 If the ACME CA provides multiple cert chain, you can use `--preferred-chain` to select one. Otherwise, it will get the default chain.
 
-1. For Letsencrpt.org Staging Server:
+1. For letsencrypt.org Staging Server:
 
     There are 2 chains provided:
 
