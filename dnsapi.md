@@ -1394,10 +1394,9 @@ acme.sh --issue --dns dns_ultra -d example.com -d www.example.com
 
 Sign up for dynDNS at https://desec.io first.
 
-Set your API token (password) and domain (username) from your email sent by desec.io
+Set your API token (password) by generating one from your account on desec.io (it's also a good idea to restrict the IPv4 / IPv6 address(es) it can be used from).
 ```
 export DEDYN_TOKEN=d41d8cd98f00b204e9800998ecf8427e
-export DEDYN_NAME=foobar.dedyn.io
 ```
 To issue a certificate run:
 ```
